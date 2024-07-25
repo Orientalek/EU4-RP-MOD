@@ -1,0 +1,40 @@
+vi_vikings =
+{
+	monarch_power = MIL
+	always = yes
+
+	modifier = 
+	{
+		land_morale = 0.10
+		discipline = 0.025
+        global_tax_modifier = -0.10
+	}
+}
+
+
+vi_Jarls =
+{
+	monarch_power = DIP
+	always = yes
+
+	modifier = 
+	{
+		global_trade_power = 0.10
+        trade_efficiency = 0.15
+		global_autonomy = 0.025
+		
+	}
+}
+
+vi_Priests =
+{
+	monarch_power = ADM
+	always = yes
+
+	modifier = 
+	{
+		global_missionary_strength = 0.02
+        tolerance_own = 2
+        stability_cost_modifier = 0.10
+	}
+}

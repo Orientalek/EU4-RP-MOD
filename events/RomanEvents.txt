@@ -1,0 +1,94 @@
+#event made by Serson and Michkox
+namespace = roman   
+
+country_event = {
+	id = roman.1
+	title = roman.1.t
+	desc = roman.1.d
+	picture = STREET_SPEECH_eventPicture
+	is_triggered_only = yes 
+    immediate = {
+        add_adm_power = 200
+        add_dip_power = 200
+        add_mil_power = 200
+    }
+	 option = {
+	 	name = roman.1.a
+	 	add_treasury = 200
+         add_manpower = 20
+	 	add_country_modifier = {
+             name = roman_fight
+             duration = 3650
+         }
+         lazio_area = {
+             add_core = ROOT
+         }
+         central_italy_area = {
+             add_core = ROOT
+         }
+	 }
+}
+country_event = {
+	id = roman.2
+	title = roman.2.t
+	desc = roman.2.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+    option = {
+        name = roman.2.a
+        add_historical_friend = FRA
+        RRP = {
+        create_alliance = FRA
+        }
+    }
+    option = {
+        name = roman.2.b
+        add_historical_rival = FRA
+        add_rival = FRA
+    }
+}
+country_event = {
+	id = roman.3
+	title = roman.3.t
+	desc = roman.3.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+    option = {
+        name = roman.3.a
+        emperor = {
+            add_imperial_influence = 25
+        }
+        set_in_empire = yes
+        elector = yes
+    }
+}
+country_event = {
+	id = roman.4
+	title = roman.4.t
+	desc = roman.4.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+    option = {
+        name = roman.4.a
+        add_country_modifier = {
+            name = rivalry_bizatines
+            duration = -1
+        }
+    }
+}
+country_event = {
+	id = roman.5
+	title = roman.5.t
+	desc = roman.5.d
+    picture = HRE_eventPicture
+    is_triggered_only = yes
+    option = {
+        name = roman.5.a
+        add_prestige = 100
+        add_imperial_influence = 25
+        add_country_modifier = {
+            name = Emperor_of_Empire
+            duration = -1
+        }
+    }
+}

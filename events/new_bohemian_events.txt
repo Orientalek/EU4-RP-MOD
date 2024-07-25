@@ -1,0 +1,130 @@
+namespace = new_bohemian
+country_event = {
+    id = new_bohemian.1
+    title = new_bohemian.1.t 
+    desc = new_bohemian.1.d
+    picture = HABSBURG_eventPicture
+    is_triggered_only = yes 
+    option = {
+        name = new_bohemian.1.a
+        add_country_modifier = {
+            name = captured_imperial_insignias
+            duration = -1
+        }
+    }
+    option = {
+        name = new_bohemian.1.b
+        austria_proper_area = {
+            add_unrest = -20
+            add_nationalism = -15
+            add_devastation = -70
+            add_prosperity = 100
+        }
+    }
+    option = {
+        name = new_bohemian.1.c
+        add_accepted_culture = austrian
+        austria_proper_area = {
+            add_local_autonomy = -50
+        }
+    }
+}
+country_event = {
+    id = new_bohemian.2
+    title = new_bohemian.2.t 
+    desc = new_bohemian.2.d
+    picture = PEASANTS_BARTERING_eventPicture
+    is_triggered_only = yes 
+    option = {
+        name = new_bohemian.2.a
+        inherit = OPL
+        inherit = GLG
+        add_legitimacy = -15
+        add_prestige = -25
+    }
+    option = {
+        name = new_bohemian.2.b
+        add_country_modifier = {
+            name = integrate_silesian_piasts
+            duration = 7300
+        }
+    }
+    option = {
+        name = new_bohemian.2.c
+        OPL = {
+            inherit = GLG
+            change_tag = SIL
+        }
+        create_march = SIL
+    }
+}
+country_event = {
+    id = new_bohemian.3
+    title = new_bohemian.3.t 
+    desc = new_bohemian.3.d
+    picture = BATTLE_eventPicture
+    is_triggered_only = yes 
+    option = {
+        name = new_bohemian.3.a
+        add_country_modifier = {
+            name = Avanged_Varna
+            duration = -1
+       }
+       add_prestige = 25
+       add_stability = 1
+    }
+}
+country_event = {
+    id = new_bohemian.4
+    title = new_bohemian.4.t 
+    desc = new_bohemian.4.d
+    picture = WITCHTRAIL_eventPicture
+    is_triggered_only = yes 
+    option = {
+        name = new_bohemian.4.a
+        add_country_modifier = {
+            name = tolerate_heretics
+            duration = 7300
+        }
+    }
+    option = {
+        name = new_bohemian.4.b
+        add_country_modifier = {
+            name = convert_heretics1
+            duration = 7300
+        }
+    }
+}
+country_event = {
+    id = new_bohemian.5
+    title = new_bohemian.5.t 
+    desc = new_bohemian.5.d
+    picture = CIVIL_WAR_eventPicture
+    is_triggered_only = yes 
+    option = {
+        name = new_bohemian.5.a
+        add_country_modifier = {
+            name = Defend_our_faith_modifier
+            duration = -1
+        }
+        add_church_power = 200
+        add_papal_influence = 100
+    }
+}
+country_event = {
+    id = new_bohemian.6
+    title = new_bohemian.6.t 
+    desc = new_bohemian.6.d
+    picture = DEFENESTRATION_PRAGUE_eventPicture
+    is_triggered_only = yes 
+    option = {
+        name = new_bohemian.6.a
+        266 = {
+            add_building = university
+        }
+        change_innovativeness = 5
+        add_adm_power = 250
+        add_stability = 1
+    }
+}
+

@@ -1,0 +1,212 @@
+
+Czechoslovakian_republic = {
+	icon = "assembly_hall"
+	allow_normal_conversion = no 
+	allow_convert = no 
+	lock_level_when_selected = yes 
+	potential = { 
+	   tag = CZE
+    } 
+    modifiers = { 
+       max_absolutism = -40
+	   num_accepted_cultures = 2
+	   monarch_lifespan = 0.25
+    }
+    custom_attributes = {
+		enables_plutocratic_idea_group = yes
+		enables_aristocratic_idea_group = no
+		lottery_election = yes
+		election_on_death = yes
+	   
+	}
+		has_term_election = no
+	conditional = {
+		allow = {
+			has_dlc = "Common Sense"
+		}
+	}
+}
+polish_parlament = {
+	icon = "integrated_sejmiks_reform"
+	lock_level_when_selected = yes
+	modifiers = {
+		global_unrest = -1
+		nobles_influence_modifier = 0.1
+	}
+	potential = {
+			OR = {
+				tag = POL
+				tag = PLC
+				tag = PLR
+			}
+	}
+	conditional = {
+		allow = { has_dlc = "Common Sense" }
+		has_parliament = yes
+	}
+	ai = {
+		factor = 1
+		modifier = {
+			factor = 0.5
+			NOT = { technology_group = western }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { technology_group = western }
+			NOT = {
+				any_neighbor_country = {
+					technology_group = western
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				has_reform = mughal_government
+				has_reform = celestial_empire
+				religion = confucianism
+			}
+		}
+	}
+	post_removed_effect = {
+		give_estate_land_share_init = { estate = estate_nobles }
+	}
+}
+
+WARLORD = {
+	allow_normal_conversion = no
+	lock_level_when_selected = yes
+	icon = "chinese_palace"
+	potential = {
+		has_country_flag = chinski_warlord
+	}
+	valid_for_nation_designer = yes
+	legacy_equivalent = military_dictatorship
+	has_term_election = no
+	modifiers = {
+		global_autonomy = -0.075
+		yearly_corruption = 0.15
+		land_morale = 0.10
+		max_absolutism = -10
+	}
+	militarised_society = yes
+	custom_attributes = {
+		generals_become_rulers = yes
+		locked_government_type = yes
+		enables_plutocratic_idea_group = yes
+		enables_aristocratic_idea_group = no
+	}
+}
+chinese_republic = {
+	icon = "asian_scripture"
+	allow_normal_conversion = no
+	lock_level_when_selected = yes
+	potential = {
+		tag = CRP
+	}
+	modifiers = {
+		global_autonomy = -0.075
+		land_morale = 0.1
+		max_absolutism = 40
+		yearly_corruption = 0.15
+		stability_cost_modifier = 0.2
+	}
+	custom_attributes = {
+		locked_government_type = yes
+		enables_plutocratic_idea_group = yes
+		enables_aristocratic_idea_group = no
+		election_on_death = yes
+	}
+	has_term_election = no
+	conditional = {
+		allow = {
+			has_dlc = "Common Sense"
+		}
+		has_parliament = yes
+		custom_attributes = {
+			blocked_call_diet = yes
+		}
+	}
+}
+confederation = {
+	icon = "assembly_hall" 
+	allow_normal_conversion = no 
+	allow_convert = no 
+	lock_level_when_selected = yes 
+	potential = { 
+	   tag = NGC
+    } 
+    modifiers = { 
+        diplomatic_reputation = 1 
+        global_manpower_modifier = 0.05 
+        max_absolutism = 30
+        production_efficiency = 0.1
+        land_morale = 0.1
+        governing_capacity_modifier = -0.5
+    }
+	militarised_society = yes
+    custom_attributes = {
+		locked_government_type = yes
+		enables_plutocratic_idea_group = yes
+		enables_aristocratic_idea_group = no
+	    lock_level_when_selected = yes
+	   
+	}
+		has_term_election = no
+	conditional = {
+		allow = {
+			has_dlc = "Common Sense"
+		}
+		custom_attributes = {
+			blocked_call_diet = yes
+		}
+	}
+}
+rhenish_confederation = {
+    icon = "assembly_hall"
+    allow_normal_conversion = yes
+    potential = {
+        tag = PLA
+    }
+    lock_level_when_selected = yes
+    valid_for_nation_designer = yes
+    nation_designer_cost = 10
+    modifiers = {
+       max_absolutism = -25
+	   global_autonomy = -0.025
+	   tolerance_heathen = 3
+	   tolerance_heretic = 3
+	   free_policy = 1
+    }
+	claim_states = yes
+	
+    conditional = {
+        has_parliament = yes
+    }
+	custom_attributes = {
+
+	}
+}
+southgermany_confederation = {
+    icon = assembly_hall
+    allow_normal_conversion = yes
+    potential = {
+        tag = SGF
+    }
+    lock_level_when_selected = yes
+    valid_for_nation_designer = yes
+    nation_designer_cost = 10
+    modifiers = {
+       num_accepted_cultures = 2
+	   manpower_in_accepted_culture_provinces = 0.2
+	   diplomats = 1
+    }
+	claim_states = yes
+	
+    conditional = {
+        has_parliament = yes
+    }
+	custom_attributes = {
+		locked_government_type = yes
+	}
+}

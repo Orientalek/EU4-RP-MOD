@@ -1,0 +1,192 @@
+namespace = new_german
+country_event = {
+	id = new_german.1
+	title = new_german.1.t
+	desc = new_german.1.d
+	picture = GENERALS_DISCUSSING_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = eastern.1.a
+		ai_chance = {
+			factor = 10
+		}
+		NGC = {
+            create_subject = {
+   				subject_type = member_of_federation
+    			subject = ROOT
+			}
+        }
+	}
+	
+	option = {
+		name = eastern.1.b
+		ai_chance = {
+			factor = 1
+		}
+        NGC = {
+            add_casus_belli = {
+                target = ROOT
+                type = cb_vassalize_mission
+                months = 120
+            }
+        }
+	}
+}
+
+country_event = {
+	id = new_german.2
+	title = new_german.2.t
+	desc = new_german.2.d
+	picture = GENERALS_DISCUSSING_eventPicture
+	is_triggered_only = yes
+	major = yes
+	option = {
+		set_country_flag = formation_of_Confederation
+	}
+}
+country_event = {
+	id = new_german.3
+	title = new_german.3.t
+	desc = new_german.3.d
+	picture = GENERALS_DISCUSSING_eventPicture
+	fire_only_once = yes
+	trigger = {
+		is_at_war = no
+		is_emperor = yes
+		has_country_flag = formation_of_Confederation
+		NOT = { active_imperial_incident = any }
+	}
+	major = yes
+	option = {
+		name = new_german.2.a
+		ai_chance = {
+			factor = 10
+		}
+		set_imperial_incident = hre_civil_war
+	}
+}
+country_event = {
+	id = new_german.4
+	title = new_german.4.t
+	desc = new_german.4.d
+	picture = GENERALS_DISCUSSING_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = new_german.4.a
+		ai_chance = {
+			factor = 10
+		}
+		add_stability = 1
+		lower_bavaria_area ={
+            add_core = BAV
+        }
+        upper_bavaria_area = {
+             add_core = BAV
+        }
+		release = BAV	
+		create_subject = {
+   			subject_type = prussian_protectorate
+    		subject = BAV
+		}
+        
+	}
+	option = {
+		name = new_german.4.b
+		ai_chance = {
+			factor = 10
+		}
+		add_accepted_culture = bavarian
+		add_prestige = -5
+		add_stability = -2
+	}
+}
+country_event = {
+	id = new_german.5
+	title = new_german.5.t
+	desc = new_german.5.d
+	picture = GENERALS_DISCUSSING_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = new_german.5.a
+		ai_chance = {
+			factor = 10
+		}
+		add_prestige = 25
+		add_stability = 2
+		add_splendor = 100
+		add_mil_power = 15
+		emperor = {
+			add_imperial_influence = -25
+		}
+	}
+}
+country_event = {
+	id = new_german.6
+	title = new_german.6.t
+	desc = new_german.6.d
+	picture = GENERALS_DISCUSSING_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = new_german.6.a
+		ai_chance = {
+			factor = 10
+		}
+		if = {
+			limit = {
+				75 = {
+					has_building = fort_16th
+				}
+			}
+			75 = {
+				add_building = fort_16th
+			}
+		}
+		75 = {
+				add_building = workshop
+			}
+		if = {
+			limit = {
+				1880 = {
+					has_building = fort_16th
+				}
+			}
+			1880 = {
+				add_building = fort_16th
+			}
+		}
+		1880 = {
+				add_building = workshop
+		}
+		add_legitimacy = 25
+		add_prestige = 25
+	}
+}
+country_event = {
+	id = new_german.7
+	title = new_german.7.t
+	desc = new_german.7.d
+	picture = GENERALS_DISCUSSING_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = new_german.7.a
+		ai_chance = {
+			factor = 10
+		}
+		add_army_professionalism = 0.15
+		add_stability = 3
+		capital_scope = {
+			add_base_manpower = 5
+			add_base_production = 5
+			add_base_tax = 5
+		}
+		set_government_rank = 3	
+		set_capital = 50
+		elector = no
+		north_german_region {
+			add_core = ROOT
+		}
+		south_german_region = {
+			add_core = ROOT
+		}
+	}
+}

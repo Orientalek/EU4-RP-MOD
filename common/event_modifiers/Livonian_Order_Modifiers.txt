@@ -1,0 +1,40 @@
+livonian_wealth = {
+	global_tax_modifier = 0.05
+	production_efficiency = 0.05
+	global_own_trade_power = 0.05 
+}	
+livonian_army_reformation = {
+	global_supply_limit_modifier = 0.20
+	defensiveness = 0.10
+	land_morale = 0.05
+}
+new_dioecesis = {
+	local_build_cost = -0.1
+	local_autonomy = -0.1
+	local_hostile_movement_speed = -0.25
+}
+great_livonic_victory = {
+	land_morale = 0.03
+}
+teutonic_livonian_friendship = {
+	improve_relation_modifier = 0.10
+	papal_influence = 0.5
+}
+the_grand_livonian_order = {
+	defensiveness = 0.11
+	prestige = 0.10
+}
+baltic_power = {
+	trade_efficiency = 0.1
+	global_unrest = -1
+	global_manpower_modifier = 0.05
+}
+reform_the_country = {
+	global_trade_power = 0.15
+	papal_influence = 1.00
+	prestige = 0.5
+}
+livonian_grand_navy = {
+	naval_morale = 0.05
+	galley_power = 0.10
+}

@@ -1,0 +1,18 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_rp_logo"
+		texturefile = "gfx/interface/logo.dds"
+	}
+	spriteType = {
+		name = "GFX_mateusz"
+		texturefile = "gfx/interface/mateusz.dds"
+	}
+	spriteType = {
+		name = "GFX_mati"
+		texturefile = "gfx/interface/mati.dds"
+	}
+	spriteType = {
+		name = "GFX_mati2"
+		texturefile = "gfx/interface/mati2.dds"
+	}
+}

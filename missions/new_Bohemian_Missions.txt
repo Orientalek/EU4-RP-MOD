@@ -1,0 +1,1338 @@
+expansion_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+		tag = BOH
+		tag = CZE
+		tag  = GMR
+		}
+	}
+	has_country_shield = yes
+
+	Oppose_the_habsburgs = {
+		icon = humiliate_austria
+		position = 1
+		required_missions = {}
+		provinces_to_highlight = {
+			owned_by = HAB
+		}
+		trigger = {
+			OR = {
+				army_size = HAB
+				NOT = {
+					HAB = {
+						is_emperor = yes
+					}
+				}
+				war_with = HAB
+			}
+		}
+		effect = {
+			austria_proper_area = {
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = counter_austria
+				duration = 7300
+			}
+		}
+	}
+	Imperial_city_of_Viden = {
+		icon = a.e.i.o.u.
+		position = 2
+		required_missions = {Oppose_the_habsburgs}
+		provinces_to_highlight = {
+			area = austria_proper_area 
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			austria_proper_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			army_size = HAB
+		}
+		effect = {
+			tirol_area = {
+				add_permanent_claim = ROOT
+			}
+			inner_austria_area = {
+				add_permanent_claim = ROOT
+			}
+			carinthia_area = {
+				add_permanent_claim = ROOT
+			}
+			country_event = {
+				id = new_bohemian.1
+			}
+		}
+	}
+	End_of_the_Habsburgs = {
+		icon = glory_to_von_habsburg
+		position = 3
+		required_missions = {Imperial_city_of_Viden}
+		provinces_to_highlight = {
+			OR = {
+				area = carinthia_area 
+				area = inner_austria_area 
+				area = tirol_area 
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			carinthia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			inner_austria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			tirol_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = controlled_habsburgs
+				duration = -1
+			}
+		}
+	}
+	Balkan_Rule = {
+		icon = the_hungarian_succession
+		position = 7
+		required_missions = {
+			End_of_the_Habsburgs
+			Revenge_for_Varna
+		}
+		provinces_to_highlight = {
+			region = balkan_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 35
+				region = balkan_region
+			}
+		}
+		effect = {
+			balkan_region = {
+				custom_tooltip = prosperity_balkans
+				limit = {
+					owned_by = ROOT
+				}
+				add_province_modifier = {
+					name = age_of_prosperity
+					duration = 9125
+				}
+			}
+		}
+	}
+	End_of_Regency = {
+		icon = hussite_regency
+		position = 10
+		required_missions = {}
+		trigger = {
+			has_regency = no 
+			legitimacy = 75
+			OR = {
+				religion = catholic
+				religion = hussite
+			}
+		}
+		effect = {
+			country_event = {
+				id = new_bohemian.4
+			}
+		}
+	}
+	State_Religion = {
+		icon = chivalry_is_not_dead
+		position = 11
+		required_missions = {End_of_Regency}
+		trigger = {
+			OR = {
+				papal_influence = 25
+				church_power = 75
+			}
+			religious_unity = 1
+		}
+		effect = {
+			add_country_modifier = {
+				name = Stability_of_religion
+				duration = -1
+			}
+			custom_tooltip = State_Religion_tooltip
+			hidden_effect = {
+				if = {
+					limit = {religion = hussite}
+					266 = {
+						add_reform_center = hussite
+					}
+				}
+				else_if = {
+					limit = {religion = catholic}
+					add_reform_desire = -0.05
+				}
+			}
+		}
+	}
+	Defend_our_faith = {
+		icon = defenestrate_the_heretics
+		position = 13
+		required_missions = {State_Religion}
+		trigger = {
+			OR = {
+				custom_trigger_tooltip = {
+					tooltip = obj_religious_league_war_on_winning_side_tooltip
+					has_country_flag = religious_league_war_on_winning_side
+				}
+				AND = {
+					is_emperor = yes
+					OR = {
+						hre_religion_locked = yes
+						hre_religion_treaty = yes
+					}
+				}
+			}
+			is_defender_of_faith = yes
+		}
+		effect = {
+			add_army_professionalism = 0.1
+			country_event = {
+				id = new_bohemian.5
+			}
+		}
+	}
+}
+expansion_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+		tag = BOH
+		tag = CZE
+		tag  = GMR
+		}
+	}
+	has_country_shield = yes
+
+	Get_Dresden = {
+		icon = electorate_of_saxony
+		required_missions = {Vozorda_Hrada}
+		position = 2
+		provinces_to_highlight = {
+			area = south_saxony_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			south_saxony_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			mittelmark_area = {
+				add_permanent_claim = ROOT
+			}
+			northern_saxony_area = {
+				add_permanent_claim = ROOT
+			}
+			add_mil_power = 100
+		}
+	}
+	Capture_Berlin = {
+		icon = electorate_of_brandenburg
+		required_missions = {Get_Dresden}
+		position = 3
+		provinces_to_highlight = {
+			province_id = 50
+		}
+		trigger = {
+			OR = {
+				owns_core_province = 50
+				AND = {
+					50 = {
+						controlled_by = ROOT
+					}
+					war_with = BRA
+					war_score_against = {
+						who = BRA
+						value = 90
+					}
+				}
+			}
+		}
+		effect = {
+			50 = {
+				add_devastation = 50
+			}
+			add_years_of_income = 4
+			vorpommern_area = {
+				add_permanent_claim = ROOT
+			}
+			hinter_pommern_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	Eradicate_the_Gryfs = {
+		icon = professional_army
+		required_missions = {Capture_Berlin}
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				area = vorpommern_area
+				area = hinter_pommern_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			vorpommern_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			hinter_pommern_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_adm_power = 100
+			add_country_modifier = {
+				name = Demonstration_of_power
+				duration = -1
+			}
+		}
+	}
+	Defeat_the_ottomans = {
+		icon = protectors_of_christendom
+		required_missions = {Pearl_of_danube}
+		position = 5
+		provinces_to_highlight = {
+			owned_by = TUR
+		}
+		trigger = {
+			OR = {
+				AND = {
+					army_size = TUR
+					prestige = TUR
+				}
+				AND = {
+					war_with = TUR
+					war_score_against = {
+						who = TUR
+						value = 50
+					}
+				}
+				has_won_war_against = {
+					who = TUR
+					max_years_since = 20
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = unrest_catholic
+			
+			balkan_region = {
+				limit = {owned_by = TUR}
+				add_permanent_claim = ROOT
+			}
+			custom_tooltip = nurest_catholic
+			hidden_effect = {
+				if = {
+					limit = {
+						has_spy_network_from = {
+							who = TUR
+							value = 40
+						}
+					}
+					balkan_region = {
+						limit = {owned_by = TUR}
+						add_province_modifier = {
+							name = Christian_unrest
+							duration = 7300
+						}
+					}
+				}
+				else_if = {
+					add_prestige = 1
+				}
+			}
+		}
+	}
+	Revenge_for_Varna = {
+		icon = revenge_for_nicopolis
+		position = 6
+		required_missions = {Defeat_the_ottomans}
+		provinces_to_highlight = {
+			region = balkan_region
+			owned_by = TUR
+		}
+		trigger = {
+			NOT = {
+				TUR = {
+					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+						region = balkan_region
+						value = 10
+					}
+				}
+			}
+		}
+		effect = {
+			country_event = {
+				id = new_bohemian.3
+			}
+			balkan_region = {
+				remove_province_modifier = Christian_unrest
+			}
+		}
+	}
+	Center_of_europe = {
+		icon = peace_in_europe
+		position = 10
+		required_missions = {}
+		provinces_to_highlight = {
+			province_id = 266
+		}
+		trigger = {
+			266 = {
+				owned_by = ROOT
+				development = 25
+				NOT = {
+					devastation = 1
+				}
+				has_state_edict = edict_protect_trade 
+			}
+		}
+		effect = {
+			bohemia_area = {
+				limit = {owned_by = ROOT}
+				add_prosperity = 100
+				add_province_modifier = {
+					name = Center_of_europe_modifier
+					duration = 9125
+				}
+			}
+		}
+	}
+	Expand_clerical_funds = {
+		icon = answer_the_roman_question
+		position = 12
+		required_missions = {State_Religion}
+		provinces_to_highlight = {
+			owned_by = ROOT
+			NOT = {has_building = temple}
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 5
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
+			}
+			stability = 2
+		}
+		effect = {
+			change_estate_land_share = {
+    			estate = estate_church
+    			share = -5
+			}
+			add_estate_loyalty = {
+    			estate = estate_church
+    			loyalty = 15
+			}
+			custom_tooltip = clergy_funds
+			hidden_effect = {
+				if = {
+					limit = {
+						num_of_estate_privileges = {
+							estate = estate_church
+							value = 4
+						}
+					}
+					enable_development_on_buildings_built = yes
+				}
+				else_if = {
+					add_prestige = 1
+				}
+			}
+		}
+	}
+	Seperation_of_Religion = {
+		icon = control_the_church
+		position = 13
+		required_missions = {Expand_clerical_funds}
+		trigger = {
+			NOT = {
+				estate_influence = {
+    				estate = estate_church
+    				influence = 60
+				}
+			}
+			crown_land_share = estate_church
+		}
+		effect = {
+			add_ruler_modifier = {
+				name = Seperation_of_church
+				duration = -1
+			}
+			change_adm = 1
+		}
+	}
+	Brnian_printing_industry = {
+		icon = promote_urbanization
+		position = 14
+		required_missions = {Seperation_of_Religion}
+		provinces_to_highlight = {
+			province_id = 265
+		}
+		trigger = {
+			265 = {
+				printing_press = 100
+				development = 15
+			}
+		}
+		effect = {
+			265 = {
+				change_trade_goods = paper
+				add_base_production = 5
+				add_building = mills 
+			}
+			add_prestige = 25
+		}
+	}
+	Reform_the_judicial_system = {
+		icon = the_spanish_succession
+		position = 15
+		required_missions = {Brnian_printing_industry}
+		provinces_to_highlight = {
+			owned_by = ROOT
+			NOT = {
+				OR = {
+					has_building = courthouse
+					has_building = town_hall
+				}
+			}
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 10
+				OR = {
+					has_building = courthouse
+					has_building = town_hall
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = The_new_law
+				duration = -1
+			}
+			add_adm_power = 100
+		}
+	}
+
+}
+expansion_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+		tag = BOH
+		tag = CZE
+		tag  = GMR
+		}
+	}
+	has_country_shield = yes
+
+	Vozorda_Hrada = {
+		icon = hungarian_union
+		position = 1
+		required_missions = {}
+		trigger = {
+			army_size_percentage = 0.90
+			num_of_estate_privileges = {
+				estate = estate_nobles
+				value = 4
+			}
+		}
+		effect = {
+			slovakia_area = {
+				add_permanent_claim = ROOT
+			}
+			south_saxony_area = {
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = Help_of_Hrada
+				duration = 7300
+			}
+		}
+	}
+	March_on_slovakia = {
+		icon = develop_konigsberg
+		position = 2
+		required_missions = {Vozorda_Hrada}
+		provinces_to_highlight = {
+			OR = {
+				area = slovakia_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			slovakia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			army_size = HUN	
+		}
+		effect = {
+			transdanubia_area = {
+				add_permanent_claim = ROOT
+			}
+			alfold_area = {
+				add_permanent_claim = ROOT
+			}
+			add_casus_belli = {
+				type = cb_restore_personal_union
+				months = 240
+				target = HUN 
+			}
+			custom_tooltip = union_20
+		}
+	}
+	Pearl_of_danube = {
+		icon = bohemian_borderlands
+		position = 4
+		required_missions = {March_on_slovakia}
+		provinces_to_highlight = {
+			OR = {
+				culture = hungarian
+				culture = transylvanian
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 10
+				OR = {
+					culture = hungarian
+					culture = transylvanian
+				}
+			}
+		}
+		effect = {
+			serbia_area = {
+				add_permanent_claim = ROOT
+			}
+			rascia_area = {
+				add_permanent_claim = ROOT
+			}
+			croatia_area = {
+				add_permanent_claim = ROOT
+			}
+			slavonia_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	Serbian_territories = {
+		icon = the_great_city_of_buda
+		position = 5
+		required_missions = {Pearl_of_danube}
+		provinces_to_highlight = {
+			OR = {
+				area = serbia_area
+				area = rascia_area
+			}
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 5
+				OR = {
+					area = serbia_area
+					area = rascia_area
+				}
+			}
+			owns_core_province = 1766
+		}
+		effect = {
+			1766 = {
+				add_province_modifier = {
+					name = bohemian_investments
+					duration = -1
+				}
+				add_base_production = 3
+				add_base_manpower = 3
+				add_base_tax = 3
+			}
+		}
+	}
+	Control_Bosfor = {
+		icon = mission_conquer_lithuania
+		position = 7
+		required_missions = {Serbian_territories}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 151
+				province_id = 4943
+			}
+		}
+		trigger = {
+			151 = {
+				owned_by = ROOT
+				base_production = 12
+				trade_share = {
+					country = ROOT
+					share = 50
+				}
+				province_has_center_of_trade_of_level = 3
+			}
+			4943 = {
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_ruler_personality = Trade_ideas
+			add_mercantilism = 5
+			add_adm_power = 100
+			add_dip_power = 100
+		}
+	}
+	Bohemian_empire = {
+		icon = bohemian_commonwealth
+		position = 8
+		required_missions = {
+			Balkan_Rule
+			Control_Bosfor
+			Trade_dominance
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 266
+				province_id = 134
+				province_id = 153
+				province_id = 151 
+			}
+		}
+		trigger = {
+			OR = {
+				NOT = { great_power_rank = 4 }
+				total_development = 1000
+				government_rank = 3
+			}
+			owns_core_province = 266
+			owns_core_province = 134
+			owns_core_province = 153
+			owns_core_province = 151
+		}
+		effect = {
+			add_country_modifier = {
+				name = Bohemian_supremacy
+				duration = -1
+			}
+		}
+	}
+	Glass_industry = {
+		icon = bohemian_crystal
+		position = 11
+		required_missions = {
+			Recover_from_hussite_wars
+			Center_of_europe
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1771
+				province_id = 4238
+			}
+		}
+		trigger = {
+			adm_tech = 14
+			1771 = {
+				owned_by = ROOT
+				base_production = 6
+				OR = {
+					has_building = workshop
+					has_building = counting_house
+				}
+			}
+			4238 = {
+				owned_by = ROOT
+				base_production = 6
+				OR = {
+					has_building = workshop
+					has_building = counting_house
+				}
+			}
+		}
+		effect = {
+			4239 = {
+				add_building_construction = {
+    			building = mills
+    			speed = 1.5
+				cost = 0
+				}
+			}
+			1771 = {
+				add_building_construction = {
+    			building = mills
+    			speed = 1.5
+				cost = 0
+				}
+			}
+			country_event = { id = prices.43 }
+		}
+	}
+	Granary_of_Europe = {
+		icon = mission_high_income
+		position = 8
+		required_missions = {Glass_industry}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 5
+				development = 10
+				trade_goods = grain
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = Granary_of_Europe_modifier
+				duration = 9125
+			}
+		}
+	}
+
+}
+expansion_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+		tag = BOH
+		tag = CZE
+		tag  = GMR
+		}
+	}
+	has_country_shield = yes
+
+	Silesian_Piasts = {
+		icon = humiliate_austria
+		position = 2
+		required_missions = {Vozorda_Hrada}
+		provinces_to_highlight {
+			OR = {
+			owned_by = OPL
+			owned_by = GLG
+			}
+		}
+		trigger = {
+			OR = {
+				silesia_area = {
+					owned_by = ROOT
+				}
+				AND = {
+					GLG = {
+						is_subject_of = ROOT
+						has_opinion = {
+							who = ROOT
+							value = 190
+						}
+						NOT = {liberty_desire = 5}
+					}
+					OPL = {
+						is_subject_of = ROOT
+						has_opinion = {
+							who = ROOT
+							value = 190
+						}
+						NOT = {liberty_desire = 5}
+					}
+				}
+			}
+		}
+		effect = {
+			country_event = {
+				id = new_bohemian.2
+			}
+			east_bavaria_area = {
+				add_permanent_claim = ROOT
+			}
+			upper_bavaria_area = {
+				add_permanent_claim = ROOT
+			}
+			lower_bavaria_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	Lands_of_Bavaria = {
+		icon = duchy_of_bavaria
+		required_missions = {Silesian_Piasts}
+		position = 3
+		provinces_to_highlight = {
+			OR = {
+				area = lower_bavaria_area
+				area = upper_bavaria_area
+				area = east_bavaria_area
+			}
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 6
+				OR = {
+					area = lower_bavaria_area
+					area = upper_bavaria_area
+					area = east_bavaria_area
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = bavarian_beer 
+				duration = 36500
+			}
+		}
+	}
+	Hungarian_claims = {
+		icon = develop_our_capital
+		required_missions = {Pearl_of_danube}
+		position = 5
+		provinces_to_highlight = {
+			OR = {
+				area = croatia_area
+				area = slavonia_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			croatia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			slavonia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			east_adriatic_coast_area = {
+				add_permanent_claim = ROOT
+			}
+			bosnia_area = {
+				add_permanent_claim = ROOT
+			}
+			add_splendor = 200
+		}
+	}
+	Control_Danube_trade = {
+		icon = dalmatian_conquest
+		required_missions = {Hungarian_claims}
+		position = 6
+		provinces_to_highlight = {
+			OR = {
+				area = bosnia_area
+				province_id = 137
+			}
+		}
+		trigger = {
+			bosnia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			137 = {
+				country_or_non_sovereign_subject_holds = ROOT
+				trade_share = {
+					country = ROOT
+					share = 50
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = controls_danube_trade
+				duration = 9125
+			}
+			add_mercantilism = 5
+		}
+	}
+	Recover_from_hussite_wars = {
+		icon = eastern_catholicization
+		position = 10
+		required_missions = {}
+		trigger = {
+			stability = 1
+			total_development = 125
+		}
+		effect = {
+			add_country_modifier = {
+				name = Recovered_from_hussite_wars
+				duration = 7300
+			}
+			add_adm_power = 100
+		}
+	}
+	Rights_of_mining = {
+		icon = mission_war_chest
+		position = 11
+		required_missions = {Recover_from_hussite_wars}
+		provinces_to_highlight = {
+			province_id = 2967
+		}
+		trigger = {
+			2967 = {
+				base_production = 10
+			}
+			OR = {
+				estate_loyalty = {
+    				estate = estate_nobles
+    				loyalty = 55
+				}
+				estate_influence = {
+    				estate = estate_nobles
+    				influence = 80
+				}
+			}
+		}
+		effect = {
+			2967 = {
+				add_province_modifier = {
+					name = gold_mining_rights
+					duration = -1
+				}
+			}
+		}
+	}
+	Saxonian_trade = {
+		icon = reform_the_state
+		position = 12
+		required_missions = {
+			Rights_of_mining
+			Glass_industry
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = south_saxony_area 
+				area = northern_saxony_area
+				area = mittelmark_area
+			}
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 2
+				province_has_center_of_trade_of_level = 2
+				OR = {
+					area = south_saxony_area 
+					area = northern_saxony_area
+					area = mittelmark_area
+				}
+			}
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 5
+				development = 15
+				OR = {
+					area = south_saxony_area 
+					area = northern_saxony_area
+					area = mittelmark_area
+				}
+			}
+		}
+		effect = {
+			61 = {
+				add_province_modifier = {
+					name = river_city_of_elbe
+					duration = -1
+				}
+			}
+			add_country_modifier = {
+				name = trade_profits
+				duration = 9125
+			}
+		}
+	}
+	Silesian_heavy_industry = {
+		icon = mission_conquer_50_development
+		position = 14
+		required_missions = {Saxonian_trade}
+		provinces_to_highlight = {
+			area = silesia_area
+		}
+		trigger = {
+			has_institution = industrialization
+			num_of_owned_provinces_with = {
+				value = 5
+				AND = {
+					development = 15
+					has_manufactory_trigger = yes 
+				}
+				area = silesia_area
+			}
+		}
+		effect = {
+			silesia_area = {
+				add_province_modifier = {
+					name = Silesian_heavy_industry_modifier
+					duration = -1
+				}
+			}
+			add_years_of_owned_provinces_production_income = {
+				years = 8
+				trigger = {
+					area = silesia_area
+				}
+			}
+		}
+	}
+}
+expansion_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+		tag = BOH
+		tag = CZE
+		tag  = GMR
+		}
+	}
+	has_country_shield = yes
+	Great_Diplomacy = {
+		icon = regal_splendour
+		position = 1
+		required_missions = {}
+		trigger = {
+			num_of_allies = 3
+			prestige = POL
+			any_ally = {
+				OR = {
+					is_great_power = yes 
+					total_development = 300 
+				}
+			}
+		}
+		effect = {
+			add_casus_belli = {
+				type = cb_restore_personal_union
+				months = 240
+				target = POL 
+			}
+			custom_tooltip = union_20
+			wielkopolska_area = {
+				add_permanent_claim = ROOT
+			}
+			central_poland_area = {
+				add_permanent_claim = ROOT
+			}
+			malopolska_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	Iron_throne = {
+		icon = polish_diplomacy
+		position = 2
+		required_missions = {Great_Diplomacy}
+		provinces_to_highlight = {
+			OR = {
+				area = wielkopolska_area
+				area = malopolska_area
+				area = central_poland_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			OR = {
+				senior_union_with = POL
+				AND = {
+					wielkopolska_area = {
+						type = all
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+					malopolska_area = {
+						type = all
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+					central_poland_area = {
+						type = all
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = legacy_of_Premyslids
+				duration = -1
+			}
+		}
+	}
+	Zapadoslavia = {
+		icon = reform_bergordnung
+		position = 3
+		required_missions = {
+			Iron_throne
+			Silesian_Piasts
+		}
+		provinces_to_highlight = {
+			culture_group = west_slavic
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 30
+				culture_group = west_slavic
+			}
+		}
+		effect = {
+			add_prestige = 25
+			east_prussia_area = {
+				add_permanent_claim = ROOT
+			}
+			west_prussia_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	Conquer_Prussia = {
+		icon = mission_teutonic_riders
+		position = 4
+		required_missions = {Zapadoslavia}
+		provinces_to_highlight = {
+			OR = {
+				area = east_prussia_area
+				area = west_prussia_area
+			}
+		}
+		trigger = {
+			east_prussia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			west_prussia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			43 = {
+				add_center_of_trade_level = 2
+			}
+			add_years_of_income = 2
+		}
+	}
+	Trade_dominance = {
+		icon = purely_for_commerce
+		position = 7
+		required_missions = {
+			Conquer_Prussia
+			Control_Danube_trade
+		}
+		trigger = {
+			61 = {
+				trade_share = {
+					country = ROOT
+					share = 50
+				}
+			}
+			262 = {
+				trade_share = {
+					country = ROOT
+					share = 50
+				}
+			}
+			153 = {
+				trade_share = {
+					country = ROOT
+					share = 50
+				}
+			}
+			OR = {
+				dip = 5
+				full_idea_group = trade_ideas
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = Trade_empire
+				duration = -1
+			}
+		}
+	}
+	Charles_university = {
+		icon = mission_early_modern_university
+		position = 11
+		required_missions = {Recover_from_hussite_wars}
+		provinces_to_highlight = {
+			province_id = 266
+		}
+		trigger = {
+			266 = {
+				num_of_times_improved = 6
+				has_building = temple
+			}
+			is_at_war = no
+		}
+		effect = {
+			country_event = {
+				id = new_bohemian.6
+			}
+		}
+	}
+	Spread_the_renaissance = {
+		icon = mission_hanseatic_city
+		position = 12
+		required_missions = {Charles_university}
+		trigger = {
+			capital_scope = {
+				renaissance = 100
+			}
+			OR = {
+				artist = 2
+				has_estate_privilege = estate_burghers_patronage_of_the_arts
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = eastern_renaissance
+				duration = 9125
+			}
+			capital_scope = {
+				add_base_production = 2
+			}
+		}
+	}
+	Restore_charles_brigde = {
+		icon = mission_early_game_buildings
+		position = 13
+		required_missions = {Spread_the_renaissance}
+		trigger = {
+			266 = {
+				has_great_project = {
+					type = prague
+					tier = 3
+				}
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 50
+			add_stability = 1
+			add_treasury = 1000
+		}
+	}
+
+}
+

@@ -1,0 +1,12 @@
+government = republic
+add_government_reform = plutocratic_reform
+
+technology_group = western
+
+religion = catholic
+
+primary_culture = lombard
+
+add_accepted_culture = ligurian
+
+capital = 104	# Milan

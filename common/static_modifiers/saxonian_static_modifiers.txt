@@ -1,0 +1,4 @@
+pacified_thuringia = {
+    years_to_integrate_personal_union = -40
+    improve_relation_modifier = 0.25
+}

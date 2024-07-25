@@ -1,0 +1,44 @@
+spriteTypes = {		
+		
+	spriteType = {	
+		name = "CRUSADE_1_eventPicture"
+		texturefile = "gfx/event_pictures/CRUSADE_1_eventPicture.dds"
+		allwaystransparent = yes
+	}	
+		
+	spriteType = {	
+		name = "CRUSADE_2_eventPicture"
+		texturefile = "gfx/event_pictures/CRUSADE_2_eventPicture.dds"
+		allwaystransparent = yes
+	}	
+		
+	spriteType = {	
+		name = "CRUSADE_BEGIN_1_eventPicture"
+		texturefile = "gfx/event_pictures/CRUSADE_BEGIN_1_eventPicture.dds"
+		allwaystransparent = yes
+	}	
+		
+	spriteType = {	
+		name = "CRUSADE_BEGIN_eventPicture"
+		texturefile = "gfx/event_pictures/CRUSADE_BEGIN_eventPicture.dds"
+		allwaystransparent = yes
+	}	
+		
+	spriteType = {	
+		name = "CRUSADE_INVITATION_eventPicture"
+		texturefile = "gfx/event_pictures/CRUSADE_INVITATION_eventPicture.dds"
+		allwaystransparent = yes
+	}	
+		
+	spriteType = {	
+		name = "CRUSADE_PREPARATION_eventPicture"
+		texturefile = "gfx/event_pictures/CRUSADE_PREPARATION_eventPicture.dds"
+		allwaystransparent = yes
+	}
+	
+	spriteType = {	
+		name = "ZAJAC"
+		texturefile = "gfx/event_pictures/zajac.dds"
+		allwaystransparent = yes
+	}	
+}		

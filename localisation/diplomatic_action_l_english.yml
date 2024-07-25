@@ -1,0 +1,17 @@
+﻿l_english:
+ demand_dummy_title:0 "Demand Dummy"
+ demand_dummy_desc:0 "Demand that [From.Monarch.GetName] of [From.GetName] becomes our Dummy. This will benefit our mutual Trust!"
+ demand_dummy_tooltip:0 "Demand that they become our Dummy."
+ demand_dummy_dialog:0 "[This.GetName] demands that you become their Dummy. This would benefit our mutual Trust!"
+ demand_dummy_alert_tooltip:0 "A demand that we become a Dummy"
+ HAS_MORE_MANPOWER:0 "[This.GetName] has more manpower than [From.GetName].\n"
+
+ send_pigeon_title:0 "Send a Pigeon"
+ send_pigeon_desc:0 "Write letter here"
+ send_pigeon_tooltip:0 "Send a Pigeon to specific country"
+
+ truce_title:0 "Sign a non aggression pact"
+ truce_desc:0 "Sign a Truce"
+  truce_tooltip:0 "Send a non aggression pact to specific country"
+  truce_dialog:0 "[This.GetName] want to sign a non aggression pact!"
+  truce_alert_tooltip:0 "A non aggression pact proposal"

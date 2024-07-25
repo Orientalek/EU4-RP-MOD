@@ -1,0 +1,22 @@
+spriteTypes = {
+
+spriteType = {
+        name = "GFX_icon_institution_romanticism"
+        texturefile = "gfx//interface//institutions//romanticism.dds"
+        loadType = "INGAME"
+        transparencecheck = yes
+    }
+spriteType = {
+        name = "GFX_institution_tab_romanticism"
+        texturefile = "gfx/interface/institutions//institution_tab_romanticism.dds"
+        noOfFrames = 2
+        transparencecheck = yes
+    }
+spriteType = {
+        name = "GFX_tech_institution_romanticism"
+        texturefile = "gfx/interface/institutions/tech_institution_romanticism.dds"
+        noOfFrames = 5
+        transparencecheck = yes
+    }
+
+}

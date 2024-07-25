@@ -1,0 +1,22 @@
+
+bitmapfonts = {
+
+	bitmapfont = {
+		name = "standard_font"
+		path = "gfx/fonts/standard"
+		color = 0xffffffff
+	}
+
+	bitmapfont = {
+		name = "chat_input_font"
+		path = "gfx/fonts/standard"
+		color = 0xffffffff
+		effect = no
+	}
+	bitmapfont = {
+		name = "great_font"
+		path = "gfx/fonts/tahoma_20_bold"
+		color = 0xffffffff
+		effect = no
+	}
+}

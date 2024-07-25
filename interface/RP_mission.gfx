@@ -1,0 +1,47 @@
+spriteTypes = {
+    spriteType = {
+		name = "GFX_commonwealth"
+		texturefile = "gfx/interface/missions/commonwealth.dds"
+	}
+}
+spriteTypes = {
+    spriteType = {
+		name = "GFX_swedish_lion"
+		texturefile = "gfx/interface/missions/swedish_lion.dds"
+	}
+}
+spriteTypes = {
+    spriteType = {
+        name = "GFX_faction_bg_vi_vikings"	
+        texturefile = "gfx//interface//vi_vikings_influence.dds"
+        transparencecheck = yes
+    }
+    spriteType = {
+        name = "GFX_faction_vi_vikings"	
+        texturefile = "gfx//interface//Vikings_icon.dds"
+    }
+}
+
+spriteTypes = {
+    spriteType = {
+        name = "GFX_faction_bg_vi_Priests"	
+        texturefile = "gfx//interface//vi_Priests_influence.dds"
+        transparencecheck = yes
+    }
+    spriteType = {
+        name = "GFX_faction_vi_Priests"	
+        texturefile = "gfx//interface//Priests_icon.dds"
+    }
+}
+
+spriteTypes = {
+    spriteType = {
+        name = "GFX_faction_bg_vi_Jarls"	
+        texturefile = "gfx//interface//vi_Jarls_influence.dds"
+        transparencecheck = yes
+    }
+    spriteType = {
+        name = "GFX_faction_vi_Jarls"	
+        texturefile = "gfx//interface//Jarls_icon.tga"
+    }
+}

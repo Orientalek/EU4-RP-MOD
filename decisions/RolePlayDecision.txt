@@ -1,0 +1,201 @@
+country_decisions = {
+    destroy_monarchy = {
+        major = yes
+        potential = {
+            government = monarchy
+            NOT = { has_reform = polish_elective_monarchy }
+            has_parliament = no
+            is_free_or_tributary_trigger = yes
+            in_golden_age = no
+            ai = no
+            NOT = { religion = sunni }
+            capital_scope = {
+            	continent = europe
+            }
+        }
+        allow = {
+            OR = {
+                NOT = { legitimacy = 25 }
+                war_exhaustion = 18
+                revolt_percentage = 0.7
+            }
+            NOT = { stability = 0 }
+        }
+        effect = {
+            add_stability = -3
+            country_event = {
+                id = roleplay.5
+            }
+        }
+    }
+    enforce_king_to_abdication = {
+        major = yes
+        potential = {
+            government = monarchy
+            has_parliament = yes
+            is_free_or_tributary_trigger = yes
+            in_golden_age = no
+            ai = no
+            NOT = { religion = sunni }
+            capital_scope = {
+            	continent = europe
+            }
+        }
+        allow = {
+            OR = {
+                NOT = { legitimacy = 25 }
+                war_exhaustion = 18
+                revolt_percentage = 0.7
+            }
+            NOT = { stability = 1 }
+        }
+        effect = {
+             add_stability = -1
+            country_event = {
+                id = roleplay.6
+            }
+        }
+    }
+        educate_ruler = {
+        major = yes
+        potential = {
+            ai = no
+            is_lesser_in_union = no
+            has_regency = no
+            has_heir = yes
+            NOT = { has_country_flag = educate_ruler_flag }
+            government = monarchy
+        }
+        allow = {
+            years_of_income = 2.5
+        }
+        effect = {
+            random = {
+                chance = 25 
+                    change_heir_adm = 1	
+            }
+             random = { 
+                chance = 25 
+                    change_heir_dip = 1	
+            }
+             random = { 
+                chance = 25 
+                    change_heir_mil = 1
+            }
+			random = {
+				chance = 25
+					custom_tooltip = nothing
+			}
+            add_years_of_income = -2.5
+            set_country_flag = educate_ruler_flag
+        }
+    }
+    papal_swiss_union = {
+          major = yes
+            potential = {
+                    tag = SWI  
+                    PAP = {
+                        exists = yes
+                    }
+                    has_parliament = no
+                    in_golden_age = no
+                    ai = no
+                    religion = catholic
+                    capital_scope = {
+                        continent = europe 
+                    }
+            }
+            allow = {
+                NOT = { stability = 0 }
+                PAP = {
+                    has_opinion = {
+	                who = ROOT
+	                value = 175
+                    }
+                }
+            }
+            effect = {
+                country_event = {
+                    id = roleplay.2
+                }
+            }    
+        
+    
+}
+
+coronation = {
+     major = yes
+            potential = {
+                    has_country_flag = king_dead
+                    government = monarchy
+                    
+            }
+            allow = {
+                is_at_war = no
+                has_regency = no
+            }
+            effect = {
+               country_event = {
+                    id = roleplay.101
+                } 
+            }
+            ai_will_do = {
+			factor = 1000
+		}
+}
+
+warlord = {
+     major = yes
+            potential = {
+                    ai = no
+                    NOT = { has_reform = WARLORD }
+                    government = monarchy
+                    is_emperor_of_china = no
+                    culture_group = east_asian
+                    NOT = { tag = KOR }
+            }
+            allow = {
+                is_at_war = no
+                has_regency = no
+                is_free_or_tributary_trigger = yes
+            }
+            effect = {
+                set_country_flag = chinski_warlord
+                add_stability = -2
+               country_event = {
+                    id = roleplay.9
+                } 
+            }
+            ai_will_do = {
+			factor = 0
+		}
+}
+
+form_elective_monarchy = {
+    major = yes
+    potential = {
+        ai = no
+        NOT = { tag = POL }
+        NOT = { has_reform = elective_monarchy }
+    
+        is_emperor = no
+        government = monarchy
+        has_regency = no
+        is_subject = no
+    }
+    allow = {
+        has_heir = no
+        OR = {
+            ruler_age = 50
+            NOT = { legitimacy = 40 }
+        }
+    }
+    effect = {
+        add_stability = -3
+        add_legitimacy = -25
+        add_prestige = -15
+        add_government_reform = elective_monarchy
+    }
+}
+
+}

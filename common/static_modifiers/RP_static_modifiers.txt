@@ -1,0 +1,698 @@
+remove_elector = {
+	diplomatic_reputation = -2
+}
+winners_of_crusade = {
+	prestige = 0.5	
+	land_morale = 0.10	
+	papal_influence = 0.5	
+}
+winners_of_crusade_mameluk = {
+	prestige = 0.5	
+	land_morale = 0.10	
+	papal_influence = 0.5	
+}
+loser_of_crusade = {
+	prestige = -0.5	
+	land_morale = -0.05
+}
+ottoman_moblilisation = {
+	manpower_recovery_speed = 0.2
+	land_morale = 0.15
+	global_garrison_growth = 0.15		
+	land_maintenance_modifier = -0.15		
+	land_forcelimit_modifier = 0.15	
+}
+ottoman_victory = {
+	land_morale = 0.1
+	manpower_recovery_speed = 0.2
+	siege_ability = 0.10
+	prestige = 0.5		
+}
+mameluk_ship = {
+	galley_cost = -0.2
+	light_ship_cost = -0.2
+}
+mameluk_recrut = {
+	infantry_cost = -0.1
+	cavalry_cost = -0.1
+	global_tax_modifier = -0.05
+}
+mameluk_mobilisation = {
+	manpower_recovery_speed = 0.25
+	land_morale = 0.15	
+	naval_morale = 0.5
+	galley_power = 0.5
+	land_maintenance_modifier = -0.25	
+	land_forcelimit_modifier = 0.25
+	global_tax_modifier = -0.2		
+}
+mameluk_victory = {
+	prestige = 0.5
+	land_morale = 0.10	
+	naval_morale = 0.1	
+}
+mameluk_defeat_syria = {
+	land_morale = 0.10
+	prestige = 0.5
+}
+teutonic_mobilisation = {
+	land_morale = 0.10
+
+}
+teutonic_diplomacy = {
+	reduced_liberty_desire = 10
+	improve_relation_modifier = 0.15
+}
+teutonic_papal = {
+	papal_influence = 0.5
+}
+teutonic_navy = {
+	naval_morale = 0.1
+	galley_power = 0.15
+}
+teutonic_build = {
+	build_cost = -0.15
+	build_time = -0.25	
+}
+teutonic_trade = {
+	trade_efficiency = 0.15
+	trade_steering = 0.1
+}
+teutonic_colonisation = {
+	colonists = 1
+	global_colonial_growth = 15
+	range = 0.5	
+}
+teutonic_missionary = {
+	missionaries = 1
+	missionary_maintenance_cost = -0.1
+	global_missionary_strength = 0.03
+}
+teutonic_diplomacy = {
+	diplomatic_reputation = 2
+	improve_relation_modifier = 0.1
+}
+teutonic_mission = {
+	land_morale = 0.1
+	global_missionary_strength = 0.01
+}
+teutonic_germanisation = {
+	local_development_cost = -0.1	
+	local_build_cost = -0.15	
+}
+teutonic_diplomatic_relation = {
+	diplomatic_upkeep = 1
+}
+teutonic_victory = {
+	land_morale = 0.1
+	naval_morale = 0.1
+	infantry_cost = -0.1
+	cavalry_cost = -0.1
+}
+teutonic_merchanty = {
+	merc_maintenance_modifier = -0.15
+	mercenary_cost = -0.2
+}
+silesian_trade_agreement = {
+	trade_efficiency = 0.15
+	trade_steering = 0.1
+}
+silesian_preparation = {
+	land_morale = 0.1
+	land_maintenance_modifier = -0.1
+}
+silesian_prestige = {
+	prestige = 0.5	
+	prestige_decay = -0.01	
+}
+silesian_polonisation = {
+	culture_conversion_cost = -0.25	
+}
+silesian_production = {
+	production_efficiency = 0.1
+}
+silesian_trade_modifier = {
+	global_trade_power = 0.1	
+	trade_efficiency = 0.1	
+}
+Silesian_defense = {
+	defensiveness = 0.5
+	fort_maintenance_modifier = -0.15
+}
+silesian_prosperity = {
+	global_tax_modifier = 0.1
+	global_unrest = -2
+	local_autonomy = -0.05
+}
+################################################
+#Import i Export do paktow handlowych
+################################################
+import_1 = {
+	development_cost = -0.02	
+	build_cost = -0.05
+}
+import_2 = {
+	development_cost = -0.03
+	build_cost = -0.07
+}
+import_3 = {
+	development_cost = -0.04
+	build_cost = -0.09	
+}
+import_4 = {
+	development_cost = -0.05
+	build_cost = -0.1	
+}
+import_5 = {
+	development_cost = -0.08
+	build_cost = -0.15
+}
+
+export_1 = {
+	production_efficiency = 0.01
+	global_prosperity_growth = 0.02
+}
+export_2 = {
+    production_efficiency = 0.02
+	global_prosperity_growth = 0.04
+}
+export_3 = {
+	production_efficiency = 0.03
+	global_prosperity_growth = 0.06
+}
+export_4 = {
+	production_efficiency = 0.05
+	global_prosperity_growth = 0.08
+}
+export_5 = {
+	production_efficiency = 0.07
+	global_prosperity_growth = 0.1
+}
+
+
+##############################################################
+##### POLSZA                                           #######
+##############################################################
+
+
+polish_noble_tax = {
+	global_tax_modifier = -0.15
+}
+polish_ruthenia_polonisation = {
+	local_development_cost = -0.1	
+	local_build_cost = -0.15	
+}
+polish_defence = {
+	defensiveness = 0.33
+}
+polish_coloniastion_of_syberia = {
+	colonists = 1
+	global_colonial_growth = 50	
+}
+polish_expand = {
+	global_tax_modifier = 0.15
+}
+polish_region_expanded = {
+	local_development_cost = -0.05	
+	local_build_cost = -0.1
+}
+polish_boom = {
+	production_efficiency = 0.25
+}
+
+polish_accept = {
+	promote_culture_cost = -0.25	
+	num_accepted_cultures = 2
+	culture_conversion_cost = 0.25
+}
+polish_deny = {
+	promote_culture_cost = 0.25	
+	num_accepted_cultures = -1
+	culture_conversion_cost = -0.25
+}
+
+polish_release = {
+	global_unrest = -2
+}
+polish_equality = {
+	stability_cost_modifier = -0.1	
+	global_autonomy = -0.05	
+	years_of_nationalism = -5	
+	
+}
+polish_multiculture_moddifier = {
+	promote_culture_cost = -0.25	
+	num_accepted_cultures = 1	
+}
+polish_accept_religon = {
+	tolerance_heretic = 2
+	tolerance_own = 2
+	religious_unity = 0.2
+	missionary_maintenance_cost = +0.5
+	global_heretic_missionary_strength = -0.15	
+}
+polish_reject_rights = {
+	global_tax_modifier = -0.1
+}
+not_crowned = {
+	legitimacy = -2
+}
+polish_agreement = {
+	production_efficiency = 0.1
+}
+polish_defence_2 = {
+	defensiveness = 0.33
+	fort_maintenance_modifier = 0.15
+}
+polish_christanity_m = {
+	tolerance_own = 2
+}
+polish_technology = {
+	technology_cost = -0.2
+}
+
+polish_trade_m = {
+	trade_efficiency = 0.1
+}
+
+polish_fleet = {
+	naval_forcelimit = 5.0
+	naval_morale = 0.15
+}
+polish_dominate_trade = {
+	trade_efficiency = 0.25
+	caravan_power = 0.1
+}
+polish_range = {
+	range = 0.2
+}
+polish_colonisation_west = {
+	colonists = 1
+	global_colonial_growth = 15
+	range = 0.5	
+
+}
+polish_colonisation_america = {
+	global_colonial_growth = 30
+}
+devastation = {
+	trade_goods_size_modifier = -1
+	supply_limit_modifier = -0.5
+	local_institution_spread = -1.0
+	local_development_cost = 0.2
+	local_manpower_modifier = -1.0
+	local_sailors_modifier = -1.0
+	local_tax_modifier = -1.0
+	local_unrest = 1
+	local_hostile_movement_speed = -0.5
+	local_friendly_movement_speed = -0.5
+}
+roman_fight = {
+	land_morale = 0.15
+	land_maintenance_modifier = -0.25
+	defensiveness = 0.5
+	discipline = 0.1
+	infantry_cost = -0.5
+	infantry_power = 0.25
+	cavalry_power = 0.25
+	infantry_shock = 1
+	recover_army_morale_speed = 0.5
+	land_forcelimit_modifier = 0.5
+	global_tax_modifier = 0.15
+}
+refaced_rome = {
+	local_build_cost = -0.1
+	local_tax_modifier = 0.1
+	local_production_efficiency = 0.1
+}
+Roman_heavy_ships = {
+	heavy_ship_power = 0.15
+	heavy_ship_cost = -0.15
+}
+roman_galleys = {
+	galley_cost = -0.15
+	galley_power = 0.15
+}
+quality_army = {
+	global_regiment_cost = -0.15
+	reinforce_cost_modifier = -0.10
+	reinforce_speed = 0.33
+}
+rivalry_bizatines = {
+	diplomats = 1
+	diplomatic_upkeep = 2
+}
+Emperor_of_Empire = {
+	prestige_decay = -0.01
+	diplomatic_reputation = 3
+	ae_impact = -0.2 
+	vassal_income = 0.33
+}
+silk_of_lucca = {
+	local_production_efficiency = 0.2
+	local_development_cost = -0.25
+	local_governing_cost = -0.25
+	province_trade_power_modifier = 0.2
+}
+banana = {
+	development_cost = 3.5
+	inflation_reduction = -0.9
+	inflation_action_cost = 0.5
+	local_production_efficiency = 0.5
+	local_monthly_devastation = -1
+	local_build_time = -0.75
+	local_governing_cost = -0.75
+	local_unrest = -5
+	local_years_of_nationalism = -10
+	local_missionary_strength = -0.5	
+	ignore_coring_distance = yes	
+}
+war_exhaustion = {
+	global_unrest = 1
+	global_regiment_recruit_speed = 0.01
+	global_ship_recruit_speed = 0.01
+	core_creation = 0.02
+	temples_influence = -0.05
+	mr_aristocrats_influence = -0.05
+	rr_girondists_influence = -0.05
+	rr_royalists_influence = 0.05
+	manpower_recovery_speed = -0.02
+	sailors_recovery_speed = -0.02
+	siege_ability = -0.03
+	global_trade_goods_size_modifier = -0.02	
+	land_morale = -0.01	
+	defensiveness = -0.01
+	global_tax_modifier = -0.04
+	production_efficiency = -0.01		
+}
+can_core = {
+	range = 0.5	
+}
+new_trade_company_in_china = {
+	trade_efficiency = 0.15
+	caravan_power = 0.1
+	trade_steering = 0.25
+}
+manpower_china = {
+	manpower_recovery_speed = 0.15
+	sailors_recovery_speed = 0.02
+}
+european_china_trade = {
+	trade_efficiency = 0.25
+	caravan_power = -0.1
+	trade_steering = -0.25
+}
+over_governing_capacity_modifier = {
+	stability_cost_modifier = 2.0
+	ae_impact = 1
+	improve_relation_modifier = -0.5
+	core_creation = 0.5
+	administrative_efficiency = -0.5
+	local_autonomy = 0.75
+	all_power_cost = 0.5
+	advisor_cost = 1.0
+	monthly_militarized_society = -1.5
+	yearly_absolutism = -0.2	
+}
+swedish_christanity_union = {
+	global_unrest = 2
+	tolerance_heretic = -2
+	tolerance_heathen = -2
+	religious_unity = -0.25	
+}
+fall_of_chinese_republic = {
+	global_unrest = 10
+	stability_cost_modifier = 0.5
+	religious_unity = -0.25	
+}
+chad_napoleon = {
+	land_morale = 0.25
+	discipline = 0.2
+	manpower_recovery_speed = 0.5	
+	siege_ability = 0.25
+	war_exhaustion = -0.25
+	military_tactics = 0.25	
+	army_tradition_decay = -0.1
+	infantry_power = 0.25
+	defensiveness = 0.25
+	leader_siege = 2
+	artillery_power = 0.25
+	artillery_cost = -0.5
+	infantry_cost = -0.5
+}
+
+RP_restriction = {
+	land_forcelimit_modifier = -0.5
+	global_manpower_modifier = -0.5
+	land_attrition = 0.25
+	mercenary_manpower = -0.25
+	sailors_recovery_speed = -0.5		
+	land_maintenance_modifier = 0.25
+	garrison_size = -0.5
+	mercenary_cost = -0.10
+	merc_maintenance_modifier = -0.10
+	cavalry_cost = -0.1
+	artillery_levels_available_vs_fort	 = 1
+
+}
+RP_condotierii_balance = {
+    mercenary_manpower = 0.2
+}
+RP_condotierii_balance1 = {
+    mercenary_manpower = 0.4
+}
+RP_condotierii_balance2 = {
+    mercenary_manpower = 0.6
+}
+RP_condotierii_balance3 = {
+    mercenary_manpower = 0.8
+}
+RP_condotierii_balance4 = {
+    mercenary_manpower = 1
+}
+peace = {
+	war_exhaustion = -0.1
+	monthly_fervor_increase = 1
+	global_autonomy = -0.1
+	global_institution_spread = 0.5
+	rr_girondists_influence = -0.1
+	pr_smugglers_influence = 0.1
+}
+port = {
+	local_institution_spread = 0.4
+}
+
+in_state = {
+	local_institution_spread = 0.4
+}
+knowledge_sharing = {
+	institution_growth = 20
+}
+
+cardinals_spread_institution = {
+	institution_growth = 30
+}
+in_trade_company = {
+	province_trade_power_modifier = 1
+	naval_forcelimit = 0.5
+	local_missionary_strength = -2
+	local_institution_spread = 0.4
+	local_governing_cost = 0.25
+}
+mehmmed_the_conqueror = {
+	land_morale = 0.1
+	warscore_cost_vs_other_religion	 = -0.2
+	technology_cost = -0.1
+	idea_cost = -0.1
+}
+suleiman_the_magnificent = {
+	land_morale = 0.15
+	discipline = 0.5
+	warscore_cost_vs_other_religion	 = -0.25
+	technology_cost = -0.125
+	idea_cost = -0.125
+}
+turkish_conquest_persia = {
+	local_defensiveness = 0.15
+	garrison_growth = 0.15
+    local_hostile_movement_speed = -0.15
+    local_hostile_attrition = 5
+    local_build_cost = -0.05
+    local_build_time = -0.05
+}
+ottoman_vienna = {
+	yearly_army_professionalism = 0.01
+    manpower_recovery_speed = 0.10
+    fabricate_claims_cost = -0.1
+}
+rhodes = {
+	trade_efficiency = 0.15
+	ship_power_propagation = 0.1
+	privateer_efficiency = 0.1
+	
+}
+cyprus = {
+	trade_efficiency = 0.1
+	galley_cost = -0.1
+	privateer_efficiency = 0.1
+}
+
+prussia_bavaria = {
+	prestige_decay = -0.01
+	improve_relation_modifier = 0.15
+	num_accepted_cultures = 2	
+}
+prussian_Lubeck = {
+	trade_efficiency = 0.1
+	trade_steering = 0.05
+	global_trade_power = 0.1
+}
+prussian_north_secured = {
+	defensiveness = 0.05
+	sailors_recovery_speed = 0.15
+	army_tradition_decay = -0.01
+}
+prussia_Danzig = {
+	trade_efficiency = 0.1
+	production_efficiency = 0.05	
+
+}
+Die_Wacht_Um_Rhein = {
+	discipline = 0.05
+	land_morale = 0.1
+}
+prussia_saxony_united = {
+	development_cost = -0.05
+	build_cost = -0.05	
+}
+prussian_ships = {
+	global_ship_cost = -0.2
+	global_ship_recruit_speed = -0.3
+	global_ship_repair = 0.2
+}
+prussian_Silesia = {
+	production_efficiency = 0.1
+}
+polish_civil_war = {
+	land_morale = 0.15
+	discipline = 0.1
+	defensiveness = 0.05
+	land_maintenance_modifier = -0.25
+	land_forcelimit_modifier = 0.25
+}
+saxony_extensionplan = {
+		local_tax_modifier = 0.1
+}
+saxon_march = {
+	land_morale = 0.05
+	mercenary_cost = -0.05
+	discipline = 0.025
+}
+saxony_integrate_poland = {
+	years_to_integrate_personal_union = -10
+}
+great_import_of_potatoes = {
+	local_unrest = -2
+	province_trade_power_modifier = 0.2
+}
+dancing_plague_medics_modifier = {
+	local_unrest = 8
+	trade_goods_size_modifier = -0.25
+	province_trade_power_modifier = 0.5
+	local_missionary_strength = -0.05
+}
+dancing_plague_church_modifier = {
+	local_unrest = 8
+	local_missionary_strength = 0.05
+	trade_goods_size_modifier = 0.25
+	province_trade_power_modifier = -0.5
+}
+polish_build_wawel = {
+    local_defensiveness = 0.20
+    prestige = 0.25
+}
+aurelian_walls_rome = {
+	local_defensiveness = 0.25
+}
+khazar_religion = {
+	global_missionary_strength = 0.1
+}
+secure_yemen_trade = {
+	merchants = 1
+	global_trade_power = 0.1		
+}
+send_grain = {
+	global_trade_goods_size_modifier = 0.1
+	caravan_power = 0.1
+}
+crush_ethopia = {
+	infantry_power = 0.05
+	land_attrition = -0.10
+}
+gold_mine = {
+	global_trade_goods_size_modifier = 0.15
+}
+mighty_army = {
+	land_morale = 0.10
+	siege_ability = 0.10
+}
+conquer_of_Baghdad = {
+	ae_impact = -0.10
+	core_creation = -0.10
+}
+horsmen_of_arabia = {
+	cavalry_power = 0.15
+}
+export_grain = {
+	global_trade_goods_size_modifier = 0.10
+}
+control_str = {
+	local_own_coast_naval_combat_bonus = 1	
+	local_ship_cost = -0.10	
+	hostile_fleet_attrition = 2
+}
+georgia = {
+	manpower_in_true_faith_provinces= 0.10	
+	religious_unity = 0.05
+}
+polish_pope = {
+	global_missionary_strength = 0.05
+	missionaries = 1	
+}
+rebulid_baghdad = {
+	development_cost = -0.1	
+	build_cost = -0.1	
+	build_time = -0.1
+}
+tolerate_coptic = {
+	tolerance_own = 1	
+	tolerance_heretic = 1	
+	tolerance_heathen = 1	
+}
+crush_coptic = {
+	global_missionary_strength = 0.05
+	missionaries = 1		
+}
+horn_master = {
+	global_prov_trade_power_modifier = 0.1	
+	trade_steering = 0.1	
+}
+dessert_strike = {
+	local_hostile_attrition = 5	
+	local_defensiveness = 0.1	
+}
+persian_court = {
+	legitimacy = 0.50
+	reform_progress_growth = 0.1	
+}
+sword_of_islam = {
+	land_morale = 0.10	
+	shock_damage = 0.10	
+}
+horde_change_religion = {
+	global_missionary_strength = 0.1
+}
+pyrenean_mountains = {
+	movement_speed = -0.40
+	land_attrition = 0.25	
+}

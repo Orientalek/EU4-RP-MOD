@@ -1,0 +1,605 @@
+#event made by Serson
+namespace = intervention
+
+country_event = {
+	id = intervention.1
+	title = intervention.1.t
+	desc = intervention.1.d
+	picture = COLONIZATION_eventPicture
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = intervention.1.a
+		add_country_modifier = {
+            name = can_core
+            duration = 10950
+        }
+        
+        every_country = { 
+            limit = {
+               
+                OR = {
+                    has_idea_group = exploration_ideas
+                    AND = {
+                        tag = RUS
+                        1060 = {
+                            owned_by = RUS
+                        }
+                    }
+                }
+                
+                 is_bankrupt = no
+                has_any_disaster = no
+                 NOT = { tag = ROOT }
+                capital_scope = {
+                     continent = europe
+                 }
+                NOT = { great_power_rank = 7 }
+            }
+             country_event = {
+             id = intervention.3
+             }
+        }
+        hidden_effect = {
+			country_event = {
+				id = intervention.2
+				days = 360
+			}
+        set_country_flag = member_china
+	}
+    }
+}
+
+country_event = {
+	id = intervention.2
+	title = intervention.2.t
+	desc = intervention.2.d
+	picture = CARIBBEAN_PIRATE_FORT_eventPicture
+	major = yes
+	is_triggered_only = yes
+    immediate = {
+        set_global_flag = first_demand
+    }
+
+    option = {
+		name = intervention.2.a
+        trigger = {
+           NOT = { has_global_flag = first_taken }
+        }
+        set_global_flag = first_taken
+        set_country_flag = has_china_claim
+        set_country_flag = island_taken
+        2160 = {
+            add_permanent_claim = ROOT
+        }
+        666 = {
+            add_permanent_claim = ROOT
+        }
+        2159 = {
+            add_permanent_claim = ROOT
+        }
+
+        random_country = { 
+            limit = {
+                NOT = { has_country_flag = has_china_claim }
+                has_country_flag = member_china
+            }
+            country_event = {
+                id = intervention.2
+            }
+        }
+        ROOT = {
+            save_global_event_target_as = first_country
+        }
+    }
+    option = {
+		name = intervention.2.b
+        trigger = {
+           NOT = { has_global_flag = second_taken }
+        }
+         ROOT = {
+            save_global_event_target_as = second_country
+            }
+         set_global_flag = second_taken
+         set_country_flag = has_china_claim
+         set_country_flag = makau_taken
+        668 = {
+            add_permanent_claim = ROOT
+        }
+        667 = {
+            add_permanent_claim = ROOT
+        }
+        665 = {
+            add_permanent_claim = ROOT
+        }
+                random_country = { 
+            limit = {
+                NOT = { has_country_flag = has_china_claim }
+                has_country_flag = member_china
+            }
+            country_event = {
+                id = intervention.2
+            }
+        }
+    }
+     option = {
+		name = intervention.2.c
+        trigger = {
+           NOT = { has_global_flag = third_taken }
+        }
+        set_country_flag = 3_demand
+        set_global_flag = third_taken
+        set_country_flag = has_china_claim
+        2157 = {
+            add_permanent_claim = ROOT
+        }
+        4942 = {
+            add_permanent_claim = ROOT
+        }
+        2156 = {
+            add_permanent_claim = ROOT
+        }
+                random_country = { 
+            limit = {
+                NOT = { has_country_flag = has_china_claim }
+                has_country_flag = member_china
+            }
+            country_event = {
+                id = intervention.2
+            }
+            
+        }
+    }
+     option = {
+		name = intervention.2.h
+        trigger = {
+           NOT = { has_global_flag = fourth_taken }
+        }
+        set_country_flag = 4_demand
+        set_global_flag = fourth_taken
+        set_country_flag = has_china_claim
+        2148 = {
+            add_permanent_claim = ROOT
+        }
+        684 = {
+            add_permanent_claim = ROOT
+        }
+        1822 = {
+            add_permanent_claim = ROOT
+        }
+                random_country = { 
+           limit = {
+                NOT = { has_country_flag = has_china_claim }
+                has_country_flag = member_china
+            }
+            country_event = {
+                id = intervention.2
+            }
+        }
+             ROOT = {
+            save_global_event_target_as = fourth_country
+        }
+    }
+     option = {
+		name = intervention.2.e
+        trigger = {
+           NOT = { has_global_flag = fifth_taken }
+        }
+        set_country_flag = 5_demand
+        set_global_flag = fifth_taken
+        set_country_flag = has_china_claim
+        2145 = {
+            add_permanent_claim = ROOT
+        }
+        685 = {
+            add_permanent_claim = ROOT
+        }
+        2142 = {
+            add_permanent_claim = ROOT
+        }
+        random_country = { 
+           limit = {
+                NOT = { has_country_flag = has_china_claim }
+                has_country_flag = member_china
+            }
+            country_event = {
+                id = intervention.2
+            }
+        }
+             ROOT = {
+            save_global_event_target_as = fith_country
+        }
+    }
+    option = {
+		name = intervention.2.f
+        trigger = {
+           NOT = { has_global_flag = sixth_taken }
+        }
+        set_global_flag = sixth_taken
+        set_country_flag = has_china_claim
+        set_country_flag = 6_demand
+        4196 = {
+            add_permanent_claim = ROOT
+        }
+        690 = {
+            add_permanent_claim = ROOT
+        }
+        2139 = {
+            add_permanent_claim = ROOT
+        }
+        random_country = { 
+             limit = {
+                NOT = { has_country_flag = has_china_claim }
+                has_country_flag = member_china
+            }
+            country_event = {
+                id = intervention.2
+            }
+        }
+             ROOT = {
+            save_global_event_target_as = sixth_country
+        }
+    }
+    option = {
+		name = intervention.2.g
+        trigger = {
+           NOT = { has_global_flag = seven_taken }
+        }
+        set_global_flag = seven_taken
+        set_country_flag = has_china_claim
+        set_country_flag = 7_demand
+        2113 = {
+            add_permanent_claim = ROOT
+        }
+        4652 = {
+            add_permanent_claim = ROOT
+        }
+        704 = {
+            add_permanent_claim = ROOT
+        }
+        random_country = { 
+             limit = {
+                NOT = { has_country_flag = has_china_claim }
+                has_country_flag = member_china
+            }
+            country_event = {
+                id = intervention.2
+            }
+        }
+             ROOT = {
+            save_global_event_target_as = seven_country
+        }
+    }
+}
+country_event = {
+	id = intervention.3
+	title = intervention.3.t
+	desc = intervention.3.d
+	picture = COLONIZATION_eventPicture
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = intervention.3.a
+		add_country_modifier = {
+            name = can_core
+            duration = 10950
+        }
+        set_country_flag = member_china   
+	}
+	option = {
+		name = intervention.3.b
+		add_prestige = -5
+	}
+}
+
+country_event = {
+	id = intervention.4
+	title = intervention.4.t
+	desc = intervention.4.d
+	picture = COLONIZATION_eventPicture
+    trigger = {
+        has_country_flag = member_china
+        NOT = { has_global_flag	= first_demand}
+        NOT = { has_country_flag = first_event }
+    }
+    mean_time_to_happen = {
+        months = 10
+    }
+
+	option = {
+		name = intervention.4.a
+		set_country_flag = first_event
+        add_treasury = -250
+        random_owned_province = {
+                limit = { has_port = yes }
+                ROOT = {
+                    light_ship = PREV
+                    light_ship = PREV
+                    light_ship = PREV
+                    light_ship = PREV
+                    light_ship = PREV
+                     light_ship = PREV
+                }
+                }
+	}
+	option = {
+		name = intervention.4.b
+        set_country_flag = first_event
+        add_sailors = 1000
+	}
+}
+country_event = {
+	id = intervention.5
+	title = intervention.5.t
+	desc = intervention.5.d
+	picture = COLONIZATION_eventPicture
+    trigger = {
+        has_country_flag = member_china
+        NOT = { has_global_flag	= first_demand}
+        NOT = { has_country_flag = second_event }
+    }
+    mean_time_to_happen = {
+        months = 10
+    }
+
+	option = {
+		name = intervention.5.a
+		set_country_flag = second_event
+        add_dip_power = -100
+        add_country_modifier = {
+            name = new_trade_company_in_china
+            duration = 3650
+        }
+	}
+	option = {
+		name = intervention.5.b
+        set_country_flag = second_event
+        add_treasury = 125
+	}
+}
+country_event = {
+	id = intervention.6
+	title = intervention.6.t
+	desc = intervention.6.d
+	picture = COLONIZATION_eventPicture
+    trigger = {
+        has_country_flag = member_china
+        NOT = { has_global_flag	= first_demand}
+        NOT = { has_country_flag = third_event }
+    }
+    mean_time_to_happen = {
+        months = 10
+    }
+
+	option = {
+		name = intervention.6.a
+		set_country_flag = third_event
+        add_mil_power = -100
+        add_country_modifier = {
+            name = manpower_china
+            duration = 3650
+        }
+	}
+	option = {
+		name = intervention.6.b
+        set_country_flag = third_event
+        add_manpower = 20
+	}
+}
+country_event = {
+	id = intervention.7
+	title = intervention.7.t
+	desc = intervention.7.d
+	picture = MALAYAN_PORT_eventPicture
+    is_triggered_only = yes
+    major = yes
+
+	option = {
+		name = intervention.7.a
+        	2160 = {
+                cede_province = event_target:first_country
+                 add_core = event_target:first_country
+            }
+            666 = {
+                cede_province = event_target:first_country
+                 add_core = event_target:first_country
+            }
+            add_country_modifier = {
+                name = european_china_trade
+                duration = 10000
+            }
+            add_truce_with = event_target:first_country
+	}
+	option = {
+		name = intervention.7.b
+        event_target:first_country = {
+            declare_war_with_cb = {
+                who = ROOT
+                casus_belli = cb_annex 
+            }
+        }
+	}
+}
+country_event = {
+	id = intervention.8
+	title = intervention.8.t
+	desc = intervention.8.d
+	picture = MALAYAN_PORT_eventPicture
+    is_triggered_only = yes
+    major = yes
+
+	option = {
+
+		name = intervention.8.a
+        	668 = {
+                cede_province = event_target:second_country
+                 add_core = event_target:second_country
+            }
+            add_truce_with = event_target:second_country
+            add_country_modifier = {
+                name = european_china_trade
+                duration = 10000
+            }
+	}
+	option = {
+		name = intervention.8.b
+        event_target:second_country = {
+            declare_war_with_cb = {
+                who = ROOT
+                casus_belli = cb_annex 
+            }
+        }
+	}
+}
+country_event = {
+	id = intervention.9
+	title = intervention.9.t
+	desc = intervention.9.d
+	picture = MALAYAN_PORT_eventPicture
+    is_triggered_only = yes
+    major = yes
+
+	option = {
+		name = intervention.9.a
+        	4942 = {
+                cede_province = event_target:third_country
+                 add_core = event_target:third_country
+            }
+            add_country_modifier = {
+                name = european_china_trade
+                duration = 10000
+            }
+            add_truce_with = event_target:third_country
+	}
+	option = {
+		name = intervention.9.b
+        event_target:third_country = {
+            declare_war_with_cb = {
+                who = ROOT
+                casus_belli = cb_annex 
+            }
+        }
+	}
+}
+country_event = {
+	id = intervention.10
+	title = intervention.10.t
+	desc = intervention.10.d
+	picture = MALAYAN_PORT_eventPicture
+    is_triggered_only = yes
+    major = yes
+
+	option = {
+		name = intervention.10.a
+        	1822 = {
+                cede_province = event_target:fourth_country
+                 add_core = event_target:fourth_country
+            }
+             add_truce_with = event_target:fourth_country
+            add_country_modifier = {
+                name = european_china_trade
+                duration = 10000
+            }
+	}
+	option = {
+		name = intervention.10.b
+        event_target:fourth_country = {
+            declare_war_with_cb = {
+                who = ROOT
+                casus_belli = cb_annex 
+            }
+        }
+	}
+}
+country_event = {
+	id = intervention.11
+	title = intervention.11.t
+	desc = intervention.11.d
+	picture = MALAYAN_PORT_eventPicture
+    is_triggered_only = yes
+    major = yes
+
+	option = {
+		name = intervention.11.a
+        	2145 = {
+                cede_province = event_target:fith_country
+                add_core = event_target:fith_country
+            }
+            add_truce_with = event_target:fith_country
+            add_country_modifier = {
+                name = european_china_trade
+                duration = 10000
+            }
+	}
+	option = {
+		name = intervention.11.b
+        event_target:fith_country = {
+            declare_war_with_cb = {
+                who = ROOT
+                casus_belli = cb_annex 
+            }
+        }
+	}
+}
+country_event = {
+	id = intervention.12
+	title = intervention.12.t
+	desc = intervention.12.d
+	picture = MALAYAN_PORT_eventPicture
+    is_triggered_only = yes
+    major = yes
+
+	option = {
+		name = intervention.12.a
+        	2139 = {
+                cede_province = event_target:sixth_country
+                 add_core = event_target:sixth_country
+            }
+            add_country_modifier = {
+                name = european_china_trade
+                duration = 10000
+            }
+             add_truce_with = event_target:sixth_country
+	}
+	option = {
+		name = intervention.12.b
+        event_target:sixth_country = {
+            declare_war_with_cb = {
+                who = ROOT
+                casus_belli = cb_annex 
+            }
+        }
+	}
+}
+country_event = {
+	id = intervention.13
+	title = intervention.13.t
+	desc = intervention.13.d
+	picture = MALAYAN_PORT_eventPicture
+    is_triggered_only = yes
+    major = yes
+
+	option = {
+		name = intervention.13.a
+        	2113 = {
+                cede_province = event_target:seven_country
+                 add_core = event_target:seven_country
+            }
+            add_truce_with = event_target:seven_country
+            add_country_modifier = {
+                name = european_china_trade
+                duration = 10000
+            }
+	}
+	option = {
+		name = intervention.13.b
+        event_target:seven_country = {
+            declare_war_with_cb = {
+                who = ROOT
+                casus_belli = cb_annex 
+            }
+        }
+	}
+}

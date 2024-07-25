@@ -1,0 +1,225 @@
+country_decisions = {
+    organize_conference = {
+        major = yes
+        potential = {
+            ai = no
+            capital_scope = {
+                 continent = europe
+            }   
+            NOT = { great_power_rank = 7 }
+            OR = {
+                current_age = age_of_absolutism
+                current_age = age_of_revolutions
+            }
+            NOT = { has_global_flag	= China_conference }
+            has_idea_group = exploration_ideas
+            is_bankrupt = no
+            has_any_disaster = no
+        }
+        allow = {
+            treasury = 1000
+            is_at_war = no
+            1816 = {
+                range = ROOT
+            }
+        }
+        effect = {
+            add_treasury = -1000	
+            set_global_flag	 = China_conference
+            country_event = {
+                id = intervention.1
+            }
+        }
+    }
+    demand_island = {
+        major = yes
+        potential = {
+            has_country_flag = has_china_claim
+            has_country_flag = island_taken
+            is_free_or_tributary_trigger = yes
+            NOT = { has_country_flag = province_demanded }
+                NOT = {
+                    2160 = {
+                        owned_by = ROOT
+                    }
+                }
+            
+        }
+        allow = {
+            is_at_war = no
+        }
+        effect = {
+            set_country_flag = province_demanded
+            2160 = {
+                owner = {
+                    country_event = {
+                        id = intervention.7
+                    }
+                }
+            }
+        }
+    }
+    demand_macau = {
+        major = yes
+        potential = {
+            has_country_flag = has_china_claim
+            has_country_flag = makau_taken
+            is_free_or_tributary_trigger = yes
+            NOT = { has_country_flag = province_demanded }
+            NOT = {
+                    668 = {
+                        owned_by = ROOT
+                    }
+                }
+        }
+        allow = {
+            is_at_war = no
+        }
+        effect = {
+            set_country_flag = province_demanded
+            668 = {
+                owner = {
+                    country_event = {
+                        id = intervention.8
+                    }
+                }
+            }
+        }
+    }
+    demand_3 = {
+        major = yes
+        potential = {
+            has_country_flag = has_china_claim
+             has_country_flag = 3_demand
+            NOT = {
+                    4942 = {
+                        owned_by = ROOT
+                    }
+                }
+            is_free_or_tributary_trigger = yes
+            NOT = { has_country_flag = province_demanded }
+        }
+        allow = {
+            is_at_war = no
+        }
+        effect = {
+            set_country_flag = province_demanded
+            4942 = {
+                owner = {
+                    country_event = {
+                        id = intervention.9
+                    }
+                }
+            }
+        }
+    }
+        demand_4 = {
+        major = yes
+        potential = {
+            has_country_flag = has_china_claim
+             has_country_flag = 4_demand
+            is_free_or_tributary_trigger = yes
+            NOT = { has_country_flag = province_demanded }
+            NOT = {
+                    1822 = {
+                        owned_by = ROOT
+                    }
+                }
+        }
+        allow = {
+            is_at_war = no
+        }
+        effect = {
+            set_country_flag = province_demanded
+            1822 = {
+                owner = {
+                    country_event = {
+                        id = intervention.10
+                    }
+                }
+            }
+        }
+    }
+        demand_5 = {
+        major = yes
+        potential = {
+            has_country_flag = has_china_claim
+             has_country_flag = 5_demand
+            is_free_or_tributary_trigger = yes
+            NOT = { has_country_flag = province_demanded }
+            NOT = {
+                    2145 = {
+                        owned_by = ROOT
+                    }
+                }
+        }
+        allow = {
+            is_at_war = no
+        }
+        effect = {
+            set_country_flag = province_demanded
+            2145 = {
+                owner = {
+                    country_event = {
+                        id = intervention.11
+                    }
+                }
+            }
+        }
+    }
+        demand_6 = {
+        major = yes
+        potential = {
+            has_country_flag = has_china_claim
+            has_country_flag = 6_demand
+            is_free_or_tributary_trigger = yes
+            NOT = { has_country_flag = province_demanded }
+            NOT = {
+                    2139 = {
+                        owned_by = ROOT
+                    }
+                }
+        }
+        allow = {
+            is_at_war = no
+        }
+        effect = {
+            set_country_flag = province_demanded
+            2139 = {
+                owner = {
+                    country_event = {
+                        id = intervention.12
+                    }
+                }
+            }
+        }
+    }
+            demand_7 = {
+        major = yes
+        potential = {
+            has_country_flag = has_china_claim
+             has_country_flag = 7_demand
+            is_free_or_tributary_trigger = yes
+            NOT = { has_country_flag = province_demanded }
+            NOT = {
+                    2113 = {
+                        owned_by = ROOT
+                    }
+                }
+        }
+        
+        allow = {
+            is_at_war = no
+        }
+        effect = {
+            set_country_flag = province_demanded
+            2113 = {
+                owner = {
+                    country_event = {
+                        id = intervention.13
+                    }
+                }
+            }
+        }
+    }
+}

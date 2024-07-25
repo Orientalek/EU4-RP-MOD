@@ -1,0 +1,254 @@
+spriteTypes = {
+    spriteType = {
+		name = "GFX_rp_genua_merchants"
+		texturefile = "gfx/interface/ages/genua_ab.dds"
+	}
+    spriteType = {
+		name = "GFX_rp_castilian_range"
+		texturefile = "gfx/interface/ages/castile_ab.dds"
+	}
+    spriteType = {
+		name = "GFX_rp_milan"
+		texturefile = "gfx/interface/ages/milan_ab.dds"
+	}
+    spriteType = {
+		name = "GFX_rp_pope"
+		texturefile = "gfx/interface/ages/papal2_ab.dds"
+	}
+    spriteType = {
+		name = "GFX_rp_moscow"
+		texturefile = "gfx/interface/ages/muscovy_ab.dds"
+	}
+    spriteType = {
+		name = "GFX_rp_mamluk"
+		texturefile = "gfx/interface/ages/mamluks_ab.dds"
+	}
+    spriteType = {
+		name = "GFX_rp_teutonic"
+		texturefile = "gfx/interface/ages/teutonic_order_ab.dds"
+	}
+    spriteType = {
+		name = "GFX_rp_great"
+		texturefile = "gfx/interface/ages/great_horde_ab.dds"
+	}
+    spriteType = {
+		name = "GFX_rp_crimea"
+		texturefile = "gfx/interface/ages/crimea_ab.dds"
+	}
+
+
+
+	   spriteType = {
+		name = "GFX_rp_saxony"
+		texturefile = "gfx/interface/ages/saxony_ab.dds"
+	}
+	   spriteType = {
+		name = "GFX_rp_brandenburg"
+		texturefile = "gfx/interface/ages/brandenburg_ab.dds"
+	}
+	   spriteType = {
+		name = "GFX_rp_england"
+		texturefile = "gfx/interface/ages/england_ab.dds"
+	}
+	   spriteType = {
+		name = "GFX_rp_bavaria"
+		texturefile = "gfx/interface/ages/bavaria_ab.dds"
+	}
+	   spriteType = {
+		name = "GFX_rp_hessen"
+		texturefile = "gfx/interface/ages/hesse.dds"
+	}
+	   spriteType = {
+		name = "GFX_rp_hungary"
+		texturefile = "gfx/interface/ages/hungry_ab.dds"
+	}
+	   spriteType = {
+		name = "GFX_rp_sweden"
+		texturefile = "gfx/interface/ages/sweden_ab.dds"
+	}
+	   spriteType = {
+		name = "GFX_rp_switzerland"
+		texturefile = "gfx/interface/ages/switzerland_ab.dds"
+	}
+
+
+
+
+		spriteType = {
+		name = "GFX_rp_bohemia"
+		texturefile = "gfx/interface/ages/bohemia_ab.dds"
+	}
+	   spriteType = {
+		name = "GFX_rp_hannover"
+		texturefile = "gfx/interface/ages/hannover.dds"
+	}
+	   spriteType = {
+		name = "GFX_rp_gb"
+		texturefile = "gfx/interface/ages/great_britain_ab.dds"
+	}
+	   spriteType = {
+		name = "GFX_rp_tunis"
+		texturefile = "gfx/interface/ages/tunis_ab.dds"
+	}
+	   spriteType = {
+		name = "GFX_rp_morocco"
+		texturefile = "gfx/interface/ages/morocco_ab.dds"
+	}
+	   spriteType = {
+		name = "GFX_rp_andalusia"
+		texturefile = "gfx/interface/ages/andalusia_ab.dds"
+	}
+	   spriteType = {
+		name = "GFX_rp_lotharingia"
+		texturefile = "gfx/interface/ages/lotharyngia_ab.dds"
+	}
+
+
+
+
+			spriteType = {
+		name = "GFX_rp_france"
+		texturefile = "gfx/interface/ages/france_ab.dds"
+	}
+	   spriteType = {
+		name = "GFX_rp_usa"
+		texturefile = "gfx/interface/ages/usa_ab.dds"
+	}
+	   spriteType = {
+		name = "GFX_rp_italy"
+		texturefile = "gfx/interface/ages/italy_ab.dds"
+	}
+	   spriteType = {
+		name = "GFX_rp_persia"
+		texturefile = "gfx/interface/ages/persia_ab.dds"
+	}
+	   spriteType = {
+		name = "GFX_rp_polish_lithuania"
+		texturefile = "gfx/interface/ages/polish_lithuania_ab.dds"
+	}
+	   spriteType = {
+		name = "GFX_rp_bulgaria"
+		texturefile = "gfx/interface/ages/bulgaria_ab.dds"
+	}
+	   spriteType = {
+		name = "GFX_rp_egipt_rum"
+		texturefile = "gfx/interface/ages/Rum_ab.dds"
+	}
+
+
+
+		   spriteType = {
+		name = "GFX_obj_have_colonist"
+		texturefile = "gfx/interface/ages/obj_have_colonist.dds"
+	}
+		   spriteType = {
+		name = "GFX_obj_new_lands"
+		texturefile = "gfx/interface/ages/obj_new_lands.dds"
+	}
+		   spriteType = {
+		name = "GFX_obj_new_advisor"
+		texturefile = "gfx/interface/ages/obj_new_advisor.dds"
+	}
+		   spriteType = {
+		name = "GFX_obj_trade_companies"
+		texturefile = "gfx/interface/ages/obj_trade_companies.dds"
+	}
+		   spriteType = {
+		name = "GFX_obj_papal_controller"
+		texturefile = "gfx/interface/ages/obj_papal_controller.dds"
+	}
+		   spriteType = {
+		name = "GFX_obj_trade"
+		texturefile = "gfx/interface/ages/obj_trade.dds"
+	}
+	
+
+
+
+			   spriteType = {
+		name = "GFX_obj_mercenaries"
+		texturefile = "gfx/interface/ages/obj_mercenaries.dds"
+	}
+		   spriteType = {
+		name = "GFX_obj_morale"
+		texturefile = "gfx/interface/ages/obj_morale.dds"
+	}
+		   spriteType = {
+		name = "GFX_obj_center_reformation"
+		texturefile = "gfx/interface/ages/obj_center_reformation.dds"
+	}
+		   spriteType = {
+		name = "GFX_obj_flagship"
+		texturefile = "gfx/interface/ages/obj_flagship.dds"
+	}
+		   spriteType = {
+		name = "GFX_obj_unity_religion"
+		texturefile = "gfx/interface/ages/obj_unity_religion.dds"
+	}
+		   spriteType = {
+		name = "GFX_obj_gold_mines"
+		texturefile = "gfx/interface/ages/obj_gold_mines.dds"
+	}
+
+
+
+
+
+			   spriteType = {
+		name = "GFX_obj_grand_army"
+		texturefile = "gfx/interface/ages/obj_grand_army.dds"
+	}
+		   spriteType = {
+		name = "GFX_obj_hre_size"
+		texturefile = "gfx/interface/ages/obj_hre_size.dds"
+	}
+		   spriteType = {
+		name = "GFX_obj_target_revolution"
+		texturefile = "gfx/interface/ages/obj_target_revolution.dds"
+	}
+		   spriteType = {
+		name = "GFX_obj_innovativnes"
+		texturefile = "gfx/interface/ages/obj_innovativnes.dds"
+	}
+		   spriteType = {
+		name = "GFX_obj_income"
+		texturefile = "gfx/interface/ages/obj_income.dds"
+	}
+		   spriteType = {
+		name = "GFX_obj_mana_military"
+		texturefile = "gfx/interface/ages/obj_mana_military.dds"
+	}
+
+
+
+
+
+
+
+			   spriteType = {
+		name = "GFX_obj_heavy_ships"
+		texturefile = "gfx/interface/ages/obj_heavy_ships.dds"
+	}
+		   spriteType = {
+		name = "GFX_obj_crownland"
+		texturefile = "gfx/interface/ages/obj_crownland.dds"
+	}
+		   spriteType = {
+		name = "GFX_obj_monument"
+		texturefile = "gfx/interface/ages/obj_monument.dds"
+	}
+		   spriteType = {
+		name = "GFX_obj_autonomy"
+		texturefile = "gfx/interface/ages/obj_autonomy.dds"
+	}
+		   spriteType = {
+		name = "GFX_obj_hre_emperor"
+		texturefile = "gfx/interface/ages/obj_hre_emperor.dds"
+	}
+		   spriteType = {
+		name = "GFX_obj_dip"
+		texturefile = "gfx/interface/ages/obj_dip.dds"
+	}
+
+
+}

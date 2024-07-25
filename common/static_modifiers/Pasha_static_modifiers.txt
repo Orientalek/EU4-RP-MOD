@@ -1,0 +1,8 @@
+pasha_state = {
+    local_autonomy = 0.02
+    local_unrest = -2
+    local_regiment_cost = -0.1
+    local_tax_modifier = -0.1
+    local_production_efficiency = 0.1
+    trade_efficiency = 0.1
+}

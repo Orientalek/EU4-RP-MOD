@@ -1,0 +1,1322 @@
+cooperation_way = {
+    slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+		tag = LIT
+		}
+	}
+	has_country_shield = yes
+
+    Renew_union_of_Kreva = {
+        icon = mission_noble_council
+        position = 1
+        required_missions = { }
+        trigger = {
+            junior_union_with = POL
+            owns_core_province = 276
+            has_opinion = {
+				who = POL
+				value = 150
+			}
+        }
+        effect = {
+            country_event = {
+                id = new_lithuanian.1
+            }
+        }
+    }
+	Vilnius_agreement = {
+		icon = mission_alliances
+		position = 2
+		required_missions = {Renew_union_of_Kreva}
+		trigger = {
+			junior_union_with = POL
+			owns_core_province = 272
+			is_year = 1460
+		}
+		effect = {
+			 POL = {
+			 country_event = {
+                id = new_lithuanian.2
+            	}
+			}
+		}
+	}
+	Union_economy = {
+		icon = mission_war_chest
+		position = 3
+		required_missions = {Vilnius_agreement}
+		trigger = {
+			junior_union_with = POL
+			is_year = 1500
+			adm = 5
+		}
+		effect = {
+			POL = {
+			 country_event = {
+                id = new_lithuanian.3
+            	}
+			}
+		}
+	}
+	Military_treaty = {
+		icon = mission_build_up_to_force_limit
+		position = 4
+		required_missions = {Union_economy}
+		trigger = {
+			junior_union_with = POL
+			is_year = 1530
+			had_recent_war = 5
+		}
+		effect = {
+			POL = {
+				country_event = {
+					id = new_lithuanian.4
+				}
+			}
+		}
+	}
+	Union_of_Lublin = {
+		icon = mission_early_modern_university
+		position = 5
+		required_missions = {Military_treaty}
+		trigger = {
+			junior_union_with = POL
+			is_year = 1569
+			owns_core_province = 4542
+			POL = {
+				owns_core_province = 260
+			}
+		}
+		effect = {
+			country_event = {
+				id = new_lithuanian.5
+			}
+		}
+	}
+}
+Economic_way_ruth = {
+    slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+		tag = LIT
+		}
+	}
+	has_country_shield = yes
+
+	Revitalize_economy_of_lit = {
+		icon = mission_early_game_buildings
+		position = 1
+		required_missions = { }
+		provinces_to_highlight = {
+            OR = {
+			province_id = 272
+			province_id = 280
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			NOT = {
+			inflation = 0.5
+			}
+			treasury = 250
+			owns_core_province = 272
+			owns_core_province = 280
+		}
+		effect = {
+			add_adm_power = 50
+			add_dip_power = 50
+			add_mil_power = 50
+		}
+	}
+	Develop_Ruthenia1 = {
+		icon = mission_colonial
+		position = 2
+		required_missions = {Revitalize_economy_of_lit}
+		provinces_to_highlight = {
+			region = ruthenia_region
+			NOT = {
+				development = 10
+			}
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				region = ruthenia_region
+				development = 10
+				value = 10
+			}
+		}
+		effect = {
+			ruthenia_region = {
+				limit = { owned_by = root }
+				add_province_modifier = {
+					name = restored_ruthenia
+					duration = -1
+				}
+			}
+		}
+	}
+	Restore_Kiev1 = {
+		icon = mission_conquer_50_development
+		position = 3
+		required_missions = {Develop_Ruthenia1}
+		provinces_to_highlight = {
+			province_id = 280
+		}
+		trigger = {
+			280 = {
+				owned_by = ROOT
+				development = 15
+				OR = {
+				has_building = temple
+				has_building = cathedral
+				}
+			}
+		}
+		effect = {
+			280 = {
+				add_base_manpower = 3
+				add_base_tax = 3
+				add_base_production = 3
+				add_center_of_trade_level = 1
+			}
+		}
+	}
+	lit_develop_sluck = {
+        icon = mission_noble_council
+        required_missions = { Restore_Kiev1 }
+        provinces_to_highlight = {
+            province_id = 4545
+            NOT = {
+                OR = {
+                    has_building = counting_house
+                    has_building = workshop
+                }
+            }
+        }
+        trigger = {
+            4545 = {
+                has_building = textile
+                OR = {
+                    has_building = counting_house
+                    has_building = workshop
+                }
+            }
+            textile = 5
+        }
+        effect = {
+            if = {
+                limit = {
+                    has_estate = estate_nobles
+                }
+                add_estate_loyalty = {
+                    estate = estate_nobles
+                    loyalty = 15
+                }
+            }
+            4545 = {
+                add_base_production = 3
+                add_province_modifier = {
+                    name = "sluck_sashes"
+                    duration = -1
+                }
+            }
+        }
+	}
+	Build_Kremlin = {
+		icon = fortress_of_belgrade
+		position = 5
+		required_missions = {lit_develop_sluck}
+		provinces_to_highlight = {
+			province_id = 295
+		}
+		trigger = {
+			295 = {
+				owned_by = ROOT
+				development = 25
+				OR = {
+					has_building = fort_15th
+					has_building = fort_16th
+					has_building = fort_17th
+					has_building = fort_18th
+				}
+				province_has_center_of_trade_of_level = 3
+			}
+		}
+		effect = {
+			add_prestige = 25
+			add_splendor = 100
+			295 = {
+				add_great_project_tier = {
+    				type = kremlin
+   					tier = 1
+				}
+			}
+		}
+	}
+	lit_build_manufactories = {
+		icon = industrialized_rhineland
+		required_missions = { 
+			Build_Kremlin
+			Black_sea_trade
+			WorldPort_of_Neva
+		}
+		position = 6
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				has_manufactory_trigger = yes 
+				base_production = 8 
+				value = 6
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "proto_industrialization"
+				duration = 9125
+			}
+			add_years_of_income = 2
+			custom_tooltip = lit_every_province_with_man_base_production_tt
+			hidden_effect = {
+				every_owned_province = {
+					limit = { has_manufactory_trigger = yes }
+					add_base_production = 1 
+				}
+			}
+		}
+	}
+}
+Economic_way_bal = {
+    slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+		tag = LIT
+		}
+	}
+	has_country_shield = yes
+	
+	Develop_Vilnius = {
+		icon = eastern_catholicization
+		position = 2
+		required_missions = {Revitalize_economy_of_lit}
+		provinces_to_highlight = {
+			province_id = 272
+		}
+		trigger = {
+			272 = {
+				owned_by = ROOT
+				development = 20
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
+			}
+		}
+		effect = {
+			272 = {
+				add_building_construction = {
+    				building = workshop
+    				speed = 0.5
+    				cost = 0
+				}
+				add_center_of_trade_level = 1
+			}
+		}
+	}
+	Livestock_of_lit = {
+		icon = polish_subjects
+		position = 3
+		required_missions = {Develop_Vilnius}
+		provinces_to_highlight = {
+			AND = {
+			area = lithuania_area
+			area = samogitia_area
+			}
+			NOT = {
+				base_manpower = 5
+			}
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				OR = {
+				area = lithuania_area
+				area = samogitia_area
+				}
+				base_manpower = 5
+				value = 5
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = lit_livestock
+				duration = 9125
+			}
+			change_mil = 1
+		}
+	}
+	Develop_Riga = {
+		icon = mission_conquer_riga
+		position = 4
+		required_missions = {Livestock_of_lit}
+		provinces_to_highlight = {
+			province_id = 38
+		}
+		trigger = {
+			38 = {
+				owned_by = ROOT
+				development = 20
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
+				OR = {
+					province_has_center_of_trade_of_level = 2
+					has_building = marketplace
+				}
+			}
+		}
+		effect = {
+			38 = {
+				add_center_of_trade_level = 1
+				change_trade_goods = gems
+			}
+		}
+	}
+	WorldPort_of_Neva = {
+		icon = mission_danzig_or_war
+		position = 5
+		required_missions = {Develop_Riga}
+		provinces_to_highlight = {
+			province_id = 33
+		}
+		trigger = {
+			33 = {
+				owned_by = ROOT
+				development = 25
+				OR = {
+					has_building = workshop
+					has_building = counting_house
+				}
+				OR = {
+					has_building = marketplace
+					has_building = trade_depot
+					has_building = stock_exchange
+				}
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
+				province_has_center_of_trade_of_level = 3
+				trade_share = {
+					country = ROOT
+					share = 33
+				}
+			}
+		}
+		effect = {
+			country_event = {
+				id = new_lithuanian.11
+			}
+		}
+	}
+}
+Economic_way_step = {
+    slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+		tag = LIT
+		}
+	}
+	has_country_shield = yes
+
+	mission_lit_cossacks = {
+        icon = mission_cossack_cavalry
+        required_missions = { Revitalize_economy_of_lit }
+		position = 2
+        provinces_to_highlight = {
+            OR = {
+                province_id = 282
+                province_id = 2406
+                province_id = 283
+            }
+        }
+        trigger = {
+            if = {
+                limit = {
+                    has_estate = estate_cossacks
+                }
+                estate_loyalty = {
+                    estate = estate_cossacks
+                    loyalty = 60
+                }
+                estate_influence = {
+                    estate = estate_cossacks
+                    influence = 40
+                }
+                has_estate_privilege = estate_cossacks_establish_the_cossack_regiments
+                owns_core_province = 282
+                owns_core_province = 2406
+                owns_core_province = 283
+            }
+            else = {
+                282 = {
+                    owned_by = ROOT
+                    is_state = yes
+                    NOT = {
+                        unrest = 1
+                    }
+                    NOT = {
+                        local_autonomy = 30
+                    }
+                }
+                2406 = {
+                    owned_by = ROOT
+                    is_state = yes
+                    NOT = {
+                        unrest = 1
+                    }
+                    NOT = {
+                        local_autonomy = 30
+                    }
+                }
+				283 = {
+                    owned_by = ROOT
+                    is_state = yes
+                    NOT = {
+                        unrest = 1
+                    }
+                    NOT = {
+                        local_autonomy = 30
+                    }
+                }
+            }
+        }
+        effect = {
+            zaporizhia_area = {
+                limit = {
+                    NOT = { is_permanent_claim = ROOT    }
+                    NOT = { is_core = ROOT    }
+                }
+                add_permanent_claim = ROOT
+            }
+            yedisan_area = {
+                limit = {
+                    NOT = { is_permanent_claim = ROOT    }
+                    NOT = { is_core = ROOT    }
+                }
+                add_permanent_claim = ROOT
+            }
+            crimea_area = {
+                limit = {
+                    NOT = { is_permanent_claim = ROOT    }
+                    NOT = { is_core = ROOT    }
+                }
+                add_permanent_claim = ROOT
+            }
+            azov_area = {
+                limit = {
+                    NOT = { is_permanent_claim = ROOT    }
+                    NOT = { is_core = ROOT    }
+                }
+                add_permanent_claim = ROOT
+            }
+        }
+    }
+	Develop_steps = {
+		icon = mission_recruit_the_cossacks
+		position = 3
+		required_missions = {mission_lit_cossacks}
+		provinces_to_highlight = {
+			has_terrain = steppe
+			owned_by = ROOT
+			NOT = {
+				development = 10
+			}
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				has_terrain = steppe
+				development = 10
+				value = 5
+			}
+		}
+		effect = {
+			custom_tooltip = lit1
+			eastern_europe_superregion = {
+				limit = {has_terrain = steppe}
+				limit = { owned_by = root }
+				add_province_modifier = {
+					name = Developed_steps
+					duration = 18250
+				}
+			}
+		}
+	}
+	Black_sea_trade = {
+		icon = mission_dominate_home_trade_node
+		position = 5
+		required_missions = {Develop_steps}
+		provinces_to_highlight = {
+			province_id = 284
+		}
+		trigger = {
+			284 = {
+				owned_by = ROOT
+				development = 25
+				OR = {
+					has_building = fort_15th
+					has_building = fort_16th
+					has_building = fort_17th
+					has_building = fort_18th
+				}
+				OR = {
+					has_building = workshop
+					has_building = counting_house
+				}
+				trade_share = {
+					country = ROOT
+					share = 50
+				}
+			}
+		}
+		effect = {
+			add_mercantilism = 5
+			add_years_of_income = 2
+			add_country_modifier = {
+				name = sea_black_trade
+				duration = 18250
+			}
+		}
+	}
+}
+Estates_way_lit_1 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+		tag = LIT
+		}
+	}
+	has_country_shield = yes
+
+	Balance_the_land = {
+		icon = balance_the_estates
+		position = 7
+		required_missions = {}
+		trigger = {
+			crown_land_share = estate_nobles
+			NOT = {
+				num_of_powerful_estates = 2
+			}
+		}
+		effect = {
+			add_estate_loyalty = {
+    			estate = estate_nobles
+    			loyalty = 15
+			}
+			add_estate_loyalty = {
+    			estate = estate_burghers
+    			loyalty = 15
+			}
+			add_estate_loyalty = {
+    			estate = estate_church
+    			loyalty = 15
+			}
+		}
+	}
+	Loyal_dukes = {
+		icon = professional_army
+		position = 8 
+		required_missions = {Balance_the_land}
+		trigger = {
+			num_of_estate_privileges = {
+				estate = estate_nobles
+				value = 3
+			}
+			estate_loyalty = {
+    			estate = estate_nobles
+    			loyalty = 55
+			}
+			NOT = {
+				estate_influence = {
+					estate = estate_nobles
+					influence = 70
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = great_relations_with_dukes
+				duration = 9125
+			}
+		}
+	}
+	Increase_quantity_of_army = {
+		icon = mission_assemble_an_army
+		position = 9
+		required_missions = {Loyal_dukes}
+		trigger = {
+			army_size_percentage = 1
+			num_of_infantry = 30
+			num_of_generals_with_traits = 1
+		}
+		effect = {
+			add_army_professionalism = 0.05
+			define_general = {
+    			name = "Konstanty Ostrogski"
+				shock = 5
+    			fire = 3
+    			manuever = 3
+    			siege = 4
+			}
+		}
+	}
+	Lithuanian_quality = {
+		icon = mission_cannons_firing
+		position = 10
+		required_missions = {Increase_quantity_of_army}
+		trigger = {
+			land_morale = 4.2
+			army_tradition = 50
+			army_professionalism = 0.2
+		}
+		effect = {
+			custom_tooltip = lit2
+			add_yearly_manpower = 2
+			add_country_modifier = {
+				name = quality_of_lit
+				duration = 10950
+			}
+			set_country_flag = lit_mercs
+		}
+	}
+}
+Estates_way_lit_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+		tag = LIT
+		}
+	}
+	has_country_shield = yes
+
+	Loyal_clergy = {
+		icon = mission_religious
+		position = 8
+		required_missions = {Balance_the_land}
+		trigger = {
+			num_of_estate_privileges = {
+				estate = estate_church
+				value = 3
+			}
+			estate_loyalty = {
+    			estate = estate_church
+    			loyalty = 55
+			}
+			NOT = {
+				estate_influence = {
+					estate = estate_church
+					influence = 70
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = great_relations_with_clergy
+				duration = 9125
+			}
+		}
+	}
+	Religion_situation = {
+		icon = mission_hands_praying
+		position = 9
+		required_missions = {Loyal_clergy}
+		trigger = {
+			NOT = {current_age = age_of_discovery}
+			religious_unity = 1
+			is_religion_enabled = reformed
+		}
+		effect = {
+			add_papal_influence = 50
+			add_patriarch_authority = 20
+			add_fervor = 50
+			add_church_power = 50
+			add_country_modifier = {
+				name = Balanced_religion
+				duration = 9125
+			}
+		}
+	}
+}
+Estates_way_lit_3 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+		tag = LIT
+		}
+	}
+	has_country_shield = yes
+
+	Loyal_burghers = {
+		icon = mission_unite_the_princes
+		position = 8
+		required_missions = {Balance_the_land}
+		trigger = {
+			num_of_estate_privileges = {
+				estate = estate_burghers
+				value = 3
+			}
+			estate_loyalty = {
+    			estate = estate_burghers
+    			loyalty = 55
+			}
+			NOT = {
+				estate_influence = {
+					estate = estate_burghers
+					influence = 70
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = great_relations_with_burghers
+				duration = 9125
+			}
+		}
+	}
+	Lithuanian_ports = {
+		icon = mission_hanseatic_city
+		position = 9 
+		required_missions = {Loyal_burghers}
+		trigger = {
+			num_of_ports = 5
+			num_of_owned_provinces_with = {
+				value = 5
+				OR = {
+					has_building = drydock
+					has_building = dock
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = naval_ambitions
+				duration = 5475
+			}
+		}
+	}
+	Baltic_fleet = {
+		icon = mission_establish_high_seas_navy
+		position = 10
+		required_missions = {Lithuanian_ports}
+		trigger = {
+			navy_size = 35
+			navy_size_percentage = 1
+			navy_tradition = 30
+			num_of_admirals = 2
+		}
+		effect = {
+			add_yearly_sailors = 20
+			add_country_modifier = {
+				name = Baltic_fleet1
+				duration = -1
+			}
+		}
+	}
+}
+expasion_way_lit_1 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+		tag = LIT
+		}
+	}
+	has_country_shield = yes
+
+	Legacy_of_Vytautas_the_great = {
+		icon = mission_crusade_for_varna
+		position = 13
+		required_missions = {}
+		trigger = {
+			stability = 1
+			manpower_percentage = 0.5
+			army_size_percentage = 1
+		}
+		effect = {
+			country_event = {
+				id = new_lithuanian.15
+			}
+		}
+	}
+	sca_lit_conquer_crimea = {
+		icon = mission_sca_lit_conquer_crimea
+		required_missions = {Legacy_of_Vytautas_the_great }
+		position = 2
+		provinces_to_highlight = {
+			OR = {
+				area = zaporizhia_area
+				area = yedisan_area
+				area = crimea_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			zaporizhia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			yedisan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			crimea_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			owns_core_province = 285
+		}
+		effect = {
+			country_event = { id = flavor_lit.17 }
+			astrakhan_area = {
+				add_permanent_claim = ROOT
+			}
+			lower_don_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	Beat_great_horde = {
+		icon = mission_steppe_warriors
+		position = 15
+		required_missions = {sca_lit_conquer_crimea}
+		trigger = {
+			owns_all_provinces = {
+				area = lower_don_area
+			}
+			owns_all_provinces = {
+				area = astrakhan_area
+			}
+			NOT = {
+			exists = GOL
+			}
+		}
+		effect = {
+			circassia_area = {
+				add_permanent_claim = ROOT
+			}
+			dagestan_area = {
+				add_permanent_claim = ROOT
+			}
+			lower_yik_area = {
+				add_permanent_claim = ROOT
+			}
+			saratov_area = {
+				add_permanent_claim = ROOT
+			}
+			tambov_area = {
+				add_permanent_claim = ROOT
+			}
+			add_prestige = 25
+		}
+	}
+	Conquer_saratov = {
+		icon = mission_rb_conquer_wales
+		position = 16
+		required_missions = {Beat_great_horde}
+		trigger = {
+			owns_all_provinces = {
+				area = saratov_area
+			}
+			owns_all_provinces = {
+				area = lower_yik_area
+			}
+			owns_all_provinces = {
+				area = tambov_area
+			}
+		}
+		effect = {
+			nogai_area = {
+				add_permanent_claim = ROOT
+			}
+			bashkiria_area = {
+				add_permanent_claim = ROOT
+			}
+			303 = {
+				add_unrest = -20
+				change_religion = catholic
+				add_building = temple
+			}
+		}
+	}
+	King_of_Hordes = {
+		icon = mission_empire
+		position = 16
+		required_missions = {Conquer_saratov}
+		trigger = {
+			owns_core_province = 465
+			owns_core_province = 303
+			owns_core_province = 464
+			owns_core_province = 284
+			NOT = {
+				exists = GOL
+			}
+			NOT = {
+				exists = NOG
+			}
+			NOT = {
+				exists = CRI
+			}
+		}
+		effect = {
+			country_event = {
+				id = new_lithuanian.18
+			}
+		}
+	}
+}
+expasion_way_lit = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+		tag = LIT
+		}
+	}
+	has_country_shield = yes
+
+	Beat_livonias = {
+		icon = mission_teutonic_knights
+		position = 14
+		required_missions = {Legacy_of_Vytautas_the_great}
+		trigger = {
+			owns_all_provinces = {
+				area = livonia_area
+			}
+			owns_all_provinces = {
+				area = curonia_area
+			}
+			owns_all_provinces = {
+				area = estonia_ingria_area
+			}
+		}
+		effect = {
+			add_accepted_culture = latvian
+			add_accepted_culture = estonian
+			create_admiral = { tradition = 50 }
+		}
+	}
+	Duchy_of_Kurland = {
+		icon = mission_have_two_subjects
+		position = 15
+		required_missions = {Beat_livonias}
+		trigger = {
+			livonia_area = {
+				type = all
+				NOT = {
+					nationalism = 5
+				}
+				owned_by = ROOT
+			}
+			curonia_area = {
+				type = all
+				NOT = {
+					nationalism = 5
+				}
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			country_event = {
+				id = new_lithuanian.16
+			}
+		}
+	}
+	Conquest_of_circassia = {
+		icon = mission_claim_hispaniola
+		position = 16
+		required_missions = {Beat_great_horde}
+		trigger = {
+			owns_all_provinces = {
+				area = circassia_area
+			}
+			owns_all_provinces = {
+				area = dagestan_area
+			}
+		}
+		effect = {
+			imereti_area = {
+				add_permanent_claim = ROOT
+			}
+			kartli_kakheti_area = {
+				add_permanent_claim = ROOT
+			}
+			shirvan_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	King_of_caucas = {
+		icon = mission_monarch_in_throne_room
+		position = 17
+		required_missions = {Conquest_of_circassia}
+		trigger = {
+			owns_core_province = 463
+			owns_core_province = 421
+			owns_core_province = 422
+			owns_core_province = 423
+		}
+		effect = {
+			country_event = {
+				id = new_lithuanian.17
+			}
+		}
+	}
+}
+expasion_way_lit_2 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+		tag = LIT
+		}
+	}
+	has_country_shield = yes
+
+	Conquer_odoyev = {
+		icon = mission_reconquer_vologda
+		position = 14
+		required_missions = {Legacy_of_Vytautas_the_great}
+		trigger = {
+			owns_all_provinces = {
+				area = oka_area
+			}
+			owns_all_provinces = {
+				area = sloboda_ukraine_area
+			}
+			NOT = {
+				exists = OKA
+			}
+		}
+		effect = {
+			moscow_area = {
+				add_permanent_claim = ROOT
+			}
+			ryazan_area = {
+				add_permanent_claim = ROOT
+			}
+			define_advisor = {
+    			type = recruitmaster
+    			skill = 1
+    			discount = yes
+			}
+		}
+	}
+	Defeat_Moscow = {
+		icon = mission_defeat_muscovy
+		position = 15
+		required_missions = {Conquer_odoyev}
+		trigger = {
+			owns_all_provinces = {
+				area = moscow_area
+			}
+			owns_all_provinces = {
+				area = ryazan_area
+			}
+		}
+		effect = {
+			tver_area = {
+				add_permanent_claim = ROOT
+			}
+			vladimir_area = {
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = Deafeated_Moscow
+				duration = 9125
+			}
+		}
+	}
+	Conquest_of_Tver = {
+		icon = mission_conquer_tver
+		position = 16
+		required_missions = {Defeat_Moscow}
+		trigger = {
+			owns_all_provinces = {
+				area = tver_area
+			}
+			owns_all_provinces = {
+				area = vladimir_area
+			}
+		}
+		effect = {
+			yaroslavl_area = {
+				add_permanent_claim = ROOT
+			}
+			suzdal_area = {
+				add_permanent_claim = ROOT
+			}
+			add_prestige = 20
+		}
+	}
+	Tsar_of_all_russias = {
+		icon = mission_the_third_rome
+		position = 17
+		required_missions = {Conquest_of_Tver}
+		trigger = {
+			NOT = {
+				exists = MOS
+			}
+			NOT = {
+				exists = RUS 
+			}
+			NOT = {
+				exists = UKR
+			}
+			owns_core_province = 295
+			owns_core_province = 294
+			owns_core_province = 4116
+		}
+		effect = {
+			country_event = {
+				id = new_lithuanian.19
+			}
+		}
+	}
+}
+expasion_way_lit_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+		tag = LIT
+		}
+	}
+	has_country_shield = yes
+
+	Conquer_Pskov = {
+		icon = unite_the_realm
+		position = 14
+		required_missions = {Legacy_of_Vytautas_the_great}
+		trigger = {
+			owns_all_provinces = {
+				area = pskov_area
+			}
+		}
+		effect = {
+			novgorod_area = {
+				add_permanent_claim = ROOT
+			}
+			add_dip_power = 50
+		}
+	}
+	Conquest_of_Novgorod = {
+		icon = mission_novgorod_the_great
+		position = 15
+		required_missions = {Conquer_Pskov}
+		trigger = {
+			owns_all_provinces = {
+				area = novgorod_area
+			}
+		}
+		effect = {
+			karelia_area = {
+				add_permanent_claim = ROOT
+			}
+			north_karelia = {
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = beaten_novgorod
+				duration = -1
+			}
+		}
+	}
+	Conquer_Karelia = {
+		icon = mission_scandinavian_port_authority
+		position = 16
+		required_missions = {Conquest_of_Novgorod}
+		trigger = {
+			owns_all_provinces = {
+				area = north_karelia
+			}
+			owns_all_provinces = {
+				area = karelia_area
+			}
+		}
+		effect = {
+			finland_area = {
+				add_permanent_claim = ROOT
+			}
+			bothnia_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	March_on_Nyland = {
+		icon = mission_conquer_finland
+		position = 17
+		required_missions = {Conquer_Karelia}
+		trigger = {
+			owns_all_provinces = {
+				area = finland_area
+			}
+			owns_all_provinces = {
+				area = bothnia_area
+			}
+		}
+		effect = {
+			scandinavia_region = {
+				add_claim = ROOT
+			}
+			add_prestige = 25
+			add_army_professionalism = 0.05
+		}
+	}
+	Swedish_trade = {
+		icon = mission_unite_home_region
+		position = 18
+		required_missions = {March_on_Nyland}
+		trigger = {
+			1 = {
+				trade_share = {
+					country = ROOT
+					share = 20
+				}
+			}
+		}
+		effect = {
+			add_mercantilism = 5
+		}
+	}
+}

@@ -1,0 +1,38 @@
+viking_society = {
+    icon = man_on_podium
+    allow_normal_conversion = yes
+	potential = {
+		OR = {
+			has_reform = viking_society
+			AND = {
+				is_playing_custom_nation = yes
+				have_had_reform = viking_society
+			}
+		}
+	}
+    lock_level_when_selected = yes
+    valid_for_nation_designer = yes
+	nation_designer_cost = 10
+	nation_designer_trigger = {
+		has_dlc = "Res Publica"
+	}
+    modifiers = {
+        max_absolutism = -10
+        global_autonomy = -0.05
+	warscore_cost_vs_other_religion = -0.10
+	may_perform_slave_raid = yes
+	global_missionary_strength = 0.02
+    }
+    conditional = {
+        allow = { has_dlc = "Res Publica" }
+		factions ={
+			vi_vikings
+			vi_Jarls
+			vi_Priests 
+
+		}
+    }
+    custom_attributes = {
+            locked_government_type = yes
+			
+}

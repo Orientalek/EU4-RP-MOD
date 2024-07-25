@@ -1,0 +1,7 @@
+hunt = { 
+    prestige_decay = -0.002
+}
+feast_modifier = { 
+    prestige = 0.25
+    legitimacy = 0.25
+}

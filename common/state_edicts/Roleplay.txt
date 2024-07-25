@@ -1,0 +1,121 @@
+culture = {
+	potential = {
+		always = yes		#we support "potential" if modders want to have lots and just show some.
+	}
+	
+	allow = {
+		always = yes
+	}
+	
+	modifier = {
+		local_culture_conversion_cost = -0.25	
+	}
+	
+	color = {  46 114 55  }
+	
+	
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+buid = {
+	potential = {
+		always = yes		#we support "potential" if modders want to have lots and just show some.
+	}
+	
+	allow = {
+		always = yes
+	}
+	
+	modifier = {
+		local_build_cost = -0.1
+	}
+	
+	color = {  46 114 55  }
+	
+	
+	ai_will_do = {
+		factor = 0
+	}
+}
+production = {
+	potential = {
+		always = yes		#we support "potential" if modders want to have lots and just show some.
+	}
+	
+	allow = {
+		always = yes
+	}
+	
+	modifier = {
+		local_production_efficiency = 0.1
+	}
+	
+	color = {  46 114 55  }
+	
+	
+	ai_will_do = {
+		factor = 0
+	}
+}
+atrition = {
+	potential = {
+		always = yes		#we support "potential" if modders want to have lots and just show some.
+	}
+	
+	allow = {
+		always = yes
+	}
+	
+	modifier = {
+		local_hostile_attrition = 1
+	}
+	
+	color = {  46 114 55  }
+	
+	
+	ai_will_do = {
+		factor = 0
+	}
+}
+regiment_cost = {
+	potential = {
+		always = yes		#we support "potential" if modders want to have lots and just show some.
+	}
+	
+	allow = {
+		always = yes
+	}
+	
+	modifier = {
+		local_regiment_cost = -0.25	
+	}
+	
+	color = {  46 114 55  }
+	
+	
+	ai_will_do = {
+		factor = 0
+	}
+}
+supply = {
+	potential = {
+		always = yes		#we support "potential" if modders want to have lots and just show some.
+	}
+	
+	allow = {
+		always = yes
+	}
+	
+	modifier = {
+		supply_limit_modifier = 0.25		
+	}
+	
+	color = {  46 114 55  }
+	
+	
+	ai_will_do = {
+		factor = 0
+	}
+}

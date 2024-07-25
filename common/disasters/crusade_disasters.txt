@@ -1,0 +1,62 @@
+rome_revolt = {
+	potential = {
+		tag = PAP
+		has_country_flag = crusade_started
+		has_country_flag = pope_is_dead
+	}
+	can_start = {
+		has_country_flag = crusade_started
+		has_country_flag = pope_is_dead
+	}
+	can_stop = {
+       	stability = 2
+       	is_in_war = {
+    		attacker_leader = PAP
+		}
+		NOT = { war_exhaustion = 3 }
+
+	}
+	can_end = {
+        NOT = {
+        	is_in_war = {
+    			attacker_leader = PAP
+			}
+        }
+        stability = 2
+	}	
+	progress = {
+        modifier = {
+                factor = 1
+                NOT = {stability = 1}
+        }
+        modifier = {
+                factor = 10
+                capital_scope = {
+					controller = { 
+						AND = {
+							OR = {
+								has_country_flag = member_of_league
+								has_country_flag = mameluk_leauge
+							}
+							
+							is_in_war = {
+    						attacker_leader = PAP
+						}
+						}
+						
+					}	
+				}
+                
+        }
+        modifier = {
+                factor = 4
+                PAP = {
+                	is_in_war = {
+    					attacker_leader = PAP
+					}
+                }
+        }
+	}
+	on_start = crusade.669
+	on_end = crusade.670
+}

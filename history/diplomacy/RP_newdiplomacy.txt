@@ -1,0 +1,33 @@
+# georgia and trabzon
+alliance = {
+	first = GEO
+	second = TRE
+    start_date = 1444.1.1
+    end_date = 1600.1.1
+}
+# trabzon and byzantium
+dependency = {
+    subject_type = tributary_state
+    first = BYZ
+    second = TRE      
+    start_date = 1444.1.1
+    end_date = 1600.1.1
+}
+
+# paderborn and cologne
+
+union = {
+	first = KOL
+	second = PAD
+    start_date = 1444.1.1
+    end_date = 1600.1.1
+}
+
+#chad andora and foix
+
+union = {
+	first = FOI
+	second = ALV
+    start_date = 1444.1.1
+    end_date = 1600.1.1
+}

@@ -1,0 +1,45 @@
+End_of_hab_domination = {
+	diplomatic_reputation = 3
+}
+Palatinate_glory = {
+	improve_relation_modifier = 0.15
+	diplomatic_reputation = 2
+	liberty_desire_from_subject_development = -0.5
+	diplomatic_upkeep = 2
+	imperial_authority_value = 0.1
+}
+prepared_armies = {
+	land_morale = 0.1
+}
+in_the_gates_of_France = {
+	ae_impact = -0.2
+}
+domination_of_low_countries = {
+	trade_efficiency = 0.15
+	center_of_trade_upgrade_cost = -0.25
+}
+norm_traditions = {
+	infantry_power = 0.1
+	global_unrest = -2
+}
+westphalian_conquest = {
+	discipline = 0.05
+	movement_speed = 0.10
+}
+king_of_saxony = {
+	legitimacy = 1
+	global_tax_modifier = 0.05
+}
+swabian_community = {
+	development_cost = -0.05
+	build_cost = -0.1
+	land_morale = 0.05
+}
+developed_capital = {
+	local_build_cost = -0.25
+	local_build_time = -0.25
+	local_prosperity_growth = 0.25
+	local_production_efficiency = 0.25
+	local_tax_modifier = 0.2
+	local_development_cost = -0.1
+}

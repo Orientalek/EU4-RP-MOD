@@ -1,0 +1,17 @@
+Scientific_boom = {
+	technology_cost = -0.05	
+	idea_cost = -0.05
+}
+constantinople_earthquake = {
+	global_unrest = 2
+	global_tax_modifier = 0.05
+	advisor_cost = 0.10
+}
+lady_of_stavoren = {
+	yearly_corruption = -0.1
+	interest = -0.25
+}
+powerful_protestant_in_our_ranks = {
+	tolerance_heretic = 1
+	global_heretic_missionary_strength = -0.01	
+}

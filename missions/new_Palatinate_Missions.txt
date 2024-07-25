@@ -1,0 +1,779 @@
+
+Unions_pal = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+		tag = PAL
+		tag = PLA
+		}
+	}
+	has_country_shield = yes
+
+    wittelsbachs_prestige = {
+        icon = mission_alliances
+        position = 1
+        required_missions = {}
+        trigger = {
+            legitimacy = 100
+            prestige = 25
+        }
+        effect = {
+            add_casus_belli = {
+                target = LBV
+                type = cb_restore_personal_union
+                months = 240
+            }
+            add_casus_belli = {
+                target = UBV
+                type = cb_restore_personal_union
+                months = 240
+            }
+            add_casus_belli = {
+                target = ING
+                type = cb_restore_personal_union
+                months = 240
+            }
+            add_casus_belli = {
+                target = BAV
+                type = cb_restore_personal_union
+                months = 240
+            }
+        }
+    }
+    Bawarian_succesion = {
+        icon = unite_the_wittelsbachs
+        position = 2
+        required_missions = {wittelsbachs_prestige}
+        trigger = {
+            OR = {
+                AND = {
+                    lower_bavaria_area = {
+                        type = all 
+				        country_or_non_sovereign_subject_holds = ROOT
+                    }
+                    upper_bavaria_area = {
+                        type = all 
+                        country_or_non_sovereign_subject_holds = ROOT
+                    }
+                }
+                AND = {
+                    ING = {
+                        junior_union_with = ROOT
+                    }
+                    UBV = {
+                        junior_union_with = ROOT
+                    }
+                    LBV = {
+                        junior_union_with = ROOT
+                    }
+                }
+                BAV = {
+                    junior_union_with = ROOT
+                }
+            }
+        }
+        effect = {
+            add_casus_belli = {
+                target = SAX
+                type = cb_restore_personal_union
+                months = 240
+            }
+            add_prestige = 20
+        }
+    }
+    End_of_the_Vettins = {
+        icon = king_of_poland
+        position = 3
+        required_missions = {Bawarian_succesion}
+        trigger = {
+            OR = {
+                SAX = {
+                    junior_union_with = ROOT
+                }
+                south_saxony_area = {
+                    type = all
+                    country_or_non_sovereign_subject_holds = ROOT
+                }
+            }
+        }
+        effect = {
+            add_casus_belli = {
+                target = BRA
+                type = cb_restore_personal_union
+                months = 240
+            }
+            add_trust = {
+                who = SAX
+                value = 100
+                mutual = yes
+            }
+        }
+    }
+    Rule_the_Hohenzollerns = {
+        icon = tame_brandenburg
+        position = 4
+        required_missions = {End_of_the_Vettins}
+        trigger = {
+            OR = {
+                BRA = {
+                    junior_union_with = ROOT
+                }
+                BRA = {
+                    vassal_of = ROOT
+                }
+                 mittelmark_area = {
+                    type = all 
+                    country_or_non_sovereign_subject_holds = ROOT
+                }
+            }
+        }
+        effect = {
+            add_casus_belli = {
+                target = HAB
+                type = cb_restore_personal_union
+                months = 240
+            }
+            BRA = {
+                add_liberty_desire = -50
+            }
+        }
+    }
+    End_of_Habsburgs_domination = {
+        icon = end_the_habsburgs
+        required_missions = {Rule_the_Hohenzollerns}
+        position = 5
+        trigger = {
+            OR = {
+                HAB = {
+                    junior_union_with = ROOT
+                }
+                austria_proper_area = {
+                    type = all 
+                    country_or_non_sovereign_subject_holds = ROOT
+                }
+            }
+        }
+        effect = {
+            add_country_modifier = {
+                name = End_of_hab_domination
+                duration = 10950
+            }
+        }
+    }
+    Return_of_our_Emperor = {
+        icon = switzerland_and_the_empire
+        required_missions = {End_of_Habsburgs_domination}
+        position = 6
+        trigger = {
+			dynasty = "von Wittelsbach"
+            OR = {
+                is_emperor = yes
+                emperor = {
+                    exists = no
+                }
+            }
+        }
+        effect = {
+            add_country_modifier = {
+                name = Palatinate_glory
+                duration = -1
+            }
+            add_imperial_influence = 50
+        }
+    }
+}
+fra_pal = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+		tag = PAL
+		tag = PLA
+		}
+	}
+	has_country_shield = yes
+    
+    Prepare_our_armies = {
+        icon = mission_assemble_an_army
+        position = 1
+        required_missions = {}
+        trigger = {
+            num_of_generals = 1
+            army_size_percentage = 1
+        }
+        effect = {
+            add_country_modifier = {
+                name = prepared_armies 
+                duration = 7300
+            }
+            alsace_area = {
+                add_permanent_claim = ROOT
+            }
+            lower_rhineland_area = {
+                add_permanent_claim = ROOT
+            }
+            franconia_area = {
+                add_permanent_claim = ROOT
+            }
+        }
+    }
+    Conquest_of_Rhineland = {
+        icon = mission_unite_home_region
+        position = 6
+        required_missions = {Prepare_our_armies}
+        trigger = {
+            lower_rhineland_area = {
+                type = all 
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            wallonia_area = {
+                add_permanent_claim = ROOT
+            }
+            lorraine_area = {
+                add_permanent_claim = ROOT
+            }
+            1878 = {
+                change_trade_goods = gems
+            }
+        }
+    }
+    Gates_of_France = {
+        icon = centralize_france
+        position = 7
+        required_missions = {Conquest_of_Rhineland}
+        trigger = {
+            lorraine_area = {
+                type = all 
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            bourgogne_area = {
+                add_permanent_claim = ROOT
+            }
+            west_burgundy_area = {
+                add_permanent_claim = ROOT
+            }
+            add_country_modifier = {
+                name = in_the_gates_of_France
+                duration = 7300
+            }
+        }
+    }
+    End_of_the_Burgundians = {
+        icon = conquer_burgundy
+        position = 8
+        required_missions = {Gates_of_France}
+        trigger = {
+            west_burgundy_area = {
+                type = all 
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            bourgogne_area = {
+                type = all 
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            ile_de_france_area = {
+                add_permanent_claim = ROOT
+            }
+            champagne_area = {
+                add_permanent_claim = ROOT
+            }
+        }
+    }
+    Our_legacy = {
+        icon = polish_diplomacy
+        position = 9
+        required_missions = {End_of_the_Burgundians}
+        trigger = {
+            owns_core_province = 1878
+            owns_core_province = 188
+            owns_core_province = 186
+            owns_core_province = 80
+            owns_core_province = 93
+            owns_core_province = 183
+        }
+        effect = {
+            country_event = {
+                id = new_palatinate.1
+            }
+        }
+    }
+}
+hol_pal = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+		tag = PAL
+		tag = PLA
+		}
+	}
+	has_country_shield = yes
+
+    March_on_liege = {
+        icon = league_of_the_public_weal
+        position = 7
+        required_missions = {Conquest_of_Rhineland}
+        trigger = {
+            wallonia_area = {
+                type = all 
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            brabant_area = {
+                add_permanent_claim = ROOT
+            }
+            flanders_area = {
+                add_permanent_claim = ROOT
+            }
+            add_accepted_culture = wallonian
+        }
+    }
+    Conquer_south_Brabant = {
+        icon = expand_the_terraferma
+        position = 8
+        required_missions = {March_on_liege}
+        trigger = {
+            brabant_area = {
+                type = all 
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            north_brabant_area = {
+                add_permanent_claim = ROOT
+            }
+        }
+    }
+    Unify_Brabant = {
+        icon = sway_cologne
+        position = 9
+        required_missions = {Conquer_south_Brabant}
+        trigger = {
+            north_brabant_area = {
+                type = all 
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            holland_area = {
+                add_permanent_claim = ROOT
+            }
+            add_corruption = -2
+        }
+    }
+    Defeat_holland = {
+        icon = state_of_the_presidi
+        position = 10
+        required_missions = {Unify_Brabant}
+        trigger = {
+            holland_area = {
+                type = all 
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            frisia_area = {
+                add_permanent_claim = ROOT
+            }
+            define_advisor = {
+                type = trader
+                skill = 2
+                culture = holland
+                religion = ROOT
+            }
+        }
+    }
+    Dominate_low_countries = {
+        icon = bavarian_netherlands
+        position = 11
+        required_missions = {Defeat_holland} 
+        trigger = {
+            low_countries_region = {
+                type = all 
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            add_country_modifier = {
+                name = domination_of_low_countries
+                duration = -1
+            }
+        }
+    }
+}
+nor_pal = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+		tag = PAL
+		tag = PLA
+		}
+	}
+	has_country_shield = yes
+
+    Get_Brugge = {
+        icon = mission_build_up_to_force_limit
+        position = 8
+        required_missions = {March_on_liege}
+        trigger = {
+            flanders_area = {
+                type = all 
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            picardy_area = {
+                add_permanent_claim = ROOT
+            }
+        }
+    }
+    Conquest_of_picardy = {
+        icon = mission_cannons_firing
+        position = 9
+        required_missions = {Get_Brugge}
+        trigger = {
+            picardy_area = {
+                type = all 
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            normandy_area = {
+                add_permanent_claim = ROOT
+            }
+            create_general = { tradition = 70 }
+        }
+    }
+    Norman_traditions = {
+        icon = mission_landsknecht_soldier
+        position = 10
+        required_missions = {Conquest_of_picardy}
+        trigger = {
+            normandy_area = {
+                type = all 
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            add_country_modifier = {
+                name = norm_traditions
+                duration = 7300
+            }
+        }
+    }
+}
+Sax_way = {
+    slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+		tag = PAL
+		tag = PLA
+		}
+	}
+	has_country_shield = yes
+
+    Conquer_lower_franconia = {
+        icon = mission_rb_conquer_the_highlands
+        position = 2
+        required_missions = {Prepare_our_armies}
+        trigger = {
+            franconia_area = {
+                type = all 
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            hesse_area = {
+                add_permanent_claim = ROOT
+            }
+            add_prestige = 25
+        }
+    }
+    Defeat_Hesse = {
+        icon = mission_humiliate_provence
+        position = 3
+        required_missions = {
+            Conquer_lower_franconia
+        }
+        trigger = {
+            hesse_area = {
+                type = all 
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            north_rhine_area = {
+                add_permanent_claim = ROOT
+            }
+            add_army_tradition = 15
+        }
+    }
+    Conquest_of_North_Rhine = {
+        icon = mission_cannons_firing
+        position = 4
+        required_missions = {
+            Defeat_Hesse
+        }
+        trigger = {
+            north_rhine_area = {
+                type = all 
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            westphalia_area = {
+                add_permanent_claim = ROOT
+            }
+            north_westphalia_area = {
+                add_permanent_claim = ROOT
+            }
+            85 = {
+                add_nationalism = -20
+                add_center_of_trade_level = 1
+            }
+        }
+    }
+    Get_Westphalia = {
+        icon = mission_conquer_50_development
+        position = 5
+        required_missions = {
+            Conquest_of_North_Rhine
+        }
+        trigger = {
+            westphalia_area = {
+                type = all 
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            north_westphalia_area = {
+                type = all 
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            braunschweig_area = {
+                add_permanent_claim = ROOT
+            }
+            add_country_modifier = {
+                name = westphalian_conquest
+                duration = 7300
+            }
+        }
+    }
+    Conquer_Braunschweig = {
+        icon = mission_conquer_5_states
+        position = 6
+        required_missions = {
+            Get_Westphalia
+        }
+        trigger = {
+            braunschweig_area = {
+                type = all 
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            northern_saxony_area = {
+                add_permanent_claim = ROOT
+            }
+            change_dip = 1
+        }
+    }
+    Conquest_of_Anhalt = {
+        icon = humiliate_austria
+        position = 7
+        required_missions = {
+            Conquer_Braunschweig
+        }
+        trigger = {
+            northern_saxony_area = {
+                type = all 
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            south_saxony_area = {
+                add_permanent_claim = ROOT
+            }
+            thuringia_area = {
+                add_permanent_claim = ROOT
+            }
+        }
+    }
+    March_on_Dresden = {
+        icon = electorate_of_saxony 
+        position = 8
+        required_missions = {
+            Conquest_of_Anhalt
+        }
+        trigger = {
+           south_saxony_area = {
+            type = all 
+            country_or_non_sovereign_subject_holds = ROOT
+           }
+           thuringia_area = {
+            type = all 
+            country_or_non_sovereign_subject_holds = ROOT
+           } 
+        }
+        effect = {
+            upper_franconia_area = {
+                add_permanent_claim = ROOT
+            }
+            add_country_modifier = {
+                name = king_of_saxony
+                duration = -1
+            }
+        }
+    }
+    Develop_trier = {
+        icon = mission_colonial
+        position = 10
+        required_missions = {}
+        trigger = {
+            80 = {
+                owned_by = ROOT
+                development = 20
+                OR = {
+					has_building = temple
+					has_building = cathedral
+				}
+                OR = {
+					has_building = workshop
+					has_building = counting_house
+				}
+            }
+        }
+        effect = {
+            add_mercantilism = 5
+        }
+    }
+    Improve_Aachen = {
+        icon = mission_early_modern_university
+        position = 11
+        required_missions = {Develop_trier}
+        trigger = {
+            1878 = {
+                owned_by = ROOT
+                OR = {
+					has_building = workshop
+					has_building = counting_house
+				}
+                OR = {
+					has_building = temple
+					has_building = cathedral
+				}
+                development = 20
+            }
+        }
+        effect = {
+            1878 = {
+                add_base_tax = 3
+                add_base_production = 3
+                add_base_manpower = 3
+            }
+        }
+    }
+}
+swa_pal = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+		tag = PAL
+		tag = PLA
+		}
+	}
+	has_country_shield = yes
+    
+    Control_Alsace = {
+        icon = vaud_and_wallis
+        position = 2
+        required_missions = {Prepare_our_armies}
+        trigger = {
+            alsace_area = {
+            type = all 
+            country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            add_splendor = 100
+            upper_rhineland_area = {
+                add_permanent_claim = ROOT
+            }
+        }
+    }
+
+    Get_Baden = {
+        icon = imperial_capitals
+        position = 3
+        required_missions = {Control_Alsace}
+        trigger = {
+            upper_rhineland_area = {
+                type = all 
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            lower_swabia_area = {
+                add_permanent_claim = ROOT
+            }
+        }
+    }
+    March_on_Stuttgard = {
+        icon = take_the_bishoprics
+        position = 4
+        required_missions = {Get_Baden}
+        trigger = {
+            lower_swabia_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            upper_swabia_area = {
+                add_permanent_claim = ROOT
+            }
+            add_accepted_culture = swabian
+        }
+    }
+    Conquer_east_swabia = {
+        icon = control_swabia
+        position = 5
+        required_missions = {March_on_Stuttgard}
+        trigger = {
+            upper_swabia_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            add_country_modifier = {
+                name = swabian_community
+                duration = 18250
+            }
+            add_prestige = 25
+        }
+    }
+}

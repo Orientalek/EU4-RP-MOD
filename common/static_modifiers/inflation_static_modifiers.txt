@@ -1,0 +1,17 @@
+inflation = {					
+	infantry_cost = 0.01					
+	cavalry_cost = 0.01
+	artillery_cost = 0.01	
+	heavy_ship_cost = 0.01			
+	light_ship_cost = 0.01			
+	galley_cost = 0.01
+	transport_cost = 0.01					
+	flagship_cost = 0.01				
+	advisor_cost = 0.005
+	mercenary_cost = 0.01					
+	fort_maintenance_modifier = 0.01
+	global_unrest = 0.001
+	development_cost = -0.001
+	production_efficiency = 0.005
+	build_cost =  0.01
+}

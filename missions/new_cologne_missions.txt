@@ -1,0 +1,568 @@
+kol_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+		    tag = KOL
+            AND = {
+                tag = WES
+                has_country_flag = westphalian_dreeem
+            }
+		}
+	}
+	has_country_shield = yes
+
+    Koln_cathedral = {
+        icon = mission_european_church
+        position = 1
+        required_missions = {}
+        trigger = {
+            85 = {
+                owned_by = ROOT
+                has_building = temple
+                base_tax = 7
+            }
+        }
+        effect = {
+            85 = {
+                add_building = cathedral
+                add_province_modifier = {
+                    name = expand_koln_cathedral
+                    duration = -1
+                }
+            }
+        }
+    }
+    Establish_Dreikonigsgymnasium = {
+        icon = promote_urbanization
+        position = 2
+        required_missions = {Koln_cathedral}
+        trigger = {
+            85 = {
+                owned_by = ROOT
+                has_building = barracks
+                base_manpower = 5
+            }
+            has_estate_privilege = estate_church_clerical_oversight
+        }
+        effect = {
+            country_event = {id = epic_theocracy.4}
+        }
+    }
+    Eau_de_Cologne = {
+        icon = westphalian_conquest
+        position = 3
+        required_missions = {Establish_Dreikonigsgymnasium}
+        trigger = {
+            85 = {
+                owned_by = ROOT
+                base_production = 10
+                has_manufactory_trigger = yes 
+                has_building = workshop
+            }
+        }
+        effect = {
+            country_event = {id = epic_theocracy.5}
+        }
+    }
+    Create_Gurzenich = {
+        icon = les_invalides
+        position = 4
+        required_missions = {Eau_de_Cologne}
+        trigger = {
+            85 = {
+                owned_by = ROOT
+                development = 30
+                has_building = university
+            }
+        }
+        effect = {
+            country_event = {id = epic_theocracy.6}
+        }
+    }
+}
+
+kol_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+		    tag = KOL
+            AND = {
+                tag = WES
+                has_country_flag = westphalian_dreeem
+            }
+		}
+	}
+	has_country_shield = yes
+    
+    End_padeborn_crisis = {
+        icon = mission_have_two_subjects
+        position = 1
+        required_missions = {}
+        provinces_to_highlight = {province_id = 2972}
+        trigger = {
+            2972 = {
+                owned_by = ROOT
+            }
+        }
+        effect = {
+            add_prestige = 25
+            add_country_modifier = {
+                name = padeborn_crisis
+                duration = 9125
+            }
+            lower_rhineland_area = {
+                add_permanent_claim = ROOT
+            }
+            north_rhine_area = {
+                add_permanent_claim = ROOT
+            }
+        }
+    }
+    Electorate_of_Cologne = {
+        icon = a.e.i.o.u.
+        position = 2
+        required_missions = {End_padeborn_crisis}
+        trigger = {
+            OR = {
+                emperor = {
+                    has_opinion = {
+                        who = KOL
+                        value = 100
+                    }
+                }
+                alliance_with = emperor
+            }
+        }
+        effect = {
+            country_event = {id = epic_theocracy.9}
+        }
+    }
+    Duchy_of_Cleves = {
+        icon = defend_the_city
+        position = 3
+        required_missions = {Unite_theocracies}
+        provinces_to_highlight = {province_id = 2975}
+        trigger = {
+            2975 = {
+                owned_by = ROOT
+            }
+        }
+        effect = {
+            country_event = {id = epic_theocracy.7}
+        }
+    }
+    French_alliance = {
+        icon = french_empire
+        position = 4
+        required_missions = {Duchy_of_Cleves}
+        trigger = {
+            any_ally = {
+                capital_scope = {
+                    region = france_region
+                }
+            }
+        }
+        effect = {
+            low_countries_region = {
+                add_permanent_claim = ROOT
+            }
+            add_splendor = 250
+        }
+    }
+    Lowlands_domination = {
+        icon = bavarian_netherlands
+        position = 5
+        required_missions = {French_alliance}
+        provinces_to_highlight = {
+            region = low_countries_region
+            NOT = {owned_by = ROOT}
+        }
+        trigger = {
+            num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+                region = low_countries_region
+                value = 12
+            }
+        }
+        effect = {
+            add_country_modifier = {
+                name = domination_of_lowlands
+                duration = -1
+            }
+        }
+    }
+}
+kol_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+		    tag = KOL
+            AND = {
+                tag = WES
+                has_country_flag = westphalian_dreeem
+            }
+		}
+	}
+	has_country_shield = yes
+    
+    Buy_Berg = {
+        icon = mission_conquer_50_development
+        position = 1
+        required_missions = {}
+        trigger = {
+            OR = {
+                84 = {
+                    owned_by = ROOT
+                }
+                AND = {
+                    BRG = {
+                       has_opinion = {
+                            who = KOL
+                            value = 100
+                        } 
+                    }
+                    treasury = 250
+                }
+            }
+        }
+        effect = {
+            if = {
+                limit = {
+                   BRG = {
+                       has_opinion = {
+                            who = KOL
+                            value = 100
+                        } 
+                    }
+                    treasury = 250 
+                }
+                BRG = {
+                    country_event = {
+                        id = epic_theocracy.2
+                    }
+                }
+            }
+            else_if = {
+                add_treasury = 100
+            }
+        }
+    }
+
+    Unite_theocracies = {
+        icon = mission_alliances
+        position = 2
+        required_missions = {
+            Buy_Berg
+            Brother_alliance
+            End_padeborn_crisis
+        }
+        trigger = {
+            86 = {
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            85 = {
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            2972 = {
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            
+        }
+        effect = {
+            set_country_flag = ooooooooooo
+            add_government_reform = United_theocracy_state
+            franconia_area = {
+                add_permanent_claim = ROOT
+            }
+            palatinate_area = {
+                add_permanent_claim = ROOT
+            }
+            braunschweig_area = {
+                add_permanent_claim = ROOT
+            }
+            weser_area = {
+                add_permanent_claim = ROOT
+            }
+        }
+    }
+    Pacify_Soest = {
+        icon = promote_urbanization 
+        position = 3
+        required_missions = {Unite_theocracies}
+        trigger = {
+            82 = {
+                owned_by = ROOT
+                NOT = {unrest = 1}
+            }
+            crown_land_share = 35
+            estate_loyalty = {
+                estate = estate_burghers
+                loyalty = 50
+            }
+        }
+        effect = {
+            82 = {
+                add_base_tax = 2
+                add_base_production = 2
+                add_base_manpower = 2
+            }
+            define_advisor = {
+                type = treasurer
+                name = "Ralf Schumaher"
+                skill = 2
+                culture = prussian
+                religion = catholic
+                discount = yes
+            }
+        }
+    }
+    Grain_of_Rhine = {
+        icon = mission_high_income
+        position = 4
+        required_missions = {Pacify_Soest}
+        trigger = {
+            num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+                trade_goods = grain
+                base_production = 7
+                value = 4
+            }
+        }
+        effect = {
+            custom_tooltip = grain_ehe
+            north_german_region = {
+                add_province_modifier = {
+                    name = Rhenish_grain
+                    duration = -1
+                }
+                limit = {trade_goods = grain}
+            }
+        }
+    }
+}    
+
+
+kol_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+		    tag = KOL
+            AND = {
+                tag = WES
+                has_country_flag = westphalian_dreeem
+            }
+		}
+	}
+	has_country_shield = yes
+
+    Brother_alliance = {
+        icon = mission_noble_council
+        position = 1
+        required_missions = {}
+        trigger = {
+            OR = {
+                AND = {
+                    MUN = {
+                        has_opinion = {
+                            who = KOL
+                            value = 100
+                        }
+                    }
+                    alliance_with = MUN
+                }
+                86 = {
+                    owned_by = ROOT
+                }
+            }
+        }
+        effect = {
+            if = {
+                limit = {
+                    MUN = {
+                        has_opinion = {
+	                        who = KOL
+	                        value = 100
+                        }   
+                    }
+                }
+                MUN = {
+                    country_event = {
+                        id = epic_theocracy.1
+                    }
+                }
+            }
+            hesse_area = {
+                add_permanent_claim = ROOT
+            }
+            north_westphalia_area = {
+                add_permanent_claim = ROOT
+            }
+        }
+    }
+    help_our_brother = {
+        icon = league_of_the_public_weal
+        position = 2
+        required_missions = {Brother_alliance}
+        trigger = {
+            56 = {
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            add_country_modifier = {
+                name = helped_our_brother
+                duration = -1
+            }
+        }
+    }
+    Northern_expansion = {
+        icon = conquer_lower_saxony
+        position = 3
+        required_missions = {Unite_theocracies}
+        provinces_to_highlight = {
+            OR = {
+                area = weser_area
+                area = braunschweig_area
+            }
+            NOT = {owned_by = ROOT}
+        }
+        trigger = {
+            num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				OR = {
+                    area = weser_area
+                    area = braunschweig_area
+                }
+				value = 6
+			}
+        }
+        effect = {
+           lower_saxony_area = {
+                add_permanent_claim = ROOT
+           }
+           northern_saxony_area = {
+                add_permanent_claim = ROOT
+           }
+           add_army_professionalism = 0.05 
+        }
+    }
+    Westphalian_dream = {
+        icon = personal_diplomacy
+        position = 4
+        required_missions = {Northern_expansion}
+        trigger = {
+            army_size_percentage = 1
+            OR = {
+                advisor = statesman
+                diplomatic_reputation = 3
+            }
+            dip_power = 100
+        }
+        effect = {
+            add_dip_power = -100
+            custom_tooltip = dreem_on
+            set_country_flag = westphalian_dreeem
+        }
+    }
+}    
+
+
+kol_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+		    tag = KOL
+            AND = {
+                tag = WES
+                has_country_flag = westphalian_dreeem
+            }
+		}
+	}
+	has_country_shield = yes
+
+    Show_devotion = {
+        icon = spread_piety
+        position = 1
+        required_missions = {}
+        trigger = {
+            OR = {
+                devotion = 100
+                legitimacy = 100
+            }
+            OR = {
+                is_papal_controller = yes
+                papal_influence = 50
+                church_power = 75
+            }
+        }
+        effect = {
+            add_country_modifier = {
+                name = God_in_my_heart
+                duration = 9125
+            }
+        }
+    }
+    Apostolic_nunciature_of_cologne = {
+        icon = show_piety
+        position = 2
+        required_missions = {Show_devotion}
+        trigger = {
+            is_religion_enabled = reformed
+            religious_unity = 0.9
+            stability = 2
+        }
+        effect = {
+            country_event = {id = epic_theocracy.8}
+        }
+    }
+    Help_in_league_war = {
+        icon = join_the_empire
+        position = 3
+        required_missions = {Apostolic_nunciature_of_cologne}
+        trigger = {
+            hre_leagues_enabled = yes
+            OR = {
+                in_league = catholic
+                in_league = protestant
+            }
+        }
+        effect = {
+            add_country_modifier = {
+                name = Preparations_for_league_war
+                duration = 9125
+            }
+        }
+    }
+    Religious_victory = {
+        icon = chivalry_is_not_dead
+        position = 4
+        required_missions = {Help_in_league_war}
+        trigger = {
+            OR = {
+                AND = {
+                    is_defender_of_faith_of_tier = 4
+                    hre_religion = protestant
+                }
+                is_defender_of_faith_of_tier = 5
+            }
+        }
+        effect = {
+            add_country_modifier = {
+                name = the_one_and_only_faith
+                duration = -1
+            }
+        }
+    }
+}    

@@ -1,0 +1,10 @@
+janissary_regiment = {
+	fire_damage_received = 0.15
+    fire_damage = -0.15
+	shock_damage =  0.15
+	shock_damage_received =  -0.15
+	reinforce_cost_modifier = 1.0
+	drill_gain_modifier = 1.0
+	discipline = 0.05
+	manpower_recovery_speed = -0.05
+}

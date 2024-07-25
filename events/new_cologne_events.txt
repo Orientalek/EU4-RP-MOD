@@ -1,0 +1,157 @@
+namespace = epic_theocracy
+country_event = {
+    id = epic_theocracy.1
+    title = epic_theocracy.1.t
+    desc = epic_theocracy.1.d
+    picture = COURT_eventPicture
+    is_triggered_only = yes
+    option = {
+        name = epic_theocracy.1.a
+        KOL = {
+            inherit = ROOT
+        }
+        ai_chance = { factor = 40 }
+    } 
+    option = {
+        name = epic_theocracy.1.b
+        KOL = {
+            vassalize = ROOT
+        }
+        ai_chance = { factor = 50 }
+    }
+    option = {
+        name = epic_theocracy.1.c
+        add_opinion = {
+            who = KOL
+            modifier = denied_unification
+        }
+        ai_chance = { factor = 10 }
+    }
+}
+country_event = {
+    id = epic_theocracy.2
+    title = epic_theocracy.2.t
+    desc = epic_theocracy.2.d
+    picture = DIPLOMACY_SIGNING_eventPicture
+    is_triggered_only = yes
+    option = {
+        name = epic_theocracy.2.a
+        84 = {
+            cede_province = KOL
+        }
+        add_treasury = 250
+        KOL = {
+            add_treasury = -250
+        }
+        ai_chance = { factor = 75 }
+    } 
+    option = {
+        name = epic_theocracy.2.b
+        84 = {
+            add_core = KOL
+        }
+        
+        ai_chance = { factor = 25 }
+    }
+}
+country_event = {
+    id = epic_theocracy.3
+    title = epic_theocracy.3.t
+    desc = epic_theocracy.3.d
+    picture = PRINCE_BISHOP_eventPicture
+    is_triggered_only = yes
+    option = {
+        name = epic_theocracy.3.a
+        override_country_name = "United Theocracy States"
+    } 
+    option = {
+        name = epic_theocracy.3.b
+        set_country_flag = bobo
+        change_government = monarchy
+        add_government_reform = eu_feudal_theocracy
+    }
+}
+country_event = {
+    id = epic_theocracy.4
+    title = epic_theocracy.4.t
+    desc = epic_theocracy.4.d
+    picture = PRINCELY_PALACE_TRANSYLVANIA_eventPicture
+    is_triggered_only = yes
+    option = {
+        name = epic_theocracy.4.a
+        85 = {
+            add_province_modifier = {
+                name = Dreikonigsgymnasium
+                duration = -1
+            }
+        }
+    } 
+}
+country_event = {
+    id = epic_theocracy.5
+    title = epic_theocracy.5.t
+    desc = epic_theocracy.5.d
+    picture = GLOBAL_TRADE_eventPicture
+    is_triggered_only = yes
+    option = {
+        name = epic_theocracy.5.a
+        add_prestige = 25
+        add_splendor = 250
+        add_ruler_personality = industrious_personality
+    } 
+}
+country_event = {
+    id = epic_theocracy.6
+    title = epic_theocracy.6.t
+    desc = epic_theocracy.6.d
+    picture = ARTWORK_eventPicture
+    is_triggered_only = yes
+    option = {
+        name = epic_theocracy.6.a
+        add_country_modifier = {
+            name = Greatest_german_opera
+            duration = -1
+        }
+    } 
+}
+country_event = {
+    id = epic_theocracy.7
+    title = epic_theocracy.7.t
+    desc = epic_theocracy.7.d
+    picture = ECONOMY_eventPicture
+    is_triggered_only = yes
+    option = {
+        name = epic_theocracy.7.a
+        2975 = {
+            add_base_tax = 2
+        }
+        add_country_modifier = {
+            name = Cleves_county
+            duration = 36500
+        }
+    } 
+}
+country_event = {
+    id = epic_theocracy.8
+    title = epic_theocracy.8.t
+    desc = epic_theocracy.8.d
+    picture = GREAT_BUILDING_eventPicture
+    is_triggered_only = yes
+    option = {
+        name = epic_theocracy.8.a
+        add_papal_influence = 100
+        add_corruption = -2
+    } 
+}
+country_event = {
+    id = epic_theocracy.9
+    title = epic_theocracy.9.t
+    desc = epic_theocracy.9.d
+    picture = HRE_eventPicture
+    is_triggered_only = yes
+    option = {
+        name = epic_theocracy.9.a
+        custom_tooltip = electorrr
+        set_country_flag = opopop
+    } 
+}

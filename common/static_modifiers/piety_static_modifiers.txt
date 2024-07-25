@@ -1,0 +1,18 @@
+positive_piety = { 
+	technology_cost = -0.1
+	stability_cost_modifier = -0.2
+	global_tax_modifier = 0.20
+	diplomatic_reputation = 3
+	brahmins_muslim_loyalty_modifier = -0.1
+	church_loyalty_modifier = 0.1
+	dhimmi_loyalty_modifier = -0.1
+}
+negative_piety = { #As of 1.23 Mysticism
+	land_morale = 0.15
+	global_missionary_strength = 0.03
+	siege_ability = 0.2
+    manpower_in_true_faith_provinces = 0.2
+	brahmins_muslim_loyalty_modifier = 0.1
+	church_loyalty_modifier = -0.1
+	dhimmi_loyalty_modifier = 0.1
+}

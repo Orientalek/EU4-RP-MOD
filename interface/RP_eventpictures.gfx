@@ -1,0 +1,33 @@
+spriteTypes = {
+
+	spriteType = {
+		name = "gaston_de_foix_eventPicture"
+		texturefile = "gfx/event_pictures/gaston_de_foix_eventPicture.dds"
+		allwaystransparent = yes
+	}	
+	spriteType = {
+		name = "stephen_bathory_eventPicture"
+		texturefile = "gfx/event_pictures/stephen_bathory_eventPicture.dds"
+		allwaystransparent = yes
+	}
+	spriteType = {
+		name = "cornelius_drebbel_eventPicture"
+		texturefile = "gfx/event_pictures/cornelius_drebbel_eventPicture.dds"
+		allwaystransparent = yes
+	}
+	spriteType = {
+		name = "earthquake_constantiople_eventPicture"
+		texturefile = "gfx/event_pictures/earthquake_constantiople_eventPicture.dds"
+		allwaystransparent = yes 
+	}
+	spriteType = {
+		name = "genovieve_eventPicture"
+		texturefile = "gfx/event_pictures/genovieve_eventPicture.dds"
+		allwaystransparent = yes 
+	}	
+	spriteType = {
+		name = "krzysztofradziwil_eventPicture"
+		texturefile = "gfx/event_pictures/krzysztofradziwil_eventPicture.dds"
+		allwaystransparent = yes 
+	}	
+}

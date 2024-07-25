@@ -1,0 +1,273 @@
+#event made by Serson
+namespace = new_chinese
+
+country_event = {
+	id = new_chinese.1
+	title = new_chinese.1.t
+	desc = new_chinese.1.d
+	picture = DEATH_OF_HEIR_eventPicture
+	
+    trigger = {
+        tag = CRP
+        NOT = {	has_reform = chinese_republic }
+        NOT = { has_country_flag = chinese_d }
+    }
+
+	option = {
+		name = new_chinese.1.a
+		ai_chance = { 
+			factor = 100
+		}
+        set_country_flag = chinese_d
+        	change_government = republic
+            add_government_reform = chinese_republic
+	}
+	option = {
+		name = new_chinese.1.b
+		ai_chance = {
+			factor = 1
+		}
+        set_country_flag = chinese_d
+        add_stability = -3
+        override_country_name = "Chinese State"
+        hidden_effect = {
+            country_event = {
+                id = new_chinese.2
+                days = 30
+            }
+        }
+	}
+}
+
+country_event = {
+	id = new_chinese.2
+	title = new_chinese.2.t
+	desc = new_chinese.2.d
+	picture = CIVIL_WAR_eventPicture
+	major = yes
+    
+    is_triggered_only = yes
+
+	option = {
+		name = new_chinese.2.a
+				random_owned_province = { 
+			spawn_rebels = {
+    			type = nap_republican_rebels
+    			size = 10
+			}
+		}
+			random_owned_province = { 
+			spawn_rebels = {
+    			type = nap_republican_rebels
+    			size = 10
+			}
+		}
+		random_owned_province = { 
+			spawn_rebels = {
+    			type = nap_republican_rebels
+    			size = 10
+			}
+		}
+        		random_owned_province = { 
+			spawn_rebels = {
+    			type = nap_republican_rebels
+    			size = 10
+			}
+		}
+			random_owned_province = { 
+			spawn_rebels = {
+    			type = nap_republican_rebels
+    			size = 10
+			}
+		}
+		random_owned_province = { 
+			spawn_rebels = {
+    			type = nap_republican_rebels
+    			size = 10
+			}
+		}
+
+        if = {
+            limit = {
+                CMI = {
+                    exists = no
+                }
+            }
+            every_core_province = { 
+			limit = {
+				is_core = CMI
+			}
+			cede_province = CMI
+		}
+        }
+        if = {
+            limit = {
+                CHC = {
+                    exists = no
+                }
+            }
+            every_core_province = { 
+			limit = {
+				is_core = CHC
+			}
+			cede_province = CHC
+		}
+        }
+        if = {
+            limit = {
+                WUU = {
+                    exists = no
+                }
+            }
+            every_core_province = { 
+			limit = {
+				is_core = WUU
+			}
+			cede_province = WUU
+		}
+        }
+        if = {
+            limit = {
+                CDL = {
+                    exists = no
+                }
+            }
+            every_core_province = { 
+			limit = {
+				is_core = CDL
+			}
+			cede_province = CDL
+		}
+        }
+                if = {
+            limit = {
+                YUE = {
+                    exists = no
+                }
+            }
+            every_core_province = { 
+			limit = {
+				is_core = YUE
+			}
+			cede_province = YUE
+		}
+        }
+		          if = {
+            limit = {
+                SHU = {
+                    exists = no
+                }
+            }
+            every_core_province = { 
+			limit = {
+				is_core = SHU
+			}
+			cede_province = SHU
+		}
+        }
+
+        declare_war_with_cb = {
+    		who = CMI
+    		casus_belli = cb_annex
+		}
+		 declare_war_with_cb = {
+    		who = SHU
+    		casus_belli = cb_annex
+		}
+        declare_war_with_cb = {
+    		who = CHC
+    		casus_belli = cb_annex
+		}
+        declare_war_with_cb = {
+    		who = WUU
+    		casus_belli = cb_annex
+		}
+        declare_war_with_cb = {
+    		who = CDL
+    		casus_belli = cb_annex
+		}
+        declare_war_with_cb = {
+    		who = YUE
+    		casus_belli = cb_annex
+		}
+	}
+}
+
+country_event = {
+	id = new_chinese.3
+	title = new_chinese.3.t
+	desc = new_chinese.3.d
+	picture = DEATH_OF_HEIR_eventPicture
+	
+    trigger = {
+        tag = CRP
+        war_exhaustion = 13
+		is_at_war = yes
+		NOT = { has_country_flag = CRP_civil_war }
+    }
+
+	option = {
+		set_country_flag = CRP_civil_war
+		name = new_chinese.3.a
+		ai_chance = { 
+			factor = 100
+		}
+		hidden_effect = {
+			country_event = {
+			id = new_chinese.4
+			days = 30
+		}
+		}
+        
+		add_stability = -2
+	}
+
+}
+
+country_event = {
+	id = new_chinese.4
+	title = new_chinese.4.t
+	desc = new_chinese.4.d
+	picture = DEATH_OF_HEIR_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = new_chinese.4.a
+		ai_chance = { 
+			factor = 100
+		}
+        country_event = {
+			id = new_chinese.5
+			days = 30
+		}
+		add_stability = -2
+	}
+
+}
+
+country_event = {
+	id = new_chinese.5
+	title = new_chinese.5.t
+	desc = new_chinese.5.d
+	picture = DEATH_OF_HEIR_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = new_chinese.5.a
+		ai_chance = { 
+			factor = 100
+		}
+		hidden_effect = {
+			 country_event = {
+				id = new_chinese.2
+				days = 60
+			}
+		}
+		add_country_modifier = {
+			name = fall_of_chinese_republic
+			duration = 3650
+		}
+       add_stability = -1
+	}
+
+}

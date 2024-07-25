@@ -1,0 +1,83 @@
+#events made by Serson
+namespace = rp_hre
+
+		country_event = {
+		id = rp_hre.1
+		title = rp_hre.1.t
+		desc = rp_hre.1.d
+		picture = HRE_eventPicture
+		is_triggered_only = yes
+		major = yes
+		option = {
+			name = rp_hre.1.a
+			set_imperial_incident = new_country_join
+		}
+	}
+    	country_event = {
+		id = rp_hre.2
+		title = rp_hre.2.t
+		desc = rp_hre.2.d
+		picture = HRE_eventPicture
+		is_triggered_only = yes
+		option = {
+			name = rp_hre.2.a
+            	event_target:new_country_hre = {
+                    set_in_empire = yes
+                }
+                clear_global_event_target = new_country_hre
+                clr_global_flag = join_incident
+		}
+        option = {
+			name = rp_hre.2.b
+			event_target:new_country_hre = {
+                    set_country_flag = HRE_refuse
+                }
+				clr_global_flag = join_incident
+		}
+	}
+	country_event = {
+		id = rp_hre.3
+		title = rp_hre.3.t
+		desc = rp_hre.3.d
+		picture = HRE_eventPicture
+		is_triggered_only = yes
+		option = {
+			name = rp_hre.3.a
+            	emperor = {
+					declare_war_with_cb = {
+   					 who = NGC
+    				casus_belli = cb_annex
+					}
+				}
+				every_country = { 
+					limit = {
+						is_part_of_hre = yes
+						NOT = { 
+							is_subject_of = NGC
+						}
+						NOT = { tag = NGC }
+					}
+					join_all_offensive_wars_of = emperor
+				}
+		}
+        option = {
+			name = rp_hre.3.b
+				every_country = { 
+					limit = {
+						is_part_of_hre = yes
+						NOT = { 
+							is_subject_of = NGC
+						}
+						NOT = { tag = NGC }
+					}
+					add_stability = -3
+					emperor = {
+						add_prestige = -100
+					}
+					add_imperial_influence = -25
+				}
+				NGC = {
+					set_in_empire = no
+				}
+		}
+	}

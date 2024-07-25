@@ -1,0 +1,237 @@
+namespace = mameluk_mission_events
+
+country_event = {
+    id = mameluk_mission_events.1 
+    title = mameluk_mission_events.1.t 
+    desc = mameluk_mission_events.1.d 
+    picture = DIPLOMACY_eventPicture
+
+    is_triggered_only = yes 
+    
+    option = {
+        name = mameluk_mission_events.1.a
+        ai_chance = { factor = 90 }    
+        358 = {
+            add_base_tax = 2
+            add_base_production = 2
+        }
+        361 = {
+            add_base_tax = 2
+            add_base_production = 2
+        }
+        377 = {
+            add_base_tax = 2
+            add_base_production = 2
+        }
+        382 = {
+            add_base_tax = 2
+            add_base_production = 2
+        }
+
+        
+    }   
+}
+
+country_event = {
+    id = mameluk_mission_events.22
+    title = mameluk_mission_events.2.t 
+    desc = mameluk_mission_events.2.d 
+    picture = HEIR_AND_FOREIGN_ADVISOR_eventPicture
+
+    is_triggered_only = yes
+
+    option = {
+        name = mameluk_mission_events.2.a 
+        ai_chance = {factor = 90}
+        361 = {
+            add_base_tax = 2 
+            add_base_production = 2
+            add_base_manpower = 2
+        }
+    }
+
+    option = {
+        name = mameluk_mission_events.2.b 
+        ai_chance = {factor = 40}
+        set_capital = 410
+        add_treasury = -80
+        410 = {
+            add_base_tax = 4
+            add_base_production = 3
+            add_base_manpower = 4            
+        }
+        iraq_arabi_area = {
+            add_province_modifier = {
+                name = rebulid_baghdad
+                duration = 5475
+            }
+        }
+    }
+
+    option = {
+        name = mameluk_mission_events.2.c
+        ai_chance = {factor = 40}
+        set_capital = 385
+        add_treasury = -50
+        385 = {
+            add_base_manpower = 5
+            add_base_production = 2
+            add_base_tax = 3 
+            add_building = fort_15th
+            add_building = cathedral 
+            
+        }
+    }
+}
+
+
+country_event = {
+    id = mameluk_mission_events.4
+    title = mameluk_mission_events.4.t 
+    desc = mameluk_mission_events.4.d 
+    picture = DIPLOMACY_eventPicture
+
+    is_triggered_only = yes 
+    
+    option = {
+        name = mameluk_mission_events.4.a
+        ai_chance = { factor = 90 }    
+       add_country_modifier = {
+            name = tolerate_coptic
+            duration = -1 
+        }
+    }   
+    option = {
+        name = mameluk_mission_events.4.b 
+        ai_chance = {factor = 30}
+                central_ethiopia_area = {
+            add_base_manpower = -2
+        }
+        tigray_area = {
+            add_base_manpower = -2
+        }
+        add_country_modifier = {
+            name = crush_coptic
+            duration = -1 
+        }
+    }
+}
+
+country_event = {
+    id = mameluk_mission_events.6
+    title = mameluk_mission_events.6.t 
+    desc = mameluk_mission_events.6.d 
+    picture = GOOD_WITH_MONARCH_eventPicture
+
+    is_triggered_only = yes 
+    
+    option = {
+        name = mameluk_mission_events.6.a
+        ai_chance = { factor = 90 }    
+        add_country_modifier = {
+            name = horn_master
+            duration = -1 
+        }
+    }   
+}
+
+country_event = {
+    id = mameluk_mission_events.8
+    title = mameluk_mission_events.8.t 
+    desc = mameluk_mission_events.8.d 
+    picture = SIEGE_eventPicture
+
+    is_triggered_only = yes 
+    
+    option = {
+        name = mameluk_mission_events.8.a
+        ai_chance = { factor = 90 }   
+        add_treasury = 200 
+        2999 = {
+            add_base_manpower = -3
+            add_base_production = -3 
+            add_base_tax = -3 
+        }
+    }   
+}
+country_event = {
+    id = mameluk_mission_events.10
+    title = mameluk_mission_events.10.t 
+    desc = mameluk_mission_events.10.d 
+    picture = FORT_eventPicture
+
+    is_triggered_only = yes 
+    
+    option = {
+        name = mameluk_mission_events.10.a
+        ai_chance = { factor = 90 }   
+        add_country_modifier = {
+            name = dessert_strike
+            duration = 3750 
+        }
+        rum_area = {
+            add_permanent_claim = ROOT 
+        }
+        karaman_area = {
+            add_permanent_claim = ROOT 
+        }
+        north_kurdistan_area = {
+            add_permanent_claim = ROOT 
+        }
+        erzurum_area = {
+            add_permanent_claim = ROOT 
+        }
+    }   
+}
+
+country_event = {
+    id = mameluk_mission_events.11
+    title = mameluk_mission_events.11.t 
+    desc = mameluk_mission_events.11.d 
+    picture = GOOD_WITH_MONARCH_eventPicture
+
+    is_triggered_only = yes 
+    
+    option = {
+        name = mameluk_mission_events.11.a
+        ai_chance = { factor = 90 }   
+        add_accepted_culture = persian 
+        add_country_modifier = {
+            name = persian_court
+            duration = -1
+        }
+    }   
+}
+
+country_event = {
+    id = mameluk_mission_events.12
+    title = mameluk_mission_events.12.t 
+    desc = mameluk_mission_events.12.d 
+    picture = CONQUEST_eventPicture
+
+    is_triggered_only = yes 
+    
+    option = {
+        name = mameluk_mission_events.12.a
+        ai_chance = { factor = 90 }   
+        add_accepted_culture = turkish
+    }   
+}
+
+country_event = {
+    id = mameluk_mission_events.13
+    title = mameluk_mission_events.13.t 
+    desc = mameluk_mission_events.13.d 
+    picture = MOSQUE_HAGIA_eventPicture
+
+    is_triggered_only = yes 
+    
+    option = {
+        name = mameluk_mission_events.13.a
+        ai_chance = { factor = 90 }   
+        add_country_modifier = {
+            name = sword_of_islam 
+            duration = -1
+        }
+    }   
+}

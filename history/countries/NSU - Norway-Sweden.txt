@@ -1,0 +1,6 @@
+government = monarchy
+primary_culture = norwegian
+add_accepted_culture = swedish
+technology_group = western
+historical_friend = ENG
+capital = 17 #Akershus

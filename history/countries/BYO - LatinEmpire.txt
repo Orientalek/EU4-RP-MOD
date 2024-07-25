@@ -1,0 +1,22 @@
+government = theocracy
+add_government_reform = monastic_order_reform
+government_rank = 1
+mercantilism = 0.1
+religion = catholic
+technology_group = western
+primary_culture = greek
+culture_group_union = byzantine
+historical_rival = TUR
+capital = 151
+fixed_capital = 151
+1432.1.1 = { primary_culture = greek religion = catholic }
+1399.1.1 = {
+	monarch = {
+		name = "Stadtrat"
+		adm = 3
+		dip = 3
+		mil = 3
+		regent = yes
+	}
+}
+

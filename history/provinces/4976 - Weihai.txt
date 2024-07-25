@@ -1,0 +1,30 @@
+
+owner = MNG
+controller = MNG
+add_core = MNG
+culture = shandong_culture
+religion = confucianism
+hre = no
+base_tax = 7
+base_production = 3
+base_manpower = 4
+trade_goods = gems
+capital = "Weihai"
+is_city = yes
+
+
+discovered_by = chinese
+discovered_by = indian
+discovered_by = muslim
+discovered_by = ottoman
+discovered_by = nomad_group
+
+1519.1.1 = { discovered_by = POR } # Tome Pires
+1644.4.1 = { owner = CSH controller = CSH } # The Shun dynasty of Li Zicheng
+1644.11.1 = {
+	owner = QNG
+	controller = QNG
+	add_core = QNG
+}
+
+

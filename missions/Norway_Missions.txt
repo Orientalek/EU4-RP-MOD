@@ -1,0 +1,1315 @@
+Norwish_independece_way = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+		tag = NOR
+		tag = NSU
+		}
+	}
+	has_country_shield = yes
+
+	prepare_for_war = {
+		icon = mission_assemble_an_army
+		position = 1
+		required_missions = { }
+		trigger = {
+			is_subject = yes
+			is_at_war = no
+			liberty_desire = 50
+			has_spy_network_in = {
+			who = DAN
+			value = 50
+			}
+			owns_core_province = 17
+		}
+		effect = {
+		add_manpower = 10
+		add_sailors = 500
+		create_general = { tradition = 70 }
+        heavy_ship = capital
+        heavy_ship = capital
+    	}
+	}	
+	Independence_fight = {
+		icon = mission_cannons_firing
+		position = 2
+		required_missions = { prepare_for_war }
+		trigger = {
+			offensive_war_with = DAN
+			is_subject = no
+			mil_power = 100
+			owns_core_province = 17
+		}
+		effect = {
+		add_mil_power = -100
+		add_country_modifier = { 
+    	name = norway_fight
+		duration = 1825
+		}
+	    }	
+	}
+	Create_national_day = {
+		icon = mission_alliances
+		position = 3
+		required_missions = { Independence_fight }
+		trigger = {
+			is_subject = no
+			is_at_war = no
+			owns_core_province = 17
+			stability = 1
+			dip_power = 100
+		}
+		effect = {
+		add_country_modifier = {
+		name = 17th_of_May
+		duration = -1
+		}
+		add_war_exhaustion = -5
+		add_stability = 1
+		add_dip_power = -100
+		}
+    }
+}
+Norwish_cooperiation_way = {
+    slot = 2
+     generic = no
+	 ai = yes
+     has_country_shield = yes
+	potential = {
+        tag = NOR
+        NOT = { map_setup = map_setup_random }
+	}
+
+	Improve_relations_with_denmark = {
+		icon = mission_alliances
+		position = 1
+		required_missions = {}
+		trigger = {
+			junior_union_with = DAN
+			is_at_war = no
+			owns_core_province = 17
+			has_opinion = {
+				who = DAN
+				value = 150
+			}
+		}
+		effect = {
+			add_legitimacy = 25
+			add_prestige = 25
+			add_stability = 1
+			add_liberty_desire = -10
+		}
+	}
+	Economic_help_from_denmark = {
+		icon = mission_high_income
+		position = 2
+		required_missions = {Improve_relations_with_denmark}
+		trigger = {
+			junior_union_with = DAN
+			owns_core_province = 17
+			is_at_war = no
+		}
+		effect = {
+			add_inflation = -5
+			add_treasury = 250
+			define_advisor = {
+    			type = treasurer
+   				skill = 1
+    			discount = yes
+    			culture = danish
+				religion = catholic
+			}
+			add_liberty_desire = -25
+		}
+	}
+	Military_help_from_denmark = {
+		icon = mission_conquer_5_states
+		position = 3 
+		required_missions = {Economic_help_from_denmark}
+		trigger = {
+			junior_union_with = DAN
+			is_at_war = yes
+			owns_core_province = 17
+		}
+		effect = {
+		17 = {
+			infantry = ROOT
+		}
+		22 = {
+			infantry = ROOT
+		}
+		23 = {
+			infantry = ROOT
+		}
+		4144 = {
+			infantry = ROOT
+		}
+		add_country_modifier = {
+			name = Denmark_military_help
+			duration = 3650
+		}
+		add_liberty_desire = -25
+		}
+	}
+	Invite_denmark_nobles = {
+		icon = mission_noble_council
+		position = 4
+		required_missions = {Military_help_from_denmark}
+		trigger = {
+			junior_union_with = DAN
+			is_at_war = no
+			owns_core_province = 17
+			treasury = 100
+			adm_tech = 5
+		}
+		effect = {
+			17 = {
+				add_base_tax = 2
+				add_base_production = 2
+				add_local_autonomy = 10
+		}
+		4145 = {
+				add_base_tax = 2
+				add_base_production = 2
+				add_local_autonomy = 10
+			}
+		4144 = {
+				add_base_tax = 2
+				add_base_production = 2
+				add_local_autonomy = 10
+			}
+		22 = {
+			add_base_tax = 2
+			add_base_production = 2
+			add_local_autonomy = 10
+			}
+		}
+	}
+	End_of_Union_question = {
+		icon = mission_have_two_subjects
+		position = 5
+		required_missions = {Invite_denmark_nobles}
+		trigger = {
+			junior_union_with = DAN
+			is_at_war = no
+			owns_core_province = 17
+			is_year = 1500.1.1
+			has_opinion = {
+				who = DAN
+				value = 150
+			}
+		}
+		effect = {
+			DAN = {
+ 				country_event = {
+				id = Scandinavian.4
+				}
+			}
+		}
+	}
+}
+Norwish_expansion_way_1 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+		tag = NOR
+		tag = NSU
+		}
+	}
+	has_country_shield = yes
+
+	Reinforce_army = {
+		icon = mission_build_up_to_force_limit
+		position = 1
+		required_missions = { }
+		trigger = {
+			manpower_percentage = 0.80
+			land_maintenance = 1
+			is_at_war = no
+			army_professionalism = 0.10
+			army_tradition = 30
+		}	
+		effect = {
+            ostra_svealand_area = {
+                add_permanent_claim = ROOT	
+			}
+			norrland_area = {
+				add_permanent_claim = ROOT
+			}
+			svealand_area = {
+                add_permanent_claim = ROOT	
+			} 
+			add_country_modifier = {
+				name = Swedish_wars
+				duration = 7300
+			}
+		}
+	}
+	Conquer_North_Sweden = {
+		icon = mission_hanseatic_city
+		position = 2
+		required_missions = { Reinforce_army }
+		provinces_to_highlight = {
+            OR = {
+			area = ostra_svealand_area
+			area = norrland_area
+			area = svealand_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger =  {
+			ostra_svealand_area = {
+				type = all
+				owned_by = ROOT
+			}
+			norrland_area = {
+				type = all
+				owned_by = ROOT
+			}
+			svealand_area = {
+				type = all
+				owned_by = ROOT
+			}
+			is_subject = no
+			is_at_war = no
+		}
+		effect = {
+			gotaland_area = {
+				add_permanent_claim = ROOT
+			}
+			vastra_gotaland_area = {
+				add_permanent_claim = ROOT
+			}
+			skaneland_area = {
+				add_permanent_claim = ROOT
+			}
+			add_prestige = 10
+			add_splendor = 50
+		}
+	}
+	Create_Norwish_and_Swedish_union = {
+		icon = mission_monarch_in_throne_room
+		position = 3
+		required_missions = {Conquer_North_Sweden}
+		provinces_to_highlight = {
+			OR = {
+			area = gotaland_area
+			area = vastra_gotaland_area
+			area = skaneland_area
+		}
+			NOT = { owned_by = ROOT }
+        }
+		trigger = {
+			gotaland_area = {
+				type = all
+				owned_by = ROOT
+			}
+			vastra_gotaland_area = {
+				type = all
+				owned_by = ROOT
+			}
+			skaneland_area = {
+				type = all
+				owned_by = ROOT
+			}
+			is_at_war = no
+		}
+		effect = {
+			country_event = {
+				id = Scandinavian.7
+			}
+		}
+	}
+	Unite_Scandinavia = {
+		icon = mission_unite_home_region
+		position = 4
+		required_missions {Create_Norwish_and_Swedish_union}
+		provinces_to_highlight = {
+            OR = {
+			area = jutland_area
+			area = denmark_area
+			}
+			}
+		trigger = {
+			denmark_area = {
+				type = all
+				owned_by = ROOT
+			}
+			jutland_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = { 
+			name = Scandinavia_united
+			duration = -1
+		}
+		add_accepted_culture = danish
+		holstein_area ={
+			add_core = ROOT
+		}
+		mecklenburg_area = {
+			add_permanent_claim = ROOT
+		}
+	}
+	}
+	Control_Lubeck_trade = {
+		icon = mission_dominate_home_trade_node
+		position = 5
+		required_missions = {Unite_Scandinavia}
+		provinces_to_highlight = {
+            OR = {
+			area = holstein_area
+			province_id = 45
+			}
+			}
+		trigger = {
+			holstein_area = {
+				type = all 
+				owned_by = ROOT
+			}
+			owns_core_province = 45
+			is_at_war = no
+			is_subject = no
+			45 = { #Lubeck
+				trade_share = {
+				country = NSU
+				share = 40
+	}
+}
+		}
+		effect = {
+			add_country_modifier = {
+				name = Benefits_from_lubeck_trade
+				duration = 9125
+			}
+			highlands_area = {
+				add_permanent_claim = ROOT
+			}
+			lowlands_area = {
+				add_permanent_claim = ROOT
+			}
+			add_mercantilism = 5
+		}
+	}
+	Conquer_scotland = {
+		icon = mission_rb_conquer_scotland
+		position = 6
+		required_missions = {Control_Lubeck_trade}
+		provinces_to_highlight = {
+            OR = {
+			area = lowlands_area
+			area = highlands_area
+			}
+			}
+		trigger = {
+			highlands_area = {
+				type = all
+				owned_by = ROOT
+			}
+			lowlands_area = {
+				type = all
+				owned_by = ROOT
+			}
+			is_at_war = no
+			is_subject = no
+		}
+		effect = {
+			add_treasury = 250
+			scottish_marches_area = {
+				 add_permanent_claim = ROOT
+			 }
+			yorkshire_area = {
+				add_permanent_claim = ROOT
+			}
+			ulster_area = {
+				add_permanent_claim = ROOT
+			}
+			connacht_area = {
+				add_permanent_claim = ROOT
+			}
+			add_prestige = 10
+		}
+	}
+	Take_Northern_England = {
+		icon = mission_rb_conquer_the_highlands
+		position = 7
+		required_missions = {Conquer_scotland}
+		provinces_to_highlight = {
+            OR = {
+			area = yorkshire_area
+			area = scottish_marches_area
+			}
+			}
+		trigger = {
+			yorkshire_area = {
+				type = all
+				owned_by = ROOT
+			}
+			scottish_marches_area = {
+				type = all
+				owned_by = ROOT
+			}
+			is_at_war = no
+			is_subject = no
+		}
+		effect = {
+			east_midlands_area = {
+				add_permanent_claim = ROOT
+			}
+			west_midlands_area = {
+				add_permanent_claim = ROOT
+			}
+			yorkshire_area = {
+				add_province_modifier = {
+					name = assimilation_of_english_culture
+					duration = 9125
+				}
+			}
+			scottish_marches_area = {
+				add_province_modifier = {
+					name = assimilation_of_english_culture
+					duration = 9125
+				}
+			}
+		}
+	}
+	Conquer_midlands = {
+		icon = mission_rb_into_england
+		position = 8
+		required_missions = {Take_Northern_England}
+		provinces_to_highlight = {
+            OR = {
+			area = east_midlands_area
+			area = west_midlands_area
+			}
+			}
+		trigger = {
+			west_midlands_area = {
+				type = all
+				owned_by = ROOT
+			}
+			east_midlands_area = {
+				type = all
+				owned_by = ROOT
+			}
+			is_at_war = no
+			is_subject = no
+		}
+		effect = {
+			east_anglia_area = {
+				add_permanent_claim = ROOT
+			}
+			wales_area = {
+				add_permanent_claim = ROOT
+			}
+			change_mil = 1
+		}
+	}
+	Take_path_for_London = {
+		icon = mission_rb_rule_britannia_scottish_version
+		position = 9 
+		required_missions = {Conquer_midlands}
+		provinces_to_highlight = {
+            OR = {
+			area = east_anglia_area
+			area = wales_area
+			}
+			}
+		trigger = {
+			east_anglia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			wales_area = {
+				type = all
+				owned_by = ROOT
+			}
+			is_at_war = no
+			is_subject = no
+		}
+		effect = {
+			wessex_area = {
+				add_permanent_claim = ROOT
+			}
+			home_counties_area = {
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = path_for_London
+				duration = 7300
+			}
+		}
+	}
+	Revenge_for_Stamford_bridge = {
+		icon = mission_rb_angevin_kingdom
+		position = 10
+		required_missions = {Take_path_for_London}
+		provinces_to_highlight = {
+            OR = {
+			area = wessex_area
+			area = home_counties_area
+			}
+		}
+		trigger = {
+			wessex_area = {
+				type = all 
+				owned_by = ROOT
+			}
+			home_counties_area = {
+				type = all
+				owned_by = ROOT
+			}
+			owns_core_province = 236
+			is_at_war = no
+			is_subject = no
+		}
+		effect = {
+			add_prestige = 25
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+			add_country_modifier = {
+				name = Revenge_for_Stamfod_bridge
+				duration = -1
+			}
+		}
+	}
+	Empire_of_North = {
+		icon = mission_empire
+		position = 11
+		required_missions = {
+			Revenge_for_Stamford_bridge
+			Conquer_South_Ireland
+			Control_novogrod_trade
+			}
+			provinces_to_highlight = {
+            OR = {
+			province_id = 17
+			province_id = 310
+			province_id = 1
+			province_id = 12
+			province_id = 236
+			province_id = 38
+			}
+			}
+		trigger = {
+			is_at_war = no
+			is_subject = no
+			owns_core_province = 17
+			owns_core_province = 310
+			owns_core_province = 1
+			owns_core_province = 12
+			owns_core_province = 236
+			owns_core_province = 38
+			government_rank = 3
+		}
+		effect = {
+			country_event = {
+				id = Scandinavian.6
+			}
+		}
+	}
+}
+Norwish_expasion_ireland = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+		tag = NOR
+		tag = NSU
+		}
+	}
+	has_country_shield = yes
+
+	Conquest_of_North_Ireland = {
+		icon = mission_rb_conquer_ulster
+		position = 7
+		required_missions = {Conquer_scotland}
+		provinces_to_highlight = {
+            OR = {
+			area = ulster_area
+			area = connacht_area
+			}
+		}
+		trigger = {
+			ulster_area = {
+				type = all
+				owned_by = ROOT
+			}
+			connacht_area = {
+				type = all 
+				owned_by = ROOT
+			}
+			is_at_war = no
+			is_subject = no
+		}
+		effect = {
+			leinster_area = {
+				add_permanent_claim = ROOT
+			}
+			munster_area = {
+				add_permanent_claim = ROOT
+			}
+			define_general = {
+    			shock = 4
+    			fire = 2
+    			manuever = 3
+    			siege = 1
+				name = "Richard Talbot"
+			}
+		}
+	}
+	Conquer_South_Ireland = {
+		icon = mission_rb_conquer_ireland
+		position = 10
+		required_missions = {Conquest_of_North_Ireland}
+		provinces_to_highlight = {
+            OR = {
+			area = leinster_area
+			area = munster_area
+			}
+		}
+		trigger = {
+			leinster_area = {
+				type = all
+				owned_by = ROOT
+			}
+			munster_area = {
+				type = all
+				owned_by = ROOT
+			}
+			is_at_war = no
+			is_subject = no
+		}
+		effect = {
+			add_legitimacy = 25
+			add_prestige = 25
+			add_stability = 1
+			add_manpower = 10
+		}
+	}
+}
+Norwish_expansion_way_2 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+		tag = NOR
+		tag = NSU
+		}
+	}
+	has_country_shield = yes
+
+	Recover_Finland = {
+		icon = mission_conquer_finland
+		position = 4
+		required_missions = {Create_Norwish_and_Swedish_union}
+		provinces_to_highlight = {
+            OR = {
+			area = finland_area
+			area = bothnia_area
+			}
+		}
+		trigger = {
+			finland_area = {
+				type = all
+				owned_by = ROOT
+			}
+			bothnia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			is_at_war = no
+			is_subject = no
+		}
+		effect = {
+			add_prestige = 25
+			laponia_area = {
+				add_permanent_claim = ROOT
+			}
+			arkhangelsk_area = {
+				add_permanent_claim = ROOT
+			}
+			pomor_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	Take_arkhangelks = {
+		icon = mission_found_arkhangelsk
+		position = 5
+		required_missions = {Recover_Finland}
+		provinces_to_highlight = {
+            OR = {
+			area = laponia_area
+			area = arkhangelsk_area
+			area = pomor_area
+			}
+		}
+		trigger = {
+			laponia_area = {
+				owned_by = ROOT
+				type = all
+			}
+			arkhangelsk_area = {
+				owned_by = ROOT
+				type = all
+			}
+			pomor_area = {
+				owned_by = ROOT
+				type = all
+			}
+			is_at_war = no
+			is_subject = no
+		}
+		effect = {
+			north_karelia = {
+				add_permanent_claim = ROOT
+			}
+			karelia_area = {
+				add_permanent_claim = ROOT
+			}
+			define_advisor = {
+    			type = trader
+    			skill = 2
+    			culture = karelian
+    			religion = orthodox
+			}
+		}
+	}
+	Conquer_karelia = {
+		icon = mission_heart_of_the_hansa
+		position = 6
+		required_missions = {Take_arkhangelks}
+		provinces_to_highlight = {
+            OR = {
+			area = north_karelia
+			area = karelia_area
+			}
+		}
+		trigger = {
+			north_karelia = {
+				owned_by = ROOT
+				type = all
+			}
+			karelia_area = {
+				owned_by = ROOT
+				type = all
+			}
+			is_at_war = no
+			is_subject = no
+		}
+		effect = {
+			novgorod_area = {
+				add_permanent_claim = ROOT
+			}
+			pskov_area = {
+				add_permanent_claim = ROOT
+			}
+			add_accepted_culture = karelian
+		}
+	}
+	Control_novogrod_trade = {
+		icon = mission_novgorod_the_great
+		position = 10 
+		required_missions = {Conquer_karelia}
+		provinces_to_highlight = {
+            OR = {
+			area = novgorod_area
+			area = pskov_area
+			}
+		}
+		trigger = {
+			novgorod_area = {
+				owned_by = ROOT
+				type = all
+			}
+			pskov_area = {
+				owned_by = ROOT
+			}
+			310 = { 
+				trade_share = {
+				country = NSU
+				share = 50
+				}
+			}
+			owns_core_province = 310
+			is_at_war =no 
+			is_subject = no
+		}
+		effect= {
+			livonia_area = {
+				add_permanent_claim = ROOT
+			}
+			curonia_area = {
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = Benefits_from_novogrod_trade
+				duration = 7300
+			}
+		}
+	}	
+}
+Norwish_colonization_way = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+		tag = NOR
+		tag = NSU
+		}
+	}
+	has_country_shield = yes
+
+	Develop_north_sea_isles = {
+		icon = mission_early_game_buildings
+		position = 1
+		required_missions = {}
+		provinces_to_highlight = {
+            OR = {
+			province_id = 371
+			province_id = 370
+			province_id = 1979
+			province_id = 1978
+			}
+		}
+		trigger = {
+			371 = {
+				development = 5
+			}
+			370 = {
+				development = 5
+			}
+			1979 = {
+				development = 5
+			}
+			1978 = {
+				development = 5
+			}
+			iceland_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			370 = {
+				center_of_trade = 1
+			}
+			add_country_modifier = {
+			name = norwish_colonization
+			duration = 7300
+			}
+			create_explorer = {
+				tradition = 60
+			}
+			greenland_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	Colonization_of_greenland = {
+		icon = mission_colonial
+		position = 2
+		required_missions = {Develop_north_sea_isles}
+		provinces_to_highlight = {
+            OR = {
+			area = greenland_area
+			}
+		}
+		trigger = {
+			greenland_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			370 = {
+				add_province_modifier = {
+					name = increased_fish_trade
+					duration = 91250
+				}
+			}
+			371 = {
+				add_province_modifier = {
+					name = increased_fish_trade
+					duration = 91250
+				}
+			}
+			1978 = {
+				add_province_modifier = {
+					name = increased_fish_trade
+					duration = 91250
+				}
+			}
+			1979 = {
+				add_province_modifier = {
+					name = increased_fish_trade
+					duration = 91250
+				}
+			}
+			1104 = {
+				add_building_construction = {
+					building = shipyard
+					speed = 0.5
+					cost = 0
+				}
+			}
+			1105 = {
+				add_building_construction = {
+					building = shipyard
+					speed = 0.5
+					cost = 0
+		}
+	}
+			newfoundland_area = {
+				add_permanent_claim = ROOT
+			}
+			lower_acadia_area = {
+				add_permanent_claim = ROOT
+			}
+			upper_acadia_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	Create_new_norway = {
+		icon = mission_invade_island
+		position = 3
+		required_missions = {Colonization_of_greenland}
+		provinces_to_highlight = {
+            OR = {
+			area = newfoundland_area
+			area = lower_acadia_area
+			area = upper_acadia_area
+			}
+		}
+		trigger = {
+		newfoundland_area = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		lower_acadia_area = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		upper_acadia_area = { 
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			colony = 1
+		}
+		effect = {
+			add_country_modifier = {
+			name = colonization_of_canada 
+			duration = 7300
+			}
+			notre_dame_mountains_area = {
+				add_permanent_claim = ROOT
+			}
+			cote_nord_area = {
+				add_permanent_claim = ROOT
+			}
+			labrador_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	Colonize_Quebec = {
+		icon = mission_settlers_north_america
+		position = 4
+		required_missions = {Create_new_norway}
+		provinces_to_highlight = {
+            OR = {
+			area = cote_nord_area
+			area = labrador_area
+			area = notre_dame_mountains_area
+			}
+		}
+		trigger = {
+			cote_nord_area ={
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			labrador_area ={
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			notre_dame_mountains_area = {
+				type =all 
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			2578 = {
+				add_building_construction = {
+					building = temple
+					speed = 0.5
+					cost = 0
+				}
+			}
+			994 = {
+				add_building_construction = {
+					building = temple
+					speed = 0.5
+					cost = 0
+				}
+			}
+			981 = {
+				add_building_construction = {
+					building = temple
+					speed = 0.5
+					cost = 0
+				}
+			}
+			add_country_modifier = {
+				name = benefits_from_Canadian_colony
+				duration = -1
+			}
+		}
+	}
+}
+vikings_way = {
+	slot = 1 
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+			tag = NOR
+			tag = NSU
+		}
+	}
+	has_country_shield = yes
+
+	Return_to_vikings = {
+		icon = mission_rb_unite_the_clans
+		position = 4
+		required_missions = {}
+		trigger = {
+			religion = norse_pagan_reformed
+			is_subject = no
+			is_at_war = no
+		}
+		effect = {
+			add_government_reform = viking_society
+			change_government_reform_progress = 200
+		}
+	}
+	
+}
+Norwish_religion_way = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+		tag = NOR
+		tag = NSU
+		}
+	}
+	has_country_shield = yes
+
+	Return_of_old_gods = {
+		icon = mission_hands_praying
+		position = 12
+		required_missions = {}
+		trigger = {
+			religion = norse_pagan_reformed
+			religious_unity = 0.5
+			is_at_war = no
+			owns_core_province = 17
+		}
+		effect = {
+			country_event = {
+				id = Scandinavian.3
+			}
+		}
+	}
+	Thors_blessing = {
+		icon = mission_landsknecht_soldier
+		position = 13
+		required_missions = {Return_of_old_gods}
+		trigger = {
+			manpower = 5
+			religion = norse_pagan_reformed
+			mil_power = 100
+		}
+		effect = {
+			add_country_modifier = {
+				name = thors_blesing
+				duration = -1
+			}
+			add_manpower = -5
+			add_mil_power = -100
+		}
+	}
+	Lokis_blessing = {
+		icon = continue_the_renaissance
+		position = 14
+		required_missions = {Thors_blessing}
+		trigger = {
+			religion = norse_pagan_reformed
+			dip_power = 100
+			prestige = 25
+		}
+		effect = {
+			add_dip_power = -100
+			add_prestige = -25
+			add_country_modifier = {
+				name = Lokis_blesing
+				duration = -1
+			}
+		}
+	}
+	Odins_blessing = {
+		icon = mission_monarch_in_throne_room
+		position = 15
+		required_missions = {
+			Lokis_blessing
+			Freyrs_blessing
+			Forsetis_blessing
+		}
+		trigger = {
+			religion = norse_pagan_reformed
+			religious_unity = 0.90
+			adm_power = 100
+			dip_power = 100
+			mil_power = 100
+		}
+		effect = {
+			add_adm_power = -100
+			add_dip_power = -100
+			add_mil_power = -100
+			add_country_modifier = {
+				name = Odins_blesing
+				duration = -1
+			}
+		}
+	}
+}
+
+Norwish_religion_way_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+		tag = NOR
+		tag = NSU
+		}
+	}
+	has_country_shield = yes
+
+	Njord_blessing = {
+		icon = mission_conquer_50_development
+		position = 13
+		required_missions = {Return_of_old_gods}
+		trigger = {
+			religion = norse_pagan_reformed
+			dip_power = 100
+			owns_core_province = 17
+			17 = {
+				base_production = 4
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = Njord_blesing
+				duration = -1
+			}
+			add_dip_power = -100
+			17 = {
+				add_base_production = -3
+			}
+		}
+	}
+	Freyrs_blessing = {
+		icon = mission_war_chest
+		position = 14
+		required_missions = {Njord_blessing}
+		trigger = {
+			religion = norse_pagan_reformed
+			adm_power = 100
+			treasurer = 2
+		}
+		effect = {
+			add_adm_power = -100
+			kill_advisor = treasurer
+			add_country_modifier = {
+				name = Freyrs_blesing
+				duration = -1
+			}
+		}
+	}
+}
+Norwish_religion_way_3 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+		tag = NOR
+		tag = NSU
+		}
+	}
+	has_country_shield = yes
+
+	Snotras_blessing = {
+		icon = mission_early_modern_university
+		position = 13
+		required_missions = { Return_of_old_gods}
+		trigger = {
+			adm_tech = 6
+			dip_tech = 6
+			adm_power = 100
+			religion = norse_pagan_reformed
+			adm = 3
+		}
+		effect = {
+			add_country_modifier = {
+				name = Snotras_blesing
+				duration = -1
+			}
+			change_adm = -1
+			add_adm_power = -100
+		}
+	}
+	Forsetis_blessing = {
+		icon = mission_rb_college_of_justice
+		position = 14
+		required_missions = {Snotras_blessing}
+		trigger  = {
+			adm_power = 100
+			treasury = 150
+			religion = norse_pagan_reformed
+		}
+		effect = {
+			add_adm_power = -100
+			add_treasury = -150
+			add_country_modifier = {
+				name = Forsetis_blesing
+				duration = -1
+			}
+		}
+	}
+}
+
+
+
+
+	

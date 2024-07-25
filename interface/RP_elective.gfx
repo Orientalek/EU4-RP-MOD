@@ -1,0 +1,50 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_king"
+		texturefile = "gfx//interface//king.dds"
+	}
+	spriteType = {
+		name = "GFX_nobles"
+		texturefile = "gfx//interface//nobles.dds"
+	}
+	spriteType = {
+		name = "GFX_nobles"
+		texturefile = "gfx//interface//nobles.dds"
+	}
+	spriteType = {
+		name = "GFX_POL_icon_vassal"
+		texturefile = "gfx//interface//POL_icon_vassal.dds"
+	}
+	spriteType = {
+		name = "GFX_POL_icon_diplomacy_leadvassal"
+		texturefile = "gfx//interface//POL_icon_diplomacy_leadvassal.dds"
+	}
+	spriteType = {
+		name = "GFX_POL_diplomacy_amvassal"
+		texturefile = "gfx//interface//POL_diplomacy_amvassal.dds"
+	}
+	spriteType = {
+		name = "GFX_TEU_icon_vassal"
+		texturefile = "gfx//interface//TEU_icon_vassal.dds"
+	}
+	spriteType = {
+		name = "GFX_TEU_icon_diplomacy_leadvassal"
+		texturefile = "gfx//interface//TEU_icon_diplomacy_leadvassal.dds"
+	}
+	spriteType = {
+		name = "GFX_TEU_icon_diplomacy_amvassal"
+		texturefile = "gfx//interface//TEU_icon_diplomacy_amvassal.dds"
+	}
+	spriteType = {
+		name = "GFX_PRU_Icon"
+		texturefile = "gfx//interface//PRU_icon_vassal.dds"
+	}
+	spriteType = {
+		name = "GFX_PRU_Icon_diplomacy_leadvassal"
+		texturefile = "gfx//interface//PRU_icon_diplomacy_leadvassal.dds"
+	}
+	spriteType = {
+		name = "GFX_PRU_Icon_diplomacy_amvassal"
+		texturefile = "gfx//interface//PRU_icon_diplomacy_amvassal.dds"
+	}
+}

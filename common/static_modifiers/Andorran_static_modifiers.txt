@@ -1,0 +1,30 @@
+Andorran_prepare_army = {
+	land_morale = 0.15	
+	siege_ability = 0.15	
+	land_attrition = -0.15	
+}
+Andorran_build_economy = {
+	development_cost = -0.05	
+	build_cost = -0.2	
+	build_time = -0.2
+}
+Andorran_build_fleet = {
+	global_ship_cost = -0.3
+	global_ship_recruit_speed = -0.3
+	global_ship_repair = 0.3
+}
+Rebuild_conquered_territories = {
+	core_creation = -0.05	
+	build_cost = -0.05	
+	build_time = -0.05
+}
+A_modernized_andorran_army = {
+	army_tradition_decay = -0.002	
+	infantry_cost = -0.05	
+	siege_ability = 0.10	
+	discipline = 0.025
+}
+Devloped_andorran_capital = {
+	development_cost = -0.05	
+	build_cost = -0.2	
+}

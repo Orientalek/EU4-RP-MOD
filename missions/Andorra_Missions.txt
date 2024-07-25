@@ -1,0 +1,217 @@
+alv_economy = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = ALV
+	}
+	has_country_shield = yes
+	    Andorran_build_economy = {
+        icon =	mission_early_game_buildings            
+        position = 1      
+        required_missions = { }
+        provinces_to_highlight = { }
+        trigger = { 
+		NOT = {
+		inflation = 0.2
+		corruption = 1
+		}
+		treasury = 100
+		}
+        effect = {
+		add_country_modifier = {
+        name = Andorran_build_economy 
+		duration = 7300
+            }
+		}
+    }
+		Develop_Andorra = {
+		icon = mission_european_church
+		position = 2
+		required_missions = { Andorran_build_economy }
+		provinces_to_highlight = {
+			province_id = 4983
+		}
+		trigger = {
+			4983 = {
+				owned_by = ROOT
+				development = 10
+				OR = {
+					has_building = marketplace
+					has_building = cathedral
+					has_building = temple
+				}
+			}
+		}
+		effect = {
+			4983 = {
+				change_trade_goods = iron
+				add_building_construction = {
+    				building = workshop
+    				speed = 0.7
+    				cost = 0
+				}
+				add_center_of_trade_level = 2
+				add_province_modifier = {
+				name = Devloped_andorran_capital
+				duration = -1
+				}
+			}
+		}
+	}
+}
+alv_arm2 = {
+	slot = 2
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = ALV
+	}
+	has_country_shield = yes
+	    North_andorran_expansion = {
+        icon = imperial_capitals             
+        position = 2      
+        required_missions = { Prepare_our_andorran_armies }
+        provinces_to_highlight = { 
+			area = pyrenees_area
+		}
+        trigger = { 
+			pyrenees_area = {
+			type = all 
+			country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+        effect = {
+			languedoc_area = {
+			add_permanent_claim = ROOT
+			}
+			pyrenees_area = {
+			limit = { owned_by = root }
+			add_province_modifier = {
+			name = Rebuild_conquered_territories
+			duration = 3650
+				}
+			}
+		}
+    }
+	
+}
+alv_arm3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = ALV
+	}
+	has_country_shield = yes
+	
+    Prepare_our_andorran_armies = {
+        icon = mission_assemble_an_army               
+        position = 1      
+        required_missions = { }
+        provinces_to_highlight = { }
+        trigger = { 
+        army_size_percentage = 1
+		manpower_percentage = 0.25
+		}
+        effect = {
+			add_country_modifier = {
+            name = Andorran_prepare_army 
+            duration = 14600
+            }
+			catalonia_area = {
+            add_permanent_claim = ROOT
+            }
+			pyrenees_area = {
+			add_permanent_claim = ROOT
+			}
+		}
+    }
+	South_andorran_expansion = {
+        icon = take_the_bishoprics                
+        position = 1      
+        required_missions = { Prepare_our_andorran_armies }
+        provinces_to_highlight = { 
+			area = catalonia_area 
+		}
+        trigger = { 
+			catalonia_area = {
+			type = all 
+			country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+        effect = {
+			aragon_area = {
+			add_permanent_claim = ROOT
+			}
+			catalonia_area = {
+			limit = { owned_by = root }
+			add_province_modifier = {
+			name = Rebuild_conquered_territories
+			duration = 3650
+				}
+			}
+		}
+    }
+}
+alv_arm4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = ALV
+	}
+	has_country_shield = yes
+	Army_modernization = {
+        icon = mission_cannons_firing             
+        position = 2      
+        required_missions = { Prepare_our_andorran_armies }
+        provinces_to_highlight = { }
+        trigger = { 
+			monthly_mil = 8
+			OR = {
+				current_age = age_of_discovery
+				current_age = age_of_reformation
+				current_age = age_of_absolutism
+			}
+		}
+        effect = {
+				add_country_modifier = {
+				name = A_modernized_andorran_army 			
+				duration = -1
+			}
+		}
+    }
+}
+alv_fleet = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = ALV
+	}
+	has_country_shield = yes
+	    Andorran_build_fleet = {
+        icon = mission_raid_christian_trade              
+        position = 1      
+        required_missions = { }
+        provinces_to_highlight = { }
+        trigger = { 
+			num_of_ports = 1
+		}
+        effect = {	
+		add_country_modifier = {
+        name = Andorran_build_fleet 
+		duration = 7300
+			}
+		}
+	}
+}
+	
+	
+	
+	

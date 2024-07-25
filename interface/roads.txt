@@ -1,0 +1,28 @@
+spriteTypes  = {
+	### drogunie
+	spriteType = {
+		name = "GFX_dirt_road"
+		texturefile = "gfx//interface//buildings//dirt_road.tga"
+		loadType = "INGAME"
+	}
+		spriteType = {
+		name = "GFX_gravel_road"
+		texturefile = "gfx//interface//buildings//gravel_road.tga"
+		loadType = "INGAME"
+	}
+		spriteType = {
+		name = "GFX_macadam_road"
+		texturefile = "gfx//interface//buildings//macadam_road.tga"
+		loadType = "INGAME"
+	}
+		spriteType = {
+		name = "GFX_roman_road"
+		texturefile = "gfx//interface//buildings//roman_road.tga"
+		loadType = "INGAME"
+	}
+		spriteType = {
+		name = "GFX_rail_road"
+		texturefile = "gfx//interface//buildings//rail_road.tga"
+		loadType = "INGAME"
+	}
+}

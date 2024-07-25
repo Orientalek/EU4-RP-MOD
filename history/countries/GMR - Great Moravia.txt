@@ -1,0 +1,12 @@
+government = republic
+add_government_reform = noble_republic
+
+technology_group = western
+
+religion = catholic
+
+primary_culture = czech
+
+add_accepted_culture = polish
+
+capital = 265	# Brno

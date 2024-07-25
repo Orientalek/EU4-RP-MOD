@@ -1,0 +1,927 @@
+Crusade_wargoal_scripted = {
+	type = superiority
+	
+	attacker = {
+		badboy_factor = 1
+		prestige_factor = 2
+		peace_cost_factor = 0.75
+
+		peace_options = {
+			po_gold
+			po_concede_defeat
+			po_trade_power
+			po_steer_trade
+		}
+	}
+	
+	defender = {
+		badboy_factor = 1
+		prestige_factor = 1
+		peace_cost_factor = 1
+
+		peace_options = {
+			po_demand_provinces
+		}
+	}
+
+	war_name = WORLD_CRUSADE_WAR_NAME
+}
+hre_civil_war_wargoal = {
+	type = take_capital
+
+	attacker = {
+		badboy_factor = 0.25
+		prestige_factor = 0.25
+		
+		peace_options = {
+			po_gold
+			po_concede_defeat
+			po_join_empire
+			po_release_annexed
+			po_trade_power
+			po_steer_trade
+		}
+	}
+
+	defender = {
+		badboy_factor = 1.0
+		peace_options = {
+			po_demand_provinces
+		}
+	}
+
+	war_name = FORCE_JOIN_HRE_WAR_NAME
+}
+take_claim = {
+	type = take_province
+	
+	attacker = {
+		badboy_factor = 1.0
+		prestige_factor = 1
+		peace_cost_factor = 1.0	
+		allowed_provinces = {
+			OR = {
+				OR = {
+				is_claim = ROOT
+				is_core = ROOT
+				}
+				AND = {
+					controller = { 
+						is_subject_of = ROOT
+					}
+					OR = {
+						is_claim = controller 
+						is_core = controller 
+					}
+				}
+			}
+			
+		}
+		allowed_provinces_are_eligible = yes
+		peace_options = {
+			po_demand_provinces
+		}
+		prov_desc = ALL_CLAIMS
+	}
+	
+	defender = {
+		badboy_factor = 1.0
+		prestige_factor = 1
+		peace_cost_factor = 1.0	
+		allowed_provinces = {
+			OR = {
+				OR = {
+				is_claim = ROOT
+				is_core = ROOT
+				}
+				AND = {
+					controller = { 
+						is_subject_of = ROOT
+					}
+					OR = {
+						is_claim = controller 
+						is_core = controller 
+					}
+				}
+			}
+		}
+		peace_options = {
+			po_demand_provinces
+		}
+		allowed_provinces_are_eligible = yes
+		prov_desc = ALL_CLAIMS
+	}
+	war_name = CLAIM_WAR_NAME
+}
+take_core_defection = {
+	type = take_core
+	
+	attacker = {
+		badboy_factor = 1
+		prestige_factor = 2
+		peace_cost_factor = 0.5
+		
+		allowed_provinces = {
+			owner = { exists = yes }
+			NOT = { months_since_defection = 12 } # Defected within the last 12 months
+			previous_owner = ROOT
+OR = {
+				OR = {
+				is_claim = ROOT
+				is_core = ROOT
+				}
+				AND = {
+					controller = { 
+						is_subject_of = ROOT
+					}
+					OR = {
+						is_claim = controller 
+						is_core = controller 
+					}
+				}
+			}
+		}
+		allowed_provinces_are_eligible = yes
+		peace_options = {
+			po_demand_provinces
+		}
+	}
+	
+	defender = {
+		badboy_factor = 1
+		prestige_factor = 1
+		peace_cost_factor = 1
+
+		peace_options = {
+			po_demand_provinces
+		}
+		allowed_provinces = {
+			OR = {
+				OR = {
+				is_claim = ROOT
+				is_core = ROOT
+				}
+				AND = {
+					controller = { 
+						is_subject_of = ROOT
+					}
+					OR = {
+						is_claim = controller 
+						is_core = controller 
+					}
+				}
+			}
+		}
+		allowed_provinces_are_eligible = yes
+	}
+
+	war_name = CORE_WAR_NAME
+}
+defend_capital_independence = {
+	type = defend_capital
+	
+	attacker = {
+		allowed_provinces = {
+OR = {
+				OR = {
+				is_claim = ROOT
+				is_core = ROOT
+				}
+				AND = {
+					controller = { 
+						is_subject_of = ROOT
+					}
+					OR = {
+						is_claim = controller 
+						is_core = controller 
+					}
+				}
+			}
+		}
+		allowed_provinces_are_eligible = yes
+		badboy_factor = 1
+		prestige_factor = 1
+		peace_cost_factor = 0.75
+		
+		peace_options = {
+			po_concede_defeat
+			po_independence
+			po_demand_provinces
+		}
+	}
+	
+	defender = {
+		badboy_factor = 0.5
+		prestige_factor = 1
+		peace_cost_factor = 0.75
+		
+		allowed_provinces = {
+			OR = {
+				OR = {
+				is_claim = ROOT
+				is_core = ROOT
+				}
+				AND = {
+					controller = { 
+						is_subject_of = ROOT
+					}
+					OR = {
+						is_claim = controller 
+						is_core = controller 
+					}
+				}
+			}
+		}
+		allowed_provinces_are_eligible = yes	
+		
+		peace_options = {
+			po_demand_provinces
+		}
+	}
+	
+	war_name = INDEPENDENCE_WAR_NAME
+}
+take_core = {
+	type = take_core
+
+	attacker = {
+		badboy_factor = 0.25
+		prestige_factor = 1
+		peace_cost_factor = 0.75
+
+		allowed_provinces = {
+OR = {
+				OR = {
+				is_claim = ROOT
+				is_core = ROOT
+				}
+				AND = {
+					controller = { 
+						is_subject_of = ROOT
+					}
+					OR = {
+						is_claim = controller 
+						is_core = controller 
+					}
+				}
+			}
+		}
+		allowed_provinces_are_eligible = yes	
+		
+		peace_options = {
+			po_demand_provinces
+			po_return_cores
+		}
+		
+		prov_desc = ALL_CORES
+	}
+	
+	defender = {
+		badboy_factor = 0.25
+		prestige_factor = 1
+		peace_cost_factor = 0.75
+
+		allowed_provinces = {
+			OR = {
+				OR = {
+				is_claim = ROOT
+				is_core = ROOT
+				}
+				AND = {
+					controller = { 
+						is_subject_of = ROOT
+					}
+					OR = {
+						is_claim = controller 
+						is_core = controller 
+					}
+				}
+			}
+		}
+		allowed_provinces_are_eligible = yes	
+		
+		peace_options = {
+			po_demand_provinces
+			po_return_cores
+		}
+		
+		prov_desc = ALL_CORES	
+	}
+	
+	war_name = CORE_WAR_NAME
+}
+take_capital_imperial = {
+	type = take_capital
+	
+	attacker = {
+		badboy_factor = 0.75
+		prestige_factor = 1
+		peace_cost_factor = 0.75	
+		
+		
+		allowed_provinces = {
+OR = {
+				OR = {
+				is_claim = ROOT
+				is_core = ROOT
+				}
+				AND = {
+					controller = { 
+						is_subject_of = ROOT
+					}
+					OR = {
+						is_claim = controller 
+						is_core = controller 
+					}
+				}
+			}
+		}
+		allowed_provinces_are_eligible = yes	
+		
+		peace_options = {
+			po_demand_provinces
+		}
+		
+		country_desc = ALL_COUNTRIES
+		prov_desc = ALL_PROVS
+		
+	}
+	
+	defender = {
+		badboy_factor = 0.75
+		prestige_factor = 1
+		peace_cost_factor = 0.75	
+		
+		allowed_provinces = {
+			OR = {
+				OR = {
+				is_claim = ROOT
+				is_core = ROOT
+				}
+				AND = {
+					controller = { 
+						is_subject_of = ROOT
+					}
+					OR = {
+						is_claim = controller 
+						is_core = controller 
+					}
+				}
+			}
+		}
+		allowed_provinces_are_eligible = yes	
+		
+		peace_options = {
+			po_demand_provinces
+		}
+		
+		country_desc = ALL_COUNTRIES
+		prov_desc = ALL_PROVS
+	}	
+}
+	superiority_world_crusade = {
+	type = superiority
+	
+	attacker = {
+		badboy_factor = 0.75
+		prestige_factor = 2
+		peace_cost_factor = 0.75
+		
+		allowed_provinces = {
+OR = {
+				OR = {
+				is_claim = ROOT
+				is_core = ROOT
+				}
+				AND = {
+					controller = { 
+						is_subject_of = ROOT
+					}
+					OR = {
+						is_claim = controller 
+						is_core = controller 
+					}
+				}
+			}
+		}
+		allowed_provinces_are_eligible = yes	
+		
+		peace_options = {
+			po_demand_provinces
+			po_change_religion
+			po_release_vassals
+		}
+		
+		country_desc = ALL_INFIDELS
+		prov_desc = ALL_PROVS
+	}
+	
+	defender = {
+		badboy_factor = 0.75
+		prestige_factor = 2
+		peace_cost_factor = 0.75
+		
+		allowed_provinces = {
+			OR = {
+				OR = {
+				is_claim = ROOT
+				is_core = ROOT
+				}
+				AND = {
+					controller = { 
+						is_subject_of = ROOT
+					}
+					OR = {
+						is_claim = controller 
+						is_core = controller 
+					}
+				}
+			}
+		}
+		allowed_provinces_are_eligible = yes	
+		
+		peace_options = {
+			po_demand_provinces
+			po_release_vassals
+		}
+		
+		country_desc = ALL_INFIDELS
+		prov_desc = ALL_PROVS
+	}	
+	
+	war_name = WORLD_CRUSADE_WAR_NAME	
+}
+
+superiority_crusade = {
+	type = superiority
+	
+	attacker = {
+		badboy_factor = 0.75
+		prestige_factor = 1.25
+		peace_cost_factor = 1.0	
+		
+				allowed_provinces = {
+OR = {
+				OR = {
+				is_claim = ROOT
+				is_core = ROOT
+				}
+				AND = {
+					controller = { 
+						is_subject_of = ROOT
+					}
+					OR = {
+						is_claim = controller 
+						is_core = controller 
+					}
+				}
+			}
+		}
+		allowed_provinces_are_eligible = yes	
+		
+		peace_options = {
+			po_demand_provinces
+		}
+		
+		country_desc = ALL_INFIDELS
+		prov_desc = ALL_PROVS
+	}
+	
+	defender = {
+		badboy_factor = 0.75
+		prestige_factor = 1.25
+		peace_cost_factor = 1.0	
+		
+				allowed_provinces = {
+			OR = {
+				OR = {
+				is_claim = ROOT
+				is_core = ROOT
+				}
+				AND = {
+					controller = { 
+						is_subject_of = ROOT
+					}
+					OR = {
+						is_claim = controller 
+						is_core = controller 
+					}
+				}
+			}
+		}
+		allowed_provinces_are_eligible = yes	
+		
+		peace_options = {
+			po_demand_provinces
+		}
+		
+		country_desc = ALL_INFIDELS
+		prov_desc = ALL_PROVS
+	}	
+	
+	war_name = CRUSADE_WAR_NAME	
+}
+
+take_province_religion = {
+	type = take_province
+	
+	attacker = {
+		badboy_factor = 0.75
+		prestige_factor = 1.25
+		peace_cost_factor = 1.0	
+		
+		allowed_provinces = {
+			religion_group = ROOT
+OR = {
+				OR = {
+				is_claim = ROOT
+				is_core = ROOT
+				}
+				AND = {
+					controller = { 
+						is_subject_of = ROOT
+					}
+					OR = {
+						is_claim = controller 
+						is_core = controller 
+					}
+				}
+			}
+		}
+		allowed_provinces_are_eligible = yes	
+
+		peace_options = {
+			po_demand_provinces
+		}
+		
+		prov_desc = ALL_REL_GROUP_PROVS
+	}
+	
+	defender = {
+		badboy_factor = 0.75
+		prestige_factor = 1.25
+		peace_cost_factor = 1.0	
+		
+		allowed_provinces = {
+			OR = {
+				OR = {
+				is_claim = ROOT
+				is_core = ROOT
+				}
+				AND = {
+					controller = { 
+						is_subject_of = ROOT
+					}
+					OR = {
+						is_claim = controller 
+						is_core = controller 
+					}
+				}
+			}
+			religion_group = FROM
+		}
+		allowed_provinces_are_eligible = yes	
+		peace_options = {
+			po_demand_provinces
+		}
+		peace_options = {
+			po_demand_provinces
+		}
+		
+		prov_desc = ALL_REL_GROUP_PROVS
+	}	
+	
+	war_name = RELIGIOUS_WAR_NAME	
+}
+
+superiority_heretic = {
+	type = superiority
+	
+	attacker = {
+		badboy_factor = 0.75
+		prestige_factor = 2
+		peace_cost_factor = 1.0	
+		
+		allowed_provinces = {
+OR = {
+				OR = {
+				is_claim = ROOT
+				is_core = ROOT
+				}
+				AND = {
+					controller = { 
+						is_subject_of = ROOT
+					}
+					OR = {
+						is_claim = controller 
+						is_core = controller 
+					}
+				}
+			}
+			religion_group = ROOT
+		}
+		allowed_provinces_are_eligible = yes	
+		
+		peace_options = {
+			po_change_religion
+			po_demand_provinces
+		}
+
+		country_desc = ALL_HERETICS
+		prov_desc = ALL_PROVS
+	}
+	
+	defender = {
+		badboy_factor = 1
+		prestige_factor = 1
+		peace_cost_factor = 1
+				
+		allowed_provinces = {
+			OR = {
+				OR = {
+				is_claim = ROOT
+				is_core = ROOT
+				}
+				AND = {
+					controller = { 
+						is_subject_of = ROOT
+					}
+					OR = {
+						is_claim = controller 
+						is_core = controller 
+					}
+				}
+			}
+			religion_group = FROM
+		}
+		allowed_provinces_are_eligible = yes	
+		peace_options = {
+			po_demand_provinces
+		}
+	}
+
+	war_name = HERETIC_WAR_NAME	
+}
+
+take_province_excommunication = {
+	type = take_province
+	
+	attacker = {
+		badboy_factor = 0.5
+		prestige_factor = 1.25
+		peace_cost_factor = 1.0	
+
+		allowed_provinces = {
+OR = {
+				OR = {
+				is_claim = ROOT
+				is_core = ROOT
+				}
+				AND = {
+					controller = { 
+						is_subject_of = ROOT
+					}
+					OR = {
+						is_claim = controller 
+						is_core = controller 
+					}
+				}
+			}
+		}
+		allowed_provinces_are_eligible = yes	
+
+		peace_options = {
+			po_release_vassals
+			po_release_annexed
+			po_return_cores
+			po_demand_provinces
+			po_revoke_cores
+			po_become_vassal
+			po_gold
+			po_concede_defeat
+		}
+		prov_desc = ALL_CGROUP_PROVS
+	}
+	
+	defender = {
+		badboy_factor = 1
+		prestige_factor = 1
+		peace_cost_factor = 1
+
+		is_excommunication = yes
+	allowed_provinces = {
+			OR = {
+				is_core = FROM
+				is_claim = FROM
+			}
+		}
+		allowed_provinces_are_eligible = yes	
+		peace_options = {
+			po_demand_provinces
+		}
+	}
+
+	war_name = EXCOM_WAR_NAME	
+}
+take_capital_throne = {
+	type = take_capital
+	
+	attacker = {
+		badboy_factor = 1
+		prestige_factor = 2
+		peace_cost_factor = 1.4
+		
+		allowed_provinces = {
+OR = {
+				OR = {
+				is_claim = ROOT
+				is_core = ROOT
+				}
+				AND = {
+					controller = { 
+						is_subject_of = ROOT
+					}
+					OR = {
+						is_claim = controller 
+						is_core = controller 
+					}
+				}
+			}
+		}
+		allowed_provinces_are_eligible = yes	
+
+		required_treaty_to_take_provinces = {
+			po_form_personal_union
+		}
+
+		peace_options = {
+			po_demand_provinces
+			po_form_personal_union
+		}
+		prov_desc = ALL_PROVS
+	}
+	
+	defender = {
+		badboy_factor = 0.5
+		prestige_factor = 1
+		peace_cost_factor = 0.75
+
+		allowed_provinces = {
+			OR = {
+				is_core = FROM
+				is_claim = FROM
+			}
+		}
+		allowed_provinces_are_eligible = yes	
+		
+		peace_options = {
+			po_demand_provinces
+		}
+	}
+	
+	war_name = THRONE_WAR_NAME	
+}
+annex_country = {
+	type = take_capital
+	
+	attacker = {
+		badboy_factor = 0.5
+		prestige_factor = 1
+		peace_cost_factor = 1.0	
+		allowed_provinces = {
+			OR = {
+				OR = {
+				is_claim = ROOT
+				is_core = ROOT
+				}
+				AND = {
+					controller = { 
+						is_subject_of = ROOT
+					}
+					OR = {
+						is_claim = controller 
+						is_core = controller 
+					}
+				}
+			}
+		}
+		allowed_provinces_are_eligible = yes	
+
+		peace_options = {
+			po_demand_provinces
+		}
+	}
+	
+	defender = {
+		badboy_factor = 1
+		prestige_factor = 1
+		peace_cost_factor = 1
+			allowed_provinces = {
+			OR = {
+				OR = {
+				is_claim = ROOT
+				is_core = ROOT
+				}
+				AND = {
+					controller = { 
+						is_subject_of = ROOT
+					}
+					OR = {
+						is_claim = controller 
+						is_core = controller 
+					}
+				}
+			}
+		}
+		allowed_provinces_are_eligible = yes	
+		peace_options = {
+			po_demand_provinces
+		}
+	}
+
+	war_name = PRIMITIVE_WAR_NAME
+}
+humiliate = {
+	type = take_capital
+	
+	attacker = {
+		badboy_factor = 0
+		prestige_factor = 0
+		peace_cost_factor = 0	
+		
+				allowed_provinces = {
+OR = {
+				OR = {
+				is_claim = ROOT
+				is_core = ROOT
+				}
+				AND = {
+					controller = { 
+						is_subject_of = ROOT
+					}
+					OR = {
+						is_claim = controller 
+						is_core = controller 
+					}
+				}
+			}
+		}
+		allowed_provinces_are_eligible = yes	
+		
+		peace_options = {
+			po_gold
+			po_humiliate
+		}
+		
+		deny_annex = yes
+
+		country_desc = ALL_NATIVES
+		prov_desc = ALL_PROVS
+	}
+	
+	defender = {
+		badboy_factor = 1
+		prestige_factor = 1
+		peace_cost_factor = 1
+				allowed_provinces = {
+OR = {
+				OR = {
+				is_claim = ROOT
+				is_core = ROOT
+				}
+				AND = {
+					controller = { 
+						is_subject_of = ROOT
+					}
+					OR = {
+						is_claim = controller 
+						is_core = controller 
+					}
+				}
+			}
+		}
+		allowed_provinces_are_eligible = yes			allowed_provinces = {
+OR = {
+				OR = {
+				is_claim = ROOT
+				is_core = ROOT
+				}
+				AND = {
+					controller = { 
+						is_subject_of = ROOT
+					}
+					OR = {
+						is_claim = controller 
+						is_core = controller 
+					}
+				}
+			}
+		}
+		allowed_provinces_are_eligible = yes	
+		peace_options = {
+			po_demand_provinces
+		}
+	}
+
+	war_name = HUMILIATE_WAR_NAME	
+}

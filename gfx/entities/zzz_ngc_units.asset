@@ -1,0 +1,15 @@
+entity = { clone = "PRU_INFANTRY_1"        name = "NGC_INFANTRY_1"	version = "2" }
+entity = { clone = "PRU_CAVALRY_1"   		 name = "NGC_CAVALRY_1"		version = "2" }
+entity = { clone = "PRU_ARTILLERY_1"       name = "NGC_ARTILLERY_1"	version = "2" }
+
+entity = { clone = "PRU_INFANTRY_2"        name = "NGC_INFANTRY_2"	version = "2" }
+entity = { clone = "PRU_CAVALRY_2"		 name = "NGC_CAVALRY_2" 	version = "2" }
+entity = { clone = "PRU_ARTILLERY_2"       name = "NGC_ARTILLERY_2"	version = "2" }
+
+entity = { clone = "PRU_INFANTRY_3"        name = "NGC_INFANTRY_3"	version = "2" }
+entity = { clone = "PRU_CAVALRY_3"		 name = "NGC_CAVALRY_3" 	version = "2" }
+entity = { clone = "PRU_ARTILLERY_3"       name = "NGC_ARTILLERY_3"	version = "2" }
+
+entity = { clone = "PRU_INFANTRY_4"       name = "NGC_INFANTRY_4"	version = "2" }
+entity = { clone = "PRU_CAVALRY_4"		 name = "NGC_CAVALRY_4"		version = "2" }
+entity = { clone = "PRU_INFANTRY_4"       name = "NGC_ARTILLERY_4"	version = "2" }

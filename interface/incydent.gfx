@@ -1,0 +1,17 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_incident_elector_is_subject.EVTOPT1"
+		texturefile = "gfx/interface/imperial_incident_hre.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_incident_generic4.EVTOPT2"
+		texturefile = "gfx/interface/imperial_incident_hre.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_incident_generic4.EVTOPT3"
+		texturefile = "gfx/interface/imperial_incident_hre.dds"
+		loadType = "INGAME"
+	}
+}

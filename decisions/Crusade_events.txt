@@ -1,0 +1,240 @@
+country_decisions = {
+
+	start_crusade_mameluk = {
+		major = yes
+		potential = {
+			tag = PAP
+			has_country_flag = complete_preparation
+			has_country_flag = crusade_Mameluk
+			NOT = { has_country_flag = crusade_started}
+			NOT = { has_country_flag = clicked2}
+		}
+		allow = {
+			is_at_war = no
+		}
+		effect = {
+			PAP = {
+				declare_war_with_cb = {
+					who = MAM
+					casus_belli = crusade_scripted
+				}
+			}
+			set_country_flag = crusade_started
+			set_country_flag = clicked2
+			every_known_country = {	
+				limit = {
+					has_country_flag = member_of_crusade
+				}	
+				country_event = {
+					id = crusade.5
+				}
+				join_all_offensive_wars_of = PAP
+			}
+		}	
+		hidden_effect = {
+			every_known_country = {	
+				limit = {
+					has_country_flag = mameluk_leauge
+				}
+				join_all_defensive_wars_of = MAM
+			}
+		}
+	}
+
+	move_capital_to_rome = {
+		major = yes
+		potential = {
+			always = no # redundant due to fixed_capital mechanics
+			tag = PAP
+			owns = 118  # Rome
+			118 = {		# Rome
+				is_state = yes
+			}
+			NOT = { capital = 118 }
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			religion = catholic
+			owns = 118 # Rome
+		}
+		effect = {
+			118 = {
+				move_capital_effect = yes
+			}
+			add_core = 118 # Rome
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		do_not_core = 118 #Rome
+	}
+	organise_crusade = {
+		major = yes
+    	potential = {
+			tag = PAP
+			NOT = { has_country_flag = first_crusade_organised }
+			NOT = { has_country_flag = crusade }
+			NOT = { is_year = 1490 }
+		}
+		allow = {
+			151 = { owned_by = TUR }
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			religion = catholic
+			treasury = 3250
+			num_of_loans = 0
+		}
+		effect = {
+			set_country_flag = first_crusade_organised
+			add_treasury = -3250	
+			PAP = {
+				country_event = {
+				id = crusade.1
+				}
+			}
+		}	
+	}
+
+	organise_crusade_mameluk = {
+		major = yes
+    	potential = {
+			tag = PAP
+			NOT = { has_country_flag = crusade }
+			NOT = { has_country_flag = first_crusade_organised }
+			NOT = { is_year = 1490 }
+
+		}
+		allow = {
+			379 = { owned_by = MAM }
+			KOJ = {
+				exists = no
+			}
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			religion = catholic
+			treasury = 3250
+			num_of_loans = 0
+		}
+		effect = {
+			set_country_flag = first_crusade_organised
+			add_treasury = -3250	
+			PAP = {
+				country_event = {id = crusade.26}
+				set_country_flag = crusade_Mameluk
+			}
+		}
+	}
+
+	start_crusade = {
+		major = yes
+		potential = {
+			tag = PAP
+			has_country_flag = complete_preparation
+			has_country_flag = crusade_Ottoman
+			NOT = { has_country_flag = crusade_started}
+			NOT = { has_country_flag = clicked}
+		}
+		allow = {
+			is_at_war = no
+		}
+		effect = {
+			PAP = {
+				declare_war_with_cb = {
+					who = TUR
+					casus_belli = crusade_scripted
+				}
+			}
+			set_country_flag = crusade_started
+			set_country_flag = clicked
+			151 = {
+    			add_claim = PAP
+			}
+			every_known_country = {	
+				limit = {
+					has_country_flag = member_of_crusade
+				}
+				country_event = {
+					id = crusade.5
+				}
+			join_all_offensive_wars_of = PAP
+		}
+		hidden_effect = {
+			every_known_country = {	
+				limit = {
+					has_country_flag = member_of_league
+				}
+				
+				join_all_defensive_wars_of = TUR
+			}
+		}
+	}
+	organise_second_crusade = {
+		major = yes
+		potential = {
+			tag = PAP
+			NOT = { has_country_flag = second_crusade }
+			NOT = { has_country_flag = crusade }
+			has_country_flag = first_crusade_organised
+			NOT = { has_country_flag = crusade_defeat }
+			OR = {
+				BYO = {
+					exists = yes
+				}
+				KOJ = {
+					exists = yes
+				}
+			}
+			has_country_flag = first_crusade_victory
+			current_age = age_of_discovery
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			religion = catholic
+			treasury = 2500
+			num_of_loans = 0
+			if = {
+				limit = {
+					has_country_flag = victory_against_mameluk
+				}
+				TUR = {
+					owns = 151
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = victory_against_ottoman
+				}
+				MAM = {
+					owns = 379
+				}
+			}
+		}
+		effect = {
+			set_country_flag = second_crusade
+			if = {
+				limit = {
+					has_country_flag = victory_against_mameluk
+				}
+				add_treasury = -2500	
+				PAP = {
+					country_event = {
+						id = crusade.1
+					}
+				}
+			}	
+			if = {
+				limit = {
+					has_country_flag = victory_against_ottoman
+				}
+				add_treasury = -2000	
+				PAP = {
+					country_event = {
+						id = crusade.26
+					}
+				}
+			}
+		}
+	}
+}

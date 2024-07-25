@@ -1,0 +1,42 @@
+Horn_of_Liberty = {
+    land_morale = 0.1
+    liberty_desire = 25
+    reinforce_cost_modifier = -0.25
+}
+English_channel_domination = {
+    global_trade_power = 0.2
+    global_ship_trade_power = 0.25
+}
+United_westphalia = {
+    core_creation = -0.2
+    province_warscore_cost = -0.1
+}
+dutch_paris = {
+    land_morale = 0.05
+    land_forcelimit_modifier = 0.15
+}
+Thuringia_duchy = {
+    discipline = 0.025
+}
+yorkshire_trade = {
+    trade_efficiency = 0.15
+}
+Assimilation_of_Scots = {
+    advisor_cost = -0.1
+    num_accepted_cultures = 1
+}
+Tolouse_wine = {
+    global_trade_goods_size_modifier = 0.05
+    production_efficiency = 0.1
+}
+End_of_the_Burgundians1 = {
+    land_morale = 0.15
+}
+Holdings_in_Provence = {
+    technology_cost = -0.1
+    global_tax_modifier = 0.15
+}
+Dutch_Franconia = {
+    yearly_corruption = -0.1
+    siege_ability = 0.15
+}

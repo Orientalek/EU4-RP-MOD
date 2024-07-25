@@ -1,0 +1,44 @@
+neapolitaniese_docks = {
+	global_sailors_modifier = 0.2
+	naval_forcelimit_modifier = 0.2
+	navy_tradition = 1
+	navy_tradition_decay = -1.0
+}
+roman_light_ships = {
+	global_ship_trade_power = 0.33
+	merchants = 1
+}
+silk_of_lucca = {
+	local_production_efficiency = 0.2
+	local_development_cost = -0.25
+	local_governing_cost = -0.25
+	province_trade_power_modifier = 0.2
+}
+Emperor_of_Empire = {
+	prestige_decay = -0.01
+	diplomatic_reputation = 3
+	ae_impact = -0.2 
+	vassal_income = 0.33
+}
+rivalry_bizatines = {
+	diplomats = 1
+	diplomatic_upkeep = 2
+}
+refaced_rome = {
+	local_build_cost = -0.1
+	local_tax_modifier = 0.1
+	local_production_efficiency = 0.1
+}
+Roman_heavy_ships = {
+	heavy_ship_power = 0.15
+	heavy_ship_cost = -0.15
+}
+roman_galleys = {
+	galley_cost = -0.15
+	galley_power = 0.15
+}
+quality_army = {
+	global_regiment_cost = -0.15
+	reinforce_cost_modifier = -0.10
+	reinforce_speed = 0.33
+}

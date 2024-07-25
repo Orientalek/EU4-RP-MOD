@@ -1,0 +1,143 @@
+# Bonus covers  [range_from, range_to[
+
+bonus = {
+    key = crown_land_level_0
+    range_from = -100.0
+    range_to = 1.0
+    modifier = {
+        max_absolutism = -50
+        global_autonomy = 0.8
+        liberty_desire_from_subject_development = 1.5
+        global_tax_modifier = -0.4
+        build_cost = 0.5
+        global_manpower_modifier = -0.4
+        global_trade_power = -0.4
+        land_maintenance_modifier = 0.20
+        infantry_power = -0.10
+        global_unrest = 2
+        production_efficiency = -0.20
+        all_power_cost = 0.2
+        prestige_decay = 0.10
+    }
+}
+
+bonus = {
+    key = crown_land_level_1
+    range_from = 1.0
+    range_to = 5.0
+    modifier = {
+        max_absolutism = -40
+        global_autonomy = 0.6
+        liberty_desire_from_subject_development = 1.0
+        global_tax_modifier = -0.3
+        build_cost = 0.4
+        global_manpower_modifier = -0.3
+        global_trade_power = -0.3
+        land_maintenance_modifier = 0.15
+        infantry_power = -0.05
+        production_efficiency = -0.15
+        all_power_cost = 0.15
+        prestige_decay = 0.08
+    }
+}
+
+bonus = {
+    key = crown_land_level_2
+    range_from = 5.0
+    range_to = 10.0
+    modifier = {
+        max_absolutism = -30
+        global_autonomy = 0.4
+        liberty_desire_from_subject_development = 1.0
+        global_tax_modifier = -0.2
+        build_cost = 0.3
+        global_manpower_modifier = -0.2
+        global_trade_power = -0.2
+        land_maintenance_modifier = 0.1
+        production_efficiency = -0.1
+        all_power_cost = 0.1
+        prestige_decay = 0.06
+    }
+}
+
+bonus = {
+    key = crown_land_level_3
+    range_from = 10.0
+    range_to = 20.0
+    modifier = {
+       max_absolutism = -15
+        global_autonomy = 0.2
+        liberty_desire_from_subject_development = 0.5
+        global_tax_modifier = -0.2
+        build_cost = 0.2
+        global_manpower_modifier = -0.1
+        global_trade_power = -0.1
+        production_efficiency = -0.05
+        all_power_cost = 0.05
+        prestige_decay = 0.04
+    }
+}
+
+bonus = {
+    key = crown_land_level_4
+    range_from = 20.0
+    range_to = 30.0
+    modifier = {
+        max_absolutism = -10
+        global_autonomy = 0.1
+        liberty_desire_from_subject_development = 0.25
+        global_tax_modifier = -0.1
+        prestige_decay = 0.02
+    }
+}
+
+# No effect from 30 to 50
+
+bonus = {
+    key = crown_land_level_6
+    range_from = 50.0
+    range_to = 60.0
+    modifier = {
+        max_absolutism = 10
+        global_tax_modifier = 0.1
+        global_manpower_modifier = 0.05
+    }
+}
+
+bonus = {
+    key = crown_land_level_7
+    range_from = 60.0
+    range_to = 75.0
+    modifier = {
+        max_absolutism = 15
+        yearly_absolutism = 1
+        global_tax_modifier = 0.15
+        global_manpower_modifier = 0.10
+    }
+}
+
+bonus = {
+    key = crown_land_level_8
+    range_from = 75.0
+    range_to = 100.0
+    modifier = {
+        max_absolutism = 20
+        yearly_absolutism = 1
+        global_tax_modifier = 0.2
+        global_autonomy = -0.01
+        global_manpower_modifier = 0.15
+    }
+}
+
+bonus = {
+    key = crown_land_level_9
+    range_from = 100.0
+    range_to = 9001.0
+    modifier = {
+        max_absolutism = 25
+        yearly_absolutism = 1
+        global_tax_modifier = 0.3
+        global_autonomy = -0.05
+        global_manpower_modifier = 0.2
+    }
+}

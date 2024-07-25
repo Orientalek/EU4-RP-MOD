@@ -1,0 +1,766 @@
+ # mission tree made by Serson
+ silesian_unite_region = {
+    slot = 1
+     generic = no
+	 ai = yes
+     has_country_shield = yes
+	potential = {
+        OR = {
+          tag = GLG
+          tag = OPL
+          tag = SIL
+          tag = PPL
+       }
+        NOT = { map_setup = map_setup_random }
+	}
+    silesian_prepare_our_army = {
+        icon = mission_new_army
+        position = 1
+        required_missions = {  }
+        trigger = {
+            army_size_percentage = 0.8
+            manpower_percentage = 0.60
+        }
+        effect = {
+            add_country_modifier = {
+                name = silesian_preparation
+                duration = 3650
+            }
+            silesia_area = {
+                add_core = ROOT
+            }
+        }
+    }
+    silesian_unite_duchies = {
+        icon = take_silesia
+        position = 2
+        required_missions = { silesian_prepare_our_army }
+        provinces_to_highlight = {
+            area = silesia_area
+			NOT = { owned_by = ROOT }
+        }
+        trigger = {
+            silesia_area = {
+                type = all
+                owned_by = ROOT
+            }
+        }
+        effect = {
+            add_prestige = 15
+            set_capital = 264
+            add_country_modifier = {
+              name = silesian_prestige
+              duration = 3650  
+            }
+        }
+    }
+    silesian_preparation_to_back = {
+        icon = league_of_the_public_weal
+        position = 3
+        required_missions = { silesian_unite_duchies }
+        trigger = {
+            stability = 1
+            total_development = 55
+            crown_land_share = 40
+        }
+        effect = {
+            wielkopolska_area = {
+                add_core = ROOT
+            }
+        }
+    }
+    silesian_reclaim_our_home = {
+        icon = mission_conquer_5_states
+         position = 4
+        required_missions = { silesian_preparation_to_back }
+        provinces_to_highlight = {
+            area = wielkopolska_area
+            NOT = { owned_by = ROOT }
+        }
+        trigger = {
+            wielkopolska_area = {
+                type = all
+                owned_by = ROOT                
+            }
+        }
+        effect = {
+             wielkopolska_area = {
+                every_province_in_state = { 
+                    change_culture = schlesian
+                }
+            }
+            set_capital = 4526
+            malopolska_area = {
+                add_permanent_claim = ROOT
+            }
+            central_poland_area = {
+                add_permanent_claim = ROOT
+            }
+        }
+    }
+    silesian_conquest_of_malopolska = {
+        icon = powerhouse_of_the_north
+        position = 5
+        required_missions = { silesian_reclaim_our_home }
+        provinces_to_highlight = {
+            area = malopolska_area
+            NOT = { owned_by = ROOT }
+        }
+        trigger = {
+            malopolska_area = {
+                type = all
+                owned_by = ROOT                
+            }
+        }
+        effect = {
+            malopolska_area = {
+                every_province_in_state = { 
+                    change_culture = schlesian
+                }
+            }	
+            sandomierz_area = {
+                add_permanent_claim = ROOT
+            }
+            add_prestige = 10
+        }
+    }
+    silesian_march_on_sandomierz = {
+        icon = military_self_reliance
+        position = 6
+        required_missions = { silesian_conquest_of_malopolska }
+        provinces_to_highlight = {
+            area = sandomierz_area
+            NOT = { owned_by = ROOT }
+        }
+        trigger = {
+            sandomierz_area = {
+                type = all
+                owned_by = ROOT                
+            }
+        }
+        effect = {      
+            red_ruthenia_area = {
+                add_permanent_claim = ROOT
+            }
+            add_accepted_culture = ruthenian
+        }
+    }
+    
+ }
+  silesian_economic_branch = {
+    slot = 2
+     generic = no
+	 ai = yes
+     has_country_shield = yes
+	potential = {
+        OR = {
+          tag = GLG
+          tag = OPL
+          tag = SIL
+          tag = PPL
+       }
+        NOT = { map_setup = map_setup_random }
+	}
+    silesian_expand_capital = {
+        icon = mission_colonial
+        position = 1
+        required_missions = {  }
+        trigger = {
+            capital_scope = {
+                base_production = 10
+            }
+        }
+        effect = {
+            add_treasury = 100
+            capital_scope = {
+                add_building = workshop
+                add_base_manpower = 2
+            }
+        }
+    }
+    silesian_land_of_workshop = {
+        icon = mission_early_game_buildings
+        position = 2
+        required_missions = { silesian_expand_capital }
+        trigger = {
+            calc_true_if = {
+                all_owned_province = {
+					OR = {
+						has_building = workshop
+					}
+				}
+				amount = 4
+            }
+        }
+        effect = {
+            add_country_modifier = {
+                name = silesian_production
+                duration = -1
+            }
+        }
+    }
+    silesian_trade = {
+         icon = mission_trade_with_cathay
+        position = 3
+        required_missions = { silesian_land_of_workshop }
+        trigger = {
+           262 = {
+				trade_share = {
+					country = ROOT
+					share = 30
+				}
+			}
+        }
+        effect = {
+            add_dip_power = 100
+            add_country_modifier = {
+                name = silesian_trade_modifier
+                duration = 3650
+            }
+        }
+    }
+    silesia_build_up_defence = {
+        icon = fortress_of_belgrade
+        position = 4
+        required_missions = { silesian_trade }
+        trigger = {
+            any_owned_province = { 
+                has_building = fort_15th
+            }
+        }
+        effect = {
+            random_province = { 
+                limit = {
+                    has_building = fort_15th
+                    owned_by = ROOT
+                }
+                add_province_modifier = {
+                    name = Silesian_defense
+                    duration = -1
+                }
+            }	    
+        }
+    }
+ }
+ silesian_new_poland = {
+     slot = 2
+     generic = no
+	 ai = yes
+     has_country_shield = yes
+	potential = {
+        OR = {
+        tag = GLG
+        tag = OPL
+        tag = SIL
+        tag = PPL
+        }
+        NOT = { map_setup = map_setup_random }
+	}
+    silesian_conquest_of_central_poland = {
+        icon = mercenary_companies
+        position = 5
+        required_missions = { silesian_reclaim_our_home }
+        provinces_to_highlight = {
+            area = central_poland_area
+            NOT = { owned_by = ROOT }
+        }
+        trigger = {
+            central_poland_area = {
+                type = all
+                owned_by = ROOT                
+            }
+        }
+        effect = {
+            kuyavia_area = {
+                add_permanent_claim = ROOT
+            }
+        
+        }
+    }
+    silesian_conquest_of_kuyavia = {
+        icon = claim_the_borderlands
+        position = 6
+        required_missions = { silesian_conquest_of_central_poland }
+        provinces_to_highlight = {
+            area = kuyavia_area
+            NOT = { owned_by = ROOT }
+        }
+        trigger = {
+            num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+                area = kuyavia_area
+                value = 3
+            }
+        }
+        effect = {
+            add_mil_power = 100	
+        }        
+    }
+    silesian_a_new_poland = {
+        icon = polish_diplomacy
+        position = 7
+        required_missions = { silesian_conquest_of_kuyavia }
+        required_missions = { silesian_march_on_sandomierz }
+        trigger = {
+            tag = PPL
+        }
+        effect = {
+            add_prestige = 25
+            add_stability = 1
+            add_accepted_culture = polish
+            poland_region = {
+                add_core = ROOT
+            }
+            west_prussia_area = {
+                add_claim = ROOT
+            }
+        }   
+    }
+    silesian_retake_lwow = {
+        icon = moravian_arms
+        position = 8
+        required_missions = { silesian_a_new_poland }
+        provinces_to_highlight = {
+            area = red_ruthenia_area
+            NOT = { owned_by = ROOT}
+        }
+        trigger = {
+            red_ruthenia_area = {
+                type = all
+                owned_by = ROOT  
+            }
+        }
+        effect = {
+            add_country_modifier = {
+                name = silesian_polonisation
+                duration = 7300
+            }
+        }
+    }
+    silesian_change_culture = {
+        icon = leiden_university
+        position = 9
+        required_missions = { silesian_retake_lwow }
+        provinces_to_highlight = {
+            area = red_ruthenia_area
+        }
+        trigger = {
+            red_ruthenia_area = {
+                type = all
+                owned_by = ROOT
+                culture = schlesian
+            }
+        }
+        effect = {
+            2961 = {
+                add_base_tax = 3
+                add_base_production = 3
+                add_base_manpower = 3
+            }
+            podolia_volhynia_area = {
+                add_claim = ROOT
+            }
+        }
+    }
+ }
+
+ silesian_agreement_with_overlord = {
+      slot = 3
+     generic = no
+	 ai = yes
+     has_country_shield = yes
+	potential = {
+        OR = {
+          tag = GLG
+          tag = OPL
+          tag = SIL
+          tag = PPL
+       }
+        NOT = { map_setup = map_setup_random }
+	}
+    silesian_trade_agreement = {
+         icon = personal_diplomacy
+        position = 1
+        required_missions = {  }
+        trigger = {
+            overlord = {
+                has_opinion = {
+                    who = ROOT
+                    value = 175
+                }
+            }
+        }
+        effect = {
+            hidden_effect = {
+                set_country_flag = trade_agreement
+            }
+            overlord = {
+                country_event = {
+                    id = eastern.12
+                }
+            }
+            
+        }       
+    }
+    silesian_offer_to_consolide_silesia = {
+        icon = mission_eastern_european_city
+        position = 2
+        required_missions = { silesian_trade_agreement }
+        trigger = {
+            ai = no
+            is_year = 1454
+            overlord = {
+                has_opinion = {
+                    who = ROOT
+                    value = 175
+                }
+                AND = {
+                    overlord_of = GLG
+                    overlord_of = OPL
+                }
+            }
+            GLG = {
+                exists = yes
+            }
+            OPL = {
+                exists = yes
+            }
+            treasury = 200
+        }
+        effect = {
+            hidden_effect = {
+                set_country_flag = offer_to_consolide
+            }
+            overlord = {
+                country_event = {
+                    id = eastern.14
+                }
+            }
+        }       
+    }
+    silesian_conditional_inpedenence = {
+         icon = bohemian_commonwealth
+        position = 3
+        required_missions = { silesian_offer_to_consolide_silesia }
+        trigger = {
+            overlord = {
+                has_opinion = {
+                    who = ROOT
+                    value = 190
+                }
+        
+            }
+            total_development = 75
+            treasury = 300
+        }
+        effect = {
+            hidden_effect = {
+                set_country_flag = offer_to_release
+            }
+            overlord = {
+                country_event = {
+                    id = eastern.18
+                }
+            }
+        }        
+    }
+    silesian_true_friend = {
+        icon = friends_in_high_places
+        position = 4
+        required_missions = { silesian_conditional_inpedenence }
+        trigger = {
+            is_free_or_tributary_trigger = yes
+            BOH = {
+                alliance_with = ROOT
+                historical_friend_with = ROOT
+                 has_opinion = {
+                    who = ROOT
+                    value = 175
+                }
+                is_free_or_tributary_trigger = yes
+            }
+        }
+        effect = {
+            BOH = {
+                country_event = {
+                id = eastern.21
+                 }
+            }
+             country_event = {
+                id = eastern.21
+                 }
+            hidden_effect = {
+                set_country_flag = silesian_friend
+            }
+        }
+    }
+   
+ }
+ silesian_eastern_expansion = {
+    slot = 3
+     generic = no
+	 ai = yes
+     has_country_shield = yes
+	potential = {
+        OR = {
+          tag = GLG
+          tag = OPL
+          tag = SIL
+          tag = PPL
+       }
+        NOT = { map_setup = map_setup_random }
+	}
+
+    silesian_take_mazovia = {
+        icon = found_batavia
+        position = 8
+        required_missions = { silesian_a_new_poland }
+        provinces_to_highlight = {
+            area = mazovia_area
+            NOT = { owned_by = ROOT}
+        }
+        trigger = {
+            mazovia_area = {
+                type = all
+                owned_by = ROOT
+            }
+        }
+        effect = {
+            257 = {
+                change_culture = schlesian
+            }
+            podlasie_area = {
+                add_claim = ROOT
+            }
+        }
+    }
+    silesia_take_podlasie = {
+        icon = interest_of_holland
+        position = 9
+        required_missions = { silesian_take_mazovia }
+        provinces_to_highlight = {
+            area = podlasie_area
+        }
+        trigger = {
+            podlasie_area = {
+                type = all
+                owned_by = ROOT
+            }
+        }
+        effect = {
+            add_manpower = 10
+        }
+    }
+    silesia_convert_podlasie = {
+        icon = strengthen_the_vroedschappen
+        position = 10
+        required_missions = { silesia_take_podlasie }
+        provinces_to_highlight = {
+            area = podlasie_area
+        }
+        trigger = {
+            podlasie_area = {
+                type = all
+                religion = catholic
+                culture = schlesian
+                owned_by = ROOT
+            }
+        }
+        effect = {
+            269 = {
+                add_building = workshop
+            }
+            1937 = {
+                add_building =  marketplace
+            }
+            277 = {
+                add_building = temple
+            }
+        }
+    }      
+ }
+ silesian_north_expansion = {
+    slot = 4
+     generic = no
+	 ai = yes
+     has_country_shield = yes
+	potential = {
+        OR = {
+          tag = GLG
+          tag = OPL
+          tag = SIL
+          tag = PPL
+       }
+        NOT = { map_setup = map_setup_random }
+	}
+    silesian_take_gdansk = {
+        icon = explore_caribbean
+        position = 8
+        required_missions = { silesian_a_new_poland }
+        provinces_to_highlight = {
+            area = west_prussia_area
+        }
+        trigger = {
+            west_prussia_area = {
+                type = all
+                owned_by = ROOT
+            }
+        }
+        effect = {
+            create_admiral = { tradition = 50 }
+            add_navy_tradition = 10	
+        }        
+    }
+    silesian_prepare_for_navy = {
+         icon = indonesian_trade
+        position = 9
+        required_missions = { silesian_take_gdansk }
+        trigger = {
+            43 = {
+                OR = {
+                    has_building = dock
+                    has_building = shipyard
+                 }
+           }
+           treasury = 100
+        }
+        effect = {
+            add_treasury = -100
+             43 = {
+                 ROOT = {
+                    light_ship = PREV
+                    light_ship = PREV
+                    light_ship = PREV
+                    light_ship = PREV
+                    galley = PREV
+                    galley = PREV
+
+                }
+            }
+            hinter_pommern_area = {
+                add_claim = ROOT
+            }
+        }
+    }
+    silesian_conquest_of_Pomerania = {
+         icon = avoid_fragmentation
+        position = 10
+          required_missions = { silesian_prepare_for_navy }
+            trigger = {
+                hinter_pommern_area = {
+                    type = all
+                    owned_by = ROOT
+                }
+            }
+        effect = {
+            add_navy_tradition = 10
+            neumark_area = {
+                add_claim = ROOT
+            }
+        }        
+    }
+    silesian_reclaim_cedynia = {
+         icon = electorate_of_brandenburg
+        position = 11
+          required_missions = { silesian_conquest_of_Pomerania }
+            trigger = {
+                neumark_area = {
+                    type = all
+                    owned_by = ROOT
+                }
+            }
+        effect = {
+            add_prestige = 25         
+        }   
+    }
+ }
+  silesian_polish_develop = {
+    slot = 5
+     generic = no
+	 ai = yes
+     has_country_shield = yes
+	potential = {
+        OR = {
+          tag = GLG
+          tag = OPL
+          tag = SIL
+          tag = PPL
+       }
+        NOT = { map_setup = map_setup_random }
+	}
+
+    silesian_develop_poland = {
+        icon = mission_monarch_in_throne_room
+        position = 8
+        required_missions = { silesian_a_new_poland }
+        trigger = {
+            num_of_owned_provinces_with = {
+                value = 6
+                development = 20
+            }
+        }
+        effect = {
+            add_treasury = 100
+            add_stability = 1
+            add_inflation = -2	
+        }
+    }
+    silesian_build_buildings = {
+         icon = mission_have_manufactories
+        position = 9
+        required_missions = { silesian_develop_poland }
+        trigger = {
+            calc_true_if = {
+				all_owned_province = {
+					OR = {
+						has_building = temple
+                        has_building = workshop
+					}
+				}
+				amount = 12
+			}
+        }
+        effect = {
+            add_mercantilism = 2
+            add_country_modifier = {
+                name = silesian_prosperity
+                duration = 3650
+            }		
+        }
+    }
+        silesian_develop_Krakow = {
+         icon = defend_the_city
+        position = 10
+        required_missions = { silesian_build_buildings }
+        trigger = {
+            262 = {
+                development = 30
+                has_building = workshop
+                has_building = temple
+                has_building = barracks
+            }
+        }
+        effect = {
+            
+            262 = {
+                add_base_tax = 2
+                add_great_project_tier = {
+					type = krakow_cloth_hall
+					tier = 2
+				}
+            }
+            
+        }
+    }
+    silesian_unity = {
+         icon = show_piety
+        position = 11
+        required_missions = { silesian_develop_Krakow }
+        trigger = {
+           religious_unity = 0.95
+        }
+        effect = {
+           add_papal_influence = 10
+            
+        }        
+    }
+  }

@@ -1,0 +1,39 @@
+#krucjata
+BYO = "countries/LatinEmpire.txt"
+RRP = "countries/RomeRepublic.txt"
+
+#Nowe nacje do sformowania
+AAH	= "countries/Austro-Hungary.txt"
+GMR = "countries/Great Moravia.txt"
+KZR = "countries/Khazars.txt"
+CRG = "countries/Carthage.txt"
+LOM = "countries/Lombardy.txt"
+AUE = "countries/Austrian Empire.txt"
+PPL = "countries/Piast Poland.txt"
+PLR = "countries/Polish-Lithuania-Ruthenian Commonwealth.txt"
+CRP = "countries/Chinese Republic.txt"
+RNC = "countries/Republic of Northen Cities.txt"
+ILY = "countries/Illyria.txt"
+NEO = "countries/NeoBabilonian.txt"
+IBE = "countries/iberia.txt"
+NSE = "countries/North Sea Empire.txt"
+
+#biskupstwa Teutonicow
+AOM = "countries/new Masovia.txt"
+AOC = "countries/new Krakow.txt"
+AOS = "countries/new Sandomierz.txt"
+AOK = "countries/new Kalisz.txt"
+AOB = "countries/Belarus.txt"
+AOR = "countries/new Ruthienia.txt"
+NSU = "countries/Norway and Sweden.txt"
+NFP = "countries/New poland.txt"
+
+#Nowe nacje HRE 
+URA = "countries/Urach.txt"
+NGC = "countries/NorthGermany.txt"
+PLA = "countries/Rhenish Confederation.txt"
+CZE = "countries/czech-slovakia.txt"
+SGF = "countries/SouthGermany.txt"
+OOT = "countries/Ottomans.txt"
+#Nowe nacje na start
+ALV = "countries/Andora.txt"

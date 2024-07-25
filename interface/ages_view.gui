@@ -1,0 +1,438 @@
+guiTypes = {
+	windowType = {
+		name = "ages_view"
+		backGround=""	
+		position = { x = -500  y = -500 }	
+		size = { x = 512 y = 1024 }
+		moveable = 0
+		dontRender = ""
+		horizontalBorder= ""
+		verticalBorder= ""
+		fullScreen = no
+		Orientation = "CENTER"
+
+		iconType =
+		{
+			name ="picture"
+			spriteType = "GFX_event_event_test"
+			position = { x = 350 y = 48 }
+			Orientation = "UPPER_LEFT"
+		}
+		
+		iconType =
+		{
+			name ="background"
+			spriteType = "GFX_age_base"
+			position = { x= -20 y = -23 }
+			Orientation = "UPPER_LEFT"
+		}
+		
+		WindowType = {
+			name = "age_of_discovery"
+			position = { x= 330 y = 26}
+			upsound = age_of_discovery
+
+			iconType = {
+				name ="frame"
+				spriteType = "GFX_age_indicator_4"
+				position = { x= 0 y = 7 }
+				}
+			iconType = {
+				name ="icon_age_of_discovery"
+				spriteType = "GFX_icon_age_l"
+				position = { x= -30 y = 18 }
+				frame = 1
+				}
+			iconType = {
+				name ="icon_age_of_reformation"
+				spriteType = "GFX_icon_age_s"
+				position = { x= -15 y = 70 }
+				frame = 2
+				}
+			iconType = {
+				name ="icon_age_of_absolutism"
+				spriteType = "GFX_icon_age_s"
+				position = { x= -15 y = 111 }
+				frame = 3
+				}
+			iconType = {
+				name ="icon_age_of_revolutions"
+				spriteType = "GFX_icon_age_s"
+				position = { x= -15 y = 152 }
+				frame = 4
+				}
+		}			
+		
+		WindowType = {
+			name = "age_of_reformation"
+			position = { x= 330 y = 25}
+			upsound = age_of_reformation
+
+			iconType = {
+				name ="frame"
+				spriteType = "GFX_age_indicator_3"
+				position = { x= 0 y = 7 }
+				}
+			iconType = {
+				name ="icon_age_of_discovery"
+				spriteType = "GFX_icon_age_of_discovery_g"
+				position = { x= -15 y = 22 }
+				}
+			iconType = {
+				name ="icon_age_of_reformation"
+				spriteType = "GFX_icon_age_l"
+				position = { x= -30 y = 59 }
+				frame = 2
+				}
+			iconType = {
+				name ="icon_age_of_absolutism"
+				spriteType = "GFX_icon_age_s"
+				position = { x= -15 y = 111 }
+				frame = 3
+				}
+			iconType = {
+				name ="icon_age_of_revolutions"
+				spriteType = "GFX_icon_age_s"
+				position = { x= -15 y = 152 }
+				frame = 4
+				}
+
+		}	
+		
+		WindowType = {
+			name = "age_of_absolutism"
+			position = { x= 330 y = 25}
+			upsound = age_of_absolutism
+
+			iconType = {
+				name ="frame"
+				spriteType = "GFX_age_indicator_2"
+				position = { x= 0 y = 7 }
+				}
+			iconType = {
+				name ="icon_age_of_discovery"
+				spriteType = "GFX_icon_age_of_discovery_g"
+				position = { x= -15 y = 22 }
+				}
+			iconType = {
+				name ="icon_age_of_absolutism"
+				spriteType = "GFX_icon_age_l"
+				position = { x= -30 y = 100 }
+				frame = 3
+				}
+			iconType = {
+				name ="icon_age_of_reformation"
+				spriteType = "GFX_icon_age_of_reformation_g"
+				position = { x= -15 y = 63 }
+				}
+			iconType = {
+				name ="icon_age_of_revolutions"
+				spriteType = "GFX_icon_age_s"
+				position = { x= -15 y = 152 }
+				frame = 4
+				}
+		}		
+		
+		WindowType = {
+			name = "age_of_revolutions"
+			position = { x= 330 y = 25}
+			upsound = age_of_revolutions
+
+			iconType = {
+				name ="frame"
+				spriteType = "GFX_age_indicator_1"
+				position = { x= 0 y = 7 }
+				}
+			iconType = {
+				name ="icon_age_of_discovery"
+				spriteType = "GFX_icon_age_of_discovery_g"
+				position = { x= -15 y = 22 }
+				}
+			iconType = {
+				name ="icon_age_of_reformation"
+				spriteType = "GFX_icon_age_of_reformation_g"
+				position = { x= -15 y = 63 }
+				}				
+			iconType = {
+				name ="icon_age_of_absolutism"
+				spriteType = "GFX_icon_age_of_absolutism_g"
+				position = { x= -15 y = 104 }
+				}
+			iconType = {
+				name ="icon_age_of_revolutions"
+				spriteType = "GFX_icon_age_l"
+				position = { x= -30 y = 141 }
+				frame = 4
+				}
+		}		
+		
+		instantTextBoxType = {
+			name = "title"
+			position = { x = 380 y =25 }
+			font = "vic_29s"
+			borderSize = {x = 0 y = 0}
+			text = ""
+			maxWidth = 400
+			maxHeight = 32
+			format = centre
+		}
+
+		iconType = {
+			name ="icon_absolutism"
+			spriteType = "GFX_icon_absolutism"
+			position = { x= 907 y = 209 }
+			}			
+		
+		iconType = {
+			name ="icon_religious"
+			spriteType = "GFX_icon_religious"
+			position = { x= 941 y = 209 }
+			}		
+		
+		iconType = {
+			name ="splendor_icon"
+			spriteType = "GFX_icon_splendor_tiny"
+			position = { x= 907 y = 178 }
+			}
+
+		
+		
+		instantTextBoxType = {
+			name = "splendor"
+			position = { x = 920 y =178 }
+			font = "vic_22"
+			borderSize = {x = 0 y = 0}
+			text = ""
+			maxWidth = 44
+			maxHeight = 32
+			format = right
+		}
+		
+		guiButtonType = {
+			name = "golden_age"
+			quadTextureSprite ="GFX_age_golden_age_button"
+			position = { x = 435 y = 195 }
+			buttonText = "START_GOLDEN_AGE"
+			buttonFont = "vic_18"
+		}
+		
+		iconType = {
+			name = "in_golden_age_banner"
+			spriteType = "GFX_golden_age_banner"
+			position = { x = 390 y = 195 }
+			alwaystransparent = yes 
+		}
+
+		iconType = {
+			name = "after_golden_age_banner"
+			spriteType = "GFX_golden_age_banner_tattered"
+			position = { x = 415 y = 195 }
+			alwaystransparent = yes 
+		}
+
+		instantTextBoxType = {
+			name = "in_or_after_golden_age_text"
+			position = { x = 450 y =200 }
+			font = "vic_22s"
+			borderSize = {x = 4 y = 4}
+			text = ""
+			maxWidth = 330
+			maxHeight = 30
+			format = center
+		}
+			
+		instantTextBoxType = {
+			name = "desc"
+			
+		}
+		
+
+		
+		guiButtonType = {
+			name ="close_button"
+            if_resolution = {
+                max_height = 867
+				position = { x = 570 y = 1000 }
+				quadTextureSprite = "GFX_button_close"
+				buttonText = ""
+            }	
+            if_resolution = {
+                min_height = 868
+				quadTextureSprite ="button_type_1"
+				position = { x= 570 y = 1000 }
+				buttonText = "CLOSE"				
+            }			
+			buttonFont = "vic_18"
+			shortcut = "ESCAPE"
+		}
+		
+		listboxType = 
+		{
+			name ="objectives"
+			position = { x = 360 y = 251 }
+			backGround=""
+			size = { x=700 y =2000}
+			Orientation = "UPPER_LEFT"
+			spacing = 2
+			borderSize = {x = 0 y = 0}
+		}
+
+
+		listboxType = 
+		{
+			name ="abilities"	
+			position = { x = 250 y = 56 }
+			backGround=""
+			size = { x=600 y =1200}
+			Orientation = "UPPER_LEFT"
+			spacing = 0
+			borderSize = {x = 0 y = 0}
+			
+			alwaystransparent = yes
+		}
+
+
+	}
+	
+	
+	
+	
+	
+	
+	###### OBJECTIVES ENTRY
+	windowType = {
+		name = "age_objectives_entry"
+		backGround=""
+		position = { x=0 y=0 }	
+		size = { x=600 y= 54 }
+		moveable = 0
+		dontRender = ""
+		horizontalBorder= ""
+		verticalBorder= ""
+		fullScreen = no
+		
+		#remove
+#		iconType =
+#		{
+#			name ="_entry_bg"
+#			spriteType = "GFX_achievement_entry_bg"
+#			position = { x=-2 y = -4 }
+#			Orientation = "UPPER_LEFT"
+#		}
+		
+		iconType =
+		{
+			name ="icon"
+			spriteType = "GFX_idea_unknown"
+			position = { x= 8ยง y = 4 }
+			Orientation = "UPPER_LEFT"
+		}
+
+		instantTextBoxType = {
+			name = "name"
+			position = { x = 64 y = 2 }
+			font = "vic_22"
+			borderSize = {x = 0 y = 0}
+			text = "name"	
+			maxWidth = 390
+			maxHeight = 32
+			fixedsize = yes
+			format = left			
+		}
+		
+		instantTextBoxType = {
+			name = "desc"
+			position = { x = 64 y = 20 }
+			font = "vic_18"
+			borderSize = {x = 0 y = 0}
+			text = "desc"	
+			maxWidth = 390
+			maxHeight = 24
+			format = left			
+		}
+		## stuff to the right
+		
+		iconType =
+		{
+			name ="progress"
+			spriteType = "achievement_progress"
+			position = { x= 530 y = 34 }
+			Orientation = "UPPER_LEFT"
+			
+		}
+		
+		iconType =
+		{
+			name ="progress_overlay"
+			spriteType = "GFX_achievement_progress_frame"
+			position = { x= 515 y = 29 }
+			Orientation = "UPPER_LEFT"
+			
+		}
+		
+		
+		instantTextBoxType = {
+			name = "progress_text"
+			position = { x = 526 y = 8	 }
+			font = "vic_22"
+			borderSize = {x = 0 y = 0}
+			text = "7/14"	
+			maxWidth = 70
+			maxHeight = 32
+			format = centre			
+		}
+	}
+	
+	
+	
+	
+	###### ABILITIES ENTRY
+	windowType = {
+		name = "age_ability_entry"
+		backGround=""
+		position = { x=0 y=0 }	
+		size = { x=50 y= 50 }
+		moveable = 0
+		dontRender = ""
+		horizontalBorder= ""
+		verticalBorder= ""
+		fullScreen = no
+		
+		
+		
+		iconType =
+		{
+			name ="icon"
+			spriteType = "GFX_idea_empty"
+			position = { x= 16 y = -7 }
+			Orientation = "UPPER_LEFT"
+		}
+		
+		iconType =
+		{
+			name ="can_unlock"
+			spriteType = "GFX_age_can_unlock"
+			position = { x= 16 y = -7 }
+			Orientation = "UPPER_LEFT"
+		}
+
+		iconType =
+		{
+			name ="cannot_unlock"
+			spriteType = "GFX_age_cannot_unlock"
+			position = { x= 16 y = -7 }
+			Orientation = "UPPER_LEFT"
+		}
+		
+		guiButtonType =
+		{
+			name ="button"
+			quadTextureSprite= "GFX_idea_empty"
+			position = { x= 16 y = -7 }
+			Orientation = "UPPER_LEFT"
+		}
+		
+		
+
+	}
+}

@@ -1,0 +1,187 @@
+namespace = otwar
+
+country_event = {
+	id = otwar.1
+	title = otwar.1.t
+	desc = otwar.1.d
+	picture = SIEGE_eventPicture
+	major = yes
+	fire_only_once = yes
+	mean_time_to_happen = {
+		months = 150
+	}
+
+	trigger = {
+		tag = MAM
+		MAM = {
+			is_at_war = no
+		}
+		TUR = {
+			is_at_war = no
+		}
+		SYR = {
+			exists = no
+		}
+		any_owned_province = {
+			is_core = SYR
+		}
+		AND = {
+			is_year = 1450
+			NOT = { is_year = 1550 }
+		}
+	}
+	option = {
+		name = otwar.1.a
+		hidden_effect = {
+			TUR = {
+				country_event = {
+					id = otwar.2
+					days = 0
+				}
+			}
+		}
+		random_owned_province = {
+			limit = {
+				is_core = SYR
+			}
+			cede_province = SYR
+		}
+		random_owned_province = {
+				limit = {
+					is_capital = no
+					is_core = SYR
+					any_neighbor_province = {
+						owned_by = SYR	
+					}
+				}
+				cede_province = SYR
+		}
+		random_owned_province = {
+				limit = {
+					is_capital = no
+					is_core = SYR
+					any_neighbor_province = {
+						owned_by = SYR	
+					}
+				}
+				cede_province = SYR
+		}
+		declare_war_with_cb = {
+    		who = SYR
+    		casus_belli = cb_annex
+		}
+	}
+}
+country_event = {
+	id = otwar.2
+	title = otwar.2.t
+	desc = otwar.2.d
+	picture = SIEGE_eventPicture
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = otwar.2.a
+		join_all_defensive_wars_of = SYR
+		create_guarantee = SYR
+		add_prestige = 25
+		set_country_flag = ottoman_mameluk_war	
+	}
+	option = {
+		name = otwar.2.b
+		add_prestige = -25
+		add_estate_loyalty = {
+    		estate = estate_nobles
+  	  		loyalty = -10
+		}
+		random_owned_province = { 
+			spawn_rebels = {
+    			type = noble_rebels
+    			size = 20
+			}
+		}
+			random_owned_province = { 
+			spawn_rebels = {
+    			type = noble_rebels
+    			size = 20
+			}
+		}
+		random_owned_province = { 
+			spawn_rebels = {
+    			type = noble_rebels
+    			size = 20
+			}
+		}
+			random_owned_province = { 
+			spawn_rebels = {
+    			type = noble_rebels
+    			size = 20
+			}
+		}
+	}
+}
+country_event = {
+	id = otwar.3
+	title = otwar.3.t
+	desc = otwar.3.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+	major = yes
+	fire_only_once = yes
+	trigger = {
+		tag = TUR
+		is_at_war = no
+		SYR = {
+			exists = yes
+		}
+		has_country_flag = ottoman_mameluk_war
+	}
+	option = {
+		name = otwar.3.a
+		vassalize = SYR
+		clr_country_flag = ottoman_mameluk_war
+		set_country_flag = Ottoman_win
+	}
+}
+country_event = {
+	id = otwar.4
+	title = otwar.4.t
+	desc = otwar.4.d
+	picture = COUNTRY_COLLAPSE_eventPicture
+	major = yes
+	fire_only_once = yes
+	trigger = {
+		tag = TUR
+		is_at_war = no
+		SYR = {
+			exists = no
+		}
+		has_country_flag = ottoman_mameluk_war
+		NOT = { has_country_flag = Ottoman_win }
+	}
+	option = {
+		name = otwar.4.a
+		add_prestige = -10
+		clr_country_flag = ottoman_mameluk_war
+		MAM = {
+			country_event = {
+				id = otwar.5
+				days = 10
+			}
+		}
+	}
+}
+country_event = {
+	id = otwar.5
+	title = otwar.5.t
+	desc = otwar.5.d
+	picture = DIPLOMACY_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = otwar.5.a
+		add_prestige = 15
+		add_country_modifier = { 
+    		name = mameluk_defeat_syria
+    		duration = 3650
+		}
+		
+	}
+}

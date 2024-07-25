@@ -1,0 +1,1948 @@
+# Crusade by serson
+namespace = crusade   #serson
+
+country_event = {
+	id = crusade.1
+	title = crusade.1.t
+	desc = crusade.1.d
+	picture = CRUSADE_PREPARATION_eventPicture
+	major = yes
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			country_event = {
+				id = crusade.4
+				days = 730
+			}
+
+		}
+		TUR = {
+				country_event = {
+					id = crusade.14
+					days = 60
+				}
+			}
+	}
+
+	option = {
+		name = crusade.1.a
+		set_country_flag = crusade
+		set_country_flag = member_of_crusade
+		set_country_flag = crusade_Ottoman
+
+		hidden_effect = {
+			
+		}
+		emperor = {
+			country_event = {
+				id = crusade.2
+			}
+		}
+		if = {
+   			 limit = {
+   			 	POL = {
+   			 		religion = catholic
+   			 	}
+        	
+   			 }
+   			 POL = {
+				country_event = {
+					id = crusade.2
+				}
+			}
+    	}
+    	if = {
+   			 limit = {
+   			 	HUN = {
+   			 		religion = catholic
+   			 	}
+        	
+   			 }
+   			 HUN = {
+			country_event = {
+			id = crusade.2
+			}
+			}
+    	}
+    	if = {
+   			 limit = {
+   			 	BUR = {
+   			 		religion = catholic
+   			 	}
+        	
+   			 }
+   			 BUR = {
+			country_event = {
+			id = crusade.2
+			}
+			}
+    	}
+
+		
+		
+	}
+	
+}
+country_event = {
+	id = crusade.2
+	title = crusade.2.t
+	desc = crusade.2.d
+	picture = CRUSADE_INVITATION_eventPicture
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = crusade.2.a
+		ai_chance = { 
+			factor = 5
+			modifier = {
+				factor = 500
+				alliance_with = PAP
+			}
+		}
+		add_papal_influence = 25
+		add_prestige = 5
+		set_country_flag = member_of_crusade
+	}
+	option = {
+		name = crusade.2.b
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2000
+				alliance_with = TUR
+			}
+		}
+		set_country_flag = reject_invitation
+	}
+}
+country_event = {
+	id = crusade.3
+	title = crusade.3.t
+	desc = crusade.3.d
+	picture = CRUSADE_INVITATION_eventPicture
+	major = yes
+	trigger = {
+		NOT = { tag = PAP }
+		religion = catholic
+		is_subject = no
+		NOT = { has_country_flag = member_of_crusade }
+		NOT = { has_country_flag = reject_invitation }
+		PAP = {
+			AND = {
+				NOT = { has_country_flag = complete_preparation }
+				OR = {
+					has_country_flag = crusade
+					has_country_flag = second_crusade
+				}
+				
+			}
+			
+		}
+		PAP = {
+			OR = {
+				has_opinion = {
+				who = ROOT
+				value = 125
+					}
+				alliance_with = ROOT
+			}
+			
+		}
+		is_at_war = no
+		is_free_or_tributary_trigger = yes
+		OR = {
+			capital_scope = {
+				OR = {
+					region = italy_region
+					region = poland_region
+					region = south_german_region
+					region = baltic_region
+					region = anatolia_region
+					region = carpathia_region
+					region = ruthenia_region
+					region = balkan_region
+				}
+			}
+			OR = {
+				tag = BOH
+				tag = BRA
+			}
+		}
+		
+	}
+
+	option = {
+		name = crusade.3.a
+
+		ai_chance = { 
+			factor = 5
+			modifier = {
+				factor = 500
+				alliance_with = PAP
+			}
+		}
+		add_papal_influence = 25
+		add_prestige = 5
+		set_country_flag = member_of_crusade
+	}
+	option = {
+		name = crusade.3.b
+		ai_chance = { 
+			factor = 1
+			
+			}
+		set_country_flag = reject_invitation
+	}
+}
+country_event = {
+	id = crusade.4
+	title = crusade.4.t
+	desc = crusade.4.d
+	picture = CRUSADE_BEGIN_eventPicture
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = crusade.4.a
+		set_country_flag = complete_preparation
+	}
+}
+country_event = {
+	id = crusade.5
+	title = crusade.5.t
+	desc = crusade.5.d
+	picture = CRUSADE_BEGIN_1_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = crusade.5.a
+		
+	}
+}
+country_event = {
+	id = crusade.6
+	title = crusade.6.t
+	desc = crusade.6.d
+	picture = SIEGE_eventPicture
+	fire_only_once = yes
+	trigger = {
+		tag = PAP
+		NOT = { has_country_flag = fall_of_capital}
+		has_country_flag = crusade_Ottoman
+		has_country_flag = crusade_started
+		151 = {
+			owned_by = TUR
+			controller = { 
+				has_country_flag = member_of_crusade
+				is_in_war = {
+    				attacker_leader = PAP
+    				defender_leader = TUR
+					}
+			}	
+		}
+	}
+	immediate = {
+		TUR = {
+			set_capital  = 326
+		}
+	}
+	option = {
+		name = crusade.6.a
+		set_country_flag = fall_of_capital
+		151 = {
+			add_core = BYO
+			change_religion = catholic
+			change_culture = greek
+		}
+		TUR = {
+			release = BYO
+		}
+		create_guarantee = BYO
+		BYO = {
+			change_religion = catholic
+			set_country_flag = member_of_crusade
+			country_event = {
+				id = crusade.7
+				days = 10
+			}
+			
+		}
+		country_event = {
+			id = crusade.8
+			days = 0
+		}
+		4779 = {
+			add_core = BYO
+		}
+		2296 = {
+			add_core = BYO
+		}
+		317 = {
+			add_core = BYO
+		}
+		316 = {
+			add_core = BYO
+		}
+		4946 = {
+			add_core = BYO
+		}		
+		4945 = {
+			add_core = BYO
+		}	
+		4943 = {
+			add_core = BYO
+		}		
+		4991 = {
+			add_core = BYO
+		}
+	}
+		
+}
+country_event = {
+	id = crusade.7
+	title = crusade.7.t
+	desc = crusade.7.d
+	picture = CRUSADE_2_eventPicture
+	major = yes
+	is_triggered_only = yes
+
+	immediate = {
+		add_treasury = 150
+		add_manpower = 10
+		add_prestige = 10
+
+		add_adm_power = 150
+		add_dip_power = 150	
+		add_mil_power = 150
+
+
+	}
+
+	option = {
+		name = crusade.7.a	
+		change_primary_culture = greek
+		add_accepted_culture = turkish
+		
+		151 = {
+				build_to_forcelimit = {
+					infantry = 0.6
+					cavalry = 0.3
+					}
+				build_to_forcelimit = {
+						galley = 0.3
+						light_ship = 0.3
+						transport = 0.2
+					}
+				
+		}
+	}	
+	
+}
+
+country_event = {
+	id = crusade.8
+	title = crusade.8.t
+	desc = crusade.8.desc
+	picture = CRUSADE_2_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = crusade.8.a	#zakon
+		BYO = {
+			change_government = theocracy
+			add_government_reform = monastic_order_government
+			adopt_reform_progress = ROOT
+		}
+
+	}
+	option = {
+		name = crusade.8.b	#monarchia bizancjum
+		BYO = {
+			change_government = monarchy
+			add_government_reform = feudalism_reform
+			adopt_reform_progress = ROOT
+
+			
+				if = {
+					limit = {
+						NOT = { is_year = 1466 }
+					}
+					define_ruler = {
+					name = "Thomas"
+					dynasty = "Palaiologos"
+					culture = greek
+					adm = 4
+					dip = 3
+					mil = 5
+					}
+					
+				}
+				if = {
+					limit = {
+						AND = {
+							is_year = 1467
+							NOT = { is_year = 1470 }
+						}
+						
+					}
+					define_ruler = {
+					name = "Demetrios"
+					dynasty = "Palaiologos"
+					culture = greek
+					adm = 4
+					dip = 3
+					mil = 5
+					}
+				}
+				if = {
+					limit = {				
+							is_year = 1470
+					}
+					define_ruler = {
+					name = "Andreas"
+					dynasty = "Palaiologos"
+					culture = greek
+					adm = 4
+					dip = 3
+					mil = 5
+					}
+				}
+			
+		}
+		
+
+	}
+	option = {
+		name = crusade.8.c	#monarchia elekcyjna Habsburg
+		BYO = {
+			change_government = monarchy
+			add_government_reform = elective_monarchy
+			adopt_reform_progress = ROOT
+
+			define_ruler = {
+			dynasty = "von Habsburg"
+			culture = austrian
+			adm = 2
+			dip = 6
+			mil = 4
+		}
+		}
+
+	}
+	option = {
+		name = crusade.8.d	#monarchia elekcyjna Jagielon
+		BYO = {
+			change_government = monarchy
+			add_government_reform = elective_monarchy
+			adopt_reform_progress = ROOT
+
+			define_ruler = {
+				dynasty = "Jagielon"
+				culture = polish
+				adm = 2
+				dip = 6
+				mil = 4
+			}
+		}
+
+	}
+}
+country_event = {
+	id = crusade.9
+	title = crusade.9.t
+	desc = crusade.9.d
+	picture = BATTLE_VISTULA_LAGOON_eventPicture
+	trigger = {
+		tag = PAP
+		has_country_flag = fall_of_capital
+		has_country_flag = crusade_Ottoman
+		has_country_flag = crusade_started
+		BYO = {
+			exists = yes
+		}
+		OR = {
+			4779 = {
+				
+					owned_by = TUR
+					controller = { has_country_flag = member_of_crusade }
+				
+			}
+			2296 = {
+				
+					owned_by = TUR
+					controller = { has_country_flag = member_of_crusade }
+				
+			}
+			316 = {
+				
+					owned_by = TUR
+					controller = { has_country_flag = member_of_crusade }
+				
+			}
+			317 = {
+				
+					owned_by = TUR
+					controller = { has_country_flag = member_of_crusade }
+				
+			}
+		}
+	}
+
+	option = {
+		name = crusade.9.a
+		TUR = {
+			every_owned_province = {
+					limit = {
+						is_core = BYO
+						controller = { 
+						has_country_flag = member_of_crusade
+						}
+					}
+
+					cede_province = BYO
+				}
+		}
+		
+
+	}
+}
+country_event = {
+	id = crusade.10
+	title = crusade.10.t
+	desc = crusade.10.d
+	picture = CRUSADE_1_eventPicture
+	major = yes
+	
+	trigger = {
+		tag = PAP
+		has_country_flag = crusade_started
+		OR = {
+			AND = {
+				BYO = {
+					exists = yes
+				}
+				has_country_flag = crusade_Ottoman
+			}
+			AND = {
+					KOJ = {
+					exists = yes
+				}
+				has_country_flag = crusade_Mameluk
+			}
+		}
+			
+		
+		OR = {
+			AND = {
+				NOT = {
+					is_in_war = {
+    					defender_leader = TUR
+					}
+				}
+				has_country_flag = crusade_Ottoman
+			}
+			AND = {
+				NOT = {
+					is_in_war = {
+    					defender_leader = MAM
+					}
+				}
+				has_country_flag = crusade_Mameluk
+			}
+		}
+		
+	}
+	immediate = {
+		clr_country_flag = crusade_started
+		
+	}
+
+	option = {
+		name = crusade.10.a
+		add_reform_desire = -0.1
+		
+		if = {
+			limit = {
+				has_country_flag = crusade_Ottoman
+			}
+			clr_country_flag = crusade_Ottoman
+			add_country_modifier = { 
+    			name = winners_of_crusade
+    			duration = 3650
+			}
+			TUR = {
+				country_event = {
+					id = crusade.25
+				}
+			}
+			set_country_flag = victory_against_ottoman
+			hidden_effect = {
+				every_known_country = {	
+					limit = {
+						has_country_flag = member_of_crusade
+						NOT = { tag = PAP }
+					}
+					country_event = {
+						id = crusade.12
+					}
+					clr_country_flag = member_of_crusade
+				}
+			}
+		}
+		else = {
+			add_country_modifier = { 
+    		name = winners_of_crusade_mameluk
+    		duration = 3650
+			}
+			MAM = {
+				country_event = {
+				id = crusade.47				
+				}
+			}
+			set_country_flag = victory_against_mameluk
+			hidden_effect = {
+				every_known_country = {	
+					limit = {
+						has_country_flag = member_of_crusade
+						NOT = { tag = PAP }
+					}
+					country_event = {
+						id = crusade.31
+					}
+					clr_country_flag = member_of_crusade
+				}
+			}
+			clr_country_flag = crusade_Mameluk
+		}
+
+		if = {
+			limit = {
+				has_country_flag = crusade
+			}
+			clr_country_flag = crusade
+			clr_country_flag = complete_preparation
+		}
+
+		if = {
+			limit = {
+				has_country_flag = second_crusade
+			}
+			clr_country_flag = second_crusade
+			clr_country_flag = complete_preparation
+		}
+		set_country_flag = first_crusade_victory
+		set_country_flag = first_crusade_organised
+		
+
+	}
+
+}
+country_event = {
+	id = crusade.11
+	title = crusade.11.t
+	desc = crusade.11.d
+	picture = VILLAGE_BURNING_eventPicture
+	major = yes
+	fire_only_once = yes
+	
+	trigger = {
+		tag = PAP
+		has_country_flag = crusade_started
+		OR = {
+			AND = {
+				BYO = {
+					exists = no
+				}
+				has_country_flag = crusade_Ottoman
+			}
+			AND = {
+					KOJ = {
+					exists = no
+				}
+				has_country_flag = crusade_Mameluk
+			}
+		}
+		
+		OR = {
+			AND = {
+				NOT = {
+					is_in_war = {
+    					defender_leader = TUR
+					}
+				}
+				has_country_flag = crusade_Ottoman
+			}
+			AND = {
+				NOT = {
+					is_in_war = {
+    					defender_leader = MAM
+					}
+				}
+				has_country_flag = crusade_Mameluk
+			}
+		}
+		
+		
+	}
+	immediate = {
+		clr_country_flag = crusade_started
+		set_country_flag = crusade_defeat
+		hidden_effect = {
+			every_known_country = {	
+			limit = {
+				has_country_flag = member_of_crusade
+				NOT = { tag = PAP }
+			}
+			country_event = {
+				id = crusade.13
+			}
+			clr_country_flag = member_of_crusade
+		}
+		if = {
+			limit = {
+				has_country_flag = crusade
+			}
+			clr_country_flag = crusade
+		}
+		if = {
+			limit = {
+				has_country_flag = second_crusade
+			}
+			clr_country_flag = second_crusade
+		}
+		
+			every_known_country = {	
+			limit = {
+				has_country_flag = reject_invitation
+				NOT = { tag = PAP }
+			}
+			clr_country_flag = reject_invitation
+		}
+	}
+		
+	}
+
+	option = {
+		name = crusade.11.a
+		add_country_modifier = { 
+    		name = loser_of_crusade
+    		duration = 3650
+		}
+		clr_country_flag = complete_preparation
+		add_reform_desire = 0.1
+		if = {
+			limit = {
+				has_country_flag = crusade_Ottoman
+			}
+			TUR = {
+				country_event = {
+					id = crusade.22
+				}
+			}
+			clr_country_flag = crusade_Ottoman
+		}
+		else = {
+			MAM = {
+				country_event = {
+					id = crusade.48
+				}
+			}
+			clr_country_flag = crusade_Mameluk
+		}
+
+		
+		
+	}
+
+}
+country_event = {
+	id = crusade.12
+	title = crusade.12.t
+	desc = crusade.12.d
+	picture = CRUSADE_1_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = crusade.12.a
+		add_country_modifier = { 
+    		name = winners_of_crusade
+    		duration = 3650
+		}
+		add_years_of_income = 0.5
+	}
+}
+country_event = {
+	id = crusade.13
+	title = crusade.13.t
+	desc = crusade.13.d
+	picture = VILLAGE_BURNING_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = crusade.13.a
+		add_country_modifier = { 
+    		name = loser_of_crusade
+    		duration = 3650
+		}
+		
+	}
+}
+country_event = {
+	id = crusade.14
+	title = crusade.14.t
+	desc = crusade.14.d
+	picture = GREAT_BUILDING_eventPicture
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = crusade.14.a
+		set_country_flag = member_of_league
+		hidden_effect = {
+			country_event = {
+				id = crusade.15
+				days = 45
+			}
+		}
+	}
+}
+country_event = {
+	id = crusade.15
+	title = crusade.15.t
+	desc = crusade.15.d
+	picture = DIPLOMACY_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = crusade.15.a
+		add_treasury = 250
+		hidden_effect = {
+			country_event = {
+				id = crusade.16
+				days = 80
+			}
+		}
+	}
+}
+country_event = {
+	id = crusade.16
+	title = crusade.16.t
+	desc = crusade.16.d
+	picture = MILITARY_CAMP_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = crusade.15.a
+		add_manpower = 30
+		hidden_effect = {
+			country_event = {
+				id = crusade.17
+				days = 40
+			}
+		}
+	}
+}
+country_event = {
+	id = crusade.17
+	title = crusade.17.t
+	desc = crusade.17.d
+	picture = MILITARY_CAMP_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = crusade.17.a
+		add_country_modifier = {
+			name = "ottoman_moblilisation"
+			duration = -1
+		}
+		hidden_effect = {
+			country_event = {
+				id = crusade.20
+				days = 130
+			}
+			country_event = {
+				id = crusade.21
+				days = 75
+			}
+		}
+	}
+}
+country_event = {
+	id = crusade.18
+	title = crusade.18.t
+	desc = crusade.18.d
+	picture = CONQUEST_eventPicture
+	fire_only_once = yes
+	trigger = {
+		tag = TUR
+		has_country_flag = mobilisation
+		MAM = {
+			exists = yes
+			NOT = { alliance_with = TUR }
+			NOT = {
+				OR = {
+					is_in_war = {
+	   				 attackers = TUR
+	    			}
+	    			is_in_war = {
+	   				 defenders = TUR
+	    			}
+				}
+			}
+		}
+	 PAP = {
+	 	NOT = { has_country_flag = complete_preparation }
+	 }	
+	}
+	mean_time_to_happen = {
+	months = 3
+	}
+	option = {
+		name = crusade.18.a
+		add_prestige = -10
+		MAM = {
+			country_event = {
+				id = crusade.19
+				days = 5
+			}
+		}
+	}
+	option = {
+		name = crusade.18.b
+	}
+}
+country_event = {
+	id = crusade.19
+	title = crusade.19.t
+	desc = crusade.19.d
+	picture = CONQUEST_eventPicture
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = crusade.19.a
+		ai_chance = {
+			factor = 3
+		}
+		add_prestige = 10
+		set_country_flag = member_of_league
+		add_truce_with = TUR
+		TUR = {
+			country_event = {
+				id = crusade.23
+			}
+		}
+	}
+	option = {
+		name = crusade.18.b
+		TUR = {
+			country_event = {
+				id = crusade.24
+			}
+		}
+	}
+}
+country_event = {
+	id = crusade.20
+	title = crusade.20.t
+	desc = crusade.20.d
+	picture = CARIBBEAN_PIRATE_FORT_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = crusade.20.a
+		add_sailors = 2000
+	}
+}
+country_event = {
+	id = crusade.21
+	title = crusade.21.t
+	desc = crusade.21.d
+	picture = MILITARY_CAMP_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = crusade.21.a
+		set_country_flag = mobilisation
+		
+	}
+}
+country_event = {
+	id = crusade.22
+	title = crusade.22.t
+	desc = crusade.22.d
+	picture = MILITARY_CAMP_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = crusade.22.a
+		add_country_modifier = {
+			name = ottoman_victory
+			duration = 3650
+		}
+		remove_country_modifier = ottoman_moblilisation
+		
+	}
+}
+country_event = {
+	id = crusade.23
+	title = crusade.23.t
+	desc = crusade.23.d
+	picture = ELECTION_REPUBLICAN_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = crusade.23.a
+
+	}
+}
+country_event = {
+	id = crusade.24
+	title = crusade.24.t
+	desc = crusade.24.d
+	picture = COURT_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = crusade.24.a
+
+	}
+}
+country_event = {
+	id = crusade.25
+	title = crusade.25.t
+	desc = crusade.25.d
+	picture = CIVIL_WAR_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = crusade.25.a
+		remove_country_modifier = ottoman_moblilisation
+	}
+}
+country_event = {
+	id = crusade.26
+	title = crusade.26.t
+	desc = crusade.26.d
+	picture = CRUSADE_PREPARATION_eventPicture
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			country_event = {
+				id = crusade.4
+				days = 730
+			}
+			MAM = {
+				country_event = {
+					id = crusade.32
+					days = 20
+				}
+			}
+		}
+	}	
+	option = {
+		name = crusade.26.a
+		set_country_flag = crusade
+		set_country_flag = member_of_crusade
+		set_country_flag = crusade_Mameluk
+		emperor = {
+			country_event = {
+				id = crusade.2
+			}
+		}
+		if = {
+   			 limit = {
+   			 	POL = {
+   			 		religion = catholic
+   			 	}
+        	
+   			 }
+   			 POL = {
+				country_event = {
+					id = crusade.2
+				}
+			}
+    	}
+    	if = {
+   			 limit = {
+   			 	HUN = {
+   			 		religion = catholic
+   			 	}
+        	
+   			 }
+   			 HUN = {
+			country_event = {
+			id = crusade.2
+			}
+			}
+    	}
+    	if = {
+   			 limit = {
+   			 	BUR = {
+   			 		religion = catholic
+   			 	}
+        	
+   			 }
+   			 BUR = {
+			country_event = {
+			id = crusade.2
+			}
+			}
+    	}
+
+		
+		
+	}
+}
+country_event = {
+	id = crusade.27
+	title = crusade.27.t
+	desc = crusade.27.d
+	picture = COUNTRY_COLLAPSE_eventPicture
+	fire_only_once = yes
+	trigger = {
+		tag = PAP
+		has_country_flag = crusade_Mameluk
+		has_country_flag = crusade_started
+		NOT = { has_country_flag = fall_of_holy_city }
+		KOJ = {
+			exists = no
+		}
+		379 = {
+			owned_by = MAM
+			controller = { 
+				has_country_flag = member_of_crusade
+				is_in_war = {
+    				attacker_leader = PAP
+    				defender_leader = MAM
+					}
+			}	
+		}
+
+	}
+	option = {
+		name = crusade.27.a
+		set_country_flag = fall_of_holy_city
+		379 = {
+			add_core = KOJ
+			change_religion = catholic
+			change_culture = franconian
+		}
+		MAM = {
+			release = KOJ
+		}
+		364 = {
+			add_core = KOJ
+		}
+		1854 = {
+			add_core = KOJ
+		}
+		1855 = {
+			add_core = KOJ
+		}
+		create_guarantee = KOJ
+		KOJ = {
+			change_religion = catholic
+			country_event = {
+				id = crusade.29
+				days = 10
+			}
+		}
+		country_event = {
+			id = crusade.28
+			days = 0
+		}
+		
+	}
+}
+country_event = {
+	id = crusade.28
+	title = crusade.28.t
+	desc = crusade.28.d
+	picture = CRUSADE_2_eventPicture
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = crusade.28.a
+		KOJ = {
+			change_government = theocracy
+			add_government_reform = monastic_order_government
+			adopt_reform_progress = ROOT
+		}
+		
+	}
+	option = {
+		name = crusade.28.b
+		KOJ = {
+			change_government = monarchy
+			add_government_reform = feudalism_reform
+			adopt_reform_progress = ROOT			
+			define_ruler = {
+				dynasty = "de Poitiers-Lusignan"
+				culture = francien
+					adm = 6
+					dip = 4
+					mil = 3
+				}
+				
+			
+		}
+	}
+	option = {
+		name = crusade.28.c
+		KOJ = {
+			change_government = monarchy
+			add_government_reform = elective_monarchy
+			adopt_reform_progress = ROOT
+
+			define_ruler = {
+				dynasty = "von Habsburg"
+				culture = austrian
+				adm = 2
+				dip = 6
+				mil = 4
+			}
+		}
+	}
+	option = {
+		name = crusade.28.e
+		KOJ = {
+			change_government = monarchy
+			add_government_reform = elective_monarchy
+			adopt_reform_progress = ROOT
+
+			define_ruler = {
+				dynasty = "Jagielon"
+				culture = polish
+				adm = 2
+				dip = 6
+				mil = 4
+			}
+		}
+	}
+}
+country_event = {
+	id = crusade.29
+	title = crusade.29.t
+	desc = crusade.29.d
+	picture = CRUSADE_2_eventPicture
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		add_treasury = 100
+		add_manpower = 10
+		add_prestige = 5
+		add_dip_power = 50
+		add_adm_power = 50
+		add_mil_power = 50
+	}
+	option = {
+		name = crusade.29.a 
+		379 = {
+			add_accepted_culture = syrian
+			build_to_forcelimit = {
+				infantry = 0.6
+				cavalry = 0.3
+			}
+		}
+		
+	}
+}
+country_event = {
+	id = crusade.30
+	title = crusade.30.t
+	desc = crusade.30.d
+	picture = BATTLE_VISTULA_LAGOON_eventPicture
+	trigger = {
+		tag = PAP
+		has_country_flag = fall_of_holy_city
+		has_country_flag = crusade_Mameluk
+		has_country_flag = crusade_started
+		KOJ = {
+			exists = yes
+		}
+		OR = {
+			364 = {
+				
+					owned_by = MAM
+					controller = { has_country_flag = member_of_crusade }
+				
+			}
+			1854 = {
+				
+					owned_by = MAM
+					controller = { has_country_flag = member_of_crusade }
+				
+			}
+			1855 = {
+				
+					owned_by = MAM
+					controller = { has_country_flag = member_of_crusade }
+				
+			}
+			
+		}
+	}
+	option = {
+		name = crusade.30.a 
+		MAM = {
+			every_owned_province = {
+					limit = {
+						is_core = KOJ
+						controller = { 
+						has_country_flag = member_of_crusade
+						}
+					}
+
+					cede_province = KOJ
+				}
+		}
+	}
+}
+
+country_event = {
+	id = crusade.31
+	title = crusade.31.t
+	desc = crusade.31.d
+	picture = CRUSADE_1_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = crusade.31.a
+		add_country_modifier = { 
+    		name = winners_of_crusade
+    		duration = 3650
+		}
+		add_years_of_income = 0.5
+	}
+}
+
+# eventy dla mameuluka
+
+country_event = {
+	id = crusade.32
+	title = crusade.32.t
+	desc = crusade.32.d
+	picture = GREAT_BUILDING_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = crusade.32.a
+		set_country_flag = mameluk_leauge
+		hidden_effect = {
+			country_event = {
+				id = crusade.33
+				days = 45
+			}
+		}
+	}
+}
+country_event = {
+	id = crusade.33
+	title = crusade.33.t
+	desc = crusade.33.d
+	picture = CARIBBEAN_PIRATE_FORT_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = crusade.33.a
+		add_sailors = 5000
+		add_country_modifier = {
+			name = mameluk_ship
+			duration = 365
+		}
+		hidden_effect = {
+			country_event = {
+				id = crusade.34
+				days = 50
+			}
+		}
+	}
+}
+country_event = {
+	id = crusade.34
+	title = crusade.34.t
+	desc = crusade.34.d
+	picture = MILITARY_CAMP_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = crusade.34.a
+		add_country_modifier = {
+			name = mameluk_recrut
+			duration = 360
+		}
+		hidden_effect = {
+			country_event = {
+				id = crusade.35
+				days = 50
+			}
+		}
+	}
+}
+country_event = {
+	id = crusade.35
+	title = crusade.35.t
+	desc = crusade.35.d
+	picture = GENERALS_DISCUSSING_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = crusade.35.a
+		add_manpower = 20
+		hidden_effect = {
+			country_event = {
+				id = crusade.36
+				days = 35
+			}
+		}
+	}
+}
+country_event = {
+	id = crusade.36
+	title = crusade.36.t
+	desc = crusade.36.d
+	picture = ECONOMY_eventPicture
+	is_triggered_only = yes 
+	 option = {
+	 	name = crusade.36.a
+	 	add_treasury = 250
+	 	hidden_effect = {
+	 		country_event = {
+	 			id = crusade.37
+	 			days = 50
+	 		}
+	 	}
+	 }
+}
+country_event = {
+	id = crusade.37
+	title = crusade.37.t
+	desc = crusade.37.d
+	picture = MILITARY_CAMP_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = crusade.37.a 
+		add_country_modifier = {
+			name = mameluk_mobilisation
+			duration = -1
+		}
+		hidden_effect = {
+			country_event = {
+				id = crusade.38
+				days = 20
+			}
+		}
+	}
+}
+country_event = {
+	id = crusade.38
+	title = crusade.38.t
+	desc = crusade.38.d
+	picture = REFORM_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = crusade.38.a 
+		set_country_flag = mameluk_allies
+	}
+}
+country_event = {
+	id = crusade.39
+	title = crusade.39.t
+	desc = crusade.39.d
+	picture = REFORM_eventPicture
+	fire_only_once = yes
+	trigger = {
+		tag = MAM
+		has_country_flag = mameluk_allies
+		TUR = {
+			exists = yes
+			NOT = { alliance_with = MAM }
+			NOT = {
+				OR = {
+					is_in_war = {
+	   				 attackers = MAM
+	    			}
+	    			is_in_war = {
+	   				 defenders = MAM
+	    			}
+				}
+			}
+		}
+	}
+	mean_time_to_happen = {
+		months = 3
+	}
+	option = {
+		name = crusade.39.a 
+		ai_chance = {
+			factor = 10
+		}
+		add_treasury = -100
+		TUR = {
+			country_event = {
+				id = crusade.41
+				days = 0
+			}
+		}
+	}
+	option = {
+		name = crusade.39.b
+		
+	}
+}
+country_event = {
+	id = crusade.40
+	title = crusade.40.t
+	desc = crusade.40.d
+	picture = DIPLOMACY_eventPicture
+	fire_only_once = yes
+	trigger = {
+		tag = MAM
+		has_country_flag = mameluk_allies
+		TUN = {
+			exists = yes
+			NOT = { alliance_with = MAM }
+			NOT = {
+				OR = {
+					is_in_war = {
+	   				 attackers = MAM
+	    			}
+	    			is_in_war = {
+	   				 defenders = MAM
+	    			}
+				}
+			}
+		}
+	}
+	mean_time_to_happen = {
+		months = 3
+	}
+	option = {
+		name = crusade.40.a 
+		mil_power_cost = -100	
+		TUN = {
+			country_event = {
+				id = crusade.42
+				days = 0
+			}
+		}
+	}
+	option = {
+		name = crusade.40.b 
+		
+	}
+}
+country_event = {
+	id = crusade.41
+	title = crusade.41.t
+	desc = crusade.41.d
+	picture = DIPLOMACY_eventPicture
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = crusade.41.a 
+		ai_chance = {
+			factor = 15
+		}
+		add_treasury = 100
+		set_country_flag = mameluk_leauge
+		 MAM = {
+			country_event = {
+				id = crusade.43
+				days = 0
+			}
+		}
+	}
+	option = {
+		name = crusade.41.b 
+		MAM = {
+			country_event = {
+				id = crusade.44
+				days = 0
+			}
+		}
+	}
+}
+country_event = {
+	id = crusade.42
+	title = crusade.42.t
+	desc = crusade.42.d
+	picture = DIPLOMACY_eventPicture
+	is_triggered_only = yes
+	major = yes
+	option = {
+		ai_chance = {
+			factor = 10
+		}
+		name = crusade.42.a 
+		add_mil_power = 100
+		set_country_flag = mameluk_leauge
+		 MAM = {
+			country_event = {
+				id = crusade.45
+				days = 10
+			}
+		}
+	}
+	option = {
+		name = crusade.42.b 
+		MAM = {
+			country_event = {
+				id = crusade.46
+				days = 10
+			}
+		}
+	}
+}
+#ta sa eventy zeby informowac mameluka czy dalaczyli
+country_event = {
+	id = crusade.43
+	title = crusade.43.t
+	desc = crusade.43.d
+	picture = ELECTION_REPUBLICAN_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = crusade.43.a
+
+	}
+}
+country_event = {
+	id = crusade.44
+	title = crusade.44.t
+	desc = crusade.44.d
+	picture = COURT_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = crusade.44.a
+
+	}
+}
+country_event = {
+	id = crusade.45
+	title = crusade.45.t
+	desc = crusade.45.d
+	picture = ELECTION_REPUBLICAN_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = crusade.45.a
+
+	}
+}
+country_event = {
+	id = crusade.46
+	title = crusade.46.t
+	desc = crusade.46.d
+	picture = COURT_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = crusade.46.a
+
+	}
+}
+country_event = {
+	id = crusade.47
+	title = crusade.47.t
+	desc = crusade.47.d
+	picture = COURT_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = crusade.47.a
+		remove_country_modifier = mameluk_mobilisation
+		
+	}
+}
+
+
+country_event = {
+	id = crusade.48
+	title = crusade.48.t
+	desc = crusade.48.d
+	picture = COURT_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = crusade.48.a
+		remove_country_modifier = mameluk_mobilisation
+		
+		add_country_modifier = {
+			name = mameluk_victory
+			duration = 3650
+		}
+	}
+}
+country_event = {
+	id = crusade.49
+	title = crusade.49.t
+	desc = crusade.49.d
+	picture = DIPLOMACY_eventPicture
+	trigger = {
+		tag = TUR
+		has_country_flag = mobilisation
+		TUN = {
+			exists = yes
+			NOT = { alliance_with = TUN }
+			NOT = {
+				OR = {
+					is_in_war = {
+	   				 attackers = TUN
+	    			}
+	    			is_in_war = {
+	   				 defenders = TUN
+	    			}
+				}
+			}
+		}
+	 	PAP = {
+	 		NOT = { has_country_flag = complete_preparation }
+	 	}	
+	 OR = {
+	 	CAS = {
+	 		has_country_flag = member_of_crusade
+	 	}
+	 	ARA = {
+	 		has_country_flag = member_of_crusade
+	 	}
+	 }
+	}
+	mean_time_to_happen = {
+		months = 2
+	}
+	option = {
+		ai_chance = {
+			factor = 10
+		}
+		name = crusade.49.a
+		add_treasury = -100
+		TUN = {
+			country_event = {
+				id = crusade.50
+				days = 5
+			}
+		}
+	}
+	option = {
+		name = crusade.49.b
+
+	}
+}
+
+country_event = {
+	id = crusade.50
+	title = crusade.50.t
+	desc = crusade.50.d
+	picture = DIPLOMACY_eventPicture
+	is_triggered_only = yes
+	major = yes
+	option = {
+		ai_chance = {
+			factor = 10
+		}
+		name = crusade.50.a 
+		add_treasury = 100
+		set_country_flag = member_of_league
+		
+	}
+	option = {
+		name = crusade.50.b 
+		
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#super tajne :)
+country_event = {
+	id = crusade.666
+	title = crusade.666.t
+	desc = crusade.666.d
+	picture = VILLAGE_RAIDED_eventPicture
+	major = yes
+	fire_only_once = yes
+	trigger = {
+		OR = {
+			has_country_flag = member_of_league
+			has_country_flag = mameluk_leauge
+		}
+		NOT = { has_country_flag = pope_is_dead }
+		PAP = {
+			capital_scope = {
+				controlled_by = ROOT
+			}
+		}
+		
+		is_in_war = {
+    			attacker_leader = PAP
+			}
+		PAP = {
+			has_country_flag = crusade_started
+		}
+	}
+	option = {
+		name = crusade.666.a
+
+		add_treasury = 200
+		118 = {
+			add_devastation = 50
+		}
+		set_country_flag = fall_of_rome
+		PAP = { #zabijanko papieza
+			country_event = {
+				id = crusade.667
+			}
+		}
+	}
+}
+country_event = {
+	id = crusade.667
+	title = crusade.667.t 
+	desc = crusade.667.d
+	picture = DEATH_OF_HEIR_eventPicture
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = crusade.667.a
+		add_stability = -2
+		add_war_exhaustion = 5
+		kill_ruler = yes
+		country_event = {
+			id = crusade.668
+			days = 1
+		}
+
+	}
+}
+country_event = {
+	id = crusade.668
+	title = crusade.668.t
+	desc = crusade.668.d
+	picture = ANGRY_MOB_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = crusade.668.a
+		add_stability = -1
+		set_country_flag = pope_is_dead
+	}
+}
+#wyzwalanko :3
+country_event = {
+	id = crusade.669
+	title = crusade.669.t
+	desc = crusade.669.d
+	picture = COUNTRY_COLLAPSE_eventPicture
+	major = yes
+	is_triggered_only = yes
+
+	immediate = {
+		capital_scope = {
+			add_core = RRP
+		}
+		random_owned_province = {
+					limit = {
+						is_capital = no
+						NOT = { is_core = RRP }
+						any_neighbor_province = {
+							is_core = RRP
+						}
+					}
+					add_core = RRP
+				}
+		random_owned_province = {
+					limit = {
+						is_capital = no
+						NOT = { is_core = RRP }
+						any_neighbor_province = {
+							is_core = RRP
+						}
+					}
+					add_core = RRP
+				}
+		release = RRP
+		hidden_effect = {
+			RRP = {
+				change_government = republic
+				add_government_reform = peasants_republic 
+				capital_scope = {
+					build_to_forcelimit = {
+					infantry = 0.6
+					cavalry = 0.3
+					}
+				}
+				country_event = {
+					id = roman.1
+					days = 10
+				}
+			}
+		}
+	}
+	option = {
+		name = crusade.669.a
+		declare_war_with_cb = {
+    		who = RRP
+    		casus_belli = cb_annex
+		}
+	}
+		option = {
+		name = crusade.669.b
+		declare_war_with_cb = {
+    		who = RRP
+    		casus_belli = cb_annex
+		}
+		switch_tag = RRP
+	}
+}
+country_event = {
+	id = crusade.670
+	title = crusade.670.t
+	desc = crusade.670.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = crusade.670.a
+		add_stability = 3
+		
+	}
+}

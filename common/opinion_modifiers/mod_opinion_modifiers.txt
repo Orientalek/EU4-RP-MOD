@@ -1,0 +1,20 @@
+destroyed_al_aqsa_opinion = {
+	opinion = -200
+	yearly_decay = 2
+}
+remove_elector_relation = {
+	opinion = -75
+	yearly_decay = 5
+}
+silesian_released = {
+	opinion = 150
+	yearly_decay = 10
+}
+silesian_friendship = {
+	opinion = 100
+	yearly_decay = 10
+}
+denied_unification = {
+	opinion = -50
+	yearly_decay = 5
+}

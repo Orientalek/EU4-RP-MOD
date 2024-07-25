@@ -1,0 +1,9 @@
+government = republic
+add_government_reform = chinese_republic
+government_rank = 3
+technology_group = chinese
+religion = confucianism
+add_harmonized_religion = mahayana
+primary_culture = jianghuai
+capital = 1821	# Nanjing
+fixed_capital = 1821

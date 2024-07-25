@@ -1,0 +1,169 @@
+#events made by Michkox
+namespace = Scandinavian
+country_event = {
+    id = Scandinavian.2
+    title = Scandinavian.2.t
+	desc = Scandinavian.2.d
+	picture = RELIGION_eventPicture
+    fire_only_once = yes
+    trigger = {
+		OR = {
+        tag = NOR
+        tag = NSU
+        }
+        1104 = {
+            OR = {
+			owned_by = NOR
+            owned_by = NSU
+            }
+		}
+        1105 = {
+            OR = {
+			owned_by = NOR
+            owned_by = NSU
+            }
+        }
+    }
+        mean_time_to_happen = {
+		months = 6
+        }
+    option = {
+        name = Scandinavian.2.a
+        ai_chance = { factor = 50 }
+        1105 = {
+            change_religion = norse_pagan_reformed
+        }
+        1104 = {
+            change_religion = norse_pagan_reformed
+        }
+        370 = {
+            change_religion = norse_pagan_reformed
+        }
+        371 = {
+            change_religion = norse_pagan_reformed
+        }
+        change_religion = norse_pagan_reformed
+        add_country_modifier = {
+            name = Freyas_blessing
+            duration = -1
+        }
+        add_reform_desire = 0.1   
+        set_ruler_religion = norse_pagan_reformed
+        set_consort_religion = norse_pagan_reformed
+        set_heir_religion = norse_pagan_reformed  
+    }
+    option = {
+        name = Scandinavian.2.b
+        ai_chance = { factor = 50 }
+        add_papal_influence = 50
+        add_prestige = 50
+        add_legitimacy = 25
+    }
+}
+country_event = {
+    id = Scandinavian.3
+    title = Scandinavian.3.t
+	desc = Scandinavian.3.d
+	picture = RELIGION_eventPicture
+    is_triggered_only = yes
+
+    option = {
+        name = Scandinavian.3.a
+        add_prestige = 25
+        add_stability = 1
+     } 
+ }
+    country_event = {
+    id = Scandinavian.4
+    title = Scandinavian.4.t
+	desc = Scandinavian.4.d
+	picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+    option = {
+        name = Scandinavian.4.a
+        ai_chance = {factor = 100}
+        break_union = NOR
+        add_prestige = 25
+        add_legitimacy = 25
+        add_stability = 1
+        DAN = {
+        create_alliance = NOR
+        }
+        add_country_modifier = {
+            name = Released_norway
+            duration = 9125
+        }
+    }
+    option = {
+        name = Scandinavian.4.b
+        ai_chance = {factor = 15}
+        add_prestige = -50
+        add_legitimacy = -50
+        NOR = {
+            add_liberty_desire = 200
+        }
+        add_country_modifier = {
+            name = Maintained_union
+            duration = 9125
+        }
+    }
+}
+country_event = {
+    id = Scandinavian.5
+    title = Scandinavian.5.t
+	desc = Scandinavian.5.d
+	picture = REFORM_eventPicture
+    is_triggered_only = yes
+
+    option = {
+        name = Scandinavian.5.a
+        add_government_reform = viking_society
+		change_government_reform_progress = 200
+    } 
+}
+country_event = {
+    id = Scandinavian.6
+    title = Scandinavian.6.t
+	desc = Scandinavian.6.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+    is_triggered_only = yes
+    option = {
+        name = Scandinavian.6.a
+        add_country_modifier = {
+            name = Empire_o_north
+            duration = -1
+        }
+        add_prestige = 25
+        add_legitimacy = 25
+        add_stability = 3
+        change_government_reform_progress = 250
+    }
+}
+country_event = {
+    id = Scandinavian.7
+    title = Scandinavian.7.t
+	desc = Scandinavian.7.d
+	picture = REFORM_eventPicture
+    is_triggered_only = yes
+    option = {
+        name = Scandinavian.7.a
+        add_accepted_culture = swedish
+			change_tag = NSU
+			restore_country_name_effect = yes
+			country_event = {
+				id = ideagroups.1 
+			}
+			finland_area = {
+				add_permanent_claim = ROOT
+			}
+			bothnia_area = {
+				add_permanent_claim = ROOT
+			}
+			jutland_area = {
+				add_permanent_claim = ROOT
+			}
+			denmark_area = {
+				add_permanent_claim = ROOT
+			}
+    }
+}

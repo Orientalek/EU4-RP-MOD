@@ -1,0 +1,127 @@
+norway_fight = {
+	manpower_recovery_speed = 0.10
+	land_morale = 0.10
+	land_maintenance_modifier = -0.05
+}
+17th_of_May = {
+	legitimacy = 1
+	diplomatic_reputation = 1
+	prestige_decay = -0.01
+	yearly_corruption = -0.05
+}
+Swedish_wars = {
+	manpower_recovery_speed = 0.10
+	infantry_power = 0.10
+}
+norwish_colonization = {
+	colonists = 1
+	global_colonial_growth = 20
+}
+increased_fish_trade = {
+	local_sailors_modifier = 0.2
+	local_production_efficiency = 0.2
+	province_trade_power_modifier = 0.2
+}
+Scandinavia_united = {
+	global_unrest = -1
+	stability_cost_modifier = -0.1
+	monthly_reform_progress_modifier = 0.1
+}
+Freyas_blessing = {
+	global_missionary_strength = 0.03
+	missionaries = 1
+	religious_unity = 0.1
+	tolerance_own = 2
+}
+colonization_of_canada = {
+	colonist_placement_chance = 0.10
+	global_colonial_growth = 20
+	native_assimilation = 0.5
+}
+Denmark_military_help = {
+	land_forcelimit_modifier = 0.10
+	land_morale = 0.1
+	land_maintenance_modifier = -0.05
+	discipline = 0.025
+}
+thors_blesing = {
+	land_morale = 0.1
+	discipline = 0.05
+	shock_damage = 0.1
+}
+Njord_blesing = {
+	build_cost = -0.1
+	trade_efficiency = 0.1
+	interest = -0.5
+	production_efficiency = 0.1
+}
+Maintained_union = {
+	global_unrest = 2
+	global_autonomy = 0.05
+	diplomatic_reputation = -3
+}
+Released_norway = {
+	global_autonomy = -0.05
+	diplomatic_reputation = 2
+	global_unrest = -2
+}
+Snotras_blesing = {
+	technology_cost = -0.1
+	idea_cost = -0.1
+}
+Benefits_from_lubeck_trade = {
+	trade_efficiency = 0.20
+	global_trade_power = 0.1
+}
+assimilation_of_english_culture = {
+	local_culture_conversion_cost = -0.33
+}
+path_for_London = {
+	land_morale = 0.1
+	shock_damage_received = -0.15
+	discipline = 0.025
+}
+Revenge_for_Stamfod_bridge = {
+	diplomatic_reputation = 1
+	stability_cost_modifier = -0.20
+	diplomats = 1
+	prestige_decay = -0.01
+}
+benefits_from_Canadian_colony = {
+	trade_efficiency = 0.15
+	global_trade_power = 0.1
+}
+Benefits_from_novogrod_trade = {
+	trade_efficiency = 0.15
+	global_trade_power = 0.15
+}
+Empire_o_north = {
+	global_unrest = -2
+	global_autonomy = -0.05
+	global_manpower_modifier = 0.20
+	reinforce_speed = 0.33
+	technology_cost = -0.1
+}
+Lokis_blesing = {
+	diplomats = 1
+	fabricate_claims_cost = -0.20
+	improve_relation_modifier = 0.2
+	free_dip_policy = 1
+}
+Freyrs_blesing = {
+	state_maintenance_modifier = -0.20
+	global_tax_modifier = 0.1
+	global_prosperity_growth = 0.1
+}
+Forsetis_blesing = {
+	global_institution_spread = 0.25
+	innovativeness_gain = 0.5
+	free_policy = 1
+	prestige_decay = -0.01
+}
+Odins_blesing = {
+	prestige = 1
+	development_cost = -0.1
+	diplomatic_reputation = 2
+	global_manpower_modifier = 0.1
+}

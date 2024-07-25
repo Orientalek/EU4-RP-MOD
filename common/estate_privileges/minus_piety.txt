@@ -1,0 +1,19 @@
+minus_piety = {
+	icon = privilege_recruit_minister
+	max_absolutism = -5
+	loyalty = 0
+	influence = 0.05
+	is_valid = {
+		religion_group = muslim
+	}
+	can_select = {
+
+	}
+	on_granted = {
+	}
+	penalties = {
+	}
+	benefits = {
+		monthly_piety = -0.002
+	}
+}

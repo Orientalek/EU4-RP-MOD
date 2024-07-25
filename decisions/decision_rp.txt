@@ -1,0 +1,281 @@
+country_decisions = {
+
+    feast = {
+        potential = {
+           NOT = {
+            has_country_modifier = feast_modifier
+           }
+        }
+        allow = {
+             is_at_war = no
+             years_of_income = 0.5
+        }
+        effect = {
+            add_years_of_income = -0.5 
+            add_prestige = 15
+            add_legitimacy = 10
+            add_country_modifier = {
+                name = feast_modifier
+                duration = 7300
+            }
+        }
+    }
+    Hunt = {
+        potential = {
+           NOT = {
+            has_country_modifier = hunt
+           }
+        }
+        allow = {
+             is_at_war = no
+             years_of_income = 0.1
+        }
+        effect = {
+            add_years_of_income = -0.1 
+            add_prestige = 10
+            add_country_modifier = {
+                name = hunt 
+                duration = 1825
+            }
+        }
+    }
+    recruit_court_jester = {
+        potential = {
+            government = monarchy 
+            NOT = {
+                is_year = 1550
+                has_ruler_flag = recruited_jester
+            }
+            has_regency = no
+        }
+        allow = {
+             is_at_war = no
+             years_of_income = 0.5
+        }
+        effect = {
+            set_ruler_flag = recruited_jester
+            add_years_of_income = -0.5
+            change_adm = 1
+        }
+    }
+    Holy_choice = {
+        potential = {
+            NOT = {
+                has_ruler_flag = papal_state2
+            }
+            is_emperor = yes
+        }
+        allow = {
+            is_at_war = no
+            OR = {
+                PAP = {
+                    is_subject_of = emperor
+                }
+                AND = {
+                    PAP = {
+                        is_part_of_hre = yes
+                    }
+                    has_opinion = {
+                        who = PAP
+                        value = 200
+                    }
+                }
+            }
+        }
+        effect = {
+            add_papal_influence	= 200
+            set_ruler_flag = papal_state2
+        }
+    }
+    westfalian_nation1 = {
+		major = yes
+		potential = {
+			tag = KOL
+            has_country_flag = westphalian_dreeem
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 82	# Westfalen
+				province_id = 1762	# Kassel
+				AND = {
+					OR = {
+						province_id = 85	# Cologne
+						province_id = 80	# Trier
+						province_id = 78	# Mainz
+						province_id = 86	# Munster
+					}
+					ROOT = {
+						NOT = { owns_core_province = 85 }
+						NOT = { owns_core_province = 80 }
+						NOT = { owns_core_province = 78 }
+						NOT = { owns_core_province = 86 }
+					}
+				}
+				AND = {
+					OR = {
+						culture = hannoverian
+						culture = hessian
+					}
+					region = north_german_region
+					ROOT = {
+						NOT = {
+							num_of_owned_provinces_with = {
+								value = 12 #out of 22
+								OR = {
+									culture = hannoverian
+									culture = hessian
+								}
+								region = north_german_region
+								is_core = root
+							}
+						}
+						owns_core_province = 82
+						owns_core_province = 1762
+						OR = {
+							owns_core_province = 85
+							owns_core_province = 80
+							owns_core_province = 78
+							owns_core_province = 86
+						}
+					}
+				}
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
+			AND = {
+				owns_core_province = 82	# Westfalen
+				owns_core_province = 1762	# Kassel
+				OR = {
+					owns_core_province = 85	# Cologne
+					owns_core_province = 80	# Trier
+					owns_core_province = 78	# Mainz
+					owns_core_province = 86	# Munster
+				}
+			}
+			num_of_owned_provinces_with = {
+				value = 12 #out of 22
+				OR = {
+					culture = hannoverian
+					culture = hessian
+				}
+				region = north_german_region
+				is_core = root
+			}
+		}
+		effect = {
+			change_tag = WES
+			restore_country_name_effect = yes
+			set_country_flag = formed_westphalia_flag
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+					OR = {
+						is_elector = yes
+						is_part_of_hre = no
+					}
+				}
+				set_government_rank = 2
+			}
+			if = {
+				limit = {
+					NOT = { primary_culture = hessian }
+					NOT = { accepted_culture = hessian }
+				}
+				add_accepted_culture = hessian
+			}
+			if = {
+				limit = {
+					NOT = { primary_culture = hannoverian }
+					NOT = { accepted_culture = hannoverian }
+				}
+				add_accepted_culture = hannoverian
+			}
+			add_country_modifier = {
+				name = "decentralization_modifier"
+				duration = 7300
+			}
+			westphalia_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = WES
+			}
+			north_westphalia_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = WES
+			}
+			hesse_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = WES
+			}
+			palatinate_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = WES
+			}
+			north_rhine_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = WES
+			}
+			lower_rhineland_area = {
+				limit = { NOT = { owned_by = ROOT } }
+				add_permanent_claim = WES
+			}
+			every_province = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					OR = {
+						culture = hessian
+						culture = hannoverian
+					}
+					NOT = { area = westphalia_area }
+					NOT = { area = north_westphalia_area }
+					NOT = { area = hesse_area }
+					NOT = { area = palatinate_area }
+					NOT = { area = north_rhine_area }
+					NOT = { area = lower_rhineland_area }
+					continent = europe
+				}
+				add_permanent_claim = WES
+			}
+			add_prestige = 25
+			if = {
+				limit = {
+					has_custom_ideas = no
+				}
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+            country_event = {id = epic_theocracy.3}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	plr_formation = {
+        potential = {
+			tag = PLC
+        }
+        allow = {
+            is_at_war = no
+			ruthenia_region = {
+				owned_by = ROOT
+				type = all
+			}
+        }
+        effect = {
+			change_tag = PLR
+			add_prestige = 25
+			if = {
+				limit = {
+					has_custom_ideas = no
+				}
+				country_event = { id = ideagroups.1 } #Swap Ideas
+				set_government_rank = 3
+			}
+		}   
+    }
+}

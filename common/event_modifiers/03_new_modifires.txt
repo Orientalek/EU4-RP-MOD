@@ -1,0 +1,42 @@
+new_country = {
+    legitimacy = 1
+    prestige = 0.5
+    diplomatic_reputation = 1
+}
+lothar_court = {
+    global_unrest = -1
+}
+french_court = {
+    diplomatic_reputation = 1
+}
+german_court = {
+    army_tradition = 0.5
+}
+english_court  = {
+    trade_efficiency = 0.1
+}
+roman_tradition = {
+    infantry_power = 0.05
+}
+hevy_kng = {
+    cavalry_power = 0.10
+}
+new_horse = {
+    movement_speed = 0.10
+    cavalry_cost = 0.15
+}
+hevik_kng = {
+    cavalry_power = 0.15
+    cavalry_flanking = 0.3
+    cavalry_cost = 0.10
+}
+army_centurion = {
+    army_tradition_decay = -0.01
+    army_tradition = 1
+    drill_gain_modifier = 0.10
+}
+lothar_legion = {
+    infantry_power = 0.15 
+    yearly_army_professionalism = 0.01
+    siege_ability = 0.15 
+}

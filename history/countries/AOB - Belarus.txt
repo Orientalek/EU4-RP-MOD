@@ -1,0 +1,9 @@
+government = theocracy
+add_government_reform = leading_clergy_reform
+government_rank = 1
+technology_group = eastern
+religion = catholic
+primary_culture = byelorussian
+historical_friend = TEU
+capital = 276	
+fixed_capital = 276 # Cannot move capital away from this province & no power cost to move to it

@@ -1,0 +1,62 @@
+﻿l_english:
+polish_elective_monarchy:0 "Polish Elective Monarchy"
+biskupstwa_title:0 "bishopric"
+polish_parlament:0 "Polish Sejm"
+polish_parlament_desc:0 ""
+polish_satelite_title:0 "Satelite"
+polish_elective_monarchy_desc:0 ""
+nobles:0 "Nobles"
+nobles_MECHANIC_TOOLTIP:0 "Nobles"
+king_MECHANIC_TOOLTIP:0 "King"
+king:0 "King"
+
+WARLORD:0 "Chinese Warlord"
+chinese_republic:0 "Chinese Republic"
+
+WARLORD:0 "Clique"
+WARLORD_LEADER:0 "Warlord"
+WARLORD_LEADER_fem:0 "Warlord"
+CHREP:0 "Chinese Republic"
+CHREP_LEADER:0 "Governor"
+CHREP_LEADER_fem:0 "Governor"
+
+#ottomans
+mechanic_enables_janissary_estate_yes: "Janissaries Estate becomes available."
+mechanic_enables_janissary_estate_no: " "
+mechanic_upgrade_janissary_weaponry_privilege_interaction_yes: "Enables the Janissaries Estate Privilege Upgrade Janissary Weaponry!, which grants ! Infantry Fire to Janissary Regiments!"
+mechanic_upgrade_janissary_weaponry_privilege_interaction_no: " "
+mechanic_reform_the_janissaries_privilege_interaction_yes: "Enables the Janissaries Estate Privilege Reform the Janissary Corps!, which grants ! Discipline to Janissary Regiments!."
+mechanic_reform_the_janissaries_privilege_interaction_no: " "
+estate_janissary:0 "Janissaries"
+estate_janissary_desc:0 "This estate represents the Janissaries, a elite Infantry class in the Ottoman Empire."
+janissary_loyalty_modifier: "Janissaries Loyalty Equilibrium"
+janissary_influence_modifier: "Janissaries Influence"
+estate_janissary_ownership: "Janissaries Land Ownership"
+#estate_janissary_phase_base
+ estate_janissary_phase_base:0 "Train Against Offensive Maneuvers"
+ estate_janissary_phase_base_desc:0 "Janissaries began as an elite corps of infantry."
+ estate_janissary_phase_modifier:0 "Defensive Tactics"
+
+ #NorthGermanConfederation
+ confederation_names: "Confederacy"
+ confederation_names_desc: "Confederacy"
+ member_of_federation_title:0 "Member of Federation"
+ ###Government Reform
+ngc_monarchy_name: "German Monarchy"
+#Tier 1: Power Structure
+NGC:0 "North German Confederation"
+NGC_ADJ:0 "North German Confederation"
+NGC_ADJ2:0 "North German Confederation"
+
+#HRE
+  
+ GRAFSCHAFT: "County" 
+ GRAF: "Count"
+ GRAF_fem: "Countess"
+
+ LANDGRAFSCHAFT: "Landgraviate" 
+ LANDGRAF: "Landgrave"
+ LANDGRAF_fem: "Landgravine"
+ 
+ MARKGRAFTUM: "Margravate"
+ MARKGRAFSCHAFT: "Margravate"  

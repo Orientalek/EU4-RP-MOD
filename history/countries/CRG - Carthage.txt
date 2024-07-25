@@ -1,0 +1,10 @@
+government = monarchy 
+add_government_reform = mamluk_government
+religion = sunni
+technology_group = muslim
+historical_rival = TUR
+historical_rival = PAP
+primary_culture = tunisian
+add_accepted_culture = algerian
+
+capital = 341	# Tunis

@@ -1,0 +1,5 @@
+government = monarchy
+primary_culture = norwegian
+add_accepted_culture = danish
+technology_group = western
+capital = 17 #Akershus

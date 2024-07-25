@@ -1,0 +1,158 @@
+# RIGA
+prepare_army = {
+    shock_damage_received = -0.15
+    discipline = 0.05
+    land_morale = 0.2
+}
+independent_and_proud = {
+    stability_cost_modifier = -0.1
+    prestige_decay = -0.01
+}
+main_riga_port = {
+    local_development_cost = -0.1
+    local_build_cost = -0.1
+    province_trade_power_modifier = 0.1
+
+}
+succesful_diplomacy = {
+    diplomatic_reputation = 2
+    improve_relation_modifier = 0.25
+}
+baltic_trade = {
+    trade_efficiency = 0.15
+    merchants = 1
+}
+winners_of_the_baltic_war = {
+    land_morale = 0.05
+    core_creation = -0.1
+    ae_impact = -0.1
+}
+adopt_administrative_ideas = {
+    core_creation = -0.1
+    country_admin_power = 1	
+}
+adopt_diplomatic_ideas = {
+    province_warscore_cost = -0.15
+    country_diplomatic_power = 1	
+}
+adopt_military_ideas = {
+    discipline = 0.05
+    country_military_power = 1	
+}
+spread_german_culture = {
+    local_culture_conversion_cost = -0.3
+    local_autonomy = -0.05	
+}
+a_true_show_of_strength = {
+    diplomatic_reputation = 1
+    ae_impact = -0.05
+}
+eisen_und_blut = {
+    global_manpower_modifier = 0.15
+    artillery_power = 0.1
+    administrative_efficiency = 0.05
+}
+increased_trade = {
+    trade_efficiency = 0.1
+}
+liberate_westphalian_peasents = {
+    local_unrest = -2
+}
+wealth_of_lc = {
+    production_efficiency = 0.15	
+}
+city_of_all_cities = {
+    local_development_cost = -0.1
+    local_build_cost = -0.1
+    trade_goods_size = 1
+}
+liberate_german_peasents = {
+    production_efficiency = 0.2
+    administrative_efficiency = 0.05
+    global_unrest = -2
+    global_autonomy = -0.1
+    years_of_nationalism = -5	
+}
+spread_livonian_culture = {
+    culture_conversion_cost = -0.1
+    global_unrest = -1	
+}
+baltic_fleet = {
+    galley_power = 0.15
+    galley_cost = -0.2
+    navy_tradition_decay = -0.01
+}
+danish_peasents = {
+    local_prosperity_growth = 0.15
+    local_production_efficiency = 0.05
+}
+build_our_fleet  = {
+    global_ship_cost = -0.2
+    global_sailors_modifier = 0.15
+}
+krigsmarine = {
+    heavy_ship_power = 0.1
+    light_ship_power = 0.2
+    galley_power = 0.1
+    ship_durability = 0.1
+    navy_tradition_decay = -0.01	
+    naval_morale = 0.25
+}
+security_on_our_seas = {
+    ship_durability = 0.05
+    naval_morale = 0.1
+}
+peasent_army = {
+    manpower_recovery_speed = 0.15
+    land_morale = 0.05
+}
+standardize_equipment = {
+    infantry_power = 0.10
+}
+improved_garrsions = {
+    defensiveness = 0.33
+    garrison_size = 0.1
+}
+all_peasants_serve_the_fatherland = {
+    land_forcelimit_modifier = 0.1
+    land_maintenance_modifier = -0.05
+    global_manpower_modifier = 0.2
+}
+peasent_engineering = {
+    build_time = -0.25
+    build_cost = -0.1
+}
+renaissance_among_peasents = {
+    technology_cost = -0.1
+}
+increased_trade_and_production = {
+    production_efficiency = 0.1
+    trade_efficiency = 0.1
+}
+growing_economy = {
+    inflation_reduction = -0.1
+    interest = -0.5
+    production_efficiency = 0.05
+}
+growing_business_on_south = {
+    local_build_cost = -0.05
+    local_development_cost = -0.05
+}
+growing_business_on_north = {
+    local_build_cost = -0.05
+    local_development_cost = -0.05
+}
+far_sea_epedition = {
+    range = 0.75
+}
+neu_riga_modifier = {
+    global_tariffs = 0.15
+}
+unknown_frontier = {
+    colonist_placement_chance = 0.25
+    global_colonial_growth = 15
+}
+peasent_martitime_island = {
+    trade_steering = 0.2
+    global_ship_trade_power = 0.2
+}

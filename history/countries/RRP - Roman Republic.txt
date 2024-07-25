@@ -1,0 +1,12 @@
+government = republic
+add_government_reform = peasants_republic 
+government_rank = 1
+mercantilism = 25
+primary_culture = umbrian
+religion = catholic
+technology_group = western
+capital = 118	# Roma
+fixed_capital = 118 
+add_army_professionalism = 0.05
+
+historical_rival = PAP

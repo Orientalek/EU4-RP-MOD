@@ -1,0 +1,22 @@
+
+owner = BRU
+controller = BRU
+add_core = BRU
+culture = lower_saxon
+religion = catholic
+hre = yes
+base_tax = 2
+base_production = 3
+base_manpower = 2
+trade_goods = grain
+capital = "Hidelsheim"
+is_city = yes
+
+
+discovered_by = eastern
+discovered_by = western
+discovered_by = muslim
+discovered_by = ottoman
+
+
+

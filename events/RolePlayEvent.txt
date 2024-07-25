@@ -1,0 +1,490 @@
+#events made by Serson
+namespace = roleplay 
+
+country_event = {
+	id = roleplay.1
+	title = roleplay.1.t
+	desc = roleplay.1.d
+	picture = ZAJAC
+	major = yes
+	fire_only_once = yes
+	trigger = {
+		tag = PER
+		FRA = {
+			exists = yes	
+		}
+		202 = {
+			owned_by = FRA
+		}
+	} 
+	option = {
+		name = roleplay.1.a
+		202 = {
+			add_core = PER
+		}
+	}
+}
+country_event = {
+	id = roleplay.2
+	title = roleplay.2.t
+	desc = roleplay.2.d
+	picture = POPE_PREACHING_eventPicture
+	major = yes
+	fire_only_once = yes
+    is_triggered_only = yes
+    option = {
+    	name = roleplay.2.a
+        PAP = {
+        	vassalize = SWI
+        }
+    }
+
+}
+country_event = {
+	id = roleplay.5
+	title = roleplay.5.t
+	desc = roleplay.5.d
+	picture = ANGRY_MOB_eventPicture
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = roleplay.5.a
+		change_government = republic
+		add_government_reform = oligarchy_reform
+
+			random_owned_province = { 
+			spawn_rebels = {
+    			type = pretender_rebels
+    			size = 20
+			}
+		}
+			if = {
+				limit = {
+					num_of_cities = 2
+				}
+				random_owned_province = { 
+					spawn_rebels = {
+    					type = pretender_rebels
+    					size = 20
+					}
+				}
+			}
+	}
+	option = {
+		name = roleplay.5.b
+		change_government = republic
+		add_government_reform = peasants_republic 
+		random_owned_province = { 
+			spawn_rebels = {
+    			type = pretender_rebels
+    			size = 20
+			}
+		}
+			if = {
+				limit = {
+					num_of_cities = 2
+				}
+				random_owned_province = { 
+					spawn_rebels = {
+    					type = pretender_rebels
+    					size = 20
+					}
+				}
+			}
+	}
+}
+country_event = {
+	id = roleplay.6
+	title = roleplay.6.t
+	desc = roleplay.6.d
+	picture = ANGRY_MOB_eventPicture
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = roleplay.6.a
+		change_government = republic
+		add_government_reform = oligarchy_reform
+
+			random_owned_province = { 
+			spawn_rebels = {
+    			type = pretender_rebels
+    			size = 20
+			}
+		}
+			if = {
+				limit = {
+					num_of_cities = 2
+				}
+				random_owned_province = { 
+					spawn_rebels = {
+    					type = pretender_rebels
+    					size = 20
+					}
+				}
+			}
+	}
+
+}
+country_event = {
+	id = roleplay.9
+	title = roleplay.9.t
+	desc = roleplay.9.d
+	picture = ANGRY_MOB_eventPicture
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = roleplay.9.a
+		change_government = republic
+		add_government_reform = WARLORD
+
+			random_owned_province = { 
+			spawn_rebels = {
+    			type = pretender_rebels
+    			size = 15
+			}
+		}
+			if = {
+				limit = {
+					num_of_cities = 2
+				}
+				random_owned_province = { 
+					spawn_rebels = {
+    					type = pretender_rebels
+    					size = 20
+					}
+				}
+			}
+	}
+
+}
+country_event = {
+	id = roleplay.100
+	title = roleplay.100.t
+	desc = roleplay.100.d
+	picture = DEATH_OF_HEIR_eventPicture
+    is_triggered_only = yes
+	immediate = {
+	}
+    option = {
+		name = roleplay.100.a
+    	add_country_modifier = {
+			name = not_crowned
+			duration = -1
+		}
+		hidden_effect = {
+			set_country_flag = king_dead
+		}
+    }
+
+}
+
+country_event = {
+	id = roleplay.101
+	title = roleplay.101.t
+	desc = roleplay.101.d
+	picture = POPE_PREACHING_eventPicture
+    is_triggered_only = yes
+	immediate = {
+		clr_country_flag = king_dead
+		
+	}
+    option = {
+		name = roleplay.101.a
+		ai_chance = {
+			factor = 150
+		}
+			add_treasury = -25
+			country_event = {
+				id = roleplay.102
+			}
+    }
+	option = {
+		name = roleplay.101.b
+				add_treasury = -100
+				add_prestige = 15
+				country_event = {
+					id = roleplay.102
+				}
+				if = {
+					limit = {
+						religion = catholic
+					}
+					add_papal_influence = 15
+    			}
+	
+		}
+}
+country_event = {
+	id = roleplay.102
+	title = roleplay.102.t
+	desc = roleplay.102.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+    is_triggered_only = yes
+    option = {
+		name = roleplay.102.a
+		remove_country_modifier = not_crowned
+    }
+}
+country_event = {
+	id = roleplay.103
+	title = roleplay.103.t
+	desc = roleplay.103.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+    trigger = {
+		has_country_flag = king_dead
+		NOT = { government = monarchy }
+		has_country_modifier = not_crowned
+	}
+	immediate = {
+		clr_country_flag = king_dead
+	}
+    option = {
+		name = roleplay.103.a
+		remove_country_modifier = not_crowned
+    }
+}
+country_event = {
+	id = roleplay.205
+	title = roleplay.205.t
+	desc = roleplay.205.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+    trigger = {
+		is_year = 1470
+		NOT = {
+			has_country_modifier = RP_condotierii_balance
+		}
+	}
+    option = {
+		name = roleplay.205.a
+		add_country_modifier = {
+			name = RP_condotierii_balance
+			duration = -1
+		}
+    }
+}
+country_event = {
+	id = roleplay.206
+	title = roleplay.206.t
+	desc = roleplay.206.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+    trigger = {
+		is_year = 1520
+		NOT = {
+			has_country_modifier = RP_condotierii_balance1
+		}
+	}
+    option = {
+		name = roleplay.206.a
+		remove_country_modifier = RP_condotierii_balance
+		add_country_modifier = {
+			name = RP_condotierii_balance1
+			duration = -1
+		}
+    }
+}
+country_event = {
+	id = roleplay.207
+	title = roleplay.207.t
+	desc = roleplay.207.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+    trigger = {
+		is_year = 1620
+		NOT = {
+			has_country_modifier = RP_condotierii_balance2
+		}
+	}
+    option = {
+		name = roleplay.207.a
+		remove_country_modifier = RP_condotierii_balance1
+		add_country_modifier = {
+			name = RP_condotierii_balance2
+			duration = -1
+		}
+    }
+}
+country_event = {
+	id = roleplay.208
+	title = roleplay.208.t
+	desc = roleplay.208.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+    trigger = {
+		is_year = 1720
+		NOT = {
+			has_country_modifier = RP_condotierii_balance3
+		}
+	}
+    option = {
+		name = roleplay.208.a
+		remove_country_modifier = RP_condotierii_balance2
+		add_country_modifier = {
+			name = RP_condotierii_balance3
+			duration = -1
+		}
+    }
+}
+country_event = {
+	id = roleplay.209
+	title = roleplay.209.t
+	desc = roleplay.209.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+    trigger = {
+		is_year = 1800
+		NOT = {
+			has_country_modifier = RP_condotierii_balance4
+		}
+	}
+    option = {
+		name = roleplay.209.a
+		remove_country_modifier = RP_condotierii_balance3
+		add_country_modifier = {
+			name = RP_condotierii_balance4
+			duration = -1
+		}
+    }
+}
+country_event = {
+	id = roleplay.210
+	title = roleplay.210.t
+	desc = roleplay.210.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+    
+    option = {
+        define_admiral = {
+           shock = 6
+           fire = 6
+           manuever = 6
+           siege = 6
+           name = Salazar
+           trait = naval_gunner_personality
+        }
+		
+	}
+}
+country_event = {
+	id = roleplay.1111
+	title = roleplay.1111.t
+	desc = roleplay.1111.d
+	picture = CITY_VIEW_eventPicture
+	fire_only_once = yes
+	mean_time_to_happen = {
+		months = 500
+		modifier = {
+			factor = 0.5
+			41 = {
+				owned_by = PRU
+			}
+		}
+		modifier = {
+			factor = 0.5
+			41 = {
+				religion = protestant 
+			}
+		}
+		modifier = {
+			factor = 1.5
+			41 = {
+				owned_by = POL
+			}
+		}
+		modifier = {
+			factor = 1.5
+			41 = {
+				owned_by = LIT
+			}
+		}
+		modifier = {
+			factor = 1.5
+			41 = {
+				owned_by = PLC
+			}
+		}
+	}
+	trigger = {
+		41 = {
+			new_world_i = 100
+			OR = {
+				owned_by = LIT
+				owned_by = POL
+				owned_by = PLC
+				owned_by = PRU
+				owned_by = TEU
+			}
+		}
+		current_age = age_of_reformation
+		
+	}
+	option = {
+		41 = {
+			change_trade_goods = paper
+			add_base_production = 2
+			add_base_manpower = -1
+			add_building = mills
+			add_institution_embracement = {
+    			which = printing_press
+    			value = 50
+			}
+		}
+	} 
+}
+country_event = {
+	id = roleplay.2222
+	title = roleplay.2222.t
+	desc = roleplay.2222.d
+	picture = CITY_VIEW_eventPicture
+	fire_only_once = yes
+	mean_time_to_happen = {
+		months = 840
+	}
+	trigger = {
+		owns_core_province = 75
+	}
+	option = {
+		name = roleplay.2222.a
+		75 = {
+			add_province_modifier = {
+				name = dancing_plague_medics_modifier
+				duration = 90
+			}
+		}
+	}
+	option = {
+		name = roleplay.2222.b
+		75 = {
+			add_province_modifier = {
+				name = dancing_plague_church_modifier
+				duration = 90
+			}
+		}
+	}
+}
+country_event = {
+	id = roleplay.2316
+	title = roleplay.2316.t
+	desc = roleplay.2316.d
+	picture = BATTLE_eventPicture
+	fire_only_once = yes
+	trigger = {
+		tag = KOL
+		NOT = {
+			has_ruler = "Dietrich"
+		}
+	}
+	option = {
+		name = roleplay.2316.a
+		break_union	= PAD
+	}
+	option = {
+		name = roleplay.2316.b
+		PAD = {
+			declare_war_with_cb = {
+				who = KOL
+				casus_belli = cb_independence_war
+			}
+		}
+	}
+}

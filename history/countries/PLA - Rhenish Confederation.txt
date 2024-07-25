@@ -1,0 +1,9 @@
+government = monarchy
+add_government_reform = rhenish_confederation
+primary_culture = hessian
+elector = yes
+add_accepted_culture = bavarian
+technology_group = western
+capital = 1878	# 
+fixed_capital = 1878 # Cannot move capital away from this province & no power cost to move to it
+

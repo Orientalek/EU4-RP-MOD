@@ -1,0 +1,52 @@
+country_decisions = {
+        join_hre_decision = 
+        {
+            major = yes
+		    potential = {
+                is_free_or_tributary_trigger = yes
+                NOT = { has_country_flag = HRE_refuse }
+                is_part_of_hre = no
+                religion = catholic
+                any_neighbor_country = { 
+                    is_part_of_hre = yes
+                }
+                # zablokowanie dostepu specyficznym kraja
+                NOT = { tag = TEU }
+                NOT = { tag = BUR }
+                NOT = { tag = PAP }
+            
+            }
+
+            allow = {
+                custom_trigger_tooltip = {
+                    tooltip = join_rp_hre
+                    NOT = { has_global_flag = join_incident }
+                    NOT = { active_imperial_incident = any }
+                }
+                is_at_war = no
+                NOT = { total_development = 160 }
+                emperor = {
+                     has_opinion = {
+	                who = ROOT
+	                value = 150
+                    }
+                }    
+            }
+
+            effect = {
+                set_global_flag = join_incident
+                save_global_event_target_as = new_country_hre
+
+                emperor = {
+                    country_event = {
+                        id = rp_hre.1
+                    }
+                }
+            }
+            ai_will_do = {
+			    factor = 25
+		    }
+        }
+
+       
+}

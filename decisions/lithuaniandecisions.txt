@@ -1,0 +1,19 @@
+country_decisions = {
+    Reform_the_goverment = {
+        major = yes
+        potential = {
+            tag = LIT
+            has_reform = lithuanian_dukes
+        }
+        allow = {
+            stability = 2
+            legitimacy = 100
+            owns_core_province = 272
+            is_year = 1470
+        }
+        effect = {
+            add_stability = -3
+            add_government_reform = Reformed_lithuanian_dukes
+        }
+    }
+}

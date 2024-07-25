@@ -1,0 +1,10 @@
+government = monarchy
+add_government_reform = polish_elective_monarchy
+primary_culture = polish
+add_accepted_culture = lithuanian
+add_accepted_culture = prussian
+add_accepted_culture = byelorussian
+add_accepted_culture = ruthenian
+religion = catholic
+technology_group = eastern
+capital = 262 # Krakow

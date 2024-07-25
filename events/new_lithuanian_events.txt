@@ -1,0 +1,594 @@
+namespace = new_lithuanian
+country_event = {
+    id = new_lithuanian.1
+    title = new_lithuanian.1.t 
+    desc = new_lithuanian.1.d
+    picture = noble_estate_demands_eventPicture
+    is_triggered_only = yes 
+    option = {
+        name = new_lithuanian.1.a
+        add_stability = 1
+        add_legitimacy = 75
+        add_trust = {
+        who = POL
+        value = 100
+        mutual = yes
+        }
+        define_consort = {
+            name = "Kazimiera"
+            culture = polish
+            adm = 5
+            dip = 6
+            mil = 5
+        female = yes
+        }
+    }
+}
+country_event = {
+    id = new_lithuanian.2
+    title = new_lithuanian.2.t 
+    desc = new_lithuanian.2.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+    option = {
+        name = new_lithuanian.2.a
+        LIT = {
+            add_country_modifier = {
+                name = accepted_heretics
+                duration = -1
+            }
+        }
+        add_country_modifier = {
+            name = accepted_heretics
+            duration = -1
+        }
+    }
+    option = {
+        name = new_lithuanian.2.b
+        LIT = {
+            add_country_modifier = {
+                name = war_against_orthodox
+                duration = -1
+            }
+        }
+        add_country_modifier = {
+            name = war_against_orthodox
+            duration = -1
+        }
+    }
+}
+country_event = {
+    id = new_lithuanian.3
+    title = new_lithuanian.3.t 
+    desc = new_lithuanian.3.d
+    picture = ECONOMY_eventpicture
+    is_triggered_only = yes
+    option = {
+        name = new_lithuanian.3.a
+        LIT = {
+            add_country_modifier = {
+                name = polish_taxes
+                duration = -1
+            }
+        }
+        add_country_modifier = {
+            name = income_from_lithuanian_taxes
+            duration = -1
+        }
+    }
+    option = {
+        name = new_lithuanian.3.b
+        LIT = {
+            add_country_modifier = {
+                name = economic_decentralization_lit
+                duration = -1
+            }
+        }
+        add_country_modifier = {
+            name = economic_decentralization_pol
+            duration = -1
+        }
+    }
+}
+country_event = {
+    id = new_lithuanian.4
+    title = new_lithuanian.4.t 
+    desc = new_lithuanian.4.d
+    picture = LAND_MILITARY_eventpicture
+    is_triggered_only = yes
+    option = {
+        name = new_lithuanian.4.a
+        LIT = {
+            add_country_modifier = {
+                name = centralization_of_army_lit
+                duration = -1
+            }
+        }
+        add_country_modifier = {
+            name = centralization_of_army_pol
+            duration = -1
+        }
+    }
+    option = {
+        name = new_lithuanian.4.b
+        LIT = {
+            add_country_modifier = {
+                name = decentralization_of_army_lit
+                duration = -1
+            }
+        }
+        add_country_modifier = {
+            name = decentralization_of_army_pol
+            duration = -1
+        }
+    }
+}
+country_event = {
+    id = new_lithuanian.5
+    title = new_lithuanian.5.t 
+    desc = new_lithuanian.5.d
+    picture = LIBERUM_VETO_eventpicture
+    is_triggered_only = yes
+    option = {
+        name = new_lithuanian.5.a
+        POL = {
+            inherit = LIT
+            remove_country_modifier = decentralization_of_army_pol
+            remove_country_modifier = centralization_of_army_pol
+            remove_country_modifier = economic_decentralization_pol
+            remove_country_modifier = income_from_lithuanian_taxes
+            remove_country_modifier = war_against_orthodox
+            remove_country_modifier = accepted_heretics
+        }
+        hidden_effect = {
+            POL = {
+            set_country_flag = Unite_commonwealth
+            }
+        }
+    }
+    option = {
+        name = new_lithuanian.5.b
+        remove_historical_friend = POL
+        add_trust = {
+            who = POL
+            value = -50
+            mutual = yes
+        }
+        POL = {
+            country_event = {
+                id = new_lithuanian.6
+            }
+        }
+    }
+}
+country_event = {
+    id = new_lithuanian.6
+    title = new_lithuanian.6.t 
+    desc = new_lithuanian.6.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+    option = {
+        name = new_lithuanian.6.a
+        volhynia_area = {
+            limit = {owned_by = ROOT}
+            cede_province = POL
+        }
+        podolia_volhynia_area = {
+            limit = {owned_by = ROOT}
+            cede_province = POL
+        }
+        west_dniepr_area = {
+            limit = {owned_by = ROOT}
+            cede_province = POL
+        }
+        east_dniepr_area = {
+            limit = {owned_by = ROOT}
+            cede_province = POL
+        }
+        269 = {
+            cede_province = POL
+        }
+        hidden_effect = {
+            LIT = {
+                country_event = {
+                    id = new_lithuanian.7
+                }
+            }
+        }
+    }
+}
+country_event = {
+    id = new_lithuanian.7
+    title = new_lithuanian.7.t 
+    desc = new_lithuanian.7.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+    option = {
+        name = new_lithuanian.7.a
+        POL = {
+            inherit = LIT
+            remove_country_modifier = decentralization_of_army_pol
+            remove_country_modifier = centralization_of_army_pol
+            remove_country_modifier = economic_decentralization_pol
+            remove_country_modifier = income_from_lithuanian_taxes
+            remove_country_modifier = war_against_orthodox
+            remove_country_modifier = accepted_heretics
+        }
+        hidden_effect = {
+            POL = {
+            set_country_flag = Unite_commonwealth
+            }
+        }
+    }
+    option = {
+        name = new_lithuanian.7.b
+        add_country_modifier = {
+            name = Radziwills_uprising
+            duration = 9125
+        }
+        define_ruler = {
+            name = "Mikolaj Rudy"
+            dynasty = "Radziwill"
+            adm = 5
+            dip = 4
+            mil = 6
+            age = 57
+            claim = 100
+            culture = new_lithuanian
+            religion = catholic
+        }
+        volhynia_area = {
+            limit = {owned_by = POL}
+            change_controller = LIT
+        }
+        podolia_volhynia_area = {
+            limit = {owned_by = POL}
+            change_controller = LIT
+        }
+        west_dniepr_area = {
+            limit = {owned_by = POL}
+            change_controller = LIT
+        }
+        east_dniepr_area = {
+            limit = {owned_by = POL}
+            change_controller = LIT
+        }
+        260 = {
+            change_controller = LIT
+        }
+        269 = {
+            change_controller = LIT
+        }
+        remove_country_modifier = decentralization_of_army_lit
+        remove_country_modifier = centralization_of_army_lit
+        remove_country_modifier = economic_decentralization_lit
+        remove_country_modifier = polish_taxes
+        remove_country_modifier = war_against_orthodox
+        remove_country_modifier = accepted_heretics
+        POL = {
+            break_union = LIT
+            declare_war_with_cb = {
+                who = LIT
+                casus_belli = cb_restore_personal_union
+            }
+            remove_country_modifier = decentralization_of_army_pol
+            remove_country_modifier = centralization_of_army_pol
+            remove_country_modifier = economic_decentralization_pol
+            remove_country_modifier = income_from_lithuanian_taxes
+            remove_country_modifier = war_against_orthodox
+            remove_country_modifier = accepted_heretics
+        }
+    }
+}
+country_event = {
+    id = new_lithuanian.8
+    title = new_lithuanian.8.t 
+    desc = new_lithuanian.8.d
+    picture = CONQUEST_eventpicture
+    fire_only_once = yes
+    trigger = {
+        tag = LIT
+        is_year = 1569
+        POL = {
+            owns_core_province = 257
+            owns_core_province = 262
+            owns_core_province = 254
+        }
+		controls = 257
+        controls = 262
+        controls = 254
+    }
+    option = {
+        name = new_lithuanian.8.a
+        white_peace = POL
+        inherit = POL
+        change_tag = PLC
+        country_event = {
+			id = ideagroups.1 
+		}
+        remove_country_modifier = Radziwills_uprising
+    }
+}
+country_event = {
+    id = new_lithuanian.9
+    title = new_lithuanian.9.t
+    desc = new_lithuanian.9.d
+    picture = CONQUEST_eventpicture
+    fire_only_once = yes
+    trigger = {
+        tag = POL 
+        is_year = 1569
+        LIT = {
+            owns_core_province = 272
+            owns_core_province = 280
+            owns_core_province = 270
+        }
+        controls = 272
+        controls = 280
+        controls = 270
+    }
+    option = {
+        name = new_lithuanian.9.a
+        white_peace = LIT
+        inherit = LIT
+        hidden_effect = {
+            set_country_flag = Unite_commonwealth
+        }
+    }
+}
+country_event = {
+    id = new_lithuanian.10
+    title = new_lithuanian.10.t
+    desc = new_lithuanian.10.d
+    picture = DIPLOMACY_eventPicture
+    fire_only_once = yes
+    trigger = {
+        OR = {
+            AND = {
+                tag = POL
+                has_country_flag = Unite_commonwealth
+            }
+            AND = {
+                tag = POL
+                owns_core_province = 272
+                owns_core_province = 280
+                owns_core_province = 270
+                is_year = 1530
+            }
+        }    
+    }
+    mean_time_to_happen = {
+		months = 1
+        }
+    option = {
+        name = new_lithuanian.10.a
+        change_tag = PLC
+        country_event = {
+			id = ideagroups.1 
+		}
+    }
+}
+country_event = {
+    id = new_lithuanian.11
+    title = new_lithuanian.11.t
+    desc = new_lithuanian.11.d
+    picture = CITY_DEVELOPMENT_eventPicture
+    is_triggered_only = yes
+    option = {
+        name = new_lithuanian.11.a
+        add_prestige = 25
+        add_splendor = 100
+        33 = {
+            add_province_modifier = {
+                name = neva_worldtradeport
+                duration = -1
+            }
+        }
+    }
+}
+country_event = {
+    id = new_lithuanian.12
+    title = new_lithuanian.12.t
+    desc = new_lithuanian.12.d
+    picture = DIPLOMACY_eventPicture
+    is_triggered_only = yes
+    option = {
+        name = new_lithuanian.12.a
+        add_treasury = 250
+        4956 = {
+            cede_province = LIT
+        }
+        add_mercantilism = 5
+    }
+    option = {
+        name = new_lithuanian.12.b
+        LIT = {
+            set_country_flag = refusedtosell
+        }
+        4956 = {
+            add_building = fort_15th
+        }
+    }
+}
+country_event = {
+    id = new_lithuanian.13
+    title = new_lithuanian.13.t
+    desc = new_lithuanian.13.d
+    picture = DIPLOMACY_eventPicture
+    trigger = {
+        has_country_flag = refusedtosell
+    }
+    option = {
+        name = new_lithuanian.13.a
+        add_treasury = 250
+        add_casus_belli = {
+            target = GEN
+            type = cb_annex
+            months = 120
+        }
+    }
+    option = {
+        name = new_lithuanian.13.b
+        add_treasury = 250
+        add_prestige = -10
+    }
+}
+country_event = {
+    id = new_lithuanian.14
+    title = new_lithuanian.14.t
+    desc = new_lithuanian.14.d
+    picture = _eventPicture
+    is_triggered_only = yes
+    option = {
+        name = new_lithuanian.14.a
+        add_country_modifier = {
+            name = heavy_fleet_focus
+            duration = -1
+        }
+    }
+    option = {
+        name = new_lithuanian.14.b
+        add_country_modifier = {
+            name = light_fleet_focus
+            duration = -1
+        }
+    }
+    option = {
+        name = new_lithuanian.14.c
+        add_country_modifier = {
+            name = galley_fleet_focus
+            duration = -1
+        }
+    }
+}
+country_event = {
+    id = new_lithuanian.15
+    title = new_lithuanian.15.t
+    desc = new_lithuanian.15.d
+    picture = ADVISOR_eventPicture
+    is_triggered_only = yes
+    option = {
+        name = new_lithuanian.15.a
+        add_country_modifier = {
+            name = Vytautas_legacy
+            duration = 9125
+        }
+        zaporizhia_area = {
+            add_permanent_claim = ROOT
+        }
+        yedisan_area = {
+            add_permanent_claim = ROOT
+        }
+        livonia_area = {
+            add_permanent_claim = ROOT
+        }
+        curonia_area = {
+            add_permanent_claim = ROOT
+        }
+        estonia_ingria_area = {
+			add_permanent_claim = ROOT
+		}
+        pskov_area = {
+            add_claim = ROOT
+        }
+        oka_area = {
+            add_claim = ROOT
+        }
+        sloboda_ukraine_area = {
+            add_claim = ROOT
+        }
+    }
+}
+country_event = {
+    id = new_lithuanian.16
+    title = new_lithuanian.16.t
+    desc = new_lithuanian.16.d
+    picture = _eventPicture
+    is_triggered_only = yes
+    option = {
+        name = new_lithuanian.16.a
+        39 = {
+            add_core = KUR
+        }
+        38 = {
+            add_core = KUR
+        }
+        1935 = {
+            add_core = KUR
+        }
+        release = KUR
+        create_march = KUR
+        add_mil_power = 100
+    }
+}
+country_event = {
+    id = new_lithuanian.17
+    title = new_lithuanian.17.t
+    desc = new_lithuanian.17.d
+    picture = _eventPicture
+    is_triggered_only = yes
+    option = {
+        name = new_lithuanian.17.a
+        caucasia_region = {
+            limit = {
+                    NOT = { owned_by = ROOT }
+                    is_empty = no
+                }
+                add_core = ROOT
+        }
+        add_country_modifier = {
+            name = Causian_king
+            duration = -1
+        }
+    }
+}
+country_event = {
+    id = new_lithuanian.18
+    title = new_lithuanian.18.t
+    desc = new_lithuanian.18.d
+    picture = _eventPicture
+    is_triggered_only = yes
+    option = {
+        name = new_lithuanian.18.a
+        add_country_modifier = {
+            name = hordes_king
+            duration = -1
+        }
+        add_years_of_income = 2
+    }
+}
+country_event = {
+    id = new_lithuanian.19
+    title = new_lithuanian.19.t
+    desc = new_lithuanian.19.d
+    picture = _eventPicture
+    is_triggered_only = yes
+    option = {
+        name = new_lithuanian.19.a
+        add_country_modifier = {
+            name = tsar_of_rus
+            duration = -1
+        }
+        add_stability = -1
+        change_tag = UKR
+        change_primary_culture = ruthenian
+    }
+    option = {
+        name = new_lithuanian.19.b
+        add_country_modifier = {
+            name = tsar_of_rus
+            duration = -1
+        }
+        add_stability = -1
+        change_tag = RUS
+        change_primary_culture = russian
+    }
+    option = {
+        name = new_lithuanian.19.c
+        add_country_modifier = {
+            name = tsar_of_rus
+            duration = -1
+        }
+        add_stability = 2
+    }
+}

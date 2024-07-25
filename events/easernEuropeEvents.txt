@@ -1,0 +1,2212 @@
+#events made by Serson
+namespace = eastern 
+country_event = {
+	id = eastern.2
+	title = eastern.2.t
+	desc = eastern.2.d
+	picture = DIPLOMACY_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = eastern.2.a
+		ai_chance = {
+			factor = 10
+		}
+		add_treasury = 100
+		2995 = {
+   		 cede_province = TEU
+		}
+		TEU = {
+			country_event = {
+				id = eastern.3
+				days = 5
+			}
+		}
+	}
+	
+	option = {
+		name = eastern.2.b
+		ai_chance = {
+			factor = 1
+		}
+		TEU = {
+			country_event = {
+				id = eastern.4
+				days = 5
+			}
+		}
+	}
+}
+
+country_event = {
+	id = eastern.3
+	title = eastern.3.t
+	desc = eastern.3.d
+	picture = DIPLOMACY_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = eastern.3.a
+		add_treasury = -100
+		2995 = {
+   		 cede_province = TEU
+		  add_core = TEU
+		}
+		
+	}
+	
+}
+
+country_event = {
+	id = eastern.4
+	title = eastern.4.t
+	desc = eastern.4.d
+	picture = ANGRY_MOB_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = eastern.4.a
+		2995 = {
+   		 add_core = TEU
+		}
+	}
+	
+}
+country_event = {
+	id = eastern.6
+	title = eastern.6.t
+	desc = eastern.6.d
+	picture = BATTLE_VISTULA_LAGOON_eventPicture
+	trigger = {
+		tag = TEU
+		has_country_flag = create_new_bishopric_flag
+		OR = {
+			sandomierz_area = {
+				area_for_scope_province	= { 
+					owned_by = ROOT
+					is_core = AOS
+				}
+			}
+			central_poland_area = {
+				area_for_scope_province	= { 
+					owned_by = ROOT
+					is_core = AOK
+				}
+			}
+			malopolska_area = {
+				area_for_scope_province	= { 
+					owned_by = ROOT
+					is_core = AOC
+				}
+			}
+			mazovia_area = {
+				area_for_scope_province	= { 
+					owned_by = ROOT
+					is_core = AOM
+				}
+			}
+		}
+		
+	}
+	option = {
+		name = eastern.6.a
+		if = {
+			limit = {
+				mazovia_area = {
+				area_for_scope_province	 = { 
+					owned_by = TEU
+					is_core = AOM
+				}
+			}
+			}
+			if = {
+					limit = {
+						AOM = {
+							exists = no
+						}
+					}
+					release = AOM
+					TEU = {
+						create_subject = {
+   							 subject_type = biskupstwa
+    						 subject = AOM
+						}
+					}
+					
+				}
+			mazovia_area = {
+			area = { 
+				limit = {
+					owned_by = TEU
+					is_core = AOM
+				}
+				
+			cede_province = AOM
+		}
+	}
+		}
+	if = {
+		limit = {
+			sandomierz_area = {
+				area_for_scope_province	 = { 
+					owned_by = TEU
+					is_core = AOS
+				}
+			}
+		}
+		if = {
+						limit = {
+							AOS = {
+								exists = no
+							}
+						}
+						release = AOS
+						TEU = {
+							create_subject = {
+   							 subject_type = biskupstwa
+    						 subject = AOS
+						}
+						}
+						
+					}
+		sandomierz_area = {
+				area = { 
+					limit = {
+						owned_by = TEU
+						is_core = AOS
+					}
+					
+				cede_province = AOS
+			}
+		}
+	}
+	if = {
+		limit = {
+			central_poland_area = {
+				area_for_scope_province	 = { 
+					owned_by = TEU
+					is_core = AOK
+				}
+			}
+		}
+					if = {
+						limit = {
+							AOK = {
+								exists = no
+							}
+						}
+						release = AOK
+						TEU = {
+							create_subject = {
+   							 subject_type = biskupstwa
+    						 subject = AOK
+						}
+						}
+						
+					}
+		central_poland_area = {
+				area = { 
+					limit = {
+						owned_by = TEU
+						is_core = AOK
+					}
+				cede_province = AOK
+			}
+		}
+	}
+	if = {
+		limit = {
+			malopolska_area = {
+				area_for_scope_province	= { 
+					owned_by = TEU
+					is_core = AOC
+				}
+			}
+		}
+				if = {
+					limit = {
+						AOC = {
+							exists = no
+						}
+					}
+					release = AOC
+					TEU = {
+						create_subject = {
+   							 subject_type = biskupstwa
+    						 subject = AOC
+						}
+					}
+					
+				}	
+	malopolska_area = {
+			area = { 
+				limit = {
+					owned_by = TEU
+					is_core = AOC
+				}
+			cede_province = AOC
+		}
+	}
+}
+}
+}
+country_event = {
+	id = eastern.7
+	title = eastern.7.t
+	desc = eastern.7.d
+	is_triggered_only = yes
+	picture = ST_PETERS_CHURCH_eventPicture
+	major = yes
+	option = {
+		name = eastern.7.a
+		ai_chance = {
+			factor = 20
+		}
+		add_prestige = 15
+		add_army_tradition = 10
+		TEU = {
+			country_event = {
+				id = eastern.8
+			}
+		}
+	}
+	option = {
+		name = eastern.7.b
+		add_prestige = -5
+	}
+}
+country_event = {
+	id = eastern.8
+	title = eastern.8.t
+	desc = eastern.8.d
+	picture = ST_PETERS_CHURCH_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = eastern.8.a
+		add_prestige = 5
+		random_province = { 
+			limit = {
+				owned_by = ROOT
+			}
+			 add_cardinal = yes	
+		}
+	}
+
+}
+country_event = {
+	id = eastern.9
+	title = eastern.9.t
+	desc = eastern.9.d
+	is_triggered_only = yes
+	picture = HRE_eventPicture
+	major = yes
+	option = {
+		name = eastern.9.a
+		add_imperial_influence = 10	
+		AOM = {
+			set_in_empire = yes	
+		}
+		AOC = {
+			set_in_empire = yes	
+		}
+		AOS = {
+			set_in_empire = yes	
+		}
+		AOK = {
+			set_in_empire = yes	
+		}
+		
+	}
+
+}
+country_event = {
+	id = eastern.10
+	title = eastern.10.t
+	desc = eastern.10.d
+	picture = BATTLE_VISTULA_LAGOON_eventPicture
+	trigger = {
+		tag = TEU
+		has_country_flag = teutonic_eastern_expansion
+		ruthenia_region = {
+			region_for_scope_province = { 
+				owned_by = ROOT
+				OR = {
+					is_core = AOB
+					is_core = AOR
+				}
+				
+			}
+		}
+	}
+
+	option = {
+		name = eastern.10.a
+		if = {
+		limit = {
+			ruthenia_region = {
+				region_for_scope_province = { 
+					owned_by = TEU
+					is_core = AOB
+				}
+			}
+		}
+		if = {
+						limit = {
+							AOB = {
+								exists = no
+							}
+						}
+						release = AOB
+						TEU = {
+							vassalize = AOB
+						}
+						
+					}
+		ruthenia_region = {
+				region = { 
+					limit = {
+						owned_by = TEU
+						is_core = AOB
+					}
+					
+				cede_province = AOB
+			}
+		}
+	}
+	if = {
+		limit = {
+			ruthenia_region = {
+				region_for_scope_province = { 
+					owned_by = TEU
+					is_core = AOR
+				}
+			}
+		}
+		if = {
+						limit = {
+							AOR = {
+								exists = no
+							}
+						}
+						release = AOR
+						TEU = {
+							vassalize = AOR
+						}
+						
+					}
+		ruthenia_region = {
+				region = { 
+					limit = {
+						owned_by = TEU
+						is_core = AOB
+					}
+					
+				cede_province = AOB
+			}
+		}
+	}
+	}
+}
+country_event = {
+	id = eastern.11
+	title = eastern.11.t
+	desc = eastern.11.d
+	is_triggered_only = yes
+	picture = HRE_eventPicture
+	major = yes
+	option = {
+		name = eastern.11.a
+		add_papal_influence = 25
+		add_mil_power = 50
+		add_country_modifier = {
+			name = teutonic_victory
+			duration = 3650
+		}
+		
+	}
+
+}
+country_event = {
+	id = eastern.12
+	title = eastern.12.t
+	desc = eastern.12.d
+	picture = DIPLOMACY_eventPicture
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			random_country = {
+				limit = {
+					has_country_flag = trade_agreement
+				}
+				save_event_target_as = duchy
+			}
+			}
+	}
+	option = {
+		name = eastern.12.a
+		ai_chance = {
+			factor = 100
+		}
+		add_country_modifier = {
+			name = silesian_trade_agreement
+			duration = 10000
+		}
+		event_target:duchy = {
+			country_event = {
+				id = eastern.13
+			}
+		}
+
+	}
+	option = {
+		name = eastern.12.b
+		add_prestige = -5
+	}
+}
+country_event = {
+	id = eastern.13
+	title = eastern.13.t
+	desc = eastern.13.d
+	is_triggered_only = yes
+	picture = DIPLOMACY_eventPicture
+	immediate = {
+		clr_country_flag = trade_agreement
+	}
+	option = {
+		name = eastern.13.a
+		add_country_modifier = {
+			name = silesian_trade_agreement
+			duration = 10000
+		}
+	}
+
+}
+country_event = {
+	id = eastern.14
+	title = eastern.14.t
+	desc = eastern.14.d
+	is_triggered_only = yes
+	picture = WESTERNISATION_eventPicture
+	major = yes
+	immediate = {
+		hidden_effect = {
+			random_country = {
+				limit = {
+					has_country_flag = offer_to_consolide
+				}
+				save_event_target_as = silesian_duchy
+			}
+			}
+	}
+	option = {
+		name = eastern.14.a
+		ai_chance = {
+			factor = 100
+		}
+		add_treasury = 200
+		if = {
+			limit = {
+				event_target:silesian_duchy = {
+					tag = GLG
+				}
+			}
+			event_target:silesian_duchy = {
+					inherit = OPL
+			}
+		}
+		if = {
+			limit = {
+				event_target:silesian_duchy = {
+					tag = OPL
+				}
+			}
+			event_target:silesian_duchy = {
+				inherit = GLG
+			}
+		}
+		event_target:silesian_duchy = {
+			country_event = {
+				id = eastern.15
+			}
+		}
+	}
+	option = {
+		name = eastern.14.b
+		add_prestige = 5
+		event_target:target = {
+			country_event = {
+				id = eastern.16
+			}
+		}
+	}
+
+}
+country_event = {
+	id = eastern.15
+	title = eastern.15.t
+	desc = eastern.15.d
+	is_triggered_only = yes
+	picture = gornicza_dolina
+	option = {
+		name = eastern.15.a
+		add_prestige = 20
+		add_treasury = -200
+	}
+
+}
+country_event = {
+	id = eastern.16
+	title = eastern.16.t
+	desc = eastern.16.d
+	is_triggered_only = yes
+	picture = gornicza_dolina
+	option = {
+		name = eastern.16.a
+		add_prestige = -5
+	}
+
+}
+country_event = {
+	id = eastern.17
+	title = eastern.17.t
+	desc = eastern.17.d
+	is_triggered_only = yes
+	picture = HRE_eventPicture
+	option = {
+		name = eastern.17.a
+		
+	}
+
+}  
+country_event = {
+	id = eastern.18
+	title = eastern.18.t
+	desc = eastern.18.d
+	is_triggered_only = yes
+	picture = gornicza_dolina
+	major = yes
+	immediate = {
+		hidden_effect = {
+			random_country = {
+				limit = {
+					has_country_flag = offer_to_release
+				}
+				save_event_target_as = silesian_inpedenece
+			}
+			}
+	}
+	option = {
+		name = eastern.18.a
+		event_target:silesian_inpedenece = {
+			grant_independence = yes
+			create_alliance = ROOT	
+			add_historical_friend = ROOT	
+		}
+		add_opinion = {
+    		who = event_target:silesian_inpedenece 
+    		modifier = silesian_released
+		}
+		add_treasury = 300
+		add_prestige = -15
+		event_target:silesian_inpedenece = {
+			country_event = {
+				id = eastern.19
+			}
+		}
+		
+	}
+	option = {
+		name = eastern.18.b
+		add_prestige = 5
+		event_target:silesian_inpedenece = {
+			country_event = {
+				id = eastern.20
+			}
+		}
+	}
+
+} 
+country_event = {
+	id = eastern.19
+	title = eastern.19.t
+	desc = eastern.19.d
+	is_triggered_only = yes
+	picture = gornicza_dolina
+	option = {
+		name = eastern.19.a
+		add_prestige = 20
+		add_treasury = -300
+	}
+
+}
+country_event = {
+	id = eastern.20
+	title = eastern.20.t
+	desc = eastern.20.d
+	is_triggered_only = yes
+	picture = gornicza_dolina
+	option = {
+		name = eastern.20.a
+		add_prestige = -10
+	}
+}
+country_event = {
+	id = eastern.21
+	title = eastern.21.t
+	desc = eastern.21.d
+	is_triggered_only = yes
+	picture = DIPLOMACY_eventPicture
+	immediate = {
+		hidden_effect = {
+			random_country = {
+				limit = {
+					has_country_flag = silesian_friend
+				}
+				save_event_target_as = silesian_friends
+			}
+			}
+	}
+	option = {
+		name = eastern.21.a
+		if = {
+    		limit = {
+       			tag = BOH
+    		}
+			add_opinion = {
+				who = event_target:silesian_friends
+				modifier  = silesian_friendship
+				
+			}
+			add_trust = {
+				who = event_target:silesian_friends
+				value = 25
+				mutual = yes
+			}
+			add_manpower = 10
+		}
+		else = {
+			add_opinion = {
+				who = BOH
+				modifier  = silesian_friendship
+		
+			}
+			add_trust = {
+				who = BOH
+				value = 25
+				mutual = yes
+			}
+			add_manpower = 10
+		}
+	}
+}
+
+############################################################################
+##                          POLAND EVENTS                                 ##
+############################################################################
+
+country_event = {
+	id = eastern.22
+	title = eastern.22.t
+	desc = eastern.22.d
+	picture = BATTLE_VISTULA_LAGOON_eventPicture
+	trigger = {
+		tag = POL
+		NOT = { truce_with = TEU }
+		TEU = {
+			exists = yes
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+		}
+		is_at_war = no
+		is_free_or_tributary_trigger = yes
+		is_year = 1452 
+	}
+	mean_time_to_happen = {
+		months = 120	
+	}
+	fire_only_once = yes
+	option = {
+		ai_chance = {
+			factor = 15
+		}
+		name = eastern.22.a
+		declare_war_with_cb = {
+			who = TEU
+			casus_belli = cb_annex
+		}
+		TEU = {
+			country_event = {
+				id = eastern.23
+			}
+		}
+		add_prestige = 5
+		hidden_effect = {
+			set_country_flag = teutonic_polish_war
+			TEU = {
+				set_country_flag = teutonic_polish_war
+					if = {
+						limit = {
+							NOT = { has_country_flag = pru_confederation_curtailed }
+						}
+					country_event = {
+					id = eastern.38
+					days = 120
+					}
+				}
+				
+			}
+		}
+	}
+	option = {
+		name = eastern.22.b
+		add_prestige = -25
+		add_stability = -2
+
+	}
+}
+country_event = {
+	id = eastern.23
+	title = eastern.23.t
+	desc = eastern.23.d
+	is_triggered_only = yes
+	picture = BATTLE_eventPicture
+	option = {
+		name = eastern.23.a
+		capital_scope = {
+			  build_to_forcelimit = {
+					infantry = 0.5
+			}	
+		}
+		add_country_modifier = {
+			name = teutonic_merchanty
+			duration = 3650
+		}
+	}
+}
+
+country_event = {
+	id = eastern.24
+	title = eastern.24.t
+	desc = eastern.24.d
+	fire_only_once = yes
+	trigger = {
+		tag = POL
+		has_country_flag = teutonic_polish_war
+		is_in_war = {
+    			attacker_leader = ROOT
+				defender_leader = TEU
+    			war_score = 75
+		}
+	}
+	picture = WESTERNISATION_eventPicture
+	option = {
+		name = eastern.24.a
+		TEU = {
+			country_event = {
+				id = eastern.25
+			}
+		}
+	}
+	option = {
+		name = eastern.24.b
+		add_stability = -1
+		add_war_exhaustion = 10
+	}
+}
+
+country_event = {
+	id = eastern.25
+	title = eastern.25.t
+	desc = eastern.25.d
+	is_triggered_only = yes
+	picture = BATTLE_VISTULA_LAGOON_eventPicture
+	option = {
+		ai_chance = { 
+			factor = 60
+		}
+		name = eastern.25.a
+		POL = {
+			country_event = {
+				id = eastern.26
+			}
+		}
+		west_prussia_area = {
+			limit = {
+				owned_by = TEU
+			}
+			 cede_province = POL
+		}
+		if = {
+			limit = {
+				DNZ = {
+					is_subject_of = ROOT
+				}
+				inherit = DNZ
+			}
+		}
+	}
+	option = {
+		name = eastern.25.b
+		add_stability = -2
+		add_war_exhaustion = 10
+
+	}
+}
+country_event = {
+	id = eastern.26
+	title = eastern.26.t
+	desc = eastern.26.d
+	picture = DIPLOMACY_eventPicture
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		white_peace = TEU
+	}
+	option = {
+		name = eastern.26.a
+		add_prestige = 20
+		add_stability = 1
+		 hidden_effect = {
+			 clr_country_flag = teutonic_polish_war
+			 TEU = {
+				 clr_country_flag = teutonic_polish_war
+			 }
+			 set_country_flag = winer_of_thritten_years_war
+		 } 
+	}
+}
+country_event = {
+	id = eastern.27
+	title = eastern.27.t
+	desc = eastern.27.d
+	major = yes
+	picture = DIPLOMACY_eventPicture
+	fire_only_once = yes
+	trigger = {
+		tag = POL
+		NOT = {
+			is_in_war = {
+    			attacker_leader = POL
+				defender_leader = TEU
+    		}
+		}
+		has_country_flag = teutonic_polish_war
+
+		has_won_war_against = {
+			who = TEU
+			max_years_since = 1
+		}
+	}
+	option = {
+		name = eastern.27.a
+		add_prestige = 20
+		add_stability = 1
+		 hidden_effect = {
+			 clr_country_flag = teutonic_polish_war
+			 TEU = {
+				 clr_country_flag = teutonic_polish_war
+			 }
+			 set_country_flag = winer_of_thritten_years_war
+		 } 
+	}
+}
+country_event = {
+	id = eastern.28
+	title = eastern.28.t
+	desc = eastern.28.d
+	fire_only_once = yes
+	trigger = {
+		tag = TEU
+		has_country_flag = teutonic_polish_war
+		is_in_war = {
+    			attacker_leader = POL
+				defender_leader = TEU
+    			war_score = -75
+		}
+	}
+	picture = WESTERNISATION_eventPicture
+	option = {
+		name = eastern.28.a
+		POL = {
+			country_event = {
+				id = eastern.29
+			}
+		}
+	}
+	option = {
+		name = eastern.28.b
+		add_stability = -1
+		add_war_exhaustion = 10
+	}
+}
+country_event = {
+	id = eastern.29
+	title = eastern.29.t
+	desc = eastern.29.d
+	is_triggered_only = yes
+	picture = BATTLE_VISTULA_LAGOON_eventPicture
+	option = {
+		ai_chance = { 
+			factor = 60
+		}
+		name = eastern.29.a
+		TEU = {
+			country_event = {
+				id = eastern.30
+			}
+		}
+		kuyavia_area = {
+			limit = {
+				owned_by = POL
+			}
+			 cede_province = TEU
+		}
+		
+			if = {	
+				limit = {
+					
+						256 = {
+							OR = {
+								owned_by = POL
+								owned_by = MAZ
+							}
+							
+						}
+				}
+					256 = {
+						cede_province = TEU
+					}	
+			}
+		
+		
+			if = {	
+				limit = {
+						1938 = {	
+							OR = {
+								owned_by = POL
+								owned_by = MAZ
+							}
+						}	
+				}
+				1938 = {
+					cede_province = TEU
+				}		
+			}
+	}
+	option = {
+		name = eastern.29.b
+		add_stability = -2
+		add_war_exhaustion = 10
+
+	}
+}
+country_event = {
+	id = eastern.30
+	title = eastern.30.t
+	desc = eastern.30.d
+	picture = DIPLOMACY_eventPicture
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		white_peace = POL
+	}
+	option = {
+		name = eastern.30.a
+		add_prestige = 20
+		add_stability = 1
+		
+		 hidden_effect = {
+			 clr_country_flag = teutonic_polish_war
+			 POL = {
+				 clr_country_flag = teutonic_polish_war
+			 }
+			 set_country_flag = winer_of_thritten_years_war
+		 } 
+	}
+}
+country_event = {
+	id = eastern.31
+	title = eastern.31.t
+	desc = eastern.31.d
+	major = yes
+	picture = DIPLOMACY_eventPicture
+	trigger = {
+		tag = TEU
+		NOT = {
+			is_in_war = {
+    			attacker_leader = POL
+				defender_leader = ROOT
+    		}
+		}
+		has_country_flag = teutonic_polish_war
+		has_won_war_against = {
+			who = POL
+			max_years_since = 1
+		}
+	}
+	option = {
+		name = eastern.31.a
+		add_prestige = 20
+		add_stability = 1
+		 hidden_effect = {
+			 clr_country_flag = teutonic_polish_war
+			 POL = {
+				 clr_country_flag = teutonic_polish_war
+			 }
+			 set_country_flag = winer_of_thritten_years_war
+		 } 
+	}
+}
+country_event = {
+	id = eastern.32
+	title = eastern.32.t
+	desc = eastern.32.d
+	picture = SEJM_eventPicture
+	trigger = {
+		tag = POL
+		has_country_flag = teutonic_polish_war
+		has_reform = polish_elective_monarchy
+		is_at_war = yes
+
+	}
+	mean_time_to_happen = {
+		months = 36
+	}
+	fire_only_once = yes
+	option = {
+		name = eastern.32.a
+		add_country_modifier = {
+			name = polish_noble_tax
+			duration = 3650
+		}
+		change_statists_vs_monarchists = -0.15
+	}
+	option = {
+		name = eastern.32.b
+		add_estate_loyalty = {
+    		estate = estate_nobles
+    		loyalty = -15
+		}
+		change_statists_vs_monarchists = 0.15
+		add_stability = -1
+
+	}
+}
+
+country_event = {
+	id = eastern.33
+	title = eastern.33.t
+	desc = eastern.33.d
+	picture = LIBERUM_VETO_eventPicture
+	trigger = {
+		OR = {
+			tag = POL
+			tag = PLC
+			tag = PLR
+		}
+		has_reform = polish_elective_monarchy
+	}
+	mean_time_to_happen = {
+		months = 1500
+	}
+	option = {
+		name = eastern.33.a
+		change_statists_vs_monarchists = -0.15
+		add_treasury = 250
+	}
+	option = {
+		name = eastern.33.b
+		add_estate_loyalty = {
+    		estate = estate_nobles
+    		loyalty = -15
+		}
+		change_statists_vs_monarchists = 0.15
+	}
+	
+}
+
+country_event = {
+	id = eastern.34
+	title = eastern.34.t
+	desc = eastern.34.d
+	picture = DIPLOMACY_eventPicture
+	trigger = {
+		OR = {
+			tag = POL
+			tag = PLC
+			tag = PLR
+		}
+		NOT = { has_country_modifier = polish_technology }
+		has_reform = polish_elective_monarchy
+	}
+	mean_time_to_happen = {
+		months = 700
+	}
+	option = {
+		name = eastern.34.a
+		add_estate_loyalty = {
+    		estate = estate_nobles
+    		loyalty = -30
+		}
+		change_statists_vs_monarchists = 0.15
+		add_country_modifier = {
+			name = polish_technology
+			duration = 9125
+		}
+	}
+	option = {
+		name = eastern.34.b
+		add_estate_loyalty = {
+    		estate = estate_nobles
+    		loyalty = 20
+		}
+		change_statists_vs_monarchists = -0.15
+	}
+	
+}
+country_event = {
+	id = eastern.35
+	title = eastern.35.t
+	desc = eastern.35.d
+	picture = DIPLOMACY_eventPicture
+		trigger = {
+		OR = {
+			tag = POL
+			tag = PLC
+			tag = PLR
+		}
+		has_reform = polish_elective_monarchy
+	}
+	mean_time_to_happen = {
+		months = 1500
+	}
+	option = {
+		name = eastern.35.a
+		add_stability = 2
+		add_army_tradition = 15
+		change_statists_vs_monarchists = -0.40
+	}
+	option = {
+		name = eastern.35.b
+		add_estate_loyalty = {
+    		estate = estate_nobles
+    		loyalty = -30
+		}
+		change_statists_vs_monarchists = 0.15
+	}
+	
+}
+country_event = {
+	id = eastern.36
+	title = eastern.36.t
+	desc = eastern.36.d
+	picture = SEJM_eventPicture
+			trigger = {
+		OR = {
+			tag = POL
+			tag = PLC
+			tag = PLR
+		}
+		has_reform = polish_elective_monarchy
+	}
+	mean_time_to_happen = {
+		months = 1200
+	}
+	option = {
+		name = eastern.36.a
+		add_stability = -2
+		add_treasury = -100
+		change_statists_vs_monarchists = 0.15
+	}
+	option = {
+		name = eastern.36.b
+		change_statists_vs_monarchists = -0.15
+	}
+	
+}
+country_event = {
+	id = eastern.37
+	title = eastern.37.t
+	desc = eastern.37.d
+	picture = SEJM_eventPicture
+				trigger = {
+		OR = {
+			tag = POL
+			tag = PLC
+			tag = PLR
+		}
+		has_reform = polish_elective_monarchy
+	}
+	mean_time_to_happen = {
+		months = 700
+	}
+	option = {
+		name = eastern.37.a
+		add_manpower = 25
+		change_statists_vs_monarchists = -0.15
+	}
+	option = {
+		name = eastern.37.b
+		add_army_tradition = 5
+	}
+	
+}
+
+country_event = {
+	id = eastern.38
+	title = eastern.38.t
+	desc = eastern.38.d
+	major = yes
+	picture = COUNTRY_COLLAPSE_eventPicture
+	is_triggered_only = yes
+	immediate = {
+		if = {
+			limit = {
+				43 = {
+					owned_by = TEU
+				}
+			}
+			DNZ = {
+				add_core = 43
+				cede_province = 43
+			}
+		}
+		else_if = {
+			limit = {
+				42 = {
+					owned_by = TEU
+				}
+			}
+			DNZ = {
+				add_core = 42
+				cede_province = 42
+			}
+			
+		}
+			if = {
+			limit = {
+				2997 = {
+					owned_by = TEU
+				}
+			}
+			DNZ = {
+				add_core = 2997
+				cede_province = 2997
+			}
+		}
+		release = DNZ
+		POL = {
+				vassalize = DNZ
+			}
+	}
+	option = {
+		name = eastern.38.a
+		add_treasury = -100
+
+	}
+	
+	
+}
+country_event = {
+	id = eastern.100
+	title = eastern.100.t
+	desc = eastern.100.d
+	picture = LIBERUM_VETO_eventPicture
+	is_triggered_only = yes 
+	
+	option = {
+		name = eastern.100.a
+
+		41 = {
+			add_base_tax = 3
+			add_base_production = 3
+			add_base_manpower = 3			
+		}
+		if = {
+			limit = {
+				OR = {
+					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					value = 1
+					area = estonia_ingria_area
+					is_city = yes
+				}
+             		num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					value = 1
+					area = livonia_area
+					is_city = yes
+				}
+				}
+			}
+			country_event = {
+				id = eastern.114
+				days = 10
+			}
+		}
+		change_tag = PRU
+		restore_country_name_effect = yes
+		swap_non_generic_missions = yes
+		change_government = monarchy
+		add_government_reform = prussian_monarchy
+		define_ruler = {
+					dynasty = "von Hohenzollern"
+					culture = prussian
+					adm = 4
+					dip = 3
+					mil = 5
+					}
+		if = {
+			limit = {
+				41 = {
+					owned_by = ROOT
+				}
+			}
+			set_capital = 41
+		}
+		if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = PRU_ideas }
+				}
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		add_prestige = -15
+		POL = {
+            vassalize = PRU
+            country_event = {
+                id = eastern.101
+            }
+		}
+	}
+	option = {
+		name = eastern.100.b
+		POL = {
+			country_event = {
+				id = eastern.102
+			}
+		}
+	}
+
+}
+
+country_event = {
+	id = eastern.101
+	title = eastern.101.t
+	desc = eastern.101.d
+	picture = SEJM_eventPicture
+	major = yes
+	is_triggered_only = yes 
+
+	option = {
+		name = eastern.101.a
+		add_prestige = 15
+		create_march = PRU
+		remove_historical_rival = PRU
+	}
+
+}
+
+country_event = {
+	id = eastern.102
+	title = eastern.102.t
+	desc = eastern.102.d
+	picture = LIBERUM_VETO_eventPicture
+	is_triggered_only = yes 
+
+	option = {
+		name = eastern.102.a
+		add_casus_belli = {
+    		target = TEU
+    		type = cb_vassalize_mission
+    		months = 120
+		}
+	}
+
+}
+
+country_event = {
+	id = eastern.103
+	title = eastern.103.t
+	desc = eastern.103.d
+	picture = HUSSARS_eventPicture
+	trigger = {
+	OR = {
+		tag = POL
+		tag = PLC
+		tag = PLR
+	}	
+		OR = {
+			has_country_flag = POL_balkan
+			has_country_flag = pol_finland
+		}
+		
+		OR = {
+			bulgaria_area = {
+				area_for_scope_province	= { 
+					owned_by = ROOT
+					is_core = BUL
+				}
+			}
+			silistria_area = {
+				area_for_scope_province	= { 
+					owned_by = ROOT
+					is_core = BUL
+				}
+			}
+			finland_area = {
+				area_for_scope_province	= { 
+					owned_by = ROOT
+					is_core = FIN
+				}
+			}
+			 ostra_svealand_area = {
+                area_for_scope_province	= { 
+					owned_by = ROOT
+					is_core = FIN
+				}
+            }
+			thrace_area = {
+				area_for_scope_province	= { 
+					owned_by = ROOT
+					is_core = GRE
+				}
+			}
+			macedonia_area = {
+				area_for_scope_province	= { 
+					owned_by = ROOT
+					is_core = GRE
+				}
+			}
+			northern_greece_area = {
+				area_for_scope_province	= { 
+					owned_by = ROOT
+					is_core = GRE
+				}
+			}
+			morea_area = {
+				area_for_scope_province	= { 
+					owned_by = ROOT
+					is_core = GRE
+				}
+			}
+		}
+		
+	}
+	option = {
+		name = eastern.103.a
+		if = {
+			limit = {
+				bulgaria_area = {
+				area_for_scope_province	 = { 
+					owned_by = ROOT
+					is_core = BUL
+				}
+			}
+			}
+			if = {
+					limit = {
+						BUL = {
+							exists = no
+						}
+					}
+					release = BUL
+					ROOT = {
+						create_subject = {
+   							 subject_type = polish_satelite
+    						 subject = BUL
+						}
+					}
+					
+				}
+			bulgaria_area = {
+			area = { 
+				limit = {
+					owned_by = ROOT
+					is_core = BUL
+				}
+				
+			cede_province = BUL
+		}
+	}
+		}
+			if = {
+			limit = {
+				silistria_area = {
+				area_for_scope_province	 = { 
+					owned_by = ROOT
+					is_core = BUL
+				}
+			}
+			}
+			if = {
+					limit = {
+						BUL = {
+							exists = no
+						}
+					}
+					release = BUL
+					ROOT = {
+						create_subject = {
+   							 subject_type = polish_satelite
+    						 subject = BUL
+						}
+					}
+					
+				}
+			silistria_area = {
+			area = { 
+				limit = {
+					owned_by = ROOT
+					is_core = BUL
+				}
+				
+			cede_province = BUL
+		}
+	}
+		}
+			if = {
+			limit = {
+				thrace_area = {
+				area_for_scope_province	 = { 
+					owned_by = ROOT
+					is_core = GRE
+				}
+			}
+			}
+			if = {
+					limit = {
+						GRE = {
+							exists = no
+						}
+					}
+					release = GRE
+					ROOT = {
+						create_subject = {
+   							 subject_type = polish_satelite
+    						 subject = GRE
+						}
+					}
+					
+				}
+			thrace_area = {
+			area = { 
+				limit = {
+					owned_by = ROOT
+					is_core = GRE
+				}
+				
+			cede_province = GRE
+		}
+	}
+		}
+			if = {
+			limit = {
+				macedonia_area = {
+				area_for_scope_province	 = { 
+					owned_by = ROOT
+					is_core = GRE
+				}
+			}
+			}
+			if = {
+					limit = {
+						GRE = {
+							exists = no
+						}
+					}
+					release = GRE
+					ROOT = {
+						create_subject = {
+   							 subject_type = polish_satelite
+    						 subject = GRE
+						}
+					}
+					
+				}
+			macedonia_area = {
+			area = { 
+				limit = {
+					owned_by = ROOT
+					is_core = GRE
+				}
+				
+			cede_province = GRE
+		}
+	}
+		}
+			if = {
+			limit = {
+				northern_greece_area = {
+				area_for_scope_province	 = { 
+					owned_by = ROOT
+					is_core = GRE
+				}
+			}
+			}
+			if = {
+					limit = {
+						GRE = {
+							exists = no
+						}
+					}
+					release = GRE
+					ROOT = {
+						create_subject = {
+   							 subject_type = polish_satelite
+    						 subject = GRE
+						}
+					}
+					
+				}
+			northern_greece_area = {
+			area = { 
+				limit = {
+					owned_by = ROOT
+					is_core = GRE
+				}
+				
+			cede_province = GRE
+		}
+	}
+		}
+			if = {
+			limit = {
+				morea_area = {
+				area_for_scope_province	 = { 
+					owned_by = ROOT
+					is_core = GRE
+				}
+			}
+			}
+			if = {
+					limit = {
+						GRE = {
+							exists = no
+						}
+					}
+					release = GRE
+					ROOT = {
+						create_subject = {
+   							 subject_type = polish_satelite
+    						 subject = GRE
+						}
+					}
+					
+				}
+			morea_area = {
+			area = { 
+				limit = {
+					owned_by = ROOT
+					is_core = GRE
+				}
+				
+			cede_province = GRE
+		}
+	}
+		}
+			if = {
+			limit = {
+				finland_area = {
+				area_for_scope_province	 = { 
+					owned_by = ROOT
+					is_core = FIN
+				}
+			}
+			}
+			if = {
+					limit = {
+						FIN = {
+							exists = no
+						}
+					}
+					release = FIN
+					ROOT = {
+						create_subject = {
+   							 subject_type = polish_satelite
+    						 subject = FIN
+						}
+					}
+					
+				}
+			finland_area = {
+			area = { 
+				limit = {
+					owned_by = ROOT
+					is_core = FIN
+				}
+				
+			cede_province = FIN
+		}
+	}
+		}
+				if = {
+			limit = {
+				ostra_svealand_area = {
+				area_for_scope_province	 = { 
+					owned_by = ROOT
+					is_core = FIN
+				}
+			}
+			}
+			if = {
+					limit = {
+						FIN = {
+							exists = no
+						}
+					}
+					release = FIN
+					ROOT = {
+						create_subject = {
+   							 subject_type = polish_satelite
+    						 subject = FIN
+						}
+					}
+					
+				}
+			ostra_svealand_area = {
+			area = { 
+				limit = {
+					owned_by = ROOT
+					is_core = FIN
+				}
+				
+			cede_province = FIN
+		}
+	}
+		}		
+}
+}
+country_event = {
+	id = eastern.104
+	title = eastern.104.t
+	desc = eastern.104.d
+	picture = REFORM_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = eastern.104.a
+		add_government_reform = polish_parlament
+		add_estate_loyalty = {
+    		estate = estate_nobles
+    		loyalty = 15
+		}
+		change_statists_vs_monarchists = -0.15
+	}
+}
+
+country_event = {
+	id = eastern.105
+	title = eastern.105.t
+	desc = eastern.105.d
+	picture = REFORM_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = eastern.105.a
+		add_country_modifier = {
+			name = polish_reject_rights
+			duration = 3650
+		}
+		add_estate_loyalty = {
+    		estate = estate_nobles
+    		loyalty = 15
+		}
+		add_estate_loyalty = {
+    		estate = estate_burghers
+    		loyalty = -15
+		}
+		add_mercantilism = -2	
+		change_statists_vs_monarchists = -0.15
+	}
+	option = {
+		name = eastern.105.b
+		add_mercantilism = 3
+		add_estate_loyalty = {
+    		estate = estate_nobles
+    		loyalty = -25
+		}
+		add_estate_loyalty = {
+    		estate = estate_burghers
+    		loyalty = 15
+		}
+		change_statists_vs_monarchists = 0.15
+	}
+}
+
+country_event = {
+	id = eastern.106
+	title = eastern.106.t
+	desc = eastern.106.d
+	picture = REFORM_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = eastern.106.a
+		add_estate_loyalty = {
+    		estate = estate_nobles
+    		loyalty = 15
+		}
+		change_statists_vs_monarchists = -0.15
+	}
+		option = {
+		name = eastern.106.b
+		add_estate_loyalty = {
+    		estate = estate_nobles
+    		loyalty = -15
+		}
+		add_stability = -2
+		change_statists_vs_monarchists = 0.15
+	}
+}
+
+country_event = {
+	id = eastern.107
+	title = eastern.107.t
+	desc = eastern.107.d
+	picture = REFORM_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = eastern.107.a
+		
+		add_country_modifier = {
+			name = polish_accept
+			duration = -1
+		}
+	}
+		option = {
+		name = eastern.107.b
+		add_country_modifier = {
+			name = polish_deny
+			duration = -1
+		}
+	}
+}
+
+country_event = {
+	id = eastern.108
+	title = eastern.108.t
+	desc = eastern.108.d
+	picture = REFORM_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = eastern.108.a
+		
+		change_government = republic
+		add_government_reform = oligarchy_reform
+		random_owned_province = { 
+					spawn_rebels = {
+    					type = pretender_rebels
+    					size = 20
+					}
+				}
+		random_owned_province = { 
+					spawn_rebels = {
+    					type = pretender_rebels
+    					size = 20
+					}
+				}
+		random_owned_province = { 
+					spawn_rebels = {
+    					type = pretender_rebels
+    					size = 20
+					}
+				}
+		random_owned_province = { 
+					spawn_rebels = {
+    					type = pretender_rebels
+    					size = 20
+					}
+				}
+		random_owned_province = { 
+					spawn_rebels = {
+    					type = pretender_rebels
+    					size = 20
+					}
+				}
+	}
+		option = {
+		name = eastern.108.b
+		add_legitimacy = 25
+}
+}
+  country_event = {
+	id = eastern.109
+	title = eastern.109.t
+	desc = eastern.109.d
+	picture = DEBATE_REPUBLICAN_eventPicture
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = eastern.109.a
+		
+		add_stability = 3
+}
+}
+ country_event = {
+	id = eastern.110
+	title = eastern.110.t
+	desc = eastern.110.d
+	major = yes
+	picture = STREET_SPEECH_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = eastern.110.a
+	}
+}
+ country_event = {
+	id = eastern.111
+	title = eastern.111.t
+	desc = eastern.111.d
+	picture = STREET_SPEECH_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = eastern.111.a
+		add_country_modifier = {
+			name = polish_agreement
+			duration = -1
+		}
+
+		add_opinion = {
+   			 who = PAP
+    		modifier = excommunicated
+		}
+	}
+	option = {
+		name = eastern.111.b
+		add_papal_influence = 50
+	}
+}
+country_event = {
+	id = eastern.112
+	title = eastern.112.t
+	desc = eastern.112.d
+	picture = DIPLOMACY_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = eastern.112.a
+		add_treasury = 50
+		add_prestige = 5
+		if = {
+			limit = {
+				PLC = {
+					exists = yes
+				}
+			}
+			PLC = {
+				country_event = {
+					id = eastern.113
+				}
+			}
+		}
+			if = {
+			limit = {
+				PLR = {
+					exists = yes
+				}
+			}
+			PLR = {
+				country_event = {
+					id = eastern.113
+				}
+			}
+		}
+
+	}
+	option = {
+		name = eastern.112.b
+		add_prestige = -5
+	}
+}
+ country_event = {
+	id = eastern.113
+	title = eastern.113.t
+	desc = eastern.113.d
+	picture = DIPLOMACY_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = eastern.113.a
+		add_prestige = 25
+		add_papal_influence = 100
+	}
+	
+}
+ country_event = {
+	id = eastern.114
+	title = eastern.114.t
+	desc = eastern.114.d
+	picture = COUNTRY_COLLAPSE_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = eastern.114.a
+		release = LVA
+		livonia_area = {
+			limit = {
+				owned_by = TEU
+			}	
+			 cede_province = LVA
+		}
+		release = EST
+		estonia_ingria_area = {
+			limit = {
+				owned_by = TEU
+			}
+			 cede_province = EST
+		}
+		
+		curonia_area = {
+				add_core = KUR
+		}
+		release = KUR
+		curonia_area = {
+			limit = {
+				owned_by = TEU
+			}
+			 cede_province = KUR
+		}
+		POL = {
+			create_subject = {
+   				subject_type = polish_satelite
+    			subject = KUR
+			}
+		}
+	
+	}
+	
+}
+country_event = {
+    id = eastern.201
+    title = eastern.201.t 
+    desc = eastern.201.d
+    picture = noble_estate_demands_eventPicture
+    is_triggered_only = yes
+    option = {
+        name = eastern.201.a
+        mazovia_area = {
+            add_core = NFP
+            add_core = POL
+            cede_province = NFP
+        }
+        1940 = {
+            add_core = NFP
+            add_core = POL
+            cede_province = NFP
+        }
+		LIT = {
+			country_event = {
+				id = eastern.202
+			}
+		}
+        hidden_effect = {
+			NFP = {
+            	define_ruler = {
+                	name = "Karol"
+                    dynasty = "Jagiellon"
+                    adm = 5
+                    dip = 4
+                    mil = 4
+                    age = 20
+                    claim = 95
+            	}
+			}
+				poland_region = {
+					add_core = NFP
+				}
+			country_event = {
+				id = eastern.203
+				days = 200
+			}
+   		}
+	}
+    option = {
+        name = eastern.201.b
+        change_religion = catholic
+		add_prestige = 5
+    }
+}
+country_event = {
+    id = eastern.202
+    title = eastern.202.t 
+    desc = eastern.202.d
+    picture = noble_estate_demands_eventPicture
+    is_triggered_only = yes 
+    option = {
+		ai_chance = {
+			factor = 15
+		}
+        name = eastern.202.a
+        vassalize = NFP
+    }
+    option = {
+        name = eastern.202.b
+        add_stability = -1
+	}
+}
+
+country_event = {
+    id = eastern.203
+    title = eastern.203.t 
+    desc = eastern.203.d
+    picture = noble_estate_demands_eventPicture
+    is_triggered_only = yes 
+	immediate = {
+		hidden_effect = {
+		set_capital = 254	
+		254 = {
+			change_religion = slavic
+			add_reform_center = slavic
+		}
+		release = KRA	
+		release = VOL
+		KRA = {
+			capital_scope = {
+				KRA = {
+					infantry = PREV
+					infantry = PREV
+					infantry = PREV
+					infantry = PREV
+				}
+			}
+		}
+		VOL = {
+			capital_scope = {
+				VOL = {
+					infantry = PREV
+					infantry = PREV
+					infantry = PREV
+					infantry = PREV					
+					infantry = PREV		
+					cavalry = PREV
+					cavalry = PREV
+				}
+			}
+		}
+		declare_war_with_cb = {
+			who = KRA
+			casus_belli = cb_annex
+		}
+		declare_war_with_cb = {
+			who = VOL
+			casus_belli = cb_annex
+		}
+		}
+	}
+    option = {
+        name = eastern.203.a
+        declare_war_with_cb = {
+			who = NFP
+			casus_belli = cb_annex
+		}
+		add_country_modifier = {
+			name = polish_civil_war
+			duration = 3650
+		}
+		set_global_flag = polish_civil_war_flag
+    }
+    option = {
+        name = eastern.203.b
+        
+	}
+}

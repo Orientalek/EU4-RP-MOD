@@ -1,0 +1,6 @@
+#A Kingdom Collection mod
+#This code is obfuscated, but not in bad faith.  I am very open to cooperation but do not use my work for deriving work without permission.
+#For any legal reasons e.g. if you believe the mod includes any work without the consent of that modder, the non-obfuscated version will be provided.
+#If the mod stops beeing maintained, it will be made open-source.
+#Contact: Best over Discord Reloader#6504 or as last resort contact another contributor.
+NGC_sprite_pack = { country_trigger = { tag = NGC } sprite_infantry = { 0 = NGC_INFANTRY_1 1 = NGC_INFANTRY_2 2 = NGC_INFANTRY_3 3 = NGC_INFANTRY_4 } sprite_cavalry = { 0 = NGC_CAVALRY_1 1 = NGC_CAVALRY_2 2 = NGC_CAVALRY_3 3 = NGC_CAVALRY_4 } sprite_artillery = { 0 = NGC_ARTILLERY_1 1 = NGC_ARTILLERY_2 2 = NGC_ARTILLERY_3 3 = NGC_ARTILLERY_4 } }

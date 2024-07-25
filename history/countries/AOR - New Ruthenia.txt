@@ -1,0 +1,9 @@
+government = theocracy
+add_government_reform = leading_clergy_reform
+government_rank = 1
+technology_group = eastern
+religion = catholic
+primary_culture = ruthenian
+historical_friend = TEU
+capital = 280	# Kiev
+fixed_capital = 280 # Cannot move capital away from this province & no power cost to move to it

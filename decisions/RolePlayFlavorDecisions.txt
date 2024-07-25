@@ -1,0 +1,28 @@
+##Orientalekk
+##Nie tykaj plz 
+country_decisions = {
+
+change_tengri_horde = {
+	major = yes
+	potential = {
+		ai = no
+		has_reform = steppe_horde
+		NOT = { has_country_flag = changed_religion_tengri }
+		NOT = { religion = tengri_pagan_reformed }
+		capital_scope = {
+		superregion = tartary_superregion
+		}
+	}
+	allow = {
+		has_reform = steppe_horde
+	}
+	effect = {
+		change_religion = tengri_pagan_reformed
+		set_country_flag = changed_religion_tengri
+		add_country_modifier = {
+		name = "horde_change_religion"
+		duration = 7300
+			}
+		}
+	}
+}

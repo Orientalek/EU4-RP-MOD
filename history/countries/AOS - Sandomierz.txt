@@ -1,0 +1,10 @@
+government = theocracy
+add_government_reform = leading_clergy_reform
+government_rank = 1
+primary_culture = polish
+religion = catholic
+technology_group = eastern
+historical_friend = TEU
+historical_rival = POL
+capital = 259 
+fixed_capital = 259
