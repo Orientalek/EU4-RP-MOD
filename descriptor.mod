@@ -3,5 +3,5 @@ tags={
 	"New Nations"
 }
 name="EU4 ROLEPLAY MOD"
-supported_version="1.34.5"
+supported_version="v1.37.2.0"
 remote_file_id="2918712637"

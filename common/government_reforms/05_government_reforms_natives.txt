@@ -16,12 +16,9 @@ native_basic_reform = {
 	modifiers = {
 		reform_progress_growth = -1.0
 		monthly_reform_progress = 0.5
-		land_maintenance_modifier = -0.25
 		diplomatic_upkeep = -2
 		global_institution_spread = -0.5
-		global_regiment_cost = -0.5
 		province_warscore_cost = 4
-		manpower_recovery_speed = 0.25
 		land_forcelimit_modifier = -0.3
 		development_cost = 0.2
 	}
@@ -355,12 +352,14 @@ native_trading_with_foreigners_reform = {
 			limit = { NOT = { owner = { exists = yes } } }
 			settle_province = ROOT
 		}
+		set_country_flag = was_native_country
 		if = {
 			limit = {
 				native_sponsor_scope = {
 					exists = yes
 				}
 			}
+			on_native_government_change_effect = yes
 			change_government = native_sponsor_scope
 			embrace_institutions_of = native_sponsor_scope
 			change_government_reform_progress = -350 # Doing it like this to avoid that migration code triggers
@@ -387,6 +386,7 @@ native_becomes_monarchy_reform = {
 			settle_province = ROOT
 		}
 		set_country_flag = populists_in_government
+		on_native_government_change_effect = yes
 		change_government = monarchy
 		change_government_reform_progress = -450 # Doing it like this to avoid that migration code triggers
 	}
@@ -407,6 +407,7 @@ native_becomes_republic_reform = {
 			settle_province = ROOT
 		}
 		set_country_flag = populists_in_government
+		on_native_government_change_effect = yes
 		change_government = republic
 		change_government_reform_progress = -250 # Doing it like this to avoid that migration code triggers
 	}
@@ -438,6 +439,7 @@ native_becomes_theocracy_reform = {
 			settle_province = ROOT
 		}
 		set_country_flag = populists_in_government
+		on_native_government_change_effect = yes
 		change_government = theocracy
 		change_government_reform_progress = -250 # Doing it like this to avoid that migration code triggers
 	}
@@ -464,6 +466,7 @@ native_becomes_horde_reform = {
 			settle_province = ROOT
 		}
 		set_country_flag = populists_in_government
+		on_native_government_change_effect = yes
 		change_government = tribal
 		add_government_reform = steppe_horde
 		change_unit_type = nomad_group
